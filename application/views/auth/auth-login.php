@@ -16,7 +16,7 @@ $this->load->view('dist/_partials/header');
               <div class="card-header"><h4>Login</h4></div>
 
               <div class="card-body">
-                <form method="POST" action="<?php echo base_url('senat/') ?>" class="needs-validation" novalidate="">
+                <form method="POST" action="<?php echo base_url('home/') ?>" class="needs-validation" novalidate="">
                   <div class="form-group">
                     <label for="email">Email</label>
                     <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>

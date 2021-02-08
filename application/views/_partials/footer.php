@@ -1,32 +1,18 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-</style>
-<footer class="main-footer" style="background-color: #1E3799;">
-    <div class="container">
-    </div>
-    <div class="section">
-        <div class="section-header mt-4" style="background-color: #051D47;">
-            <div class="container">
-              <div class="row">
-                <div class="col-6">
-                <img alt="image" class="" width="150" src="<?php echo base_url(); ?>assets/img/logo-polinema-2.png">
-                </div>
-                <div class="col-4 p-3">
-                <span>Copyright © <?php echo SITE_NAME ." ". Date('Y') ?></span>
-                </div>
-              </div>
-            </div>
+      <footer class="main-footer">
+        <div class="footer">
+        <center><span>Copyright © <?php echo SITE_NAME ." ". Date('Y') ?></span></center>
         </div>
+        <div class="footer-right">
+          
+        </div>
+      </footer>
     </div>
-    </div>
+  </div>
 
-</footer>
-
-</div>
-</div>
-
-<?php $this->load->view('dist/_partials/js'); ?>
+<?php $this->load->view('_partials/js'); ?>
 <script>
 $(document).ready(function() {
     $(".preloader").fadeOut();
