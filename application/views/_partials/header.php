@@ -132,7 +132,4 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
 <!-- /END GA -->
 </head>
 
-<?php
-  $this->load->view('_partials/layout');
-  $this->load->view('_partials/sidebar');
-?>
+

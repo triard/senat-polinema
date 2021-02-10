@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 $this->load->view('_partials/header');
+$this->load->view('_partials/layout');
+$this->load->view('_partials/sidebar');
 ?>
       <!-- Main Content -->
       <div class="main-content">
