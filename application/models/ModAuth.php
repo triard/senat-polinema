@@ -2,11 +2,6 @@
 class ModAuth extends CI_model {
     private $_table = "account";
     
-    public function coba()
-    {
-      return $this->db->get_where('account',array('username' => $this->input->post('username')));
-    }
-
     function log() {
       $post = $this->input->post();
       // $data = array('username'=>$username);
