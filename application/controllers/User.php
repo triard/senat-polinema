@@ -25,7 +25,7 @@ class User extends CI_Controller {
 			exit();
 		}
 		$data['cek'] = 0;
-		$this->load->view('modal/user', $data);
+		$this->load->view('modal/user', $data); 
 	}
 	public function add() {
 		$q = $this->session->userdata('status');
@@ -33,6 +33,8 @@ class User extends CI_Controller {
 			exit();
 		}
 		$this->ModUser->add();
+			$id = $this->ModUser->getId();
+			$this->ModUser->addAccount($id);
 		echo json_encode(array("status" => TRUE));
 	}
 	public function edit($id) {
@@ -50,6 +52,7 @@ class User extends CI_Controller {
 			exit();
 		}
 		$this->ModUser->delete($id);
+		$this->ModUser->deleteAccount($id);
 		echo json_encode(array("status" => TRUE));
 	}
 	public function update() {
@@ -58,6 +61,7 @@ class User extends CI_Controller {
 			exit();
 		}
 		$this->ModUser->update();
+		$this->ModUser->updateAccount();
 		echo json_encode(array("status" => TRUE));
 	}
 }

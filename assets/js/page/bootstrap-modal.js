@@ -13,7 +13,7 @@ modal_3_body += "   handler: function(modal) {\n";
 modal_3_body += "     alert('Hello, you clicked me!');\n"
 modal_3_body += "   }\n"
 modal_3_body += ' }\n';
-modal_3_body += ']';
+modal_3_body += ']'; 
 modal_3_body += '</code></pre>';
 $("#modal-3").fireModal({
   title: 'Modal with Buttons',

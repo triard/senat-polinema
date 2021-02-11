@@ -7,22 +7,22 @@ $this->load->view('_partials/sidebar');
 <!-- Main Content -->
 <div class="main-content">
     <section class="section">
-        <div class="section-header">
-            <h1>User</h1>
-            <div class="actions">
-                <button class="btn btn-primary font-btn" onclick="tambah()">Tambah</button>
-            </div>
-        </div>
+        <!-- <div class="section-header">
+         </div> -->
         <div class="section-body">
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>user</h4>
+                            <h4>User List</h4>
+                            <div class="card-header-action">
+                                <button class="btn btn-success" onclick="tambah()"><i class="fas fa-plus-circle"></i>
+                                    Tambah</button>
+                            </div>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table" style="width: 100%;" id="myTable">
+                                <table class="table table-bordered" style="width: 100%;" id="dataTables-custom">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -38,7 +38,7 @@ $this->load->view('_partials/sidebar');
                                             <th>Nama</th>
                                             <th>Email</th>
                                             <th>Level</th>
-                                            <th class="text-right">Actions</th>
+                                            <th class="text-right" style="width: 100px;">Actions</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -51,15 +51,15 @@ $this->load->view('_partials/sidebar');
                                             <td><?php echo $k->level;?></td>
                                             <td class="td-actions text-right">
                                                 <button type="button" onclick="ganti(<?php echo $k->id_user;?>)"
-                                                    rel="tooltip" class="btn btn-success btn-round"
-                                                    data-original-title="" title="">
-                                                    <i class="zmdi zmdi-edit zmdi-hc-fw"></i>
+                                                    rel="tooltip" class="btn btn-primary" data-original-title=""
+                                                    title="">
+                                                    <i class="fas fa-pen-square"></i>
                                                 </button>
                                                 &nbsp;
-                                                <button type="button" rel="tooltip" class="btn btn-danger btn-round"
+                                                <button type="button" rel="tooltip" class="btn btn-danger"
                                                     data-original-title="" title=""
                                                     onclick="hapus(<?php echo $k->id_user;?>)">
-                                                    <i class="zmdi zmdi-close zmdi-hc-fw"></i>
+                                                    <i class="fas fa-trash"></i>
                                                 </button>
                                             </td>
                                         </tr>
@@ -72,51 +72,16 @@ $this->load->view('_partials/sidebar');
                 </div>
             </div>
         </div>
+        <?php $this->load->view('_partials/scrolltop'); ?>
+        <!-- <?php $this->load->view('_partials/loader'); ?> -->
     </section>
 </div>
 <?php $this->load->view('_partials/footer'); ?>
-<script>
-  $(document).ready(function() {
-    $('#myTable').DataTable( {
-        buttons: [
-            'csv', 'excel', 'pdf', 'print'
-        ],
-        language: {
-          searchPlaceholder: "Search for records..."
-        },
-        sDom: '<"dataTables__top"lfB>rt<"dataTables__bottom"ip><"clear">',
-        initComplete: function (a, b) {
-				$(this).closest(".dataTables_wrapper").find(".dataTables__top").prepend('<div class="dataTables_buttons hidden-sm-down actions"><div class="dropdown actions__item"><i data-toggle="dropdown" class="zmdi zmdi-download" /><ul class="dropdown-menu dropdown-menu-right"><a href="" class="dropdown-item" data-table-action="excel">Excel (.xlsx)</a></ul></div></div>')
-			}
-    } );
-} );
-</script>
 <script>
 var table;
 var simpan;
 $(document).ready(function() {
     setTimeout(function() {
-
-    //     $('#myTable').DataTable({
-    //       autoWidth: false,
-    //       responsive: true,
-    //         lengthMenu: [
-    //             [15, 30, 45, -1],
-    //             ["15 Rows", "30 Rows", "45 Rows", "Everything"]
-    //         ],
-    //         language: {
-    //             searchPlaceholder: "Search for records..."
-    //         },
-    //         sDom: '<"dataTables__top"lfB>rt<"dataTables__bottom"ip><"clear">',
-    //         buttons: [
-    //             'print', 'excel', 'pdf', 'csv'
-    //         ],
-    //     });
-
-    //     table.buttons().container()
-    //         .appendTo($('.col-sm-1:eq(0)', table.table().container()));
-
-
         $(".xform").on("submit", (function(b) {
             b.preventDefault();
             var a;
@@ -134,7 +99,7 @@ $(document).ready(function() {
                 processData: false,
                 success: function(c) {
                     $("#myModal").modal("hide");
-                    //swal("Sukses!", "", "success");
+                    swal("Sukses!", "", "success");
                     location.reload();
                 },
                 error: function(c, e, d) {
@@ -167,21 +132,27 @@ function ganti(a) {
 
 
 function hapus(a) {
-    Swal.fire({
-        title: 'Hapus Data?',
-        text: "",
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Ya',
-        cancelButtonText: "Batal"
-    }).then((result) => {
-        if (result.value == true) {
-            $.get("<?php echo base_url()?>user/delete/" + a, function(b) {
-                location.reload();
-            })
-        }
-    })
+    swal({
+            title: "Apa Anda yakin?",
+            text: "Setelah dihapus, Anda tidak akan dapat memulihkan data ini!",
+            icon: "warning",
+            buttons: {
+                cancel: "Batal",
+                Hapus: true,
+            },
+        })
+        .then((value) => {
+            switch (value) {
+
+                case "Hapus":
+                    $.get("<?php echo base_url()?>user/delete/" + a, function(b) {
+                        location.reload();
+                    })
+                    break;
+                default:
+                    swal("Data Anda aman!");
+            }
+        });
+
 };
 </script>
