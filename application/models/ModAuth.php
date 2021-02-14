@@ -94,6 +94,6 @@ class ModAuth extends CI_model {
      $this->db->where('user_id', $post['user_id']);  
      $this->db->update('account', array('password' => password_hash($post['password'], PASSWORD_DEFAULT)));      
      return true;  
-   }   
+   }    
    //End: method tambahan untuk reset code  
 }

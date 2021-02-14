@@ -2,9 +2,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User extends CI_Controller {
+
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('ModUser');
+		$idUser = $this->session->userdata('user_id');
 	}
 	public function index()
 	{
@@ -64,4 +66,52 @@ class User extends CI_Controller {
 		$this->ModUser->updateAccount();
 		echo json_encode(array("status" => TRUE));
 	}
+	public function editProfile($id) {
+		$q = $this->session->userdata('status');
+		if($q != "login") {
+			exit();
+		}
+		$data = array(
+			'title' => "Senat Polinema | profile"
+		);
+		$data['user'] = $this->ModUser->edit($id);
+		$this->load->view('auth/features_profile', $data);
+	}
+
+	public function updateFoto() {
+		$q = $this->session->userdata('status');
+		$id = $this->session->userdata('user_id');
+		if($q != "login") {
+			exit();
+		}
+		$this->ModUser->updateFoto();
+		redirect(site_url('user/editProfile/'.$id));
+	}
+	public function resetPassword()  
+	{  
+		$q = $this->session->userdata('status');
+		if($q != "login") {
+			exit();
+		}
+		$id = $this->session->userdata('user_id');
+		$password = $this->input->post('password');
+		$confirm = $this->input->post('confirm');
+		if($password == $confirm){
+		$this->ModUser->updatePassword();
+		$this->session->set_flashdata('success', 'Update password berhasil.');  
+		redirect(site_url('user/editProfile/'.$id));  
+		}else{
+			$this->session->set_flashdata('fail', 'Update password gagal.');  
+			redirect(site_url('user/editProfile/'.$id));
+		}
+	  }
+	  public function updateProfile() {
+		$q = $this->session->userdata('status');
+		$id = $this->session->userdata('user_id');
+		if($q != "login") {
+			exit();
+		}
+		$this->ModUser->updateProfile();
+		redirect(site_url('user/editProfile/'.$id));
+	}  
 }
