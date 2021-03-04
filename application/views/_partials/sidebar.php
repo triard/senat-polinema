@@ -13,10 +13,12 @@
           </div>
           <ul class="sidebar-menu">
 
-          <li class="<?php echo $this->uri->segment(1) == 'home' ? 'active' : ''; ?>"><a class="nav-link"
+              <li class="<?php echo $this->uri->segment(1) == 'home' ? 'active' : ''; ?>"><a class="nav-link"
                       href="<?php echo base_url(); ?>home"><i class="far fa-square"></i> <span>Dashboard</span></a></li>
               <li class="<?php echo $this->uri->segment(1) == 'user' ? 'active' : ''; ?>"><a class="nav-link"
                       href="<?php echo base_url(); ?>user"><i class="far fa-user"></i> <span>User</span></a></li>
+              <li class="<?php echo $this->uri->segment(1) == 'usulan' ? 'active' : ''; ?>"><a class="nav-link"
+                      href="<?php echo base_url(); ?>usulan"><i class="far fa-calendar"></i> <span>Usulan</span></a></li>
               <li class="<?php echo $this->uri->segment(1) == 'jadwal' ? 'active' : ''; ?>"><a class="nav-link"
                       href="<?php echo base_url(); ?>home"><i class="far fa-calendar"></i> <span>Jadwal</span></a></li>
               <li class="<?php echo $this->uri->segment(1) == 'hasil_laporan' ? 'active' : ''; ?>"><a class="nav-link"

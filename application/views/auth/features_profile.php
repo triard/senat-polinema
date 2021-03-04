@@ -38,7 +38,6 @@ $this->load->view('_partials/sidebar');
                             </div>
                             <div class="card-body">
                                 <input type="hidden" name="id_user" value="<?php echo $user->id_user;?>">
-                                <input type="hidden" name="user_id" value="<?php echo $user->user_id;?>">
                                 <div class="row">
                                     <div class="form-group col-md-6 col-12">
                                         <label>Nama</label>
@@ -65,11 +64,11 @@ $this->load->view('_partials/sidebar');
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6 col-12">
-                                        <label>Komisi</label>
-                                        <input type="text" class="form-control" name="komisi"
-                                            value="<?php echo $user->komisi;?>" required="">
+                                        <label>Keterangan</label>
+                                        <input type="text" class="form-control" name="keterangan"
+                                            value="<?php echo $user->keterangan;?>" required="">
                                         <div class="invalid-feedback">
-                                            Silahkan isi komisi
+                                            Silahkan isi keterangan
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6 col-12">
@@ -126,7 +125,7 @@ $this->load->view('_partials/sidebar');
                         </div>
                         <div class="card-body">
                             <form action="<?php echo base_url('user/resetPassword') ?>" method="POST">
-                                <input type="hidden" name="user_id" value="<?php echo $user->user_id;?>">
+                                <input type="hidden" name="id_user" value="<?php echo $user->id_user;?>">
                                 <div class="form-group">
                                     <label>Password Baru</label>
                                     <input type="password" id="password" class="form-control" name="password"

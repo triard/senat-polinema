@@ -6,7 +6,7 @@ class User extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('ModUser');
-		$idUser = $this->session->userdata('user_id');
+		$idUser = $this->session->userdata('id_user');
 	}
 	public function index()
 	{
@@ -80,7 +80,7 @@ class User extends CI_Controller {
 
 	public function updateFoto() {
 		$q = $this->session->userdata('status');
-		$id = $this->session->userdata('user_id');
+		$id = $this->session->userdata('id_user');
 		if($q != "login") {
 			exit();
 		}
@@ -93,7 +93,7 @@ class User extends CI_Controller {
 		if($q != "login") {
 			exit();
 		}
-		$id = $this->session->userdata('user_id');
+		$id = $this->session->userdata('id_user');
 		$password = $this->input->post('password');
 		$confirm = $this->input->post('confirm');
 		if($password == $confirm){
@@ -107,7 +107,7 @@ class User extends CI_Controller {
 	  }
 	  public function updateProfile() {
 		$q = $this->session->userdata('status');
-		$id = $this->session->userdata('user_id');
+		$id = $this->session->userdata('id_user');
 		if($q != "login") {
 			exit();
 		}

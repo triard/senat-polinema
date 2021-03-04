@@ -132,7 +132,7 @@ if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/components.css">
     <!-- <link rel="stylesheet" href="<?php echo base_url();?>assets/css/app.css"> -->
     <!-- Start GA -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script> -->
     <script>
     window.dataLayer = window.dataLayer || [];
 

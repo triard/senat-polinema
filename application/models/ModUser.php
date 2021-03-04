@@ -3,21 +3,21 @@ class ModUser extends CI_model {
 	public function selectAll() {
 		$this->db->select('*');
         $this->db->from('user');
-        $this->db->join('account','user.id_user=account.user_id');
+        $this->db->join('account','user.id_user=account.id_user');
         return $this->db->get()->result();
 	}
 	public function add() {
 		$nama = $this->input->post('nama');
 		$jabatan = $this->input->post('jabatan');
-		$komisi = $this->input->post('komisi'); 		
-		$data = array('nama' => $nama,'jabatan' => $jabatan, 'komisi' => $komisi);
+		$keterangan = $this->input->post('keterangan'); 		
+		$data = array('nama' => $nama,'jabatan' => $jabatan, 'keterangan' => $keterangan);
 		$this->db->insert('user', $data);
 	}
 	public function getId(){
 		$nama = $this->input->post('nama');
 		$jabatan = $this->input->post('jabatan');
-		$komisi = $this->input->post('komisi'); 		
-        $query = $this->db->query("SELECT id_user from user where nama='$nama' AND jabatan='$jabatan' AND komisi='$komisi'");
+		$keterangan = $this->input->post('keterangan'); 		
+        $query = $this->db->query("SELECT id_user from user where nama='$nama' AND jabatan='$jabatan' AND keterangan='$keterangan'");
         $hasil = $query->row();
         return $hasil->id_user;
     } 
@@ -26,8 +26,8 @@ class ModUser extends CI_model {
 		$password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
 		$level = $this->input->post('level'); 		
 		$email = $this->input->post('email'); 		
-		$user_id = $id; 		
-		$data = array('username' => $username,'password' => $password, 'level' => $level, 'email' => $email,'user_id' => $user_id);
+		$id_user = $id; 		
+		$data = array('username' => $username,'password' => $password, 'level' => $level, 'email' => $email,'id_user' => $id_user);
 		$this->db->insert('account', $data);
 	}
 	public function delete($id){
@@ -36,14 +36,14 @@ class ModUser extends CI_model {
 		$this->db->delete('user');
 	}
 	public function deleteAccount($id){
-		$this->db->where('user_id', $id);
+		$this->db->where('id_user', $id);
 		$this->db->delete('account');
 	}
 	public function edit($id){ 
 		$this->db->select('*');
         $this->db->from('user');
-		$this->db->join('account','user.id_user=account.user_id');
-		$this->db->where('id_user', $id);
+		$this->db->join('account','user.id_user=account.id_user');
+		$this->db->where('user.id_user', $id);
         return $this->db->get()->row();
 	}
 	
@@ -51,18 +51,18 @@ class ModUser extends CI_model {
 		$id_user = $this->input->post('id_user');
 		$nama = $this->input->post('nama');
 		$jabatan = $this->input->post('jabatan');
-		$komisi = $this->input->post('komisi'); 		
-		$data = array('nama' => $nama,'jabatan' => $jabatan, 'komisi' => $komisi);
+		$keterangan = $this->input->post('keterangan'); 		
+		$data = array('nama' => $nama,'jabatan' => $jabatan, 'keterangan' => $keterangan);
 			$this->db->where('id_user', $id_user);
 			$this->db->update('user', $data);
 	}
 	public function updateAccount(){
-		$user_id = $this->input->post('user_id');
+		$id_user = $this->input->post('id_user');
 		$username = $this->input->post('username');
 		$level = $this->input->post('level'); 		
 		$email = $this->input->post('email'); 		
 		$data = array('username' => $username, 'level' => $level, 'email' => $email);
-			$this->db->where('user_id', $user_id);
+			$this->db->where('id_user', $id_user);
 			$this->db->update('account', $data);
 	}
 
@@ -111,24 +111,23 @@ class ModUser extends CI_model {
 	}
 	public function updatePassword()  
    {    
-	$user_id = $this->input->post('user_id');
+	$id_user = $this->input->post('id_user');
 	$password = $this->input->post('password');
 	$data = array('password' => password_hash($password, PASSWORD_DEFAULT));
-		$this->db->where('user_id', $user_id);
+		$this->db->where('id_user', $id_user);
 		$this->db->update('account', $data);
    }    
-   public function updateProfile(){
+   public function updateProfile(){ 
 	$id_user = $this->input->post('id_user');
-	$user_id = $this->input->post('user_id');
 	$nama = $this->input->post('nama');
 	$jabatan = $this->input->post('jabatan');
-	$komisi = $this->input->post('komisi'); 
+	$keterangan = $this->input->post('keterangan'); 
 	$username = $this->input->post('username');
 	$email = $this->input->post('email'); 	
 	$data = array('username' => $username, 'email' => $email);
-		$this->db->where('user_id', $user_id);
+		$this->db->where('id_user', $id_user);
 		$this->db->update('account', $data);			
-	$data = array('nama' => $nama,'jabatan' => $jabatan, 'komisi' => $komisi);
+	$data = array('nama' => $nama,'jabatan' => $jabatan, 'keterangan' => $keterangan);
 		$this->db->where('id_user', $id_user);
 		$this->db->update('user', $data);
 }

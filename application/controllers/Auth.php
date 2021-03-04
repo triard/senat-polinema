@@ -59,7 +59,7 @@ class Auth extends CI_Controller {
 			  redirect(site_url('auth/auth_login'),'refresh');   
 			}    
 		   
-			$token = $this->ModAuth->insertToken($userInfo->user_id);   
+			$token = $this->ModAuth->insertToken($userInfo->id_user);   
 		   
 
 			$qstring = $this->base64url_encode($token);           
@@ -137,7 +137,7 @@ class Auth extends CI_Controller {
 		$cleanPost = $this->security->xss_clean($post);          
 		$hashed = $cleanPost['password'];          
 		$cleanPost['password'] = $hashed;  
-		$cleanPost['user_id'] = $user_info->user_id;  
+		$cleanPost['id_user'] = $user_info->id_user;  
 		unset($cleanPost['passconf']);          
 		if(!$this->ModAuth->updatePassword($cleanPost)){  
 		  $this->session->set_flashdata('message', 'Update password gagal.');  

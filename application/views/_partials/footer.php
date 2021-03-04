@@ -12,12 +12,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 </div>
 <div class="modal fade" id="myModal" tabindex="-1" data-backdrop="static">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title pull-left">Form</h5>
             </div>
-            <form class="form xform">
+            <form class="form xform" enctype="multipart/form-data">
                 <div class="modal-body" id="modalbody">
 
                 </div>
@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="modal-header">
                 <h5 class="modal-title pull-left">Form</h5>
             </div>
-            <form class="form xform-lg">
+            <form class="form xform-lg" enctype="multipart/form-data">
                 <div class="modal-body" id="modalbody-lg">
 
                 </div>

@@ -15,7 +15,7 @@ class ModAuth extends CI_model {
             'username' => $cek1->username,
             'level' => $cek1->level,
             'email' => $cek1->email,
-            'user_id'=> $cek1->user_id,
+            'id_user'=> $cek1->id_user,
             'status' => "login"
         );
         $this->session->set_userdata($data_session);
@@ -25,7 +25,7 @@ class ModAuth extends CI_model {
        //Start: method tambahan untuk reset code  
    public function getUserInfo($id)  
    {  
-     $q = $this->db->get_where('account', array('user_id' => $id), 1);   
+     $q = $this->db->get_where('account', array('id_user' => $id), 1);   
      if($this->db->affected_rows() > 0){  
        $row = $q->row();  
        return $row;  
@@ -43,19 +43,19 @@ class ModAuth extends CI_model {
      }  
    }  
    
-   public function insertToken($user_id)  
+   public function insertToken($id_user)  
    {    
      $token = substr(sha1(rand()), 0, 30);   
      $date = date('Y-m-d');  
        
      $string = array(  
          'token'=> $token,  
-         'user_id'=>$user_id,  
+         'id_user'=>$id_user,  
          'created'=>$date  
        );  
      $query = $this->db->insert_string('tokens',$string);  
      $this->db->query($query);  
-     return $token . $user_id;  
+     return $token . $id_user;  
        
    }  
    
@@ -66,7 +66,7 @@ class ModAuth extends CI_model {
        
      $q = $this->db->get_where('tokens', array(  
        'tokens.token' => $tkn,   
-       'tokens.user_id' => $uid), 1);               
+       'tokens.id_user' => $uid), 1);               
            
      if($this->db->affected_rows() > 0){  
        $row = $q->row();         
@@ -80,7 +80,7 @@ class ModAuth extends CI_model {
          return false;  
        }  
          
-       $user_info = $this->getUserInfo($row->user_id);  
+       $user_info = $this->getUserInfo($row->id_user);  
        return $user_info;  
          
      }else{  
@@ -91,7 +91,7 @@ class ModAuth extends CI_model {
    
    public function updatePassword($post)  
    {    
-     $this->db->where('user_id', $post['user_id']);  
+     $this->db->where('id_user', $post['id_user']);  
      $this->db->update('account', array('password' => password_hash($post['password'], PASSWORD_DEFAULT)));      
      return true;  
    }    

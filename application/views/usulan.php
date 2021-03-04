@@ -8,8 +8,8 @@ $this->load->view('_partials/sidebar');
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-        <h1>User</h1>
-         </div>
+        <h4>Usulan</h4>
+        </div>
         <div class="section-body">
             <div class="row">
                 <div class="col-12">
@@ -27,40 +27,43 @@ $this->load->view('_partials/sidebar');
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama</th>
-                                            <th>Username</th>
+                                            <th>Nama Pengusul</th>
                                             <th>Email</th>
-                                            <th>Jabatan</th>
+                                            <th>Jenis</th>
                                             <th>Keterangan</th>
-                                            <th>Level</th>
+                                            <th>Dokumen Pendukung</th>
+                                            <th>Lokasi</th>
+                                            <th>Status</th>
                                             <th class="disabled-sorting text-right">Actions</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama</th>
-                                            <th>Username</th>
+                                            <th>Nama Pengusul</th>
                                             <th>Email</th>
-                                            <th>Jabatan</th>
+                                            <th>Jenis</th>
                                             <th>Keterangan</th>
-                                            <th>Level</th>
-                                            <th class="text-right" style="width: 100px;">Actions</th>
+                                            <th>Dokumen Pendukung</th>
+                                            <th>Lokasi</th>
+                                            <th>Status</th>
+                                            <th class="text-right" style="width: 150px;">Actions</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <?php $no=1;
-                                 foreach ($user as $k) { ?>
+                                 foreach ($usulan as $k) { ?>
                                         <tr>
                                             <td><?php echo $no;?></td>
-                                            <td><?php echo $k->nama;?></td>
-                                            <td><?php echo $k->username;?></td>
+                                            <td></td>
                                             <td><?php echo $k->email;?></td>
-                                            <td><?php echo $k->jabatan;?></td>
+                                            <td><?php echo $k->jenis;?></td>
                                             <td><?php echo $k->keterangan;?></td>
-                                            <td><?php echo $k->level;?></td>
+                                            <td><?php echo $k->dokumen_pendukung;?></td>
+                                            <td><?php echo $k->lokasi;?></td>
+                                            <td><?php echo $k->status;?></td>
                                             <td class="td-actions text-right">
-                                                <button type="button" onclick="ganti(<?php echo $k->id_user;?>)"
+                                                <button type="button" onclick="ganti(<?php echo $k->id_usulan;?>)"
                                                     rel="tooltip" class="btn btn-primary" data-original-title=""
                                                     title="">
                                                     <i class="fas fa-pen-square"></i>
@@ -68,7 +71,7 @@ $this->load->view('_partials/sidebar');
                                                 &nbsp;
                                                 <button type="button" rel="tooltip" class="btn btn-danger"
                                                     data-original-title="" title=""
-                                                    onclick="hapus(<?php echo $k->id_user;?>)">
+                                                    onclick="hapus(<?php echo $k->id_usulan;?>)">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
                                             </td>
@@ -96,9 +99,9 @@ $(document).ready(function() {
             b.preventDefault();
             var a;
             if (simpan == "tambah") {
-                a = "<?php echo base_url();?>user/add"
+                a = "<?php echo base_url();?>usulan/add"
             } else {
-                a = "<?php echo base_url();?>user/update"
+                a = "<?php echo base_url();?>usulan/update"
             }
             $.ajax({
                 url: a,
@@ -126,7 +129,7 @@ function tambah() {
     simpan = "tambah";
     $(".form")[0].reset();
     $("#myModal").modal("show");
-    $("#modalbody").load("<?php echo base_url();?>user/modal/", function(a) {
+    $("#modalbody").load("<?php echo base_url();?>usulan/modal/", function(a) {
         $("#modalbody").html(a)
     })
 }
@@ -135,7 +138,7 @@ function ganti(a) {
     simpan = "update";
     $(".form")[0].reset();
     $("#myModal").modal("show");
-    $("#modalbody").load("<?php echo base_url();?>user/edit/" + a, function(b) {
+    $("#modalbody").load("<?php echo base_url();?>usulan/edit/" + a, function(b) {
         $("#modalbody").html(b)
     })
 }
@@ -155,7 +158,7 @@ function hapus(a) {
             switch (value) {
 
                 case "Hapus":
-                    $.get("<?php echo base_url()?>user/delete/" + a, function(b) {
+                    $.get("<?php echo base_url()?>usulan/delete/" + a, function(b) {
                         location.reload();
                     })
                     break;
