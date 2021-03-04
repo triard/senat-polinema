@@ -32,7 +32,7 @@ class ModUser extends CI_model {
 	}
 	public function delete($id){
 		$this->db->where('id_user', $id);
-		// $this->_deleteImage($id);
+		$this->_deleteImage();
 		$this->db->delete('user');
 	}
 	public function deleteAccount($id){
