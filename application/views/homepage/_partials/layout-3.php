@@ -13,6 +13,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
    
                 <ul class="navbar-nav mr-auto"></ul>
                 <a href="<?php echo base_url('auth/auth_login') ?>" class="btn float-right text-white" style="background-color: #EE5A24;"><i
-                        class="fas fa-sign-in-alt"></i>Sign-in</a>
+                        class="fas fa-sign-in-alt"></i> Sign-in</a>
                 </ul>
             </nav>

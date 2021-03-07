@@ -31,9 +31,8 @@ $this->load->view('_partials/sidebar');
                                             <th>Agenda</th>
                                             <th>Pembahasan</th>
                                             <th>Tanggal</th>
-                                            <th>waktu</th>
-                                            <th>tempat</th>
-                                            <th>status</th>
+                                            <th>Tempat</th>
+                                            <th>Status</th>
                                             <th class="disabled-sorting text-right">Actions</th>
                                         </tr>
                                     </thead>
@@ -44,9 +43,8 @@ $this->load->view('_partials/sidebar');
                                             <th>Agenda</th>
                                             <th>Pembahasan</th>
                                             <th>Tanggal</th>
-                                            <th>waktu</th>
-                                            <th>tempat</th>
-                                            <th>status</th>
+                                            <th>Tempat</th>
+                                            <th>Status</th>
                                             <th class="text-right" style="width: 150px;">Actions</th>
                                         </tr>
                                     </tfoot>
@@ -59,7 +57,6 @@ $this->load->view('_partials/sidebar');
                                             <td><?php echo $k->agenda;?></td>
                                             <td><?php echo $k->pembahasan;?></td>
                                             <td><?php echo $k->tanggal;?></td>
-                                            <td><?php echo $k->waktu;?></td>
                                             <td><?php echo $k->tempat;?></td>
                                             <td><?php echo $k->status;?></td>
                                             <td class="td-actions text-right">
@@ -131,6 +128,7 @@ function tambah() {
     $("#myModal").modal("show");
     $("#modalbody").load("<?php echo base_url();?>penjadwalan/modal/", function(a) {
         $("#modalbody").html(a)
+        $('#datetimepicker').datetimepicker();
     })
 }
 
@@ -140,6 +138,7 @@ function ganti(a) {
     $("#myModal").modal("show");
     $("#modalbody").load("<?php echo base_url();?>penjadwalan/edit/" + a, function(b) {
         $("#modalbody").html(b)
+        $('#datetimepicker').datetimepicker();
     })
 }
 

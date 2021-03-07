@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <form class="form xform" enctype="multipart/form-data">
                 <div class="modal-body" id="modalbody">
-
+                
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Simpan</button>
@@ -50,6 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 
 <?php $this->load->view('_partials/js'); ?>
+
 <script>
 $(document).ready(function() {
     $(".preloader").fadeOut();

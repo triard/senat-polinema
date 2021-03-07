@@ -23,7 +23,7 @@ class Auth extends CI_Controller {
 				}
 			} else {
 				if ($this->session->userdata('status')=="login") {
-					redirect('home');
+					redirect('Home');
 				}else{
 					$this->load->view('auth/auth-login', $data);
 				}

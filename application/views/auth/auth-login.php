@@ -95,7 +95,7 @@ $this->load->view('_partials/header');
             processData: false,
             success: function(a) {
                 if (a > 0) {
-                    location.href = "<?php echo base_url();?>home";
+                    location.href = "<?php echo base_url();?>Home";
                 } else {
                     console.log('Error')
                     swal("Error",

@@ -450,7 +450,7 @@ $this->load->view('dist/_partials/header');
                       </a>
                     </div>
                     <div class="form-group">
-                      <label>Date Picker</label>
+                      <label>Date Picker</label> 
                       <input type="text" class="form-control datepicker">
                     </div>
                     <div class="form-group">

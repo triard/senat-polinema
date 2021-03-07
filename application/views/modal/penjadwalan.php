@@ -13,11 +13,8 @@
     <div class="col-6">
         <div class="form-group">
             <label>Tanggal</label><br>
-            <input class="form-control" name="tanggal" type="date" placeholder="Masukkan tanggal ..." required>
-        </div>
-        <div class="form-group">
-            <label>Waktu</label><br>
-            <input class="form-control" name="waktu" type="time" placeholder="Masukkan waktu ..." required>
+            <input class="form-control" name="tanggal" id="datetimepicker" type="text" placeholder="Masukkan tanggal ..."
+             required autocomplete="off">
         </div>
         <div class="form-group">
             <label>Tempat</label><br>
@@ -55,11 +52,8 @@
     <div class="col-6">
     <div class="form-group">
             <label>Tanggal</label><br>
-            <input class="form-control" name="tanggal" type="date" value="<?php echo $penjadwalan->tanggal ?>" placeholder="Masukkan tanggal ..." required>
-        </div>
-        <div class="form-group">
-            <label>Waktu</label><br>
-            <input class="form-control" name="waktu" type="time" value="<?php echo $penjadwalan->waktu ?>" placeholder="Masukkan waktu ..." required>
+            <input class="form-control" name="tanggal" type="text" id="datetimepicker" value="<?php echo $penjadwalan->tanggal ?>"
+             placeholder="Masukkan tanggal ..." required autocomplete="off">
         </div>
         <div class="form-group">
             <label>Tempat</label><br>

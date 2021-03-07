@@ -13,11 +13,11 @@ class ModBerita extends CI_model {
 		$keterangan = $this->input->post('keterangan');
 		$id_user = $this->input->post('id_user');
 		$tanggal = $this->input->post('tanggal');
-		$waktu = $this->input->post('waktu');
+
 		$image = $this->_uploadImage();
 		$lokasi = $this->input->post('lokasi');
 		$data = array('judul' => $judul,'keterangan' => $keterangan, 'image' => $image,'tanggal'=>$tanggal,
-		'waktu'=>$waktu, 'lokasi'=>$lokasi, 'id_user'=>$id_user);
+		'lokasi'=>$lokasi, 'id_user'=>$id_user);
 		$this->db->insert('berita', $data);
 	}
 	private function _uploadImage()
@@ -32,6 +32,17 @@ class ModBerita extends CI_model {
 		if ($this->upload->do_upload('image')) {
 			return $this->upload->data("file_name");
 		}
+	}
+	public function beritaDetail($id){ 
+		$this->db->select('u.nama, b.*');
+        $this->db->from('berita as b');
+		$this->db->join('user as u','b.id_user=u.id_user');
+		$this->db->where('b.id_berita', $id);
+        return $this->db->get()->row();
+	}
+	public function TambahJumlahView($id){ 
+		$hsl=$this->db->query("UPDATE berita SET jumlah_view = jumlah_view+1 WHERE id_berita=$id");
+		return $hsl;
 	}
 	public function getById($id){
 		return $this->db->get_where($this->_table, ["id_berita" => $id])->row();
@@ -58,7 +69,7 @@ class ModBerita extends CI_model {
 		$judul = $this->input->post('judul');
 		$keterangan = $this->input->post('keterangan');
 		$tanggal = $this->input->post('tanggal');
-		$waktu = $this->input->post('waktu');
+		$jumlah_view = $this->input->post('jumlah_view');
 		$id_user = $this->input->post('id_user');
 		if (!empty($_FILES["image"]["name"])) {
 			$this->_deleteImage($id_berita);
@@ -68,7 +79,7 @@ class ModBerita extends CI_model {
 		}
 		$lokasi = $this->input->post('lokasi');
 		$data = array('judul' => $judul,'keterangan' => $keterangan,'tanggal'=>$tanggal,
-		'waktu'=>$waktu,'image'=>$image, 'lokasi'=>$lokasi,'id_user'=>$id_user);
+		'jumlah_view'=>$jumlah_view,'image'=>$image, 'lokasi'=>$lokasi,'id_user'=>$id_user);
 			$this->db->where('id_berita', $id_berita);
 			$this->db->update('berita', $data);
 	}

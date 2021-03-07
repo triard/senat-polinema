@@ -11,7 +11,7 @@ class Berita extends CI_Controller {
 	public function index()
 	{
 		$data = array(
-			'title' => "Senat Polinema | Usulan"
+			'title' => "Senat Polinema | Berita"
 		);
         $q = $this->session->userdata('status');
 		if($q != "login") {
@@ -20,6 +20,25 @@ class Berita extends CI_Controller {
 		$menu['login'] = $this->ModBerita->edit($this->session->userdata('id_user'));
 		$data['berita'] = $this->ModBerita->selectAll();
 		$this->load->view('berita',$data);
+	}
+	public function berita()
+	{
+		$data = array(
+			'title' => "Senat Polinema | Berita"
+		);
+		// $menu['login'] = $this->ModBerita->edit($this->session->userdata('id_user'));
+		$data['berita'] = $this->ModBerita->selectAll();
+		$this->load->view('homepage/berita',$data);
+	}
+	public function berita_detail($id)
+	{
+		$data = array(
+			'title' => "Senat Polinema | Berita"
+		);
+		// $menu['login'] = $this->ModBerita->edit($this->session->userdata('id_user'));
+		$this->ModBerita->TambahJumlahView($id);
+		$data['berita'] = $this->ModBerita->beritaDetail($id);
+		$this->load->view('homepage/berita-detail',$data);
 	}
 	public function modal() {
 		$q = $this->session->userdata('status');
@@ -59,6 +78,7 @@ class Berita extends CI_Controller {
 		if($q != "login") {
 			exit();
 		}
+		
 		$this->ModBerita->update();
 		echo json_encode(array("status" => TRUE));
 	}

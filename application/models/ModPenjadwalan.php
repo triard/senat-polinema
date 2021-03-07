@@ -10,12 +10,11 @@ class ModPenjadwalan extends CI_model {
 	public function add() {
 		$agenda = $this->input->post('agenda');
 		$pembahasan = $this->input->post('pembahasan');
-		$waktu = $this->input->post('waktu');
 		$tanggal = $this->input->post('tanggal');
 		$id_user = $this->input->post('id_user');
 		$tempat = $this->input->post('tempat');
 		$status = $this->input->post('status'); 		
-		$data = array('agenda' => $agenda,'pembahasan' => $pembahasan,'tanggal'=>$tanggal ,'waktu' => $waktu,
+		$data = array('agenda' => $agenda,'pembahasan' => $pembahasan,'tanggal'=>$tanggal,
 		'tempat'=>$tempat, 'status'=>$status, 'id_user'=>$id_user);
 		$this->db->insert('penjadwalan', $data);
 	}
@@ -38,11 +37,10 @@ class ModPenjadwalan extends CI_model {
 		$agenda = $this->input->post('agenda');
 		$pembahasan = $this->input->post('pembahasan');
 		$tanggal = $this->input->post('tanggal');
-		$waktu = $this->input->post('waktu');
 		$id_user = $this->input->post('id_user');
 		$tempat = $this->input->post('tempat');
 		$status = $this->input->post('status'); 		
-		$data = array('agenda' => $agenda,'pembahasan' => $pembahasan,'tanggal'=>$tanggal, 'waktu' => $waktu,
+		$data = array('agenda' => $agenda,'pembahasan' => $pembahasan,'tanggal'=>$tanggal,
 		'tempat'=>$tempat, 'status'=>$status, 'id_user'=>$id_user);
 			$this->db->where('id_penjadwalan', $id_penjadwalan);
 			$this->db->update('penjadwalan', $data);

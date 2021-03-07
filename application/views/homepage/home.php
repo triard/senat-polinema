@@ -51,7 +51,7 @@ $this->load->view('homepage/_partials/header');
                 <div class="col-sm-6">
                     <div class="card">
                         <div class="card-header text-white" style="background-color: #1E3799;">
-                            <h4><b>PENGUMUMAN</b></h4>
+                            <h4><b>BERITA</b></h4>
                             <div class="card-header-action">
                                 <a href="#" class="btn btn-warning">View All</a>
                             </div>

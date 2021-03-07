@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url(); ?>assets/modules/chart.min.js"></script>
 <!-- <script src="<?php echo base_url(); ?>assets/modules/jqvmap/dist/jquery.vmap.min.js"></script> -->
 <!-- <script src="<?php echo base_url(); ?>assets/modules/jqvmap/dist/maps/jquery.vmap.world.js"></script> -->
-<!-- <script src="<?php echo base_url(); ?>assets/modules/summernote/summernote-bs4.js"></script> -->
+<script src="<?php echo base_url(); ?>assets/modules/summernote/summernote-bs4.js"></script>
 <script src="<?php echo base_url(); ?>assets/modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/modules/jquery-ui/jquery-ui.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/modules/jquery.sparkline.min.js"></script>
@@ -75,10 +75,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url(); ?>assets/js/page/features-posts.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/page/features-setting-detail.js"></script>
 <!-- <script src="<?php echo base_url(); ?>assets/js/page/utilities-contact.js"></script> -->
-
+<script src="<?php echo base_url(); ?>assets/datetimepicker/build/jquery.datetimepicker.full.js"></script>
 <!-- Template JS File -->
 <script src="<?php echo base_url(); ?>assets/js/scripts.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/custom.js"></script>
+
+
 <!-- dataTables custom -->
 <!-- <script>
 $(document).ready(function() {
