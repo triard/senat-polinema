@@ -31,11 +31,11 @@
         </div>
         <div class="form-group">
             <label>Jabatan</label><br>
-            <input class="form-control" name="jabatan" type="text" placeholder="Jabatan..." required>
+            <input class="form-control" name="jabatan" type="text" placeholder="Jabatan..." value="">
         </div>
         <div class="form-group">
             <label>Keterangan</label><br>
-            <input class="form-control" name="keterangan" type="text" placeholder="Keternagan..." required>
+            <input class="form-control" name="keterangan" type="text" placeholder="Keternagan..." value="">
         </div>
     </div>
 </div>
@@ -68,18 +68,18 @@
     <div class="col-6">
         <div class="form-group">
             <label>Nama</label><br>
-            <input class="form-control" value="<?php echo $user->nama;?>" name="nama" type="text" placeholder="Nama"
+            <input class="form-control" value="<?php echo $user->nama;?>" name="nama" type="text" placeholder="Nama..."
                 required>
         </div>
         <div class="form-group">
             <label>Jabatan</label><br>
             <input class="form-control" value="<?php echo $user->jabatan;?>" name="jabatan" type="text"
-                placeholder="Jabatan" required>
+                placeholder="Jabatan..." >
         </div>
         <div class="form-group">
             <label>Keterangan</label><br>
             <input class="form-control" value="<?php echo $user->keterangan;?>" name="keterangan" type="text"
-                placeholder="Keterangan" required>
+                placeholder="Keterangan..." >
         </div>
     </div>
 </div>
