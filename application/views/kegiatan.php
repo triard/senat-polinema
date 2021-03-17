@@ -8,7 +8,7 @@ $this->load->view('_partials/sidebar');
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h4>Penjadwalan</h4>
+            <h4>Agenda Kegiatan</h4>
         </div>
         <div class="section-body">
             <div class="row">
@@ -27,48 +27,43 @@ $this->load->view('_partials/sidebar');
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>id_user</th>
                                             <th>Agenda</th>
                                             <th>Pembahasan</th>
                                             <th>Waktu</th>
                                             <th>Tempat</th>
-                                            <th>Status</th>
-                                            <th class="disabled-sorting text-right">Actions</th>
+                                            <th class="disabled-sorting text-center">Actions</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>No</th>
-                                            <th>id_user</th>
                                             <th>Agenda</th>
                                             <th>Pembahasan</th>
                                             <th>Waktu</th>
                                             <th>Tempat</th>
-                                            <th>Status</th>
-                                            <th class="text-right" style="width: 150px;">Actions</th>
+                                            <th class="text-center" style="width: 150px;">Actions</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <?php $no=1;
-                                        foreach ($penjadwalan as $k) { ?>
+                                        foreach ($kegiatan as $k) { ?>
                                         <tr>
                                             <td><?php echo $no;?></td>
-                                            <td><?php echo $k->id_user;?></td>
                                             <td><?php echo $k->agenda;?></td>
                                             <td><?php echo $k->pembahasan;?></td>
                                             <td><?php echo $k->waktu;?></td>
                                             <td><?php echo $k->tempat;?></td>
-                                            <td><?php echo $k->status;?></td>
-                                            <td class="td-actions text-right">
-                                                <button type="button" onclick="ganti(<?php echo $k->id_penjadwalan;?>)"
+                                            <td class="td-actions text-center">
+                                                <button type="button" onclick="detail(<?php echo $k->id_kegiatan;?>)"
                                                     rel="tooltip" class="btn btn-primary" data-original-title=""
                                                     title="">
-                                                    <i class="fas fa-pen-square"></i>
+                                                    <i class="fas fa-info-circle"></i>
                                                 </button>
                                                 &nbsp;
+                                                <!-- <br> -->
                                                 <button type="button" rel="tooltip" class="btn btn-danger"
                                                     data-original-title="" title=""
-                                                    onclick="hapus(<?php echo $k->id_penjadwalan;?>)">
+                                                    onclick="hapus(<?php echo $k->id_kegiatan;?>)">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
                                             </td>
@@ -96,9 +91,9 @@ $(document).ready(function() {
             b.preventDefault();
             var a;
             if (simpan == "tambah") {
-                a = "<?php echo base_url();?>Penjadwalan/add"
+                a = "<?php echo base_url();?>Kegiatan/add"
             } else {
-                a = "<?php echo base_url();?>Penjadwalan/update"
+                a = "<?php echo base_url();?>Kegiatan/update"
             }
             $.ajax({
                 url: a,
@@ -126,7 +121,7 @@ function tambah() {
     simpan = "tambah";
     $(".form")[0].reset();
     $("#myModal").modal("show");
-    $("#modalbody").load("<?php echo base_url();?>Penjadwalan/modal/", function(a) {
+    $("#modalbody").load("<?php echo base_url();?>Kegiatan/modal/", function(a) {
         $("#modalbody").html(a)
         $('#datetimepicker').datetimepicker();
     })
@@ -136,7 +131,7 @@ function ganti(a) {
     simpan = "update";
     $(".form")[0].reset();
     $("#myModal").modal("show");
-    $("#modalbody").load("<?php echo base_url();?>Penjadwalan/edit/" + a, function(b) {
+    $("#modalbody").load("<?php echo base_url();?>Kegiatan/edit/" + a, function(b) {
         $("#modalbody").html(b)
         $('#datetimepicker').datetimepicker();
     })
@@ -157,7 +152,7 @@ function hapus(a) {
             switch (value) {
 
                 case "Hapus":
-                    $.get("<?php echo base_url()?>penjadwalan/delete/" + a, function(b) {
+                    $.get("<?php echo base_url()?>Kegiatan/delete/" + a, function(b) {
                         location.reload();
                     })
                     break;

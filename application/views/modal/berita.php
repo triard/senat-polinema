@@ -23,10 +23,6 @@
         </div>
     </div>
     <div class="col-6">
-        <div class="form-group">
-            <label>Lokasi</label><br>
-            <input class="form-control" name="lokasi" type="text" placeholder="Masukkan lokasi  ..." required autocomplete="off">
-        </div>
         <input type="hidden" name="id_user" value="<?php echo $this->session->userdata('id_user');?>">
     </div>
 </div>
@@ -58,11 +54,6 @@
         </div>
 
     </div>
-        <div class="form-group">
-            <label>Lokasi</label><br>
-            <input class="form-control" name="lokasi" type="text" value="<?php echo $berita->lokasi;?>"
-                placeholder="Masukkan lokasi  ..." required autocomplete="off">
-        </div>
     </div>
 </div>
 <?php } ?>

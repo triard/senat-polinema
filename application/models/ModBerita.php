@@ -13,11 +13,8 @@ class ModBerita extends CI_model {
 		$keterangan = $this->input->post('keterangan');
 		$id_user = $this->input->post('id_user');
 		$tanggal = $this->input->post('tanggal');
-
 		$image = $this->_uploadImage();
-		$lokasi = $this->input->post('lokasi');
-		$data = array('judul' => $judul,'keterangan' => $keterangan, 'image' => $image,'tanggal'=>$tanggal,
-		'lokasi'=>$lokasi, 'id_user'=>$id_user);
+		$data = array('judul' => $judul,'keterangan' => $keterangan, 'image' => $image,'tanggal'=>$tanggal, 'id_user'=>$id_user);
 		$this->db->insert('berita', $data);
 	}
 	private function _uploadImage()
@@ -77,9 +74,8 @@ class ModBerita extends CI_model {
         } else {
             $image = $this->input->post('old_image');
 		}
-		$lokasi = $this->input->post('lokasi');
 		$data = array('judul' => $judul,'keterangan' => $keterangan,'tanggal'=>$tanggal,
-		'jumlah_view'=>$jumlah_view,'image'=>$image, 'lokasi'=>$lokasi,'id_user'=>$id_user);
+		'jumlah_view'=>$jumlah_view,'image'=>$image, 'id_user'=>$id_user);
 			$this->db->where('id_berita', $id_berita);
 			$this->db->update('berita', $data);
 	}

@@ -27,6 +27,8 @@ class Usulan extends CI_Controller {
 			exit();
 		}
 		$data['cek'] = 0;
+		$data['nama'] = $this->session->userdata('username');
+		$data['email'] = $this->session->userdata('email');
 		$this->load->view('modal/usulan', $data); 
 	}
 	public function add() {

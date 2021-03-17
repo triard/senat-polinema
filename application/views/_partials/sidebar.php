@@ -23,6 +23,9 @@
               <li class="<?php echo $this->uri->segment(1) == 'Penjadwalan' ? 'active' : ''; ?>"><a class="nav-link"
                       href="<?php echo base_url(); ?>Penjadwalan"><i class="far fa-calendar"></i>
                       <span>Penjadwalan</span></a></li>
+              <li class="<?php echo $this->uri->segment(1) == 'Kegiatan' ? 'active' : ''; ?>"><a class="nav-link"
+                      href="<?php echo base_url(); ?>Kegiatan"><i class="far fa-file"></i> <span>Agenda Kegiatan</span></a>
+              </li>
               <li class="<?php echo $this->uri->segment(1) == 'Berita' ? 'active' : ''; ?>"><a class="nav-link"
                       href="<?php echo base_url(); ?>Berita"><i class="far fa-file"></i> <span>Berita</span></a>
               </li>

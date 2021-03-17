@@ -32,7 +32,6 @@ $this->load->view('_partials/sidebar');
                                     <th style="width: 200px;">image</th>
                                     <th>Tanggal</th>
                                     <th>Jumlah View</th>
-                                    <th>lokasi</th>
                                     <th>Nama Editor</th>
                                     <th class="disabled-sorting text-right">Actions</th>
                                 </tr>
@@ -45,7 +44,6 @@ $this->load->view('_partials/sidebar');
                                     <th>image</th>
                                     <th>Tanggal</th>
                                     <th>Jumlah View</th>
-                                    <th>lokasi</th>
                                     <th>Nama Editor</th>
                                     <th class="text-right">Actions</th>
                                 </tr>
@@ -67,7 +65,6 @@ $this->load->view('_partials/sidebar');
                                             alt="<?php echo $no;?>" style="width: 100%;" loading="lazy"></td>
                                     <td><?php echo $k->tanggal;?></td>
                                     <td><?php echo $k->jumlah_view;?></td>
-                                    <td><?php echo $k->lokasi;?></td>
                                     <td><?php echo $k->nama;?></td>
                                     <td class="td-actions text-right">
                                         <button type="button" onclick="ganti(<?php echo $k->id_berita;?>)" rel="tooltip"

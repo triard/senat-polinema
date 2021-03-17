@@ -8,15 +8,15 @@ class ModUsulan extends CI_model {
         return $this->db->get()->result();
 	}
 	public function add() {
+		$nama_pengusul = $this->input->post('nama_pengusul');
 		$email = $this->input->post('email');
 		$jenis = $this->input->post('jenis');
 		$keterangan = $this->input->post('keterangan');
 		$id_user = $this->input->post('id_user');
 		$dokumen_pendukung = $this->_uploadDokumen();
-		$lokasi = $this->input->post('lokasi');
 		$status = $this->input->post('status'); 		
-		$data = array('email' => $email,'jenis' => $jenis, 'keterangan' => $keterangan,
-		'dokumen_pendukung'=>$dokumen_pendukung, 'lokasi'=>$lokasi, 'status'=>$status, 'id_user'=>$id_user);
+		$data = array('nama_pengusul' => $nama_pengusul, 'email' => $email,'jenis' => $jenis, 'keterangan' => $keterangan,
+		'dokumen_pendukung'=>$dokumen_pendukung, 'status'=>$status, 'id_user'=>$id_user);
 		$this->db->insert('usulan', $data);
 	}
 	private function _uploadDokumen()
@@ -76,5 +76,10 @@ class ModUsulan extends CI_model {
 		$this->db->select('id_usulan');
 		$this->db->from('usulan');
 		return $this->db->count_all_results();
+	}
+	public function setStatus($id_usulan, $status){ 		
+		$data = array('status'=>$status);
+		$this->db->where('id_usulan', $id_usulan);
+		$this->db->update('usulan', $data);
 	}
 }
