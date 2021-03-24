@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Mar 2021 pada 15.42
--- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.4.3
+-- Generation Time: 17 Mar 2021 pada 12.16
+-- Versi Server: 10.1.13-MariaDB
+-- PHP Version: 7.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -69,14 +67,6 @@ CREATE TABLE `dokumentasi` (
   `nama_dokumentasi` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data untuk tabel `dokumentasi`
---
-
-INSERT INTO `dokumentasi` (`id_dokumentasi`, `id_kegiatan`, `nama_dokumentasi`) VALUES
-(5, 10, 'dokumentasi-kegiatan-73079c1e8709656a.jpg'),
-(6, 11, 'dokumentasi-kegiatan-fc6c4a3908bd5909.png');
-
 -- --------------------------------------------------------
 
 --
@@ -88,14 +78,9 @@ CREATE TABLE `kegiatan` (
   `id_penjadwalan` bigint(20) DEFAULT NULL,
   `agenda` varchar(30) NOT NULL,
   `pembahasan` varchar(100) NOT NULL,
-  `waktu_mulai` datetime NOT NULL,
-  `waktu_selesai` time NOT NULL,
+  `waktu` datetime NOT NULL,
   `tempat` varchar(50) NOT NULL,
-  `jenis_rapat` varchar(15) NOT NULL,
-  `link` varchar(50) NOT NULL,
-  `password` varchar(20) NOT NULL,
-  `tujuan` varchar(100) NOT NULL,
-  `notula` text DEFAULT NULL,
+  `notula` varchar(50) NOT NULL,
   `id_user` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -103,9 +88,8 @@ CREATE TABLE `kegiatan` (
 -- Dumping data untuk tabel `kegiatan`
 --
 
-INSERT INTO `kegiatan` (`id_kegiatan`, `id_penjadwalan`, `agenda`, `pembahasan`, `waktu_mulai`, `waktu_selesai`, `tempat`, `jenis_rapat`, `link`, `password`, `tujuan`, `notula`, `id_user`) VALUES
-(10, NULL, 'Rapat pengawasan zz', '<p>1. Penyelewengan Pudir X </p><p>2.  coba cobazz</p>', '2021-03-23 20:00:00', '07:00:00', 'RT zz', 'Luring', '', '', 'melakukan invetigasi secara menyeluruh zz', '<p>dengan ini</p>', 1),
-(11, 3, 'dfsfds', '', '0000-00-00 00:00:00', '00:00:00', '', '', '', '', '', NULL, NULL);
+INSERT INTO `kegiatan` (`id_kegiatan`, `id_penjadwalan`, `agenda`, `pembahasan`, `waktu`, `tempat`, `notula`, `id_user`) VALUES
+(5, 2, 'Rapat pengawasan', 'Penyelewengan Pudir X', '2021-03-17 17:00:00', 'Gedung AA Polinema', 'notula-kegiatan-d76c9e9d90991eb6.pdf', 1);
 
 -- --------------------------------------------------------
 
@@ -117,18 +101,8 @@ CREATE TABLE `laporan` (
   `id_laporan` bigint(20) NOT NULL,
   `id_kegiatan` bigint(20) DEFAULT NULL,
   `nama_laporan` varchar(50) NOT NULL,
-  `file_laporan` varchar(50) NOT NULL,
   `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `laporan`
---
-
-INSERT INTO `laporan` (`id_laporan`, `id_kegiatan`, `nama_laporan`, `file_laporan`, `status`) VALUES
-(2, 11, 'sadsa', 'laporan-kegiatan-32cf5c053b86ae76.pdf', 'Diajukan'),
-(4, 10, 'fssdfsdf', 'laporan-kegiatan-72ca175eec5044c0.docx', 'Diajukan'),
-(5, 10, 'etter', 'laporan-kegiatan-feca19d17882ff94.pdf', 'Diajukan');
 
 -- --------------------------------------------------------
 
@@ -140,23 +114,19 @@ CREATE TABLE `penjadwalan` (
   `id_penjadwalan` bigint(20) NOT NULL,
   `id_user` int(11) DEFAULT NULL,
   `id_usulan` bigint(20) DEFAULT NULL,
-  `agenda` varchar(100) NOT NULL,
-  `pembahasan` text NOT NULL,
-  `waktu_mulai` datetime NOT NULL,
-  `waktu_selesai` time NOT NULL,
-  `jenis_rapat` varchar(15) NOT NULL,
+  `agenda` varchar(30) NOT NULL,
+  `pembahasan` varchar(100) NOT NULL,
+  `waktu` datetime NOT NULL,
   `tempat` varchar(50) NOT NULL,
-  `link` varchar(50) DEFAULT NULL,
-  `password` varchar(20) DEFAULT NULL,
-  `status` varchar(25) NOT NULL
+  `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `penjadwalan`
 --
 
-INSERT INTO `penjadwalan` (`id_penjadwalan`, `id_user`, `id_usulan`, `agenda`, `pembahasan`, `waktu_mulai`, `waktu_selesai`, `jenis_rapat`, `tempat`, `link`, `password`, `status`) VALUES
-(3, 1, 2, 'Rapat pengawasan', '<p>Penyelewengan Pudir X</p><p>coba coba</p>', '2021-03-21 23:00:00', '03:00:00', 'Daring', 'adsda', 'adsdsad', 'asdd', 'telah dilaksanakan');
+INSERT INTO `penjadwalan` (`id_penjadwalan`, `id_user`, `id_usulan`, `agenda`, `pembahasan`, `waktu`, `tempat`, `status`) VALUES
+(2, 1, 2, 'Rapat pengawasan', 'Penyelewengan Pudir X', '2021-03-17 18:00:00', 'Gedung AA Polinema', 'telah dilaksanakan');
 
 -- --------------------------------------------------------
 
@@ -200,36 +170,35 @@ CREATE TABLE `usulan` (
 --
 
 INSERT INTO `usulan` (`id_usulan`, `nama_pengusul`, `email`, `jenis`, `keterangan`, `dokumen_pendukung`, `status`, `id_user`) VALUES
-(2, 'admin', 'admin@senat', 'pengawasan', '<p>Penyelewengan Pudir X</p><p>coba coba</p>', 'dokumen-pendukung-753fc482837245a1.pdf', 'sedang diproses', 1),
-(13, 'admin', 'admin@senat', 'pengawasan', '<p>- lorem ipsum 1</p><p>- lorem ipsum 2</p>', 'dokumen-pendukung-5c9b87100d4f9b06.rar', 'dijadwalkan rapat', 1);
+(2, 'admin', 'admin@senat', 'pengawasan', 'Penyelewengan Pudir X', 'dokumen-pendukung-753fc482837245a1.pdf', 'sedang diproses', 1);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `account`
+-- Indexes for table `account`
 --
 ALTER TABLE `account`
   ADD PRIMARY KEY (`username`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indeks untuk tabel `berita`
+-- Indexes for table `berita`
 --
 ALTER TABLE `berita`
   ADD PRIMARY KEY (`id_berita`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indeks untuk tabel `dokumentasi`
+-- Indexes for table `dokumentasi`
 --
 ALTER TABLE `dokumentasi`
   ADD PRIMARY KEY (`id_dokumentasi`),
   ADD KEY `id_kegiatan` (`id_kegiatan`);
 
 --
--- Indeks untuk tabel `kegiatan`
+-- Indexes for table `kegiatan`
 --
 ALTER TABLE `kegiatan`
   ADD PRIMARY KEY (`id_kegiatan`),
@@ -237,14 +206,14 @@ ALTER TABLE `kegiatan`
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indeks untuk tabel `laporan`
+-- Indexes for table `laporan`
 --
 ALTER TABLE `laporan`
   ADD PRIMARY KEY (`id_laporan`),
   ADD KEY `id_kegiatan` (`id_kegiatan`);
 
 --
--- Indeks untuk tabel `penjadwalan`
+-- Indexes for table `penjadwalan`
 --
 ALTER TABLE `penjadwalan`
   ADD PRIMARY KEY (`id_penjadwalan`),
@@ -252,64 +221,57 @@ ALTER TABLE `penjadwalan`
   ADD KEY `id_usulan` (`id_usulan`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Indeks untuk tabel `usulan`
+-- Indexes for table `usulan`
 --
 ALTER TABLE `usulan`
   ADD PRIMARY KEY (`id_usulan`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `berita`
+-- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
   MODIFY `id_berita` bigint(20) NOT NULL AUTO_INCREMENT;
-
 --
--- AUTO_INCREMENT untuk tabel `dokumentasi`
+-- AUTO_INCREMENT for table `dokumentasi`
 --
 ALTER TABLE `dokumentasi`
-  MODIFY `id_dokumentasi` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+  MODIFY `id_dokumentasi` bigint(20) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT untuk tabel `kegiatan`
+-- AUTO_INCREMENT for table `kegiatan`
 --
 ALTER TABLE `kegiatan`
-  MODIFY `id_kegiatan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
+  MODIFY `id_kegiatan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT untuk tabel `laporan`
+-- AUTO_INCREMENT for table `laporan`
 --
 ALTER TABLE `laporan`
-  MODIFY `id_laporan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
+  MODIFY `id_laporan` bigint(20) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT untuk tabel `penjadwalan`
+-- AUTO_INCREMENT for table `penjadwalan`
 --
 ALTER TABLE `penjadwalan`
-  MODIFY `id_penjadwalan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+  MODIFY `id_penjadwalan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
--- AUTO_INCREMENT untuk tabel `usulan`
+-- AUTO_INCREMENT for table `usulan`
 --
 ALTER TABLE `usulan`
-  MODIFY `id_usulan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
+  MODIFY `id_usulan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
@@ -357,7 +319,6 @@ ALTER TABLE `penjadwalan`
 --
 ALTER TABLE `usulan`
   ADD CONSTRAINT `usulan_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE SET NULL ON UPDATE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
