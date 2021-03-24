@@ -22,8 +22,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         href="<?php echo base_url(); ?>assets/modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css">
     <link rel="stylesheet"
         href="<?php echo base_url(); ?>assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/datetimepicker/jquery.datetimepicker.css">
-
+    <link rel="stylesheet" type="text/css"
+        href="<?php echo base_url(); ?>assets/datetimepicker/jquery.datetimepicker.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/modules/chocolat/dist/css/chocolat.css">
     <!-- CSS Libraries -->
     <?php
 if ($this->uri->segment(2) == "" || $this->uri->segment(2) == "index") { ?>

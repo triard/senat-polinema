@@ -43,7 +43,7 @@ $this->load->view('dist/_partials/header');
                   <div class="col-12 col-sm-6 col-lg-12">
                     <div class="card">
                       <div class="card-header">
-                        <h4>Gallery</h4>
+                        <h4>Gallery</h4> 
                       </div>
                       <div class="card-body">
                         <div class="gallery">

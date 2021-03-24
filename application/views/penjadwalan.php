@@ -27,11 +27,13 @@ $this->load->view('_partials/sidebar');
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>id_user</th>
                                             <th>Agenda</th>
                                             <th>Pembahasan</th>
                                             <th>Waktu</th>
+                                            <th>Jenis Rapat</th>
                                             <th>Tempat</th>
+                                            <th>Link</th>
+                                            <th>Password</th>
                                             <th>Status</th>
                                             <th class="disabled-sorting text-right">Actions</th>
                                         </tr>
@@ -39,11 +41,13 @@ $this->load->view('_partials/sidebar');
                                     <tfoot>
                                         <tr>
                                             <th>No</th>
-                                            <th>id_user</th>
                                             <th>Agenda</th>
                                             <th>Pembahasan</th>
                                             <th>Waktu</th>
+                                            <th>Jenis Rapat</th>
                                             <th>Tempat</th>
+                                            <th>Link</th>
+                                            <th>Password</th>
                                             <th>Status</th>
                                             <th class="text-right" style="width: 150px;">Actions</th>
                                         </tr>
@@ -53,11 +57,14 @@ $this->load->view('_partials/sidebar');
                                         foreach ($penjadwalan as $k) { ?>
                                         <tr>
                                             <td><?php echo $no;?></td>
-                                            <td><?php echo $k->id_user;?></td>
                                             <td><?php echo $k->agenda;?></td>
                                             <td><?php echo $k->pembahasan;?></td>
-                                            <td><?php echo $k->waktu;?></td>
+                                            <td><?php echo date('d-m-Y H:i', strtotime($k->waktu_mulai)); ?> -
+                                                <?php echo date('H:i', strtotime($k->waktu_selesai)); ?> WIB</td>
+                                            <td><?php echo $k->jenis_rapat;?></td>
                                             <td><?php echo $k->tempat;?></td>
+                                            <td><?php echo $k->link;?></td>
+                                            <td><?php echo $k->password;?></td>
                                             <td><?php echo $k->status;?></td>
                                             <td class="td-actions text-right">
                                                 <button type="button" onclick="ganti(<?php echo $k->id_penjadwalan;?>)"
@@ -129,6 +136,15 @@ function tambah() {
     $("#modalbody").load("<?php echo base_url();?>Penjadwalan/modal/", function(a) {
         $("#modalbody").html(a)
         $('#datetimepicker').datetimepicker();
+        $("#summernote-simple").summernote({
+            dialogsInBody: true,
+            minHeight: 150,
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough']],
+                ['para', ['paragraph']]
+            ]
+        });
     })
 }
 
@@ -139,6 +155,15 @@ function ganti(a) {
     $("#modalbody").load("<?php echo base_url();?>Penjadwalan/edit/" + a, function(b) {
         $("#modalbody").html(b)
         $('#datetimepicker').datetimepicker();
+        $("#summernote-simple").summernote({
+            dialogsInBody: true,
+            minHeight: 150,
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough']],
+                ['para', ['paragraph']]
+            ]
+        });
     })
 }
 

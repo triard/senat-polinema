@@ -7,8 +7,10 @@
         </div>
         <div class="form-group">
             <label>Email</label><br>
-            <input class="form-control" name="email" type="email" value="<?php echo "$email"; ?>" placeholder="Masukkan email Anda..." readonly>
+            <input class="form-control" name="email" type="email" value="<?php echo "$email"; ?>"
+                placeholder="Masukkan email Anda..." readonly>
         </div>
+
     </div>
     <div class="col-6">
         <div class="form-group">
@@ -20,15 +22,18 @@
             </select>
         </div>
         <div class="form-group">
-            <label>Dokumen Pendukung</label><br>
+            <label>Dokumen Pendukung*</label><br>
             <input class="form-control" name="dokumen_pendukung" type="file" placeholder="Masukkan dokumen Anda...">
         </div>
         <div class="form-group">
             <label>Keterangan</label><br>
-            <textarea class="form-control" name="keterangan" required></textarea>
+            <textarea id="summernote-simple" name="keterangan" required></textarea>
         </div>
         <input type="hidden" name="status" value="diajukan">
         <input type="hidden" name="id_user" value="<?php echo $this->session->userdata('id_user');?>">
+    </div>
+    <div class="col-12">
+    * untuk file pendukung lebih dari satu harap upload dengan format zip/rar
     </div>
 </div>
 <?php } else { ?>
@@ -38,9 +43,10 @@
 <?php } ?>
 <div class="row">
     <div class="col-6">
-    <div class="form-group">
+        <div class="form-group">
             <label>Email</label><br>
-            <input class="form-control" name="email" type="email" value="<?php echo $usulan->email;?>" placeholder="Masukkan email Anda..." required>
+            <input class="form-control" name="email" type="email" value="<?php echo $usulan->email;?>"
+                placeholder="Masukkan email Anda..." required>
         </div>
         <div class="form-group">
             <label>Jenis</label><br>
@@ -53,12 +59,12 @@
         </div>
         <div class="form-group">
             <label>Keterangan</label><br>
-            <textarea class="form-control" name="keterangan"><?php echo $usulan->keterangan;?></textarea>
+            <textarea id="summernote-simple" name="keterangan"><?php echo $usulan->keterangan;?></textarea>
         </div>
     </div>
     <div class="col-6">
-    <div class="form-group">
-            <label>Dokumen Pendukung</label><br>
+        <div class="form-group">
+            <label>Dokumen Pendukung*</label><br>
             <input class="form-control" name="dokumen_pendukung" type="file" placeholder="Masukkan dokumen Anda...">
             <input type="hidden" name="old_dokumen" value="<?php echo $usulan->dokumen_pendukung ?>" />
         </div>
@@ -72,8 +78,23 @@
                 <option value="diajukan - komisi 2">Diajukan - Komisi 2</option>
                 <option value="diajukan - komisi 3">Diajukan - Komisi 3</option>
                 <option value="diajukan - komisi 4">Diajukan - Komisi 4</option>
+                <option disabled>------------------------------------</option>
+                <option value="diajukan">Sedang Diproses</option>
+                <option value="diajukan - komisi 1">Sedang Diproses - Komisi 1</option>
+                <option value="diajukan - komisi 2">Sedang Diproses - Komisi 2</option>
+                <option value="diajukan - komisi 3">Sedang Diproses - Komisi 3</option>
+                <option value="diajukan - komisi 4">Sedang Diproses - Komisi 4</option>
+                <option disabled>------------------------------------</option>
+                <option value="diajukan">Selesai</option>
+                <option value="diajukan - komisi 1">Selesai - Komisi 1</option>
+                <option value="diajukan - komisi 2">Selesai - Komisi 2</option>
+                <option value="diajukan - komisi 3">Selesai - Komisi 3</option>
+                <option value="diajukan - komisi 4">Selesai - Komisi 4</option>
             </select>
         </div>
+    </div>
+    <div class="col-12">
+    * untuk file pendukung lebih dari satu harap upload dengan format zip/rar
     </div>
 </div>
 <?php } ?>

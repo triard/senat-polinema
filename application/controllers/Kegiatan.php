@@ -5,9 +5,11 @@ class Kegiatan extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->model('ModKegiatan');
+		$this->load->model('ModKegiatan'); 
 		$this->load->model('ModPenjadwalan');
-		$this->load->model('ModUsulan');
+		$this->load->model('ModUsulan'); 
+		$this->load->model('ModLaporan'); 
+		$this->load->model('ModDokumentasi'); 
 		$idUser = $this->session->userdata('id_user');
 	} 
 	public function index()
@@ -32,6 +34,7 @@ class Kegiatan extends CI_Controller {
 		$data['penjadwalan'] = $this->ModPenjadwalan->selectAll();
 		$this->load->view('modal/kegiatan', $data); 
 	}
+	
 	public function add() {
 		$q = $this->session->userdata('status');
 		if($q != "login") {
@@ -81,5 +84,19 @@ class Kegiatan extends CI_Controller {
 		}
 		$data['penjadwalan'] = $this->ModPenjadwalan->edit($id);
 		$this->load->view('modal/set-penjadwalan', $data);
+	}
+	public function kegiatan_detail($id)
+	{
+		$q = $this->session->userdata('status');
+		if($q != "login") {
+			exit();
+		}
+		$data = array(
+			'title' => "Senat Polinema | Agenda Kegiatan Detail"
+		);
+		$data['kegiatan'] = $this->ModKegiatan->edit($id);
+		$data['laporan'] = $this->ModLaporan->selectAll();
+		$data['dokumentasi'] = $this->ModDokumentasi->selectAll();
+		$this->load->view('kegiatan-detail', $data);
 	}
 }

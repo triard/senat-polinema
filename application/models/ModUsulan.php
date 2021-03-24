@@ -22,7 +22,7 @@ class ModUsulan extends CI_model {
 	private function _uploadDokumen()
 	{
 		$config['upload_path']          = './assets/dokumenPendukung';
-		$config['allowed_types']        = 'pdf|docx';
+		$config['allowed_types']        = 'pdf|docx|rar|zip';
 		$config['file_name']            = "dokumen-pendukung-".substr(md5(time()), 0, 16);
 		$config['overwrite']			= true;
 		$config['max_size']             = 5120; // 5MB
@@ -64,10 +64,9 @@ class ModUsulan extends CI_model {
         } else {
             $dokumen_pendukung = $this->input->post('old_dokumen');
 		}
-		$lokasi = $this->input->post('lokasi');
 		$status = $this->input->post('status'); 		
 		$data = array('email' => $email,'jenis' => $jenis, 'keterangan' => $keterangan,
-		'dokumen_pendukung'=>$dokumen_pendukung, 'lokasi'=>$lokasi, 'status'=>$status, 'id_user'=>$id_user);
+		'dokumen_pendukung'=>$dokumen_pendukung, 'status'=>$status, 'id_user'=>$id_user);
 			$this->db->where('id_usulan', $id_usulan);
 			$this->db->update('usulan', $data);
 	}

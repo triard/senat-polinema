@@ -48,6 +48,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </div>
 </div>
+<div class="modal fade" id="myModalView" tabindex="-1" data-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title pull-left">Preview Laporan</h5>
+            </div>
+            <form class="form xform-lg" enctype="multipart/form-data">
+                <div class="modal-body" id="modalbodyView-lg">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Tutup</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <?php $this->load->view('_partials/js'); ?>
 

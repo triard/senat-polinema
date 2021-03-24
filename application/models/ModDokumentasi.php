@@ -1,46 +1,44 @@
 <?php
-class ModLaporan extends CI_model {
-	private $_table = "laporan";
+class ModDokumentasi extends CI_model {
+	private $_table = "dokumentasi";
 
 	public function selectAll() {
 		$this->db->select('*');
-        $this->db->from('laporan');
+        $this->db->from('dokumentasi');
         return $this->db->get()->result();
 	}
 	public function add() {
 		$id_kegiatan = $this->input->post('id_kegiatan');
-		$status = $this->input->post('status');
-		$nama_laporan = $this->input->post('nama_laporan');
-		$file_laporan = $this->_uploadDokumen();
-		$data = array('id_kegiatan' => $id_kegiatan, 'nama_laporan'=>$nama_laporan, 'file_laporan'=>$file_laporan, 'status'=>$status);
-		$this->db->insert('laporan', $data);
+		$nama_dokumentasi = $this->_uploadDokumentasi();
+		$data = array('id_kegiatan' => $id_kegiatan, 'nama_dokumentasi'=>$nama_dokumentasi);
+		$this->db->insert('dokumentasi', $data);
 	}
-	private function _uploadDokumen()
+	private function _uploadDokumentasi()
 	{
-		$config['upload_path']          = './assets/laporanKegiatan';
-		$config['allowed_types']        = 'pdf|docx';
-		$config['file_name']            = "laporan-kegiatan-".substr(md5(time()), 0, 16);
+		$config['upload_path']          = './assets/dokumentasiKegiatan';
+		$config['allowed_types']        = 'png|jpg';
+		$config['file_name']            = "dokumentasi-kegiatan-".substr(md5(time()), 0, 16);
 		$config['overwrite']			= true;
 		$config['max_size']             = 5120; // 5MB
 		$this->load->library('upload', $config);
 
-		if ($this->upload->do_upload('file_laporan')) {
+		if ($this->upload->do_upload('nama_dokumentasi')) {
 			return $this->upload->data("file_name");
 		}
 	}
 	public function getById($id){
-		return $this->db->get_where($this->_table, ["id_laporan" => $id])->row();
+		return $this->db->get_where($this->_table, ["id_dokumentasi" => $id])->row();
     } 
 	public function delete($id){
 		$this->_deleteDokumen($id);
-		$this->db->where('id_laporan', $id);
-		$this->db->delete('laporan');
+		$this->db->where('id_dokumentasi', $id);
+		$this->db->delete('dokumentasi');
 	}
 	private function _deleteDokumen($id)
 	{
-    	$laporan = $this->getById($id);
-	    $filename = explode(".", $laporan->file_laporan)[0];
-		return array_map('unlink', glob(FCPATH."/assets/laporanKegiatan/$filename.*"));
+    	$dokumentasi = $this->getById($id);
+	    $filename = explode(".", $dokumentasi->nama_dokumentasi)[0];
+		return array_map('unlink', glob(FCPATH."assets/dokumentasiKegiatan/$filename.*"));
 	}
 	public function edit($id){ 
 		$this->db->select('*');

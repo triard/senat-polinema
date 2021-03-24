@@ -573,7 +573,7 @@ $(function() {
   }
 
   // Timepicker
-  if(jQuery().timepicker && $(".timepicker").length) {
+  if(jQuery().timepicker && $(".timepicker").length) { 
     $(".timepicker").timepicker({
       icons: {
         up: 'fas fa-chevron-up',

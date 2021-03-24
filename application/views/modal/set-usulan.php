@@ -5,15 +5,15 @@
 </div>
 <div class="form-group">
     <label>Pembahasan</label><br>
-    <textarea class="form-control" name="pembahasan"><?php echo $usulan->keterangan;?></textarea>
+    <textarea id="summernote-simple" name="pembahasan"><?php echo $usulan->keterangan;?></textarea>
 </div>
 <?php } else { ?>
 <div class="form-group">
     <label>Agenda</label><br>
-    <input class="form-control" name="agenda" type="text" placeholder="Masukkan agenda Anda..." required>
+    <input class="form-control" name="agenda" type="text" placeholder="Masukkan agenda Anda..." required autocomplete="off">
 </div>
 <div class="form-group">
     <label>Pembahasan</label><br>
-    <textarea class="form-control" name="pembahasan"></textarea>
+    <textarea id="summernote-simple" name="pembahasan"></textarea>
 </div>
 <?php } ?>

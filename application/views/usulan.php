@@ -8,7 +8,7 @@ $this->load->view('_partials/sidebar');
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-        <h4>Usulan</h4>
+            <h4>Usulan</h4>
         </div>
         <div class="section-body">
             <div class="row">
@@ -32,7 +32,6 @@ $this->load->view('_partials/sidebar');
                                             <th>Jenis</th>
                                             <th>Keterangan</th>
                                             <th>Dokumen Pendukung</th>
-                                            <th>Lokasi</th>
                                             <th>Status</th>
                                             <th class="disabled-sorting text-right">Actions</th>
                                         </tr>
@@ -45,7 +44,6 @@ $this->load->view('_partials/sidebar');
                                             <th>Jenis</th>
                                             <th>Keterangan</th>
                                             <th>Dokumen Pendukung</th>
-                                            <th>Lokasi</th>
                                             <th>Status</th>
                                             <th class="text-right" style="width: 150px;">Actions</th>
                                         </tr>
@@ -59,9 +57,9 @@ $this->load->view('_partials/sidebar');
                                             <td><?php echo $k->email;?></td>
                                             <td><?php echo $k->jenis;?></td>
                                             <td><?php echo $k->keterangan;?></td>
-                                            <td><?php echo $k->dokumen_pendukung;?></td>
-                                            <td><?php echo $k->lokasi;?></td>
-                                            <td><?php echo $k->status;?></td>
+                                            <td><?php echo "<a target='_blank' href='".base_url()."Usulan/download_file/$k->dokumen_pendukung'>$k->dokumen_pendukung</a>";?>
+                                            </td>
+                                            <td><div class="badge badge-success"><?php echo $k->status;?></div></td>
                                             <td class="td-actions text-right">
                                                 <button type="button" onclick="ganti(<?php echo $k->id_usulan;?>)"
                                                     rel="tooltip" class="btn btn-primary" data-original-title=""
@@ -131,6 +129,15 @@ function tambah() {
     $("#myModal").modal("show");
     $("#modalbody").load("<?php echo base_url();?>usulan/modal/", function(a) {
         $("#modalbody").html(a)
+        $("#summernote-simple").summernote({
+            dialogsInBody: true,
+            minHeight: 150,
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough']],
+                ['para', ['paragraph']]
+            ]
+        });
     })
 }
 
@@ -140,6 +147,15 @@ function ganti(a) {
     $("#myModal").modal("show");
     $("#modalbody").load("<?php echo base_url();?>usulan/edit/" + a, function(b) {
         $("#modalbody").html(b)
+        $("#summernote-simple").summernote({
+            dialogsInBody: true,
+            minHeight: 150,
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough']],
+                ['para', ['paragraph']]
+            ]
+        });
     })
 }
 

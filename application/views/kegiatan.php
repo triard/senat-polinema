@@ -28,8 +28,8 @@ $this->load->view('_partials/sidebar');
                                         <tr>
                                             <th>No</th>
                                             <th>Agenda</th>
-                                            <th>Pembahasan</th>
                                             <th>Waktu</th>
+                                            <th>Jenis Rapat</th>
                                             <th>Tempat</th>
                                             <th class="disabled-sorting text-center">Actions</th>
                                         </tr>
@@ -38,8 +38,8 @@ $this->load->view('_partials/sidebar');
                                         <tr>
                                             <th>No</th>
                                             <th>Agenda</th>
-                                            <th>Pembahasan</th>
                                             <th>Waktu</th>
+                                            <th>Jenis Rapat</th>
                                             <th>Tempat</th>
                                             <th class="text-center" style="width: 150px;">Actions</th>
                                         </tr>
@@ -50,15 +50,14 @@ $this->load->view('_partials/sidebar');
                                         <tr>
                                             <td><?php echo $no;?></td>
                                             <td><?php echo $k->agenda;?></td>
-                                            <td><?php echo $k->pembahasan;?></td>
-                                            <td><?php echo $k->waktu;?></td>
+                                            <td><?php echo date('d-m-Y H:i', strtotime($k->waktu_mulai)); ?> -
+                                            <?php echo date('H:i', strtotime($k->waktu_selesai)); ?> WIB</td>
+                                            <td><?php echo $k->jenis_rapat;?></td>
                                             <td><?php echo $k->tempat;?></td>
                                             <td class="td-actions text-center">
-                                                <button type="button" onclick="detail(<?php echo $k->id_kegiatan;?>)"
-                                                    rel="tooltip" class="btn btn-primary" data-original-title=""
-                                                    title="">
-                                                    <i class="fas fa-info-circle"></i>
-                                                </button>
+                                                <a class="btn btn-primary"
+                                                    href="<?php echo base_url('Kegiatan/kegiatan_detail/').$k->id_kegiatan;?>"><i
+                                                        class="fas fa-info-circle"></i></a>
                                                 &nbsp;
                                                 <!-- <br> -->
                                                 <button type="button" rel="tooltip" class="btn btn-danger"
@@ -124,6 +123,24 @@ function tambah() {
     $("#modalbody").load("<?php echo base_url();?>Kegiatan/modal/", function(a) {
         $("#modalbody").html(a)
         $('#datetimepicker').datetimepicker();
+        $("#summernote-simple").summernote({
+        dialogsInBody: true,
+        minHeight: 150,
+        toolbar: [
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['font', ['strikethrough']],
+            ['para', ['paragraph']]
+        ]
+    });
+    $("#summernote-tujuan").summernote({
+        dialogsInBody: true,
+        minHeight: 50,
+        toolbar: [
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['font', ['strikethrough']],
+            ['para', ['paragraph']]
+        ]
+    });
     })
 }
 
@@ -134,6 +151,24 @@ function ganti(a) {
     $("#modalbody").load("<?php echo base_url();?>Kegiatan/edit/" + a, function(b) {
         $("#modalbody").html(b)
         $('#datetimepicker').datetimepicker();
+        $("#summernote-simple").summernote({
+        dialogsInBody: true,
+        minHeight: 150,
+        toolbar: [
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['font', ['strikethrough']],
+            ['para', ['paragraph']]
+        ]
+    });
+    $("#summernote-tujuan").summernote({
+        dialogsInBody: true,
+        minHeight: 50,
+        toolbar: [
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['font', ['strikethrough']],
+            ['para', ['paragraph']]
+        ]
+    });
     })
 }
 
