@@ -17,8 +17,8 @@
     font: 14px arial;
 }
 </style>
-<div class="preloader">
-    <div class="loading">
+<div class="preloader ">
+    <div class="loading rounded-circle">
         <img alt="image" class="" width="80" src="<?php echo base_url(); ?>assets/img/loader.gif">
         <p>Harap Tunggu</p>
     </div>

@@ -8,6 +8,13 @@ class ModBerita extends CI_model {
 		$this->db->join('user as u','b.id_user=u.id_user');
         return $this->db->get()->result();
 	}
+	public function selectBerita() {
+		$this->db->select('*');
+        $this->db->from('berita');
+		$this->db->order_by('id_berita','DESC');
+		$this->db->limit('4');
+        return $this->db->get()->result();
+	}
 	public function add() {
 		$judul = $this->input->post('judul');
 		$keterangan = $this->input->post('keterangan');

@@ -7,73 +7,43 @@ $this->load->view('homepage/_partials/header');
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-        Rapat Terbuka 1
+            <a class="btn btn-warning btn-sm" href="<?php echo base_url('Homepage/gallery_folder') ?>"><i
+                    class="fas fa-arrow-left"></i> </a>&nbsp;&nbsp;
+            <h4><?php echo $kegiatan->agenda ?></h4>
         </div>
         <div class="section-body">
-            <div class="row">
-                <div class="col-12 col-sm-6 col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="chocolat-parent">
-                                <a href="<?php echo base_url(); ?>assets/img/example-image.jpg" class="chocolat-image"
-                                    title="Just an example">
-                                    <div data-crop-image="285">
-                                        <img alt="image" src="<?php echo base_url(); ?>assets/img/example-image.jpg"
-                                            class="img-fluid">
-                                    </div>
-                                </a>
-                            </div>
+            <style>
+            .image-custom {
+                display: inline-block;
+                width: 250px;
+                height: 150px;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                border-radius: 3px;
+                cursor: pointer;
+            }
+            </style>
+            <div class="container">
+                <div class="row">
+                    <?php foreach ($dokumentasi as $d) { ?>
+                    <?php if($d->id_kegiatan == $kegiatan->id_kegiatan){ ?>
+                    <div class="col-sm-3">
+                        <div class="m-1">
+                            <a href="<?php echo base_url('assets/dokumentasiKegiatan/'.$d->nama_dokumentasi); ?>"
+                                data-fancybox data-caption="">
+                                <img class="image-custom img-fluid" loading="lazy"
+                                    src="<?php echo base_url('assets/dokumentasiKegiatan/'.$d->nama_dokumentasi); ?>"
+                                    alt="" />
+                            </a>
                         </div>
+
                     </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="chocolat-parent">
-                                <a href="<?php echo base_url(); ?>assets/img/example-image.jpg" class="chocolat-image"
-                                    title="Just an example">
-                                    <div data-crop-image="285">
-                                        <img alt="image" src="<?php echo base_url(); ?>assets/img/example-image.jpg"
-                                            class="img-fluid">
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="chocolat-parent">
-                                <a href="<?php echo base_url(); ?>assets/img/example-image.jpg" class="chocolat-image"
-                                    title="Just an example">
-                                    <div data-crop-image="285">
-                                        <img alt="image" src="<?php echo base_url(); ?>assets/img/example-image.jpg"
-                                            class="img-fluid">
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="chocolat-parent">
-                                <a href="<?php echo base_url(); ?>assets/img/example-image.jpg" class="chocolat-image"
-                                    title="Just an example">
-                                    <div data-crop-image="285">
-                                        <img alt="image" src="<?php echo base_url(); ?>assets/img/example-image.jpg"
-                                            class="img-fluid">
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    <?php }} ?>
                 </div>
             </div>
         </div>
-        <center>
+        <!-- <center>
             <div class="d-flex justify-content-center p-5" style="width: 50%;">
                 <div class="embed-responsive embed-responsive-4by3">
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/zRy-PlYt4s4" frameborder="0"
@@ -81,7 +51,7 @@ $this->load->view('homepage/_partials/header');
                         allowfullscreen></iframe>
                 </div>
             </div>
-        </center>
+        </center> -->
 
 </div>
 </section>
@@ -91,3 +61,4 @@ $this->load->view('homepage/_partials/header');
 <?php $this->load->view('homepage/_partials/loader'); ?>
 </div>
 <?php $this->load->view('homepage/_partials/footer'); ?>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>

@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $this->load->view('homepage/_partials/header');
 ?>
 <!-- Main Content -->
-<div class="main-content">
+<div class="main-content" style="font-size: 1rem;">
     <section class="section">
         <?php $this->load->view('homepage/_partials/breadcrumb'); ?>
         <div class="section-body">
@@ -23,7 +23,8 @@ $this->load->view('homepage/_partials/header');
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" id="profile-tab4" data-toggle="tab" href="#profile4"
-                                                    role="tab" aria-controls="profile" aria-selected="false">Visi & Misi</a>
+                                                    role="tab" aria-controls="profile" aria-selected="false">Visi &
+                                                    Misi</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -31,24 +32,148 @@ $this->load->view('homepage/_partials/header');
                                         <div class="tab-content no-padding" id="myTab2Content">
                                             <div class="tab-pane fade show active" id="home4" role="tabpanel"
                                                 aria-labelledby="home-tab4">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                                veniam,
-                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                                                esse
-                                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                                                cupidatat non
-                                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                <h4>Senat Polinema</h4>
+                                                <p>
+                                                    Senat merupakan organ yang menjalankan fungsi pertimbangan dan
+                                                    pengawasan akademik. Uraian tugas Senat adalah sebagai berikut:
+                                                </p>
+                                                <ol>
+                                                    <li>
+                                                        Memberikan pertimbangan dalam penetapan norma akademik yang
+                                                        diusulkan
+                                                        direktur;
+                                                    </li>
+                                                    <li>
+                                                        Memberikan pertimbangan dalam penetapan kode etik sivitas
+                                                        akademika yang
+                                                        diusulkan direktur;
+                                                    </li>
+                                                    <li>
+                                                        Mengawasi penerapan norma akademik dan kode etik sivitas
+                                                        akademika;
+                                                        Memberikan pertimbangan terhadap ketentuan akademik yang
+                                                        diusulkan
+                                                        direktur mengenai: kurikulum program studi; persyaratan akademik
+                                                        untuk
+                                                        pemberian gelar akademik; dan persyaratan akademik untuk
+                                                        pemberian
+                                                        penghargaan akademik;
+                                                    </li>
+                                                    <li>
+                                                        Mengawasi kebijakan dan pelaksanaan kebijakan akademik direktur;
+                                                        Mengawasi penerapan ketentuan akademik sebagaimana dimaksud pada
+                                                        d);
+                                                    </li>
+                                                    <li>
+                                                        Mengawasi kebijakan dan pelaksanaan penjaminan mutu perguruan
+                                                        tinggi
+                                                        mengacu pada Standar Nasional Pendidikan;
+                                                    </li>
+                                                    <li>
+                                                        Mengawasi dan mengevaluasi pencapaian proses pembelajaran,
+                                                        penelitian,
+                                                        dan pengabdian kepada masyarakat dengan mengacu pada tolok ukur
+                                                        yang
+                                                        ditetapkan dalam rencana strategis, dan menyarankan usulan
+                                                        perbaikan
+                                                        kepada direktur;
+                                                    </li>
+                                                    <li>
+                                                        Mengawasi pelaksanaan kebebasan akademik, kebebasan mimbar
+                                                        akademik, dan
+                                                        otonomi keilmuan;
+                                                    </li>
+                                                    <li>
+                                                        Mengawasi pelaksanaan tata tertib akademik;
+                                                    </li>
+                                                    <li>
+                                                        Mengawasi pelaksanaan kebijakan penilaian kinerja dosen;
+                                                    </li>
+                                                    <li>
+                                                        Memberi persetujuan pemberian atau pencabutan gelar dan
+                                                        penghargaan
+                                                        akademik;
+                                                    </li>
+                                                    <li>
+                                                        Memberikan pertimbangan kepada Direktur dalam pengangkatan
+                                                        pembantu
+                                                        direktur;
+                                                    </li>
+                                                    <li>
+                                                        Merekomendasikan sanksi terhadap pelanggaran norma, etika, dan
+                                                        peraturan
+                                                        akademik oleh sivitas akademika kepada direktur.
+                                                    </li>
+                                                </ol>
+                                                <p>
+                                                    Anggota Senat Politeknik Negeri Malang, terdiri atas: 2 (dua) orang
+                                                    wakil dosen dari setiap jurusan, kecuali jurusan Teknik elektro 3
+                                                    (tiga)
+                                                    orang), 1 (satu) orang wakil unsur pimpinan jurusan, dan Kepala
+                                                    Pusat.
+                                                    Anggota Senat yang berasal dari wakil dosen dari setiap Jurusan yang
+                                                    dipilih di antara dosen berdasarkan suara terbanyak dan diusulkan
+                                                    kepada
+                                                    Direktur oleh Ketua Jurusan untuk ditetapkan sebagai anggota Senat.
+                                                    Perimbangan jumlah anggota senat yang berasal dari wakil dosen
+                                                    diupayakan proporsional antar jurusan.
+                                                </p>
+
+                                                Ketua dan Sekretaris Senat dipilih di antara anggota. Pemilihan Ketua
+                                                Senat dilakukan dalam rapat Senat yang diselenggarakan khusus. Rapat
+                                                pemilihan Ketua Senat dipimpin oleh anggota Senat tertua didampingi oleh
+                                                anggota Senat termuda. Rapat Senat sebagaimana dinyatakan sah apabila
+                                                dihadiri oleh paling sedikit ⅔ dari seluruh anggota Senat. Pimpinan
+                                                rapat menjaring paling sedikit 2 (dua) nama calon Ketua Senat dari
+                                                anggota Senat yang hadir. Pemilihan Ketua Senat dilakukan melalui
+                                                pemungutan suara. Setiap anggota Senat memiliki hak 1 (satu) suara.
+                                                Ketua Senat terpilih adalah calon yang memperoleh suara terbanyak. Ketua
+                                                Senat terpilih ditetapkan oleh Direktur. Ketua Senat terpilih menunjuk
+                                                salah satu anggota Senat sebagai Sekretaris Senat. Ketentuan lebih
+                                                lanjut mengenai persyaratan dan tata cara pemilihan Ketua Senat diatur
+                                                dalam Peraturan Senat.
                                             </div>
                                             <div class="tab-pane fade" id="profile4" role="tabpanel"
                                                 aria-labelledby="profile-tab4">
-                                                Sed sed metus vel lacus hendrerit tempus. Sed efficitur velit tortor, ac
-                                                efficitur est lobortis quis. Nullam lacinia metus erat, sed fermentum
-                                                justo rutrum ultrices. Proin quis iaculis tellus. Etiam ac vehicula
-                                                eros, pharetra consectetur dui. Aliquam convallis neque eget tellus
-                                                efficitur, eget maximus massa imperdiet. Morbi a mattis velit. Donec
-                                                hendrerit venenatis justo, eget scelerisque tellus pharetra a.
+                                                <h4>Visi</h4>
+
+                                                <p>Menjadi Lembaga Pendidikan Tinggi Vokasi yang Unggul dalam Persaingan
+                                                    Global</p>
+
+                                                <br>
+                                                <h4>Misi</h4>
+                                                <ol>
+                                                    <li>
+                                                        Menyelenggarakan dan Mengembangkan Pendidikan Vokasi yang
+                                                        Berkualitas,
+                                                        Inovatif, dan Berdaya Saing yang Mendorong Pola Pembelajaran
+                                                        Seumur
+                                                        Hidup dan Tumbuhnya Jiwa Kewirausahaan serta Sesuai Kebutuhan
+                                                        Industri,
+                                                        Lembaga Pemerintah, dan Masyarakat.
+                                                    </li>
+                                                    <li>
+                                                        Menyelenggarakan Penelitian Terapan yang Bermanfaat bagi
+                                                        Pengembangan
+                                                        Ilmu Pengetahuan dan Teknologi serta Kesejahteraan Masyarakat.
+                                                    </li>
+                                                    <li>
+                                                        Menyelenggarakan Pengabdian Kepada Masyarakat yang Bermanfaat
+                                                        bagi
+                                                        Kesejahteraan Masyarakat.
+                                                    </li>
+                                                    <li>
+                                                        Menyelenggarakan Sistem Pengelolaan Pendidikan dengan Berdasar
+                                                        pada
+                                                        Prinsip-prinsip Tatapamong yang Baik.
+                                                    </li>
+                                                    <li>
+                                                        Mengembangkan Kerjasama yang Saling Menguntungkan dengan Berbaga
+                                                        Pihak,
+                                                        baik di Dalam maupun di Luar Negeri pada Bidang-bidang yang
+                                                        Relevan.
+                                                    </li>
+                                                </ol>
                                             </div>
                                         </div>
                                     </div>

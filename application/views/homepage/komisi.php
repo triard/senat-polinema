@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $this->load->view('homepage/_partials/header');
 ?>
 <!-- Main Content -->
-<div class="main-content">
+<div class="main-content" style="font-size: 1rem;">
     <section class="section">
         <?php $this->load->view('homepage/_partials/breadcrumb'); ?>
         <div class="section-body">
@@ -12,7 +12,7 @@ $this->load->view('homepage/_partials/header');
                     <div class="row">
                         <div class="card">
                             <div class="card-header">
-                                <h4>2 Column</h4>
+                                <h4>Komisi Senat</h4>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -21,19 +21,22 @@ $this->load->view('homepage/_partials/header');
                                             <li class="nav-item">
                                                 <a class="nav-link active" id="home-tab4" data-toggle="tab"
                                                     href="#home4" role="tab" aria-controls="home"
-                                                    aria-selected="true">Komisi A</a>
+                                                    aria-selected="true">Komisi I</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" id="profile-tab4" data-toggle="tab" href="#profile4"
-                                                    role="tab" aria-controls="profile" aria-selected="false">Komisi B</a>
+                                                    role="tab" aria-controls="profile" aria-selected="false">Komisi
+                                                    II</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" id="contact-tab4" data-toggle="tab" href="#contact4"
-                                                    role="tab" aria-controls="contact" aria-selected="false">Komisi C</a>
+                                                    role="tab" aria-controls="contact" aria-selected="false">Komisi
+                                                    III</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" id="contact-tab4" data-toggle="tab" href="#komisid"
-                                                    role="tab" aria-controls="contact" aria-selected="false">Komisi D</a>
+                                                    role="tab" aria-controls="contact" aria-selected="false">Komisi
+                                                    IV</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -41,42 +44,175 @@ $this->load->view('homepage/_partials/header');
                                         <div class="tab-content no-padding" id="myTab2Content">
                                             <div class="tab-pane fade show active" id="home4" role="tabpanel"
                                                 aria-labelledby="home-tab4">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                                veniam,
-                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                                                esse
-                                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                                                cupidatat non
-                                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                <h4>Komisi I</h4>
+                                                <p>Bidang Akademik, Penelitian dan Pengabdian pada Masyarakat
+                                                    mempunyai tugas sebagai berikut:</p>
+                                                <ol>
+                                                    <li>
+                                                        Memberi persetujuan kelayakan akademik
+                                                        atas usul pembukaan, penggabungan, dan/atau penutupan Program
+                                                        Studi;
+                                                    </li>
+                                                    <li>
+                                                        Mengesahkan gelar dan memberi pertimbangan atas usul
+                                                        peraturan–peraturan akademik;
+                                                    </li>
+                                                    <li>
+                                                        Merumuskan tata tertib kehidupan kampus
+                                                        dan etika penyelenggaraan pendidikan;
+                                                    </li>
+                                                    <li>
+                                                        Merumuskan prinsip-prinsip dasar
+                                                        kebebasan akademik, kebebasan mimbar akademik, dan otonomi
+                                                        keilmuan;
+                                                    </li>
+                                                    <li>
+                                                        Memberikan pertimbangan dalam peningkatan mutu akademik dan
+                                                        sistem penjaminan mutu pendidikan;
+                                                    </li>
+                                                    <li>
+                                                        Memberikan pertimbangan dalam
+                                                        merumuskan etika pembelajaran dan kegiatan kemahasiswaan;
+                                                    </li>
+                                                    <li>
+                                                        Memberikan
+                                                        pertimbangan dalam menetapkan unggulan penelitian dan pengabdian
+                                                        kepada
+                                                        masyarakat;
+                                                    </li>
+                                                    <li>
+                                                        Merumuskan etika institusional untuk pelaksanaan penelitian
+                                                        dan
+                                                        pengabdian kepada masyarakat;
+                                                    </li>
+                                                    <li>
+                                                        Merumuskan kebijakan dalam peningkatan
+                                                        mutu dan etika penelitian dan pengabdian kepada masyarakat;
+                                                    </li>
+                                                    <li>
+                                                        Memberikan
+                                                        pertimbangan dalam pengembangan tata kelola penelitian dan
+                                                        pengabdian
+                                                        kepada masyarakat;
+                                                    </li>
+                                                    <li>
+                                                        Memberikan pertimbangan dalam pendirian pusat
+                                                        kemitraan dalam penelitian dan pengabdian kepada masyarakat;
+                                                    </li>
+                                                    <li>
+                                                        Memberikan
+                                                        pertimbangan dalam merumuskan kebijakan monitoring dan evaluasi
+                                                        untuk
+                                                        menjamin pelaksanaan penelitian dan pengabdian kepada
+                                                        masyarakat;
+                                                    </li>
+                                                    <li>
+                                                        Memberikan pertimbangan dalam menetapkan kebijakan
+                                                        monitoring dan evaluasi untuk menjamin pelaksanaan kurikulum dan
+                                                        pembelajaran dan kebijakan penelitian dan pengabdian kepada
+                                                        masyarakat.
+                                                    </li>
+                                                </ol>
+
+
                                             </div>
                                             <div class="tab-pane fade" id="profile4" role="tabpanel"
                                                 aria-labelledby="profile-tab4">
-                                                Sed sed metus vel lacus hendrerit tempus. Sed efficitur velit tortor, ac
-                                                efficitur est lobortis quis. Nullam lacinia metus erat, sed fermentum
-                                                justo rutrum ultrices. Proin quis iaculis tellus. Etiam ac vehicula
-                                                eros, pharetra consectetur dui. Aliquam convallis neque eget tellus
-                                                efficitur, eget maximus massa imperdiet. Morbi a mattis velit. Donec
-                                                hendrerit venenatis justo, eget scelerisque tellus pharetra a.
+                                                <h4>Komisi II</h4>
+                                                <p>Bidang Administrasi, Keuangan dan Kepegawaian mempunyai tugas
+                                                    sebagai berikut:</p>
+                                                <ol>
+                                                    <li>
+                                                        Merumuskan kebijakan umum dan strategis bidang
+                                                        perencanaan dan pengelolaan Administrasi, Keuangan dan
+                                                        Kepegawaian;
+                                                    </li>
+                                                    <li>
+                                                        Memberi masukan dan pertimbangan dalam perencanaan dan
+                                                        pengelolaan Administrasi, Keuangan dan Kepegawaian;
+                                                    </li>
+                                                    <li>
+                                                        Memberikan
+                                                        pertimbangan dalam menyusun sistem monitoring dan evaluasi
+                                                        pelaksanaan
+                                                        kebijakan Administrasi, Keuangan dan Kepegawaian;
+                                                    </li>
+                                                    <li>
+                                                        Mengevaluasi
+                                                        pelaksanaan kebijakan strategis di bidang perencanaan dan
+                                                        pengelolaanAdministrasi, Keuangan dan Kepegawaian;
+                                                    </li>
+                                                    <li>
+                                                        Memberikan
+                                                        pertimbangan dalam merumuskan etika dosen dan tenaga
+                                                        kependidikan.
+                                                    </li>
+                                                </ol>
+
                                             </div>
                                             <div class="tab-pane fade" id="contact4" role="tabpanel"
                                                 aria-labelledby="contact-tab4">
-                                                Vestibulum imperdiet odio sed neque ultricies, ut dapibus mi maximus.
-                                                Proin ligula massa, gravida in lacinia efficitur, hendrerit eget mauris.
-                                                Pellentesque fermentum, sem interdum molestie finibus, nulla diam varius
-                                                leo, nec varius lectus elit id dolor. Nam malesuada orci non ornare
-                                                vulputate. Ut ut sollicitudin magna. Vestibulum eget ligula ut ipsum
-                                                venenatis ultrices. Proin bibendum bibendum augue ut luctus.
+                                                <h4>Komisi III</h4>
+                                                <p>BidangKemahasiswaanmempunyai tugas sebagai
+                                                    berikut:</p>
+                                                <ol>
+                                                    <li>
+                                                        Merumuskan rancangan kebijakan pembentukan karakter mahasiswa;
+                                                    </li>
+                                                    <li>
+                                                        Merumuskan rancangan kebijakan layanan mahasiswa di bidang
+                                                        penalaran, bakat, minat, dan kesejahteraan mahasiswa;
+                                                    </li>
+                                                    <li>
+                                                        Mengkaji kebijakan layanan kemahasiswaan dan alumi;
+                                                    </li>
+                                                    <li>
+                                                        Merumuskan rancangan kebijakan pemberian
+                                                        penghargaan kepada mahasiswa yang berprestasi di bidang
+                                                        non-akademik;
+                                                    </li>
+                                                    <li>
+                                                        Merumuskan rancangan kebijakan hubungan kerjasama antara
+                                                        almamater dangan alumi;
+                                                    </li>
+                                                    <li>
+                                                        Mengkaji program kegiatan kemahasiswaan, program kreativitas
+                                                        dan kewirausahaan;
+                                                    </li>
+                                                    <li>
+                                                        Memberikan pertimbangan dalam merumuskan etika mahasiswa.
+                                                    </li>
+                                                </ol>
+
+
                                             </div>
                                             <div class="tab-pane fade" id="komisid" role="tabpanel"
                                                 aria-labelledby="contact-tab4">
-                                                wkwkVestibulum imperdiet odio sed neque ultricies, ut dapibus mi maximus.
-                                                Proin ligula massa, gravida in lacinia efficitur, hendrerit eget mauris.
-                                                Pellentesque fermentum, sem interdum molestie finibus, nulla diam varius
-                                                leo, nec varius lectus elit id dolor. Nam malesuada orci non ornare
-                                                vulputate. Ut ut sollicitudin magna. Vestibulum eget ligula ut ipsum
-                                                venenatis ultrices. Proin bibendum bibendum augue ut luctus.
+                                                <h4>Komisi IV</h4>
+                                                <p>Bidang Kerjasama mempunyai tugas sebagai berikut:</p>
+                                                <ol>
+                                                    <li>
+                                                    Memberikan pertimbangan dalam merumuskan kebijakan bidang kerja sama dengan berbagai mitra strategis;
+                                                    </li>
+                                                    <li>
+                                                    Memberikan pertimbangan dalam mengembangkan jejaring kemitraan dan kerja sama nasional dan internasional;
+                                                    </li>
+                                                    <li>
+                                                    Memberikan pertimbangan dalam menetapkan tata kelola kerja sama dan pengembangan usaha;
+                                                    </li>
+                                                    <li>
+                                                    Memberikan pertimbangan dalam menyusun sistem promosi produk riset untuk pengembangan usaha unggul dan strategis;
+                                                    </li>
+                                                    <li>
+                                                    Memberikan pertimbangan dalam menyusun sistem promosi produk riset untuk pengembangan usaha unggul dan strategis;
+                                                    </li>
+                                                    <li>
+                                                    Memberikan pertimbangan dalam merumuskan etika kerja sama kemitraan dan kelembagaan
+                                                    </li>
+                                                    <li>
+                                                    Memberikan masukan dalam menyusun kebijakan monitoring dan evaluasi untuk menjamin pelaksanaan kerja sama yang transparan dan akuntabel.
+                                                    </li>
+                                                </ol>
                                             </div>
                                         </div>
                                     </div>

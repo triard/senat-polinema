@@ -52,12 +52,20 @@ class ModDokumentasi extends CI_model {
 		$status = $this->input->post('status');
 		if (!empty($_FILES["nama_laporan"]["name"])) {
 			$this->_deleteDokumen($id_laporan);
-            $nama_laporan = $this->_uploadDokumen();
+            $nama_laporan = $this->_uploadDokumentasi();
         } else {
             $nama_laporan = $this->input->post('old_dokumen');
 		} 		
 		$data = array('id_kegiatan' => $id_kegiatan, 'nama_laporan'=>$nama_laporan, 'status'=>$status);
 		$this->db->where('id_laporan', $id_laporan);
 		$this->db->update('laporan', $data);
+	}
+
+	public function Selectcarousel(){
+		$this->db->select('nama_dokumentasi');
+        $this->db->from('dokumentasi');
+		$this->db->order_by('id_dokumentasi','DESC');
+		$this->db->limit('3');
+        return $this->db->get()->result_array();
 	}
 }
