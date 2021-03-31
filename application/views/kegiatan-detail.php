@@ -16,11 +16,13 @@ $this->load->view('_partials/sidebar');
                     <div class="card">
                         <div class="card-header">
                             <h4>Notula Rapat/Sidang</h4>
-                            <div class="card-header-action">
-                                <button class="btn btn-primary" onclick="ganti(<?php echo $kegiatan->id_kegiatan;?>)"><i
-                                        class="fas fa-pen-square"></i>
-                                    Update</button>
-                            </div>
+                            <?php if ($hakAkses == "Admin"){ ?>
+                                <div class="card-header-action">
+                                    <button class="btn btn-primary" onclick="ganti(<?php echo $kegiatan->id_kegiatan;?>)"><i
+                                            class="fas fa-pen-square"></i>
+                                        Update</button>
+                                </div>
+                            <?php } ?>
                         </div>
                         <div class="card-body">
                             <center>
@@ -75,12 +77,14 @@ $this->load->view('_partials/sidebar');
                     <div class="card">
                         <div class="card-header">
                             <h4>Laporan Hasil Rapat/Sidang</h4>
-                            <div class="card-header-action">
-                                <button class="btn btn-success"
-                                    onclick="tambahLaporan(<?php echo $kegiatan->id_kegiatan;?>)"><i
-                                        class="fas fa-plus-circle"></i>
-                                    Tambah</button>
-                            </div>
+                            <?php if ($hakAkses == "Admin"){ ?>
+                                <div class="card-header-action">
+                                    <button class="btn btn-success"
+                                        onclick="tambahLaporan(<?php echo $kegiatan->id_kegiatan;?>)"><i
+                                            class="fas fa-plus-circle"></i>
+                                        Tambah</button>
+                                </div>
+                            <?php } ?>
                         </div>
                         <div class="card-body">
                             <table class="table table-bordered table-hover">
@@ -104,10 +108,12 @@ $this->load->view('_partials/sidebar');
                                                 onclick="lihatLaporan(<?php echo $l->id_laporan;?>)">
                                                 <i class="fas fa-eye"></i>
                                             </button>
-                                            <button class="btn btn-danger"
-                                                onclick="hapus(<?php echo $l->id_laporan;?>)">
-                                                <i class="fas fa-times"></i>
-                                            </button>
+                                            <?php if ($hakAkses == "Admin"){ ?>
+                                                <button class="btn btn-danger"
+                                                    onclick="hapus(<?php echo $l->id_laporan;?>)">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            <?php } ?>
                                         </td>
                                     </tr>
                                     <?php } $no++; } ?>
@@ -118,16 +124,18 @@ $this->load->view('_partials/sidebar');
                     <div class="card">
                         <div class="card-header">
                             <h4>Dokumetasi Rapat/Sidang</h4>
+                            <?php if ($hakAkses == "Admin"){ ?>
                             <div class="card-header-action">
                                 <button class="btn btn-success"
                                     onclick="tambahGambar(<?php echo $kegiatan->id_kegiatan;?>)"><i
                                         class="fas fa-plus-circle"></i>
                                     Tambah</button>
                             </div>
+                            <?php } ?>
                         </div>
                         <div class="card-body">
-
                             <div class="gallery">
+                                <?php if ($hakAkses == "Admin"){ ?>
                                 <div class="row">
                                     <?php foreach ($dokumentasi as $d) { ?>
                                         <?php if($d->id_kegiatan == $kegiatan->id_kegiatan){ ?>
@@ -150,6 +158,7 @@ $this->load->view('_partials/sidebar');
                                     </div>
                                     <?php } } ?>
                                 </div>
+                                <?php } else { ?>
                                 <div class="row">
                                     <?php foreach ($dokumentasi as $d) { ?>
                                         <?php if($d->id_kegiatan == $kegiatan->id_kegiatan){ ?>
@@ -161,6 +170,7 @@ $this->load->view('_partials/sidebar');
                                     </div>
                                     <?php } } ?>
                                 </div>
+                                <?php } ?>
                             </div>
 
                         </div>

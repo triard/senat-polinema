@@ -7,6 +7,13 @@ class ModLaporan extends CI_model {
         $this->db->from('laporan');
         return $this->db->get()->result();
 	}
+	public function getJoinAll(){
+		$this->db->select('*');
+		$this->db->from('laporan');
+		$this->db->join('kegiatan', 'laporan.id_kegiatan = kegiatan.id_kegiatan');
+		$this->db->where('status', 'Diajukan');
+        return $this->db->get()->result();
+    } 
 	public function add() {
 		$id_kegiatan = $this->input->post('id_kegiatan');
 		$status = $this->input->post('status');
@@ -59,6 +66,11 @@ class ModLaporan extends CI_model {
             $nama_laporan = $this->input->post('old_dokumen');
 		} 		
 		$data = array('id_kegiatan' => $id_kegiatan, 'nama_laporan'=>$nama_laporan, 'status'=>$status);
+		$this->db->where('id_laporan', $id_laporan);
+		$this->db->update('laporan', $data);
+	}
+	public function updateStatus($id_laporan, $status){
+		$data = array('status'=>$status);
 		$this->db->where('id_laporan', $id_laporan);
 		$this->db->update('laporan', $data);
 	}

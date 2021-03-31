@@ -94,6 +94,7 @@ class Kegiatan extends CI_Controller {
 		$data = array(
 			'title' => "Senat Polinema | Agenda Kegiatan Detail"
 		);
+		$data['hakAkses'] = $this->session->userdata('level');
 		$data['kegiatan'] = $this->ModKegiatan->edit($id);
 		$data['laporan'] = $this->ModLaporan->selectAll();
 		$data['dokumentasi'] = $this->ModDokumentasi->selectAll();
