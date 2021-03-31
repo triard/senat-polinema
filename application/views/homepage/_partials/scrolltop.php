@@ -11,6 +11,7 @@
     text-decoration: none;
     transition: opacity 0.2s ease-out;
 	color:white;
+    border-radius: 50%;
 }
 
 .back-to-top:hover {
@@ -20,6 +21,5 @@
 
 <!-- Back to top -->
 <a href="#" class="back-to-top">
-<!-- <img style="width: 40px;" src="<?php echo base_url('assets/img/up.png') ?>" alt=""> -->
-<i class="fa fa-arrow-up fa-2x bg-success p-2"></i> 
+<i class="fa fa-arrow-up fa-2x bg-success p-2 rounded-circle"></i> 
 </a>

@@ -2,11 +2,20 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Homepage extends CI_Controller {
+	public function __construct() {
+		parent::__construct();
+		$this->load->model('ModDokumentasi');
+		$this->load->model('ModBerita');
+		$this->load->model('ModKegiatan');
+		$this->load->model('ModLaporan');
+	} 
 
 	public function home() {
 		$data = array(
 			'title' => "Homepage"
 		);
+		$data['dokumentasi'] = $this->ModDokumentasi->Selectcarousel();
+		$data['berita'] = $this->ModBerita->selectBerita();
 		$this->load->view('homepage/home.php', $data);
 	}
 
@@ -30,22 +39,35 @@ class Homepage extends CI_Controller {
 		$data =  array(
 			'title' => "Senat Polinema"
 		);
+		$data['laporan'] = $this->ModLaporan->selectAll();
 		$this->load->view('homepage/arsip', $data);
 	}
 
 	public function gallery()
 	{
 		$data =  array(
-			'title' => "Senat Polinema"
+			'title' => "Senat Polinema | Dokumentasi"
 		);
+		$data['dokumentasi'] = $this->ModDokumentasi->selectAll();
 		$this->load->view('homepage/gallery', $data);
 	}
 
-	public function gallery_detail()
+	public function gallery_folder()
+	{
+		$data =  array(
+			'title' => "Senat Polinema | Dokumentasi"
+		);
+		$data['kegiatan'] = $this->ModKegiatan->selectAll();
+		$this->load->view('homepage/gallery_folder', $data);
+	}
+
+	public function gallery_detail($id)
 	{
 		$data =  array(
 			'title' => "Senat Polinema"
 		);
+		$data['kegiatan'] = $this->ModKegiatan->edit($id);
+		$data['dokumentasi'] = $this->ModDokumentasi->selectAll();
 		$this->load->view('homepage/gallery-detail', $data);
 	}
 

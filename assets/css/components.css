@@ -53,7 +53,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
   background-color: #fff;
   border-radius: 3px;
-  border: none;
+  border: none; 
   position: relative;
   margin-bottom: 30px;
 }

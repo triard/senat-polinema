@@ -3,7 +3,7 @@
     <div class="col-12">
         <div class="form-group">
             <label>Judul Berita</label><br>
-            <input class="form-control" name="judul" type="judul" placeholder="Judul berita  ..." required autocomplete="off">
+            <input class="form-control" name="judul" type="judul" maxlength="95" placeholder="Judul berita  ..." required autocomplete="off">
         </div>
         <div class="form-group">
             <label>Isi Berita</label><br>
@@ -33,7 +33,7 @@
     <div class="col-12">
         <div class="form-group">
             <label>Judul Berita</label><br>
-            <input class="form-control" name="judul" type="judul" value="<?php echo $berita->judul;?>"
+            <input class="form-control" name="judul" type="judul" maxlength="95" value="<?php echo $berita->judul;?>"
                 placeholder="Masukkan judul  ..." required autocomplete="off">
         </div>
         <div class="form-group">
