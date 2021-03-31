@@ -88,7 +88,8 @@ $this->load->view('homepage/_partials/header');
                         <div class="card-header text-white" style="background-color: #1E3799;">
                             <h4><b>BERITA</b></h4>
                             <div class="card-header-action">
-                                <a href="<?php echo base_url('Berita/berita') ?>" class="btn btn-warning">View All</a>
+                                <a href="<?php echo base_url('Berita/berita') ?>" class="btn btn-warning">Lihat
+                                    Semua</a>
                             </div>
                         </div>
                         <div class="card-body">
@@ -121,8 +122,8 @@ $this->load->view('homepage/_partials/header');
                                 Webiste Senat Polinema</b></h3>
                     </div>
                     <hr>
-                    <p>Tetap semangat menghadapi mimpi,
-                        Tetap tangguh hadapi pandemi.</p>
+                    <p><strong>Tetap semangat menghadapi mimpi, <br>
+                            Tetap tangguh hadapi pandemi.</strong></p>
                 </div>
             </div>
         </div>
