@@ -53,6 +53,16 @@ class Penjadwalan extends CI_Controller {
 		$data['usulan'] = $this->ModUsulan->selectAll();
 		$this->load->view('modal/penjadwalan', $data);
 	}
+	public function edit_status($id) {
+		$q = $this->session->userdata('status');
+		if($q != "login") {
+			exit();
+		}
+		$data['cek'] = 2;
+		$data['penjadwalan'] = $this->ModPenjadwalan->edit($id);
+		$data['usulan'] = $this->ModUsulan->selectAll();
+		$this->load->view('modal/penjadwalan', $data);
+	}
 	public function delete($id) {
 		$q = $this->session->userdata('status');
 		if($q != "login") {
@@ -67,6 +77,14 @@ class Penjadwalan extends CI_Controller {
 			exit();
 		}
 		$this->ModPenjadwalan->update();
+		echo json_encode(array("status" => TRUE));
+	}
+	public function update_status() {
+		$q = $this->session->userdata('status');
+		if($q != "login") {
+			exit();
+		}
+		$this->ModPenjadwalan->updateStatus();
 		echo json_encode(array("status" => TRUE));
 	}
 	public function set_usulan($id) {

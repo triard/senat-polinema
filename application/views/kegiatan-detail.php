@@ -16,7 +16,7 @@ $this->load->view('_partials/sidebar');
                     <div class="card">
                         <div class="card-header">
                             <h4>Notula Rapat/Sidang</h4>
-                            <?php if ($hakAkses == "Admin"){ ?>
+                            <?php if ($hakAkses == "Sekretaris" || $hakAkses == "Ketua Komisi"){ ?>
                                 <div class="card-header-action">
                                     <button class="btn btn-primary" onclick="ganti(<?php echo $kegiatan->id_kegiatan;?>)"><i
                                             class="fas fa-pen-square"></i>
@@ -77,7 +77,7 @@ $this->load->view('_partials/sidebar');
                     <div class="card">
                         <div class="card-header">
                             <h4>Laporan Hasil Rapat/Sidang</h4>
-                            <?php if ($hakAkses == "Admin"){ ?>
+                            <?php if ($hakAkses == "Sekretaris" || $hakAkses == "Ketua Komisi"){ ?>
                                 <div class="card-header-action">
                                     <button class="btn btn-success"
                                         onclick="tambahLaporan(<?php echo $kegiatan->id_kegiatan;?>)"><i
@@ -108,7 +108,7 @@ $this->load->view('_partials/sidebar');
                                                 onclick="lihatLaporan(<?php echo $l->id_laporan;?>)">
                                                 <i class="fas fa-eye"></i>
                                             </button>
-                                            <?php if ($hakAkses == "Admin"){ ?>
+                                            <?php if ($hakAkses == "Sekretaris"){ ?>
                                                 <button class="btn btn-danger"
                                                     onclick="hapus(<?php echo $l->id_laporan;?>)">
                                                     <i class="fas fa-times"></i>

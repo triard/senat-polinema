@@ -70,8 +70,8 @@ class ModUser extends CI_model {
 	{
 		$this->db->select('id_user');
 		$this->db->from('user');
-		return $this->db->count_all_results();
-	}
+		return $this->db->count_all_results(); 
+	} 
 	public function updateFoto(){
 		$id_user = $this->input->post('id_user');
 		if (!empty($_FILES["image"]["name"])) {

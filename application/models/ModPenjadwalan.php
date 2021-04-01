@@ -71,6 +71,13 @@ class ModPenjadwalan extends CI_model {
 			$this->db->where('id_penjadwalan', $id_penjadwalan);
 			$this->db->update('penjadwalan', $data);
 	}
+	public function updateStatus(){
+		$id_penjadwalan = $this->input->post('id_penjadwalan');
+		$status = $this->input->post('status'); 		
+		$data = array('status'=>$status);
+			$this->db->where('id_penjadwalan', $id_penjadwalan);
+			$this->db->update('penjadwalan', $data);
+	}
 	public function getCountPenjadwalan()
 	{
 		$this->db->select('id_penjadwalan');

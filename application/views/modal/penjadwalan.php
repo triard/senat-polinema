@@ -15,8 +15,7 @@
         <div class="set-usulan">
             <div class="form-group">
                 <label>Agenda</label><br>
-                <input class="form-control" name="agenda" type="text" placeholder="Masukkan agenda Anda..." required
-                    >
+                <input class="form-control" name="agenda" type="text" placeholder="Masukkan agenda Anda..." required>
             </div>
             <div class="form-group">
                 <label>Pembahasan</label><br>
@@ -53,11 +52,25 @@
         </div>
         <div class="form-group">
             <label>Password</label><br>
-            <input class="form-control" name="password" type="text" placeholder="Masukkan password..." autocomplete="off">
+            <input class="form-control" name="password" type="text" placeholder="Masukkan password..."
+                autocomplete="off">
         </div>
         <input type="hidden" name="status" value="Diajukan">
         <input type="hidden" name="id_user" value="<?php echo $this->session->userdata('id_user');?>">
     </div>
+</div>
+<?php }else if($cek == 2) { ?>
+    <input type="hidden" name="id_penjadwalan" value="<?php echo $penjadwalan->id_penjadwalan;?>">
+<div class="form-group">
+    <label>Status</label><br>
+    <select name="status" class="custom-select form-control" required>
+        <option value="<?php echo $penjadwalan->status;?>" selected>
+            <?php echo $penjadwalan->status;?></option>
+        <option disabled>Pilih Status Rapat</option>
+        <option disabled>------------------------------</option>
+        <option value="Ditolak">Ditolak</option>
+        <option value="Disetujui">Disetujui</option>
+    </select>
 </div>
 <?php } else { ?>
 <input type="hidden" name="id_penjadwalan" value="<?php echo $penjadwalan->id_penjadwalan;?>">
@@ -92,18 +105,20 @@
             </div>
         </div>
         <div class="form-group">
-                <label>Status</label><br>
-                <select name="status" class="custom-select form-control" required>
-                    <option value="<?php echo $penjadwalan->status;?>" selected>
-                        <?php echo $penjadwalan->status;?></option>
-                    <option disabled >Pilih Status Rapat</option>
-                    <option disabled>------------------------------</option>
-                    <option value="Diajukan">Diajukan</option>
-                    <option value="Dijadwalkan">Dijadwalkan</option>
-                    <option value="Rapat Berlangsung">Rapat Berlangsung</option>
-                    <option value="Selesai">Selesai</option>
-                </select>
-            </div>
+            <label>Status</label><br>
+            <select name="status" class="custom-select form-control" required>
+                <option value="<?php echo $penjadwalan->status;?>" selected>
+                    <?php echo $penjadwalan->status;?></option>
+                <option disabled>Pilih Status Rapat</option>
+                <option disabled>------------------------------</option>
+                <?php if($penjadwalan->status == "Ditolak"){ ?>
+                <option value="Diajukan">Diajukan</option>
+                <?php }else if($penjadwalan->status == "Disetujui"){ ?>
+                <option value="Rapat Berlangsung">Rapat Berlangsung</option>
+                <option value="Selesai">Selesai</option>
+                <?php } ?>
+            </select>
+        </div>
     </div>
     <div class="col-6">
         <div class="form-group">
@@ -129,6 +144,10 @@
             </select>
         </div>
         <div class="form-group">
+            <label>Tempat</label><br>
+            <input class="form-control" name="tempat" type="text" value="<?php echo $penjadwalan->tempat;?>" placeholder="Masukkan tempat..." autocomplete="off">
+        </div>
+        <div class="form-group">
             <label>Link Ruangan Daring</label><br>
             <textarea class="form-control" name="link"><?php echo $penjadwalan->link;?></textarea>
         </div>
@@ -137,7 +156,6 @@
             <input class="form-control" name="password" type="text" value="<?php echo $penjadwalan->password;?>"
                 placeholder="Masukkan password..." autocomplete="off">
         </div>
-        <input type="hidden" name="status" value="<?php echo $penjadwalan->status;?>">
     </div>
 </div>
 <?php } ?>

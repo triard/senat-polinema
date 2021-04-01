@@ -17,8 +17,10 @@ $this->load->view('_partials/sidebar');
                         <div class="card-header">
                             <h4></h4>
                             <div class="card-header-action">
+                            <?php if($this->session->userdata('level') != "Ketua Senat"){ ?>
                                 <button class="btn btn-success" onclick="tambah()"><i class="fas fa-plus-circle"></i>
                                     Tambah</button>
+                            <?php } ?>
                             </div>
                         </div>
                         <div class="card-body">
@@ -60,11 +62,13 @@ $this->load->view('_partials/sidebar');
                                                         class="fas fa-info-circle"></i></a>
                                                 &nbsp;
                                                 <!-- <br> -->
+                                                <?php if($this->session->userdata('level') != "Ketua Senat"){ ?>
                                                 <button type="button" rel="tooltip" class="btn btn-danger"
                                                     data-original-title="" title=""
                                                     onclick="hapus(<?php echo $k->id_kegiatan;?>)">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
+                                                <?php } ?>
                                             </td>
                                         </tr>
                                         <?php $no++; } ?>
