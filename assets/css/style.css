@@ -1023,7 +1023,7 @@ table tr:hover .table-links {
   color: #fff;
   background-color: #6777ef; }
 .nav-pills .nav-item .nav-link {
-  color: #6777ef;
+  color: #0077C0;
   padding-left: 15px !important;
   padding-right: 15px !important; }
   .nav-pills .nav-item .nav-link:hover {
@@ -1031,7 +1031,7 @@ table tr:hover .table-links {
   .nav-pills .nav-item .nav-link.active {
     box-shadow: 0 2px 6px #acb5f6;
     color: #fff;
-    background-color: #6777ef; }
+    background-color: #0077C0; }
   .nav-pills .nav-item .nav-link .badge {
     padding: 5px 8px;
     margin-left: 5px; }

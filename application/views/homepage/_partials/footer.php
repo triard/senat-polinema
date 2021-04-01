@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <img alt="image" class="" width="150" src="<?php echo base_url(); ?>assets/img/logo-polinema-2.png">
             </div>
             <div class="col-4 p-3">
-                <span>Copyright © <?php echo SITE_NAME ." ". Date('Y') ?></span>
+                <span style="color: white;">Copyright © <?php echo SITE_NAME ." ". Date('Y') ?></span>
             </div>
         </div>
     </div>

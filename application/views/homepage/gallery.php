@@ -11,7 +11,7 @@ $this->load->view('homepage/_partials/header');
                 <div class="breadcrumb-item active"><a href="<?php echo base_url('Homepage/home') ?>">Beranda</a></div>
                 <div class="breadcrumb-item">Dokuemntasi Rapat</div>
             </div>
-        </div>
+        </div> 
         <div class="row">
             <div class="col-10">
             </div>

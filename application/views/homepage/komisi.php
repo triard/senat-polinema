@@ -44,6 +44,7 @@ $this->load->view('homepage/_partials/header');
                                 <div class="tab-pane fade show active" id="home4" role="tabpanel"
                                     aria-labelledby="home-tab4">
                                     <h4>Komisi I</h4>
+                                    <hr style="border: 3px solid #EE5A24; border-radius: 5px;">
                                     <p>Bidang Akademik, Penelitian dan Pengabdian pada Masyarakat
                                         mempunyai tugas sebagai berikut:</p>
                                     <ol style="text-align: justify;">
@@ -117,6 +118,7 @@ $this->load->view('homepage/_partials/header');
                                 </div>
                                 <div class="tab-pane fade" id="profile4" role="tabpanel" aria-labelledby="profile-tab4">
                                     <h4>Komisi II</h4>
+                                    <hr style="border: 3px solid #EE5A24; border-radius: 5px;">
                                     <p>Bidang Administrasi, Keuangan dan Kepegawaian mempunyai tugas
                                         sebagai berikut:</p>
                                     <ol style="text-align: justify;">
@@ -150,6 +152,7 @@ $this->load->view('homepage/_partials/header');
                                 </div>
                                 <div class="tab-pane fade" id="contact4" role="tabpanel" aria-labelledby="contact-tab4">
                                     <h4>Komisi III</h4>
+                                    <hr style="border: 3px solid #EE5A24; border-radius: 5px;">
                                     <p>BidangKemahasiswaanmempunyai tugas sebagai
                                         berikut:</p>
                                     <ol style="text-align: justify;">
@@ -185,6 +188,7 @@ $this->load->view('homepage/_partials/header');
                                 </div>
                                 <div class="tab-pane fade" id="komisid" role="tabpanel" aria-labelledby="contact-tab4">
                                     <h4>Komisi IV</h4>
+                                    <hr style="border: 3px solid #EE5A24; border-radius: 5px;">
                                     <p>Bidang Kerjasama mempunyai tugas sebagai berikut:</p>
                                     <ol style="text-align: justify;">
                                         <li>

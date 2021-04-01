@@ -47,7 +47,8 @@ $this->load->view('homepage/_partials/header');
                             <div class="tab-content no-padding" id="myTab2Content">
                                 <div class="tab-pane fade show active" id="home4" role="tabpanel"
                                     aria-labelledby="home-tab4">
-                                    <h4>Senat Polinema</h4>
+                                    <h4>Senat Politeknik Negeri Malang</h4>
+                                    <hr style="border: 3px solid #EE5A24; border-radius: 5px;">
                                     <p style="text-indent: 45px;text-align: justify;">
                                         Senat merupakan organ yang menjalankan fungsi pertimbangan dan
                                         pengawasan akademik. Uraian tugas Senat adalah sebagai berikut:
@@ -150,7 +151,7 @@ $this->load->view('homepage/_partials/header');
                                 </div>
                                 <div class="tab-pane fade" id="profile4" role="tabpanel" aria-labelledby="profile-tab4">
                                     <h4>Visi</h4>
-
+                                    <hr style="border: 3px solid #EE5A24; border-radius: 5px;">
                                     <p>Menjadi Lembaga Pendidikan Tinggi Vokasi yang Unggul dalam Persaingan
                                         Global</p>
 
@@ -191,12 +192,14 @@ $this->load->view('homepage/_partials/header');
                                 </div>
                                 <div class="tab-pane fade" id="struktur" role="tabpanel" aria-labelledby="strukturtab">
                                     <h4>Struktur Organisasi</h4>
+                                    <hr style="border: 3px solid #EE5A24; border-radius: 5px;">
                                     <center><img src="<?php echo base_url('assets/img/struktur.png') ?>"
                                             alt="struktur organisasi" style="width: 500px;"></center>
 
                                 </div>
                                 <div class="tab-pane fade" id="anggota" role="tabpanel" aria-labelledby="anggotatab">
                                     <h4>Anggota Senat</h4>
+                                    <hr style="border: 3px solid #EE5A24; border-radius: 5px;">
                                     <div class="table-responsive">
                                         <table class="table table-hover">
                                             <thead>
@@ -222,6 +225,7 @@ $this->load->view('homepage/_partials/header');
                                 <div class="tab-pane fade" id="sekretariat" role="tabpanel"
                                     aria-labelledby="anggotatab">
                                     <h4>Sekretariat</h4>
+                                    <hr style="border: 3px solid #EE5A24; border-radius: 5px;">
                                     <p><strong>
                                             Jl. Soekarno Hatta No.9, Jatimulyo, Kec. Lowokwaru, Kota Malang,
                                             Jawa Timur 65141
