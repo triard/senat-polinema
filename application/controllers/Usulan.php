@@ -34,24 +34,29 @@ class Usulan extends CI_Controller {
 	public function add() {
 		$q = $this->session->userdata('status');
 		if($q != "login") {
-			exit();
+			exit(); 
 		}
 		$this->ModUsulan->add();
 		echo json_encode(array("status" => TRUE));
 	}
 	public function add_homepage() {
-		$q = $this->session->userdata('status');
-		if($q != "login") {
-			exit();
-		}
-		$this->ModUsulan->add();
-		echo json_encode(array("status" => TRUE));
-		if(json_encode(array("status" => TRUE))){
-			$this->session->set_flashdata('success', 'Usulan Anda berhasil diajukan');
-		}else{
-			$this->session->set_flashdata('failed', 'Usulan Anda gagal diajukan');
-		}
-		redirect('homepage/usulan', 'refresh');
+		$secutity_code = $this->input->post('secutity_code');
+		$mycaptcha = $this->session->userdata('mycaptcha');
+		if ($this->input->post() && ($secutity_code == $mycaptcha)) {
+			$this->ModUsulan->add();
+			if(json_encode(array("status" => TRUE))){
+				$this->session->set_flashdata('success', 'Usulan Anda berhasil diajukan');
+			}else{
+				$this->session->set_flashdata('failed', 'Usulan Anda gagal diajukan');
+			}
+			redirect('homepage/usulan', 'refresh'); 
+		}else {
+			// pesan akan muncul jika captcha salah
+			$this->session->set_flashdata('failed','Captcha salah');
+			redirect('homepage/usulan', 'refresh'); 
+		   }
+
+
 	}
 	public function edit($id) {
 		$q = $this->session->userdata('status');
@@ -83,4 +88,5 @@ class Usulan extends CI_Controller {
 		$name = $this->uri->segment(3);
 		force_download("assets/dokumenPendukung/".$name, null);
 	}
+
 }

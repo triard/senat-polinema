@@ -97,7 +97,7 @@ $this->load->view('homepage/_partials/header');
                                 <li class="media">
                                     <div class="media-body">
                                         <?php foreach ($berita as $b) { ?>
-                                        <p><a href="<?php echo base_url('Berita/berita_detail/').$b->id_berita ?>"
+                                        <p style="text-align: justify;"><a href="<?php echo base_url('Berita/berita_detail/').$b->id_berita ?>"
                                                 style="text-decoration:none"><?php echo $b->judul ?></a></p>
                                         <?php } ?>
                                     </div>

@@ -51,7 +51,7 @@ $this->load->view('_partials/sidebar');
                                     <tbody>
                                         <?php $no=1;
                                  foreach ($usulan as $k) { ?>
-                                        <tr>
+                                        <tr> 
                                             <td><?php echo $no;?></td>
                                             <td><?php echo $k->nama_pengusul;?></td>
                                             <td><?php echo $k->email;?></td>

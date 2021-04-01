@@ -5,12 +5,18 @@ $this->load->view('homepage/_partials/header');
 
 <div class="main-content">
     <section class="section">
+    <div class="section-header">
+            <h1>Dokuemntasi Rapat</h1>
+            <div class="section-header-breadcrumb">
+                <div class="breadcrumb-item active"><a href="<?php echo base_url('Homepage/home') ?>">Beranda</a></div>
+                <div class="breadcrumb-item">Dokuemntasi Rapat</div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-10">
-                <?php $this->load->view('homepage/_partials/breadcrumb'); ?>
             </div>
             <div class="col-2">
-                <a class="btn btn-primary btn-sm float-right"
+                <a class="btn btn-primary btn-sm float-right mb-2"
                     href="<?php echo base_url('Homepage/gallery_folder') ?>"><i class="fas fa-folder"></i></a>
             </div>
         </div>

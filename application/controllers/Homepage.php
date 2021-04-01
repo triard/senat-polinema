@@ -76,6 +76,25 @@ class Homepage extends CI_Controller {
 		$data =  array(
 			'title' => "Senat Polinema | Usulan"
 		);
+		$config_captcha = array(
+			'img_path'  => './captcha/',
+			'img_url'  => base_url().'captcha/',
+			'img_width'  => '200',
+			'img_height' => 40,
+			'border' => 0, 
+			'expiration' => 7200
+		   );
+		  
+		   // create captcha image
+		   $cap = create_captcha($config_captcha);
+		  
+		   // store image html code in a variable
+		   $data['img'] = $cap['image'];
+		  
+		   // store the captcha word in a session
+		$this->session->set_userdata('mycaptcha', $cap['word']);
 		$this->load->view('homepage/usulan', $data);
 	}
+
+	
 }
