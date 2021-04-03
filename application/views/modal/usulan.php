@@ -73,19 +73,19 @@
             <select name="status" id="status" class="custom-select form-control">
                 <option value="<?php echo $usulan->status;?>" selected><?php echo $usulan->status;?></option>
                 <option disabled>------------------------------------</option>
-                <option value="diajukan">Diajukan</option>
+                <option value="diajukan">Diajukan - Sekretaris</option>
                 <option value="diajukan - komisi 1">Diajukan - Komisi 1</option>
                 <option value="diajukan - komisi 2">Diajukan - Komisi 2</option>
                 <option value="diajukan - komisi 3">Diajukan - Komisi 3</option>
                 <option value="diajukan - komisi 4">Diajukan - Komisi 4</option>
                 <option disabled>------------------------------------</option>
-                <option value="diajukan">Sedang Diproses</option>
+                <option value="diajukan">Sedang Diproses - Sekretaris</option>
                 <option value="diajukan - komisi 1">Sedang Diproses - Komisi 1</option>
                 <option value="diajukan - komisi 2">Sedang Diproses - Komisi 2</option>
                 <option value="diajukan - komisi 3">Sedang Diproses - Komisi 3</option>
                 <option value="diajukan - komisi 4">Sedang Diproses - Komisi 4</option>
                 <option disabled>------------------------------------</option>
-                <option value="diajukan">Selesai</option>
+                <option value="diajukan">Selesai - Sekretaris</option>
                 <option value="diajukan - komisi 1">Selesai - Komisi 1</option>
                 <option value="diajukan - komisi 2">Selesai - Komisi 2</option>
                 <option value="diajukan - komisi 3">Selesai - Komisi 3</option>

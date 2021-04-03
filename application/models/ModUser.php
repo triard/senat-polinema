@@ -6,6 +6,12 @@ class ModUser extends CI_model {
         $this->db->join('account','user.id_user=account.id_user');
         return $this->db->get()->result();
 	}
+	public function userById() {
+		$this->db->select('*');
+        $this->db->from('user');
+		$this->db->where('id_user',$this->session->userdata('id_user'));
+        return $this->db->get()->result();
+	}
 	public function add() {
 		$nama = $this->input->post('nama');
 		$jabatan = $this->input->post('jabatan');

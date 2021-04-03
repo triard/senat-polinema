@@ -71,7 +71,7 @@ $this->load->view('dist/_partials/header');
                       <li class="nav-item">
                         <a class="nav-link" id="contact-tab2" data-toggle="tab" href="#contact2" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
                       </li>
-                    </ul>
+                    </ul> 
                     <div class="tab-content tab-bordered" id="myTab3Content">
                       <div class="tab-pane fade show active" id="home2" role="tabpanel" aria-labelledby="home-tab2">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod

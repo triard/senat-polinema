@@ -7,6 +7,12 @@ class ModUsulan extends CI_model {
         $this->db->from('usulan');
         return $this->db->get()->result();
 	}
+	public function selectById() {
+		$this->db->select('*');
+        $this->db->from('usulan');
+		$this->db->where('id_user',$this->session->userdata('id_user'));
+        return $this->db->get()->result();
+	}
 	public function add() {
 		$nama_pengusul = $this->input->post('nama_pengusul');
 		$email = $this->input->post('email');

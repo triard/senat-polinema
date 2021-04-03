@@ -6,6 +6,7 @@ class Usulan extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('ModUsulan');
+		$this->load->model('ModUser');
 		$idUser = $this->session->userdata('id_user');
 	} 
 	public function index()
@@ -19,6 +20,8 @@ class Usulan extends CI_Controller {
 		}
 		$menu['login'] = $this->ModUsulan->edit($this->session->userdata('id_user'));
 		$data['usulan'] = $this->ModUsulan->selectAll();
+		$data['usulanById'] = $this->ModUsulan->selectById();
+		$data['userById'] = $this->ModUser->userById();
 		$this->load->view('usulan',$data);
 	}
 	public function modal() {
