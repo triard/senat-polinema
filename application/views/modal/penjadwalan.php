@@ -7,8 +7,14 @@
                 <option disabled selected>Pilih Referensi</option>
                 <option value="0">Referensi Baru</option>
                 <?php foreach ($usulan as $u): ?>
+                <?php if($this->session->userdata('level') == "Sekretaris" && $u->status == "Diajukan - Sekretaris" && ($u->jenis == "Kebijakan" || $u->jenis == "Pertimbangan")){ ?>
                 <option value="<?php echo $u->id_usulan; ?>"><?php echo $u->jenis;?> - <?php echo $u->keterangan;?>
                 </option>
+                <?php } ?>
+                <?php if($this->session->userdata('level') == "Ketua Komisi" && ($u->status == "Diajukan - Komisi 1" || $u->status == "Diajukan - Komisi 2" || $u->status == "Diajukan - Komisi 3" || $u->status == "Diajukan - Komisi 4") && $u->jenis == "Pengawasan"){ ?>
+                <option value="<?php echo $u->id_usulan; ?>"><?php echo $u->jenis;?> - <?php echo $u->keterangan;?>
+                </option>
+                <?php } ?>
                 <?php endforeach; ?>
             </select>
         </div>
@@ -60,7 +66,7 @@
     </div>
 </div>
 <?php }else if($cek == 2) { ?>
-    <input type="hidden" name="id_penjadwalan" value="<?php echo $penjadwalan->id_penjadwalan;?>">
+<input type="hidden" name="id_penjadwalan" value="<?php echo $penjadwalan->id_penjadwalan;?>">
 <div class="form-group">
     <label>Status</label><br>
     <select name="status" class="custom-select form-control" required>
@@ -88,8 +94,14 @@
                 <option disabled>------------------------------</option>
                 <option value="0">Referensi Baru</option>
                 <?php foreach ($usulan as $u): ?>
+                <?php if($this->session->userdata('level') == "Sekretaris" && $u->status == "Diajukan - Sekretaris" && ($u->jenis == "Kebijakan" || $u->jenis == "Pertimbangan")){ ?>
                 <option value="<?php echo $u->id_usulan; ?>"><?php echo $u->jenis;?> - <?php echo $u->keterangan;?>
                 </option>
+                <?php } ?>
+                <?php if($this->session->userdata('level') == "Ketua Komisi" && ($u->status == "Diajukan - Komisi 1" || $u->status == "Diajukan - Komisi 2" || $u->status == "Diajukan - Komisi 3" || $u->status == "Diajukan - Komisi 4") && $u->jenis == "Pengawasan"){ ?>
+                <option value="<?php echo $u->id_usulan; ?>"><?php echo $u->jenis;?> - <?php echo $u->keterangan;?>
+                </option>
+                <?php } ?>
                 <?php endforeach; ?>
             </select>
         </div>
@@ -145,7 +157,8 @@
         </div>
         <div class="form-group">
             <label>Tempat</label><br>
-            <input class="form-control" name="tempat" type="text" value="<?php echo $penjadwalan->tempat;?>" placeholder="Masukkan tempat..." autocomplete="off">
+            <input class="form-control" name="tempat" type="text" value="<?php echo $penjadwalan->tempat;?>"
+                placeholder="Masukkan tempat..." autocomplete="off">
         </div>
         <div class="form-group">
             <label>Link Ruangan Daring</label><br>

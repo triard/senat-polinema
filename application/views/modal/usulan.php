@@ -17,8 +17,9 @@
             <label>Jenis</label><br>
             <select name="jenis" id="jenis" class="custom-select form-control" required>
                 <option selected disabled>---- Pilih Jenis Usulan ----</option>
-                <option value="pengawasan">Usulan Pengawasan</option>
-                <option value="kebijakan">Usulan Kebijakan</option>
+                <option value="Pengawasan">Usulan Pengawasan</option>
+                <option value="Kebijakan">Usulan Kebijakan</option>
+                <option value="Pertimbangan">Usulan Pertimbangan</option>
             </select>
         </div>
         <div class="form-group">
@@ -53,8 +54,9 @@
             <select name="jenis" id="jenis" class="custom-select form-control">
                 <option value="<?php echo $usulan->jenis;?>" selected><?php echo $usulan->jenis ?></option>
                 <option disabled>------------------------------------</option>
-                <option value="pengawasan">Usulan Pengawasan</option>
-                <option value="kebijakan">Usulan Kebijakan</option>
+                <option value="Pengawasan">Usulan Pengawasan</option>
+                <option value="Kebijakan">Usulan Kebijakan</option>
+                <option value="Pertimbangan">Usulan Pertimbangan</option>
             </select>
         </div>
         <div class="form-group">
@@ -73,23 +75,23 @@
             <select name="status" id="status" class="custom-select form-control">
                 <option value="<?php echo $usulan->status;?>" selected><?php echo $usulan->status;?></option>
                 <option disabled>------------------------------------</option>
-                <option value="diajukan">Diajukan - Sekretaris</option>
-                <option value="diajukan - komisi 1">Diajukan - Komisi 1</option>
-                <option value="diajukan - komisi 2">Diajukan - Komisi 2</option>
-                <option value="diajukan - komisi 3">Diajukan - Komisi 3</option>
-                <option value="diajukan - komisi 4">Diajukan - Komisi 4</option>
+                <option value="Diajukan - Sekretaris">Diajukan - Sekretaris</option>
+                <option value="Diajukan - Komisi 1">Diajukan - Komisi 1</option>
+                <option value="Diajukan - Komisi 2">Diajukan - Komisi 2</option>
+                <option value="Diajukan - Komisi 3">Diajukan - Komisi 3</option>
+                <option value="Diajukan - Komisi 4">Diajukan - Komisi 4</option>
                 <option disabled>------------------------------------</option>
-                <option value="diajukan">Sedang Diproses - Sekretaris</option>
-                <option value="diajukan - komisi 1">Sedang Diproses - Komisi 1</option>
-                <option value="diajukan - komisi 2">Sedang Diproses - Komisi 2</option>
-                <option value="diajukan - komisi 3">Sedang Diproses - Komisi 3</option>
-                <option value="diajukan - komisi 4">Sedang Diproses - Komisi 4</option>
+                <option value="Diajukan">Sedang Diproses - Sekretaris</option>
+                <option value="Diajukan - Komisi 1">Sedang Diproses - Komisi 1</option>
+                <option value="Diajukan - Komisi 2">Sedang Diproses - Komisi 2</option>
+                <option value="Diajukan - Komisi 3">Sedang Diproses - Komisi 3</option>
+                <option value="Diajukan - Komisi 4">Sedang Diproses - Komisi 4</option>
                 <option disabled>------------------------------------</option>
-                <option value="diajukan">Selesai - Sekretaris</option>
-                <option value="diajukan - komisi 1">Selesai - Komisi 1</option>
-                <option value="diajukan - komisi 2">Selesai - Komisi 2</option>
-                <option value="diajukan - komisi 3">Selesai - Komisi 3</option>
-                <option value="diajukan - komisi 4">Selesai - Komisi 4</option>
+                <option value="Diajukan">Selesai - Sekretaris</option>
+                <option value="Diajukan - Komisi 1">Selesai - Komisi 1</option>
+                <option value="Diajukan - Komisi 2">Selesai - Komisi 2</option>
+                <option value="Diajukan - Komisi 3">Selesai - Komisi 3</option>
+                <option value="Diajukan - Komisi 4">Selesai - Komisi 4</option>
             </select>
         </div>
     </div>
