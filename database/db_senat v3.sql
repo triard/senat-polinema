@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Apr 2021 pada 08.11
+-- Waktu pembuatan: 29 Mar 2021 pada 17.21
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.3
 
@@ -41,11 +41,7 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`username`, `password`, `level`, `email`, `id_user`) VALUES
-('admin', '$2y$10$s231vmVHG0fJkuLL8.2qBueFj2gl9ZLxOFJ5IvecQdFIuasVfVte.', 'Admin', 'admin@senat', 1),
-('anggota', '$2y$10$tU4meAAo8BiILiMRBoflIu3/SuVOzLGcjfaKZciSwKXn9AxAyw9BW', 'Anggota', 'anggota@polinema.ac.id', 5),
-('ketua_komisi1', '$2y$10$0Qhwbj90neX/hc2En8bAtusblTzoHV8AYPlFyjz31Lc9MMWhhI9C6', 'Ketua Komisi', 'kk1@polinema.ac.id', 4),
-('ketua_senat', '$2y$10$3UKMNi9c8sxz5SfATYBQXeILaQFqy1wCTOUDEA2suwc/X9hFfbnJC', 'Ketua Senat', 'ketuasenat@polinema.ac.id', 2),
-('sekretaris', '$2y$10$4e2nGIXj2lOYSfjcYyYfHOf1..FyymypjT0meph4r7Y.z6Dt6gbJ2', 'Sekretaris', 'sekretaris@polinema.ac.id', 3);
+('admin', '$2y$10$s231vmVHG0fJkuLL8.2qBueFj2gl9ZLxOFJ5IvecQdFIuasVfVte.', 'Admin', 'admin@senat', 1);
 
 -- --------------------------------------------------------
 
@@ -68,12 +64,12 @@ CREATE TABLE `berita` (
 --
 
 INSERT INTO `berita` (`id_berita`, `judul`, `keterangan`, `image`, `tanggal`, `jumlah_view`, `id_user`) VALUES
-(2, 'Orasi Ilmiah Dies Natalis Polinema ke-38 Secara Daring Orasi Ilmiah Dies Natalis Polinema ke-38 Seca', '<p>lorem ipsum 1001lorem ipsum 1001 lorem ipsum 1001lorem ipsum 1001 lorem ipsum 1001 lorem ipsum 1001 lorem ipsum 1001 lorem ipsum 1001 lorem ipsum 1001 lorem ipsum 1001 lorem ipsum 1001 lorem ipsum 1001lorem ipsum 1001 lorem ipsum 1001 lorem ipsum 1001 lorem ipsum 1001<br></p>', 'lorem_ipsum_1001.png', '2021-04-29 11:00:00', 2, 1),
+(2, 'Orasi Ilmiah Dies Natalis Polinema ke-38 Secara Daring Orasi Ilmiah Dies Natalis Polinema ke-38 Seca', '<p>lorem ipsum 1001lorem ipsum 1001 lorem ipsum 1001lorem ipsum 1001 lorem ipsum 1001 lorem ipsum 1001 lorem ipsum 1001 lorem ipsum 1001 lorem ipsum 1001 lorem ipsum 1001 lorem ipsum 1001 lorem ipsum 1001lorem ipsum 1001 lorem ipsum 1001 lorem ipsum 1001 lorem ipsum 1001<br></p>', 'lorem_ipsum_1001.png', '2021-04-29 11:00:00', 0, 1),
 (3, 'Orasi Ilmiah Dies Natalis Polinema ke-38 Secara Daring Orasi Ilmiah Dies Natalis Polinema ke-38 Seca', '<p>lorem ipsum 1002 lorem ipsum 1002 lorem ipsum 1002 lorem ipsum 1002lorem ipsum 1002 lorem ipsum 1002 lorem ipsum 1002 lorem ipsum 1002lorem ipsum 1002 lorem ipsum 1002 lorem ipsum 1002 lorem ipsum 1002lorem ipsum 1002 lorem ipsum 1002 lorem ipsum 1002<br></p>', 'lorem_ipsum_1002.png', '2021-03-23 11:00:00', 0, 1),
 (4, 'Orasi Ilmiah Dies Natalis Polinema ke-38 Secara Daring Orasi Ilmiah Dies Natalis Polinema 4', '<p>lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003v v lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003lorem ipsum 1003<br></p>', 'lorem_ipsum_1003.png', '2021-03-25 11:23:00', 0, 1),
 (5, 'Orasi Ilmiah Dies Natalis Polinema ke-38 Secara Daring Orasi Ilmiah Dies Natalis Polinema 3', '<p>lorem ipsum 1004 lorem ipsum 1004 lorem ipsum 1004 lorem ipsum 1004 lorem ipsum 1004 lorem ipsum 1004 lorem ipsum 1004vlorem ipsum 1004 lorem ipsum 1004 lorem ipsum 1004 lorem ipsum 1004 lorem ipsum 1004vvlorem ipsum 1004lorem ipsum 1004lorem ipsum 1004lorem ipsum 1004lorem ipsum 1004lorem ipsum 1004lorem ipsum 1004lorem ipsum 1004lorem ipsum 1004lorem ipsum 1004lorem ipsum 1004lorem ipsum 1004<br></p>', 'lorem_ipsum_1004.png', '2021-03-27 11:24:00', 1, 1),
 (6, 'Orasi Ilmiah Dies Natalis Polinema ke-38 Secara Daring Orasi Ilmiah Dies Natalis Polinema 2', '<p>lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005v lorem ipsum 1005</p><p>lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005<br></p>', 'lorem_ipsum_1005.jpg', '2021-03-26 11:24:00', 1, 1),
-(7, 'Orasi Ilmiah Dies Natalis Polinema ke-38 Secara Daring Orasi Ilmiah Dies Natalis Polinema 1', '<h5 style=\"font-family: Nunito, \" segoe=\"\" ui\",=\"\" arial;\"=\"\"><a href=\"http://localhost/senat-polinema/homepage/home\" text-decoration:none\"\"=\"\" style=\"\">Orasi Ilmiah Dies Natalis Polinema ke-38 Secara Daring Orasi Ilmiah Dies Natalis Polinema ke-38 Seca</a>&nbsp;</h5><p style=\"font-family: Nunito, \" segoe=\"\" ui\",=\"\" arial;=\"\" color:=\"\" rgb(108,=\"\" 117,=\"\" 125);\"=\"\"><br></p>', 'Orasi_Ilmiah_Dies_Natalis_Polinema_ke-38_Secara_Daring_Orasi_Ilmiah_Dies_Natalis_Polinema_ke-38.png', '2021-03-19 11:35:00', 2, 1);
+(7, 'Orasi Ilmiah Dies Natalis Polinema ke-38 Secara Daring Orasi Ilmiah Dies Natalis Polinema 1', '<h5 style=\"font-family: Nunito, \" segoe=\"\" ui\",=\"\" arial;\"=\"\"><a href=\"http://localhost/senat-polinema/homepage/home\" text-decoration:none\"\"=\"\" style=\"\">Orasi Ilmiah Dies Natalis Polinema ke-38 Secara Daring Orasi Ilmiah Dies Natalis Polinema ke-38 Seca</a>&nbsp;</h5><p style=\"font-family: Nunito, \" segoe=\"\" ui\",=\"\" arial;=\"\" color:=\"\" rgb(108,=\"\" 117,=\"\" 125);\"=\"\"><br></p>', 'Orasi_Ilmiah_Dies_Natalis_Polinema_ke-38_Secara_Daring_Orasi_Ilmiah_Dies_Natalis_Polinema_ke-38.png', '2021-03-19 11:35:00', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -125,7 +121,7 @@ CREATE TABLE `kegiatan` (
 --
 
 INSERT INTO `kegiatan` (`id_kegiatan`, `id_penjadwalan`, `agenda`, `pembahasan`, `waktu_mulai`, `waktu_selesai`, `tempat`, `jenis_rapat`, `link`, `password`, `tujuan`, `notula`, `id_user`) VALUES
-(10, NULL, 'Rapat pengawasan zz', '<p>1. Penyelewengan Pudir X </p><p>2.  coba cobazz</p>', '2021-03-23 20:00:00', '07:00:00', 'RT zz', 'Luring', '', '', 'melakukan invetigasi secara menyeluruh zz', '<p>dengan ini&nbsp;</p><p>dsdsa</p><p><br></p><p>dasdsa</p>', 1),
+(10, 3, 'Rapat pengawasan zz', '<p>1. Penyelewengan Pudir X </p><p>2.  coba cobazz</p>', '2021-03-23 20:00:00', '07:00:00', 'RT zz', 'Luring', '', '', 'melakukan invetigasi secara menyeluruh zz', '<p>dengan ini</p>', 1),
 (11, 3, 'Rapat Terbuka', '', '0000-00-00 00:00:00', '00:00:00', '', '', '', '', '', NULL, 1);
 
 -- --------------------------------------------------------
@@ -177,7 +173,7 @@ CREATE TABLE `penjadwalan` (
 --
 
 INSERT INTO `penjadwalan` (`id_penjadwalan`, `id_user`, `id_usulan`, `agenda`, `pembahasan`, `waktu_mulai`, `waktu_selesai`, `jenis_rapat`, `tempat`, `link`, `password`, `status`) VALUES
-(3, 1, 2, 'Rapat pengawasan', '<p>Penyelewengan Pudir X</p><p>coba coba</p>', '2021-03-21 23:00:00', '06:00:00', 'Luring', 'RT', 'adsdsad', 'asdd', 'Disetujui');
+(3, 1, 2, 'Rapat pengawasan', '<p>Penyelewengan Pudir X</p><p>coba coba</p>', '2021-03-21 23:00:00', '03:00:00', 'Daring', 'adsda', 'adsdsad', 'asdd', 'telah dilaksanakan');
 
 -- --------------------------------------------------------
 
@@ -189,20 +185,15 @@ CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `jabatan` varchar(30) NOT NULL,
-  `keterangan` varchar(30) NOT NULL,
-  `image` varchar(50) DEFAULT 'image.png'
+  `keterangan` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id_user`, `nama`, `jabatan`, `keterangan`, `image`) VALUES
-(1, 'admin', 'admin', 'admin', '1.png'),
-(2, 'Ketua Senat', 'Ketua Senat', 'lorem ipsum', 'image.png'),
-(3, 'Sekretaris', 'Sekretaris', 'Sekretaris', 'image.png'),
-(4, 'Ketua Komisi 1', 'Ketua Komisi 1', 'lorem ipsum', 'image.png'),
-(5, 'ANggota', 'Anggota Komisi I', 'Wakil Dosen JTI', 'image.png');
+INSERT INTO `user` (`id_user`, `nama`, `jabatan`, `keterangan`) VALUES
+(1, 'admin', 'admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -217,7 +208,7 @@ CREATE TABLE `usulan` (
   `jenis` varchar(20) NOT NULL,
   `keterangan` text NOT NULL,
   `dokumen_pendukung` varchar(50) NOT NULL,
-  `status` varchar(25) NOT NULL,
+  `status` varchar(20) NOT NULL,
   `id_user` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -226,11 +217,9 @@ CREATE TABLE `usulan` (
 --
 
 INSERT INTO `usulan` (`id_usulan`, `nama_pengusul`, `email`, `jenis`, `keterangan`, `dokumen_pendukung`, `status`, `id_user`) VALUES
-(2, 'admin', 'admin@senat', 'Pengawasan', '<p>Penyelewengan Pudir X</p><p>coba coba</p>', 'dokumen-pendukung-753fc482837245a1.pdf', 'sedang diproses', 1),
-(13, 'admin', 'admin@senat', 'Pengawasan', '<p>- lorem ipsum 1</p><p>- lorem ipsum 2</p>', 'dokumen-pendukung-5c9b87100d4f9b06.rar', 'dijadwalkan rapat', 1),
-(14, 'admin', 'admin@senat', 'Kebijakan', '<p>sdadas</p>', 'dokumen-pendukung-b64d04a46727b9a0.docx', 'Diajukan - Sekretaris', 1),
-(15, 'yuki', 'yuji@gmail.com', 'Pertimbangan', 'lorem ipsum', 'dokumen-pendukung-8dc360cb6ac9b400.pdf', 'Diajukan', NULL),
-(16, 'tri ardeiansuyah', 'triard78@gmail.com', 'Pengawasan', 'lo9rme fdksfmkl d', 'dokumen-pendukung-c04c5f5fb62fb7bb.pdf', 'Diajukan - Komisi 1', NULL);
+(2, 'admin', 'admin@senat', 'pengawasan', '<p>Penyelewengan Pudir X</p><p>coba coba</p>', 'dokumen-pendukung-753fc482837245a1.pdf', 'sedang diproses', 1),
+(13, 'admin', 'admin@senat', 'pengawasan', '<p>- lorem ipsum 1</p><p>- lorem ipsum 2</p>', 'dokumen-pendukung-5c9b87100d4f9b06.rar', 'dijadwalkan rapat', 1),
+(14, 'admin', 'admin@senat', 'kebijakan', '<p>sdadas</p>', 'dokumen-pendukung-b64d04a46727b9a0.docx', 'diajukan', 1);
 
 --
 -- Indexes for dumped tables
@@ -331,13 +320,13 @@ ALTER TABLE `penjadwalan`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `usulan`
 --
 ALTER TABLE `usulan`
-  MODIFY `id_usulan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_usulan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
