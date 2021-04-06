@@ -19,3 +19,6 @@ anggota
 - username : anggota
 - password : anggota
 
+Alur status = (Diajukan) - (Diajukan - Sekretaris)  - (Dijadwalkan - Sekretaris) - Sedang Proses - Selesai (if selesai)
+                         \ (Diajukan - Komisi X)    - (Dijadwalkan - Komisi X)   - Sedang Proses - Selesai (if selesai)
+                                                                                                 \ Tindak Lanjut - Sidang Pleno (jika perlu tindak lanjut) - Selesai
