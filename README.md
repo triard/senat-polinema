@@ -45,4 +45,4 @@ anggota komisi 4
 
 Alur status = (Diajukan) - (Diajukan - Sekretaris)  - (Dijadwalkan - Sekretaris) - Sedang Proses - Selesai (if selesai)
                          \ (Diajukan - Komisi X)    - (Dijadwalkan - Komisi X)   - Sedang Proses - Selesai (if selesai)
-                                                                                                 \ Tindak Lanjut - Sidang Pleno (jika perlu tindak lanjut) - Selesai
+                                                                                                 \ Perlu Tindak Lanjut - Sidang Pleno (pengajuan ketua komisi) - Proses Tindak Lanjut - Sidang Pleno
