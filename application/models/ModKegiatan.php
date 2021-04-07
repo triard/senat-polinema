@@ -19,9 +19,11 @@ class ModKegiatan extends CI_model {
 		$link = $this->input->post('link');
 		$password= $this->input->post('password');
 		$tujuan = $this->input->post('tujuan');
+		$notula = $this->input->post('notula');
+		$status = "Selesai";
 		$data = array('id_penjadwalan' => $id_penjadwalan, 'agenda' => $agenda,'pembahasan' => $pembahasan,
 		'waktu_mulai'=>$waktu_mulai ,'waktu_selesai'=>$waktu_selesai,'tempat'=>$tempat, 
-		'tujuan'=>$tujuan, 'jenis_rapat'=>$jenis_rapat,'link'=>$link,'password'=>$password,'id_user'=>$id_user);
+		'tujuan'=>$tujuan, 'notula'=>$notula, 'jenis_rapat'=>$jenis_rapat,'link'=>$link,'password'=>$password,'status'=>$status,'id_user'=>$id_user);
 		$this->db->insert('kegiatan', $data);
 	}
 	private function _uploadDokumen()
@@ -72,9 +74,10 @@ class ModKegiatan extends CI_model {
 		$tujuan = $this->input->post('tujuan');
 		$password= $this->input->post('password');
 		$notula= $this->input->post('notula');
+		$status = "Selesai";
 		$data = array('id_penjadwalan' => $id_penjadwalan, 'agenda' => $agenda,'pembahasan' => $pembahasan,
 		'waktu_mulai'=>$waktu_mulai ,'waktu_selesai'=>$waktu_selesai,'tempat'=>$tempat, 'notula'=>$notula, 
-		'tujuan'=>$tujuan, 'jenis_rapat'=>$jenis_rapat,'link'=>$link,'notula'=>$notula,'password'=>$password, 'id_user'=>$id_user);
+		'tujuan'=>$tujuan, 'jenis_rapat'=>$jenis_rapat,'link'=>$link,'notula'=>$notula,'password'=>$password, 'status'=>$status, 'id_user'=>$id_user);
 		$this->db->where('id_kegiatan', $id_kegiatan);
 		$this->db->update('kegiatan', $data);
 	}

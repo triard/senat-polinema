@@ -48,6 +48,16 @@
             <input class="form-control" name="password" type="text" value="<?php echo $penjadwalan->password;?>"
                 placeholder="Masukkan password..." autocomplete="off">
         </div>
+        <div class="form-group">
+            <label>Status Kegiatan</label><br>
+            <select name="status" class="custom-select form-control" required>
+                <option disabled selected>Pilih Status Kegiatan</option>
+                <option disabled>------------------------------</option>
+                <option value="Perlu Tindak Lanjut - Sidang Pleno">Perlu Tindak Lanjut - Sidang Pleno</option>
+                <option value="Perlu Tindak Lanjut - Sidang Paripurna">Perlu Tindak Lanjut - Sidang Paripurna</option>
+                <option value="Selesai">Selesai</option>
+            </select>
+        </div>
     </div>
 </div>
 
@@ -96,6 +106,16 @@
             <label>Password</label><br>
             <input class="form-control" name="password" type="text" placeholder="Masukkan password..."
                 autocomplete="off">
+        </div>
+        <div class="form-group">
+            <label>Status Kegiatan</label><br>
+            <select name="status" class="custom-select form-control" required>
+                <option disabled selected>Pilih Status Kegiatan</option>
+                <option disabled>------------------------------</option>
+                <option value="Perlu Tindak Lanjut - Sidang Pleno">Perlu Tindak Lanjut - Sidang Pleno</option>
+                <option value="Perlu Tindak Lanjut - Sidang Paripurna">Perlu Tindak Lanjut - Sidang Paripurna</option>
+                <option value="Selesai">Selesai</option>
+            </select>
         </div>
     </div>
 </div>

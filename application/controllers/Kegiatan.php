@@ -34,6 +34,15 @@ class Kegiatan extends CI_Controller {
 		$data['penjadwalan'] = $this->ModPenjadwalan->selectAll();
 		$this->load->view('modal/kegiatan', $data); 
 	}
+
+	public function modalStatusKegiatan() {
+		$q = $this->session->userdata('status');
+		if($q != "login") {
+			exit();
+		}
+		$data['cek'] = 0;
+		$this->load->view('modal/statusKegiatan', $data); 
+	}
 	
 	public function add() {
 		$q = $this->session->userdata('status');
@@ -41,11 +50,12 @@ class Kegiatan extends CI_Controller {
 			exit();
 		}
 		$id_penjadwalan = $this->input->post('id_penjadwalan');
+		$status = $this->input->post('status');
 		if ($id_penjadwalan != 0) {
-			$this->ModPenjadwalan->setStatus($id_penjadwalan, 'telah dilaksanakan');
+			$this->ModPenjadwalan->setStatus($id_penjadwalan, 'Selesai');
 			$id_usulan = $this->ModPenjadwalan->getIdUsulan($id_penjadwalan);
 			if ($id_usulan != 0) {
-				$this->ModUsulan->setStatus($id_usulan, 'sedang diproses');
+				$this->ModUsulan->setStatus($id_usulan, $status);
 			}
 		}
 		$this->ModKegiatan->add();
@@ -73,6 +83,14 @@ class Kegiatan extends CI_Controller {
 		$q = $this->session->userdata('status');
 		if($q != "login") {
 			exit();
+		}
+		$id_penjadwalan = $this->input->post('id_penjadwalan');
+		$status = $this->input->post('status');
+		if ($id_penjadwalan != 0) {
+			$id_usulan = $this->ModPenjadwalan->getIdUsulan($id_penjadwalan);
+			if ($id_usulan != 0) {
+				$this->ModUsulan->setStatus($id_usulan, $status);
+			}
 		}
 		$this->ModKegiatan->update();
 		echo json_encode(array("status" => TRUE));

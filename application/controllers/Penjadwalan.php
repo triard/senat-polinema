@@ -37,8 +37,9 @@ class Penjadwalan extends CI_Controller {
 			exit();
 		}
 		$usulan = $this->input->post('id_usulan');
+		$status = $this->input->post('status'); 
 		if ($usulan != 0) {
-			$this->ModUsulan->setStatus($usulan, 'dijadwalkan rapat');
+			$this->ModUsulan->setStatus($usulan, $status);
 		}
 		$this->ModPenjadwalan->add();
 		echo json_encode(array("status" => TRUE));

@@ -17,7 +17,7 @@ $this->load->view('_partials/sidebar');
                         <div class="card-header">
                             <h4></h4>
                             <div class="card-header-action">
-                            <?php if($this->session->userdata('level') != "Ketua Senat"){ ?>
+                            <?php if($this->session->userdata('level') == "Sekretaris" || $this->session->userdata('level') == "Ketua Komisi 1" || $this->session->userdata('level') == "Ketua Komisi 2" || $this->session->userdata('level') == "Ketua Komisi 3" || $this->session->userdata('level') == "Ketua Komisi 4"){ ?>
                                 <button class="btn btn-success" onclick="tambah()"><i class="fas fa-plus-circle"></i>
                                     Tambah</button>
                             <?php } ?>
@@ -33,6 +33,7 @@ $this->load->view('_partials/sidebar');
                                             <th>Waktu</th>
                                             <th>Jenis Rapat</th>
                                             <th>Tempat</th>
+                                            <th>Status Kegiatan</th>
                                             <th class="disabled-sorting text-center">Actions</th>
                                         </tr>
                                     </thead>
@@ -43,6 +44,7 @@ $this->load->view('_partials/sidebar');
                                             <th>Waktu</th>
                                             <th>Jenis Rapat</th>
                                             <th>Tempat</th>
+                                            <th>Status Kegiatan</th>
                                             <th class="text-center" style="width: 150px;">Actions</th>
                                         </tr>
                                     </tfoot>
@@ -56,13 +58,14 @@ $this->load->view('_partials/sidebar');
                                             <?php echo date('H:i', strtotime($k->waktu_selesai)); ?> WIB</td>
                                             <td><?php echo $k->jenis_rapat;?></td>
                                             <td><?php echo $k->tempat;?></td>
+                                            <td><div class="badge badge-success"><?php echo $k->status;?></div></td>
                                             <td class="td-actions text-center">
                                                 <a class="btn btn-primary"
                                                     href="<?php echo base_url('Kegiatan/kegiatan_detail/').$k->id_kegiatan;?>"><i
                                                         class="fas fa-info-circle"></i></a>
                                                 &nbsp;
                                                 <!-- <br> -->
-                                                <?php if($this->session->userdata('level') != "Ketua Senat"){ ?>
+                                                <?php if(($this->session->userdata('level') == "Sekretaris" && $this->session->userdata('id_user') == $k->id_user) || ($this->session->userdata('level') == "Ketua Komisi 1" && $this->session->userdata('id_user') == $k->id_user) || ($this->session->userdata('level') == "Ketua Komisi 2" && $this->session->userdata('id_user') == $k->id_user) || ($this->session->userdata('level') == "Ketua Komisi 3" && $this->session->userdata('id_user') == $k->id_user) || ($this->session->userdata('level') == "Ketua Komisi 4" && $this->session->userdata('id_user') == $k->id_user)){ ?>
                                                 <button type="button" rel="tooltip" class="btn btn-danger"
                                                     data-original-title="" title=""
                                                     onclick="hapus(<?php echo $k->id_kegiatan;?>)">

@@ -17,7 +17,7 @@ $this->load->view('_partials/sidebar');
                         <div class="card-header">
                             <h4></h4>
                             <div class="card-header-action">
-                            <?php if($this->session->userdata('level') == "Ketua Komisi" || $this->session->userdata('level') == "Sekretaris"){ ?>
+                            <?php if($this->session->userdata('level') == "Ketua Komisi 1" || $this->session->userdata('level') == "Ketua Komisi 2" || $this->session->userdata('level') == "Ketua Komisi 3" || $this->session->userdata('level') == "Ketua Komisi 4" || $this->session->userdata('level') == "Sekretaris"){ ?>
                                 <button class="btn btn-success" onclick="tambah()"><i class="fas fa-plus-circle"></i>
                                     Tambah</button>
                             <?php } ?>
@@ -69,22 +69,13 @@ $this->load->view('_partials/sidebar');
                                             <td><?php echo $k->password;?></td>
                                             <td><?php echo $k->status;?></td>
                                             <td class="td-actions text-right">
-                                                <?php if($this->session->userdata('level') == "Ketua Senat" && $k->status == "Diajukan"){ ?>
-                                                <button type="button" onclick="status(<?php echo $k->id_penjadwalan;?>)"
-                                                    rel="tooltip" class="btn btn-primary" data-original-title=""
-                                                    title="">
-                                                    <i class="fas fa-pen-alt"></i>
-                                                </button>
-                                                &nbsp;
-                                                <?php } ?>
-                                                <?php if($this->session->userdata('level') == "Ketua Komisi" || $this->session->userdata('level') == "Sekretaris"){ ?>
+                                                <?php if(($this->session->userdata('level') == "Sekretaris" && $this->session->userdata('id_user') == $k->id_user) || ($this->session->userdata('level') == "Ketua Komisi 1" && $this->session->userdata('id_user') == $k->id_user) || ($this->session->userdata('level') == "Ketua Komisi 2" && $this->session->userdata('id_user') == $k->id_user) || ($this->session->userdata('level') == "Ketua Komisi 3" && $this->session->userdata('id_user') == $k->id_user) || ($this->session->userdata('level') == "Ketua Komisi 4" && $this->session->userdata('id_user') == $k->id_user)){ ?>
                                                 <button type="button" onclick="ganti(<?php echo $k->id_penjadwalan;?>)"
                                                     rel="tooltip" class="btn btn-primary" data-original-title=""
                                                     title="">
                                                     <i class="fas fa-pen-square"></i>
                                                 </button>
                                                 &nbsp;
-
                                                 <button type="button" rel="tooltip" class="btn btn-danger"
                                                     data-original-title="" title=""
                                                     onclick="hapus(<?php echo $k->id_penjadwalan;?>)">

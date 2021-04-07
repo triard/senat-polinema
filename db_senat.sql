@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Apr 2021 pada 08.11
--- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.4.3
+-- Generation Time: 07 Apr 2021 pada 11.34
+-- Versi Server: 10.1.13-MariaDB
+-- PHP Version: 7.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -31,7 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `account` (
   `username` varchar(16) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `level` varchar(12) NOT NULL,
+  `level` varchar(20) NOT NULL,
   `email` varchar(30) NOT NULL,
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -42,8 +40,14 @@ CREATE TABLE `account` (
 
 INSERT INTO `account` (`username`, `password`, `level`, `email`, `id_user`) VALUES
 ('admin', '$2y$10$s231vmVHG0fJkuLL8.2qBueFj2gl9ZLxOFJ5IvecQdFIuasVfVte.', 'Admin', 'admin@senat', 1),
-('anggota', '$2y$10$tU4meAAo8BiILiMRBoflIu3/SuVOzLGcjfaKZciSwKXn9AxAyw9BW', 'Anggota', 'anggota@polinema.ac.id', 5),
-('ketua_komisi1', '$2y$10$0Qhwbj90neX/hc2En8bAtusblTzoHV8AYPlFyjz31Lc9MMWhhI9C6', 'Ketua Komisi', 'kk1@polinema.ac.id', 4),
+('anggota_komisi_1', '$2y$10$dBjAxhByhkUE4KEgNoxri.bZc2VGDn5/cT2DgY6HnUSQivgOKsJyW', 'Anggota Komisi 1', 'anggotakomisi1@polinema.ac.id', 10),
+('anggota_komisi_2', '$2y$10$y142txCt.rwuf7ice5bsT.esJpoyklujazyOMWAscrxPVQcI8x2M6', 'Anggota Komisi 2', 'anggotakomisi2@polinema.ac.id', 11),
+('anggota_komisi_3', '$2y$10$2tmZ7mDlOjvJW5LLNGg48udVx52mLEM3v/nQ5U6u30nV/cQauwRxq', 'Anggota Komisi 3', 'anggotakomisi3@polinema.ac.id', 12),
+('anggota_komisi_4', '$2y$10$5KiAKvrBFtR3EPwla77rNu/fspxBU7u78FddGGJLe5OPIJl5dPM7C', 'Anggota Komisi 4', 'anggotakomisi4@polinema.ac.id', 13),
+('ketua_komisi_1', '$2y$10$pd/z6vSf3X3aabQJ9bm0hO5OKd.m0DA.8QoLPq5Exd6sMBve0fdcG', 'Ketua Komisi 1', 'ketuakomisi1@polinema.ac.id', 6),
+('ketua_komisi_2', '$2y$10$qTmPh9T3BjLY9v/FijMpYegmoPORwsKyRtvVEDyb9.0cmie9HT2LG', 'Ketua Komisi 2', 'ketuakomisi2@polinema.ac.id', 7),
+('ketua_komisi_3', '$2y$10$hOQAEf5UbJCiYXBy231Qyug3dMRs.Vum7bYravBjhqHJqxGdwB/uC', 'Ketua Komisi 3', 'ketuakomisi3@polinema.ac.id', 8),
+('ketua_komisi_4', '$2y$10$Uhy1hRXT4i9mQaVcme3qiuj72kjBdZgjyrGM.FIHy8Rq5BlQX6i6K', 'Ketua Komisi 4', 'ketuakomisi4@polinema.ac.id', 9),
 ('ketua_senat', '$2y$10$3UKMNi9c8sxz5SfATYBQXeILaQFqy1wCTOUDEA2suwc/X9hFfbnJC', 'Ketua Senat', 'ketuasenat@polinema.ac.id', 2),
 ('sekretaris', '$2y$10$4e2nGIXj2lOYSfjcYyYfHOf1..FyymypjT0meph4r7Y.z6Dt6gbJ2', 'Sekretaris', 'sekretaris@polinema.ac.id', 3);
 
@@ -73,7 +77,7 @@ INSERT INTO `berita` (`id_berita`, `judul`, `keterangan`, `image`, `tanggal`, `j
 (4, 'Orasi Ilmiah Dies Natalis Polinema ke-38 Secara Daring Orasi Ilmiah Dies Natalis Polinema 4', '<p>lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003v v lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003lorem ipsum 1003<br></p>', 'lorem_ipsum_1003.png', '2021-03-25 11:23:00', 0, 1),
 (5, 'Orasi Ilmiah Dies Natalis Polinema ke-38 Secara Daring Orasi Ilmiah Dies Natalis Polinema 3', '<p>lorem ipsum 1004 lorem ipsum 1004 lorem ipsum 1004 lorem ipsum 1004 lorem ipsum 1004 lorem ipsum 1004 lorem ipsum 1004vlorem ipsum 1004 lorem ipsum 1004 lorem ipsum 1004 lorem ipsum 1004 lorem ipsum 1004vvlorem ipsum 1004lorem ipsum 1004lorem ipsum 1004lorem ipsum 1004lorem ipsum 1004lorem ipsum 1004lorem ipsum 1004lorem ipsum 1004lorem ipsum 1004lorem ipsum 1004lorem ipsum 1004lorem ipsum 1004<br></p>', 'lorem_ipsum_1004.png', '2021-03-27 11:24:00', 1, 1),
 (6, 'Orasi Ilmiah Dies Natalis Polinema ke-38 Secara Daring Orasi Ilmiah Dies Natalis Polinema 2', '<p>lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005v lorem ipsum 1005</p><p>lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005<br></p>', 'lorem_ipsum_1005.jpg', '2021-03-26 11:24:00', 1, 1),
-(7, 'Orasi Ilmiah Dies Natalis Polinema ke-38 Secara Daring Orasi Ilmiah Dies Natalis Polinema 1', '<h5 style=\"font-family: Nunito, \" segoe=\"\" ui\",=\"\" arial;\"=\"\"><a href=\"http://localhost/senat-polinema/homepage/home\" text-decoration:none\"\"=\"\" style=\"\">Orasi Ilmiah Dies Natalis Polinema ke-38 Secara Daring Orasi Ilmiah Dies Natalis Polinema ke-38 Seca</a>&nbsp;</h5><p style=\"font-family: Nunito, \" segoe=\"\" ui\",=\"\" arial;=\"\" color:=\"\" rgb(108,=\"\" 117,=\"\" 125);\"=\"\"><br></p>', 'Orasi_Ilmiah_Dies_Natalis_Polinema_ke-38_Secara_Daring_Orasi_Ilmiah_Dies_Natalis_Polinema_ke-38.png', '2021-03-19 11:35:00', 2, 1);
+(7, 'Orasi Ilmiah Dies Natalis Polinema ke-38 Secara Daring Orasi Ilmiah Dies Natalis Polinema 1', '<h5 style="font-family: Nunito, " segoe="" ui",="" arial;"=""><a href="http://localhost/senat-polinema/homepage/home" text-decoration:none""="" style="">Orasi Ilmiah Dies Natalis Polinema ke-38 Secara Daring Orasi Ilmiah Dies Natalis Polinema ke-38 Seca</a>&nbsp;</h5><p style="font-family: Nunito, " segoe="" ui",="" arial;="" color:="" rgb(108,="" 117,="" 125);"=""><br></p>', 'Orasi_Ilmiah_Dies_Natalis_Polinema_ke-38_Secara_Daring_Orasi_Ilmiah_Dies_Natalis_Polinema_ke-38.png', '2021-03-19 11:35:00', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -92,11 +96,7 @@ CREATE TABLE `dokumentasi` (
 --
 
 INSERT INTO `dokumentasi` (`id_dokumentasi`, `id_kegiatan`, `nama_dokumentasi`) VALUES
-(5, 10, 'dokumentasi-kegiatan-73079c1e8709656a.jpg'),
-(6, 11, 'dokumentasi-kegiatan-fc6c4a3908bd5909.png'),
-(7, 11, 'dokumentasi-kegiatan-190a378d19850784.png'),
-(8, 11, 'dokumentasi-kegiatan-1cdda5bb449fd5c0.png'),
-(9, 11, 'dokumentasi-kegiatan-26c1a8ec81429d55.png');
+(10, 15, 'dokumentasi-kegiatan-39f691986d74e213.jpg');
 
 -- --------------------------------------------------------
 
@@ -116,7 +116,8 @@ CREATE TABLE `kegiatan` (
   `link` varchar(50) NOT NULL,
   `password` varchar(20) NOT NULL,
   `tujuan` varchar(100) NOT NULL,
-  `notula` text DEFAULT NULL,
+  `notula` text,
+  `status` varchar(50) DEFAULT NULL,
   `id_user` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -124,9 +125,9 @@ CREATE TABLE `kegiatan` (
 -- Dumping data untuk tabel `kegiatan`
 --
 
-INSERT INTO `kegiatan` (`id_kegiatan`, `id_penjadwalan`, `agenda`, `pembahasan`, `waktu_mulai`, `waktu_selesai`, `tempat`, `jenis_rapat`, `link`, `password`, `tujuan`, `notula`, `id_user`) VALUES
-(10, NULL, 'Rapat pengawasan zz', '<p>1. Penyelewengan Pudir X </p><p>2.  coba cobazz</p>', '2021-03-23 20:00:00', '07:00:00', 'RT zz', 'Luring', '', '', 'melakukan invetigasi secara menyeluruh zz', '<p>dengan ini&nbsp;</p><p>dsdsa</p><p><br></p><p>dasdsa</p>', 1),
-(11, 3, 'Rapat Terbuka', '', '0000-00-00 00:00:00', '00:00:00', '', '', '', '', '', NULL, 1);
+INSERT INTO `kegiatan` (`id_kegiatan`, `id_penjadwalan`, `agenda`, `pembahasan`, `waktu_mulai`, `waktu_selesai`, `tempat`, `jenis_rapat`, `link`, `password`, `tujuan`, `notula`, `status`, `id_user`) VALUES
+(13, 9, 'Rapat Komisi', '<p>Kenaikan jabatan</p>', '2021-04-10 15:00:00', '17:00:00', 'Gedung AA lt. 2', 'Luring', '', '', '<p>Menaikkan jabatan salah satu staff pegawai polinema</p>', 'akan diputuskan berdasarkan hasil sidang tindak lanjut', 'Perlu Tindak Lanjut - Sidang Pleno', 7),
+(15, 11, 'Sidang Pleno', '<p>Kenaikan jabatan</p>', '2021-04-15 18:00:00', '20:00:00', 'Zoom Meeting', 'Daring', 'zoom.com/123', 'senat', '<p>mempertimbangkan kenaikan jabatan</p>', 'dari hasil sidang diputuskan naik jabatan', 'Selesai', 3);
 
 -- --------------------------------------------------------
 
@@ -147,9 +148,7 @@ CREATE TABLE `laporan` (
 --
 
 INSERT INTO `laporan` (`id_laporan`, `id_kegiatan`, `nama_laporan`, `file_laporan`, `status`) VALUES
-(2, 11, ' lorem ipsum loram ipsum kodksksa dsakjadj', 'laporan-kegiatan-32cf5c053b86ae76.pdf', 'Diajukan'),
-(4, 10, 'fssdfsdf', 'laporan-kegiatan-72ca175eec5044c0.docx', 'Diajukan'),
-(5, 10, 'etter', 'laporan-kegiatan-feca19d17882ff94.pdf', 'Diajukan');
+(6, 15, 'Laporan Sidang Pleno 10 April 2021', 'laporan-kegiatan-9a8b45b7d2922f57.pdf', 'Disetujui');
 
 -- --------------------------------------------------------
 
@@ -169,7 +168,7 @@ CREATE TABLE `penjadwalan` (
   `tempat` varchar(50) NOT NULL,
   `link` varchar(50) DEFAULT NULL,
   `password` varchar(20) DEFAULT NULL,
-  `status` varchar(25) NOT NULL
+  `status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -177,7 +176,8 @@ CREATE TABLE `penjadwalan` (
 --
 
 INSERT INTO `penjadwalan` (`id_penjadwalan`, `id_user`, `id_usulan`, `agenda`, `pembahasan`, `waktu_mulai`, `waktu_selesai`, `jenis_rapat`, `tempat`, `link`, `password`, `status`) VALUES
-(3, 1, 2, 'Rapat pengawasan', '<p>Penyelewengan Pudir X</p><p>coba coba</p>', '2021-03-21 23:00:00', '06:00:00', 'Luring', 'RT', 'adsdsad', 'asdd', 'Disetujui');
+(9, 7, 18, 'Rapat Komisi', '<p>Kenaikan jabatan</p>', '2021-04-10 15:00:00', '17:00:00', 'Luring', 'Gedung AA lt. 2', '', '', 'Selesai'),
+(11, 3, 18, 'Sidang Pleno', '<p>Kenaikan jabatan</p>', '2021-04-15 18:00:00', '20:00:00', 'Daring', 'Zoom Meeting', 'zoom.com/123', 'senat', 'Selesai');
 
 -- --------------------------------------------------------
 
@@ -202,7 +202,15 @@ INSERT INTO `user` (`id_user`, `nama`, `jabatan`, `keterangan`, `image`) VALUES
 (2, 'Ketua Senat', 'Ketua Senat', 'lorem ipsum', 'image.png'),
 (3, 'Sekretaris', 'Sekretaris', 'Sekretaris', 'image.png'),
 (4, 'Ketua Komisi 1', 'Ketua Komisi 1', 'lorem ipsum', 'image.png'),
-(5, 'ANggota', 'Anggota Komisi I', 'Wakil Dosen JTI', 'image.png');
+(5, 'Anggota', 'Anggota Komisi I', 'Wakil Dosen JTI', 'image.png'),
+(6, 'Ketua Komisi 1', 'Ketua Komisi 1', '', 'image.png'),
+(7, 'Ketua Komisi 2', 'Ketua Komisi 2', '', 'image.png'),
+(8, 'Ketua Komisi 3', 'Ketua Komisi 3', '', 'image.png'),
+(9, 'Ketua Komisi 4', 'Ketua Komisi 4', '', 'image.png'),
+(10, 'Anggota Komisi 1', 'Anggota Komisi 1', '', 'image.png'),
+(11, 'Anggota Komisi 2', 'Anggota Komisi 2', '', 'image.png'),
+(12, 'Anggota Komisi 3', 'Anggota Komisi 3', '', 'image.png'),
+(13, 'Anggota Komisi 4', 'Anggota Komisi 4', '', 'image.png');
 
 -- --------------------------------------------------------
 
@@ -217,7 +225,7 @@ CREATE TABLE `usulan` (
   `jenis` varchar(20) NOT NULL,
   `keterangan` text NOT NULL,
   `dokumen_pendukung` varchar(50) NOT NULL,
-  `status` varchar(25) NOT NULL,
+  `status` varchar(50) NOT NULL,
   `id_user` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -226,39 +234,35 @@ CREATE TABLE `usulan` (
 --
 
 INSERT INTO `usulan` (`id_usulan`, `nama_pengusul`, `email`, `jenis`, `keterangan`, `dokumen_pendukung`, `status`, `id_user`) VALUES
-(2, 'admin', 'admin@senat', 'Pengawasan', '<p>Penyelewengan Pudir X</p><p>coba coba</p>', 'dokumen-pendukung-753fc482837245a1.pdf', 'sedang diproses', 1),
-(13, 'admin', 'admin@senat', 'Pengawasan', '<p>- lorem ipsum 1</p><p>- lorem ipsum 2</p>', 'dokumen-pendukung-5c9b87100d4f9b06.rar', 'dijadwalkan rapat', 1),
-(14, 'admin', 'admin@senat', 'Kebijakan', '<p>sdadas</p>', 'dokumen-pendukung-b64d04a46727b9a0.docx', 'Diajukan - Sekretaris', 1),
-(15, 'yuki', 'yuji@gmail.com', 'Pertimbangan', 'lorem ipsum', 'dokumen-pendukung-8dc360cb6ac9b400.pdf', 'Diajukan', NULL),
-(16, 'tri ardeiansuyah', 'triard78@gmail.com', 'Pengawasan', 'lo9rme fdksfmkl d', 'dokumen-pendukung-c04c5f5fb62fb7bb.pdf', 'Diajukan - Komisi 1', NULL);
+(18, 'ketua_komisi_1', 'ketuakomisi1@polinema.ac.id', 'Pertimbangan', '<p>Kenaikan jabatan</p>', 'dokumen-pendukung-ee19efde034db9df.pdf', 'Selesai', 6);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `account`
+-- Indexes for table `account`
 --
 ALTER TABLE `account`
   ADD PRIMARY KEY (`username`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indeks untuk tabel `berita`
+-- Indexes for table `berita`
 --
 ALTER TABLE `berita`
   ADD PRIMARY KEY (`id_berita`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indeks untuk tabel `dokumentasi`
+-- Indexes for table `dokumentasi`
 --
 ALTER TABLE `dokumentasi`
   ADD PRIMARY KEY (`id_dokumentasi`),
   ADD KEY `id_kegiatan` (`id_kegiatan`);
 
 --
--- Indeks untuk tabel `kegiatan`
+-- Indexes for table `kegiatan`
 --
 ALTER TABLE `kegiatan`
   ADD PRIMARY KEY (`id_kegiatan`),
@@ -266,14 +270,14 @@ ALTER TABLE `kegiatan`
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indeks untuk tabel `laporan`
+-- Indexes for table `laporan`
 --
 ALTER TABLE `laporan`
   ADD PRIMARY KEY (`id_laporan`),
   ADD KEY `id_kegiatan` (`id_kegiatan`);
 
 --
--- Indeks untuk tabel `penjadwalan`
+-- Indexes for table `penjadwalan`
 --
 ALTER TABLE `penjadwalan`
   ADD PRIMARY KEY (`id_penjadwalan`),
@@ -281,113 +285,57 @@ ALTER TABLE `penjadwalan`
   ADD KEY `id_usulan` (`id_usulan`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Indeks untuk tabel `usulan`
+-- Indexes for table `usulan`
 --
 ALTER TABLE `usulan`
   ADD PRIMARY KEY (`id_usulan`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `berita`
+-- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
   MODIFY `id_berita` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
 --
--- AUTO_INCREMENT untuk tabel `dokumentasi`
+-- AUTO_INCREMENT for table `dokumentasi`
 --
 ALTER TABLE `dokumentasi`
-  MODIFY `id_dokumentasi` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
+  MODIFY `id_dokumentasi` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
--- AUTO_INCREMENT untuk tabel `kegiatan`
+-- AUTO_INCREMENT for table `kegiatan`
 --
 ALTER TABLE `kegiatan`
-  MODIFY `id_kegiatan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
+  MODIFY `id_kegiatan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
--- AUTO_INCREMENT untuk tabel `laporan`
+-- AUTO_INCREMENT for table `laporan`
 --
 ALTER TABLE `laporan`
-  MODIFY `id_laporan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
+  MODIFY `id_laporan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT untuk tabel `penjadwalan`
+-- AUTO_INCREMENT for table `penjadwalan`
 --
 ALTER TABLE `penjadwalan`
-  MODIFY `id_penjadwalan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+  MODIFY `id_penjadwalan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
--- AUTO_INCREMENT untuk tabel `usulan`
---
-ALTER TABLE `usulan`
-  MODIFY `id_usulan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
---
-
---
--- Ketidakleluasaan untuk tabel `account`
---
-ALTER TABLE `account`
-  ADD CONSTRAINT `account_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `berita`
---
-ALTER TABLE `berita`
-  ADD CONSTRAINT `berita_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE SET NULL ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `dokumentasi`
---
-ALTER TABLE `dokumentasi`
-  ADD CONSTRAINT `dokumentasi_ibfk_1` FOREIGN KEY (`id_kegiatan`) REFERENCES `kegiatan` (`id_kegiatan`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `kegiatan`
---
-ALTER TABLE `kegiatan`
-  ADD CONSTRAINT `kegiatan_ibfk_1` FOREIGN KEY (`id_penjadwalan`) REFERENCES `penjadwalan` (`id_penjadwalan`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT `kegiatan_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE SET NULL ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `laporan`
---
-ALTER TABLE `laporan`
-  ADD CONSTRAINT `laporan_ibfk_1` FOREIGN KEY (`id_kegiatan`) REFERENCES `kegiatan` (`id_kegiatan`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `penjadwalan`
---
-ALTER TABLE `penjadwalan`
-  ADD CONSTRAINT `penjadwalan_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT `penjadwalan_ibfk_2` FOREIGN KEY (`id_usulan`) REFERENCES `usulan` (`id_usulan`) ON DELETE SET NULL ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `usulan`
+-- AUTO_INCREMENT for table `usulan`
 --
 ALTER TABLE `usulan`
-  ADD CONSTRAINT `usulan_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE SET NULL ON UPDATE CASCADE;
-COMMIT;
-
+  MODIFY `id_usulan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

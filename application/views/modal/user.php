@@ -17,10 +17,16 @@
             <label>Level</label><br>
             <select name="level" id="level" class="custom-select form-control">
                 <option value="Admin">Admin</option>
-                <option value="Kekretaris">Sekretaris</option>
+                <option value="Sekretaris">Sekretaris</option>
                 <option value="Ketua Senat">Ketua Senat</option>
-                <option value="Ketua Komisi">Ketua Komisi</option>
-                <option value="Anggota">Anggota</option>
+                <option value="Ketua Komisi 1">Ketua Komisi 1</option>
+                <option value="Ketua Komisi 2">Ketua Komisi 2</option>
+                <option value="Ketua Komisi 3">Ketua Komisi 3</option>
+                <option value="Ketua Komisi 4">Ketua Komisi 4</option>
+                <option value="Anggota Komisi 1">Anggota Komisi 1</option>
+                <option value="Anggota Komisi 2">Anggota Komisi 2</option>
+                <option value="Anggota Komisi 3">Anggota Komisi 3</option>
+                <option value="Anggota Komisi 4">Anggota Komisi 4</option>
             </select>
         </div>
     </div>
@@ -60,8 +66,14 @@
                 <option value="Admin">Admin</option>
                 <option value="Sekretaris">Sekretaris</option>
                 <option value="Ketua Senat">Ketua Senat</option>
-                <option value="Ketua Komisi">Ketua Komisi</option>
-                <option value="Anggota">Anggota</option>
+                <option value="Ketua Komisi 1">Ketua Komisi 1</option>
+                <option value="Ketua Komisi 2">Ketua Komisi 2</option>
+                <option value="Ketua Komisi 3">Ketua Komisi 3</option>
+                <option value="Ketua Komisi 4">Ketua Komisi 4</option>
+                <option value="Anggota Komisi 1">Anggota Komisi 1</option>
+                <option value="Anggota Komisi 2">Anggota Komisi 2</option>
+                <option value="Anggota Komisi 3">Anggota Komisi 3</option>
+                <option value="Anggota Komisi 4">Anggota Komisi 4</option>
             </select>
         </div>
     </div>

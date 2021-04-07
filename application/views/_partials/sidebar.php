@@ -22,9 +22,6 @@
               <li class="<?php echo $this->uri->segment(1) == 'Berita' ? 'active' : ''; ?>"><a class="nav-link"
                       href="<?php echo base_url(); ?>Berita"><i class="far fa-newspaper"></i> <span>Berita</span></a>
               </li>
-              <li class="<?php echo $this->uri->segment(1) == 'dokumentasi' ? 'active' : ''; ?>"><a class="nav-link"
-                      href="<?php echo base_url(); ?>home"><i class="far fa-images"></i> <span>Dokumentasi</span></a>
-              </li>
               <?php } ?>
               <li class="<?php echo $this->uri->segment(1) == 'Usulan' ? 'active' : ''; ?>"><a class="nav-link"
                       href="<?php echo base_url(); ?>Usulan"><i class="far fa-lightbulb"></i> <span>Usulan</span></a>
