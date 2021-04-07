@@ -30,7 +30,7 @@
             <label>Keterangan</label><br>
             <textarea id="summernote-simple" name="keterangan" required></textarea>
         </div>
-        <input type="hidden" name="status" value="diajukan">
+        <input type="hidden" name="status" value="Diajukan">
         <input type="hidden" name="id_user" value="<?php echo $this->session->userdata('id_user');?>">
     </div>
     <div class="col-12">
@@ -75,23 +75,15 @@
             <select name="status" id="status" class="custom-select form-control">
                 <option value="<?php echo $usulan->status;?>" selected><?php echo $usulan->status;?></option>
                 <option disabled>------------------------------------</option>
+                <?php if ($this->session->userdata('level') == "Sekretaris") { ?>
                 <option value="Diajukan - Sekretaris">Diajukan - Sekretaris</option>
                 <option value="Diajukan - Komisi 1">Diajukan - Komisi 1</option>
                 <option value="Diajukan - Komisi 2">Diajukan - Komisi 2</option>
                 <option value="Diajukan - Komisi 3">Diajukan - Komisi 3</option>
                 <option value="Diajukan - Komisi 4">Diajukan - Komisi 4</option>
-                <option disabled>------------------------------------</option>
-                <option value="Diajukan">Sedang Diproses - Sekretaris</option>
-                <option value="Diajukan - Komisi 1">Sedang Diproses - Komisi 1</option>
-                <option value="Diajukan - Komisi 2">Sedang Diproses - Komisi 2</option>
-                <option value="Diajukan - Komisi 3">Sedang Diproses - Komisi 3</option>
-                <option value="Diajukan - Komisi 4">Sedang Diproses - Komisi 4</option>
-                <option disabled>------------------------------------</option>
-                <option value="Diajukan">Selesai - Sekretaris</option>
-                <option value="Diajukan - Komisi 1">Selesai - Komisi 1</option>
-                <option value="Diajukan - Komisi 2">Selesai - Komisi 2</option>
-                <option value="Diajukan - Komisi 3">Selesai - Komisi 3</option>
-                <option value="Diajukan - Komisi 4">Selesai - Komisi 4</option>
+                <?php } ?>
+                <option value="Diajukan">Diajukan</option>
+                <option value="Ditolak">Ditolak</option>
             </select>
         </div>
     </div>

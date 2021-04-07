@@ -14,7 +14,11 @@
                         <?php endforeach; ?>
                     </select>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label>Notula</label><br>
+                    <textarea class="form-control" id="summernote-notula" name="notula"></textarea>
+                </div>
+            </div>    
             <div class="col-6">
                 <div class="form-group">
                     <label>Tujuan</label><br>
@@ -69,21 +73,29 @@
                         <input class="form-control" name="password" type="text" placeholder="Masukkan password..."
                             autocomplete="off">
                     </div>
+                    <div class="form-group">
+                        <label>Status Kegiatan</label><br>
+                        <select name="status" class="custom-select form-control" required>
+                            <option disabled selected>Pilih Status Kegiatan</option>
+                            <option disabled>------------------------------</option>
+                            <option value="Perlu Tindak Lanjut - Sidang Pleno">Perlu Tindak Lanjut - Sidang Pleno</option>
+                            <option value="Perlu Tindak Lanjut - Sidang Paripurna">Perlu Tindak Lanjut - Sidang Paripurna</option>
+                            <option value="Selesai">Selesai</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
         <input type="hidden" name="id_user" value="<?php echo $this->session->userdata('id_user');?>">
     </div>
-
-
 </div>
 <?php }else if($cek == 1) { ?>
 <input type="hidden" name="id_kegiatan" value="<?php echo $kegiatan->id_kegiatan;?>">
+<input type="hidden" name="id_penjadwalan" value="<?php echo $kegiatan->id_penjadwalan;?>">
 <?php if($kegiatan->id_user != null){ ?>
 <input type="hidden" name="id_user" value="<?php echo $kegiatan->id_user;?>">
 <?php } ?>
 <div class="row">
-
     <div class="col-6">
         <div class="form-group">
             <label>Agenda</label><br>
@@ -124,6 +136,18 @@
             <input class="form-control" name="link" type="text" value="<?php echo $kegiatan->link;?>"
                 placeholder="Masukkan link ruangan daring..." autocomplete="off">
         </div>
+        <div class="form-group">
+            <label>Status Kegiatan</label><br>
+            <select name="status" class="custom-select form-control" required>
+                <option value="<?php echo $kegiatan->status;?>" selected>
+                    <?php echo $kegiatan->status;?></option>
+                <option disabled>Pilih Status Kegiatan</option>
+                <option disabled>------------------------------</option>
+                <option value="Perlu Tindak Lanjut - Sidang Pleno">Perlu Tindak Lanjut - Sidang Pleno</option>
+                <option value="Perlu Tindak Lanjut - Sidang Paripurna">Perlu Tindak Lanjut - Sidang Paripurna</option>
+                <option value="Selesai">Selesai</option>
+            </select>
+        </div>
     </div>
     <div class="col-6">
         <div class="form-group">
@@ -148,9 +172,9 @@
         <input type="hidden" name="id_user" value="<?php echo $this->session->userdata('id_user');?>">
     </div>
 </div>
-
 <?php } else { ?>
 <input type="hidden" name="id_kegiatan" value="<?php echo $kegiatan->id_kegiatan;?>">
+<input type="hidden" name="id_penjadwalan" value="<?php echo $kegiatan->id_penjadwalan;?>">
 <?php if($kegiatan->id_user != null){ ?>
 <input type="hidden" name="id_user" value="<?php echo $kegiatan->id_user;?>">
 <?php } ?>
@@ -216,6 +240,18 @@
             <div class="form-group">
                 <label>Link Ruangan Daring</label><br>
                 <textarea class="form-control" name="link"><?php echo $kegiatan->link;?></textarea>
+            </div>
+            <div class="form-group">
+                <label>Status Kegiatan</label><br>
+                <select name="status" class="custom-select form-control" required>
+                    <option value="<?php echo $kegiatan->status;?>" selected>
+                        <?php echo $kegiatan->status;?></option>
+                    <option disabled>Pilih Status Kegiatan</option>
+                    <option disabled>------------------------------</option>
+                    <option value="Perlu Tindak Lanjut - Sidang Pleno">Perlu Tindak Lanjut - Sidang Pleno</option>
+                    <option value="Perlu Tindak Lanjut - Sidang Paripurna">Perlu Tindak Lanjut - Sidang Paripurna</option>
+                    <option value="Selesai">Selesai</option>
+                </select>
             </div>
             <div class="form-group">
                 <label>Password</label><br>

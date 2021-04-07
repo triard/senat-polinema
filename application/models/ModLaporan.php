@@ -8,10 +8,11 @@ class ModLaporan extends CI_model {
         return $this->db->get()->result();
 	}
 	public function getJoinAll(){
-		$this->db->select('*');
+		$this->db->select('laporan.*');
+		$this->db->select('agenda');
 		$this->db->from('laporan');
 		$this->db->join('kegiatan', 'laporan.id_kegiatan = kegiatan.id_kegiatan');
-		$this->db->where('status', 'Diajukan');
+		$this->db->where('laporan.status', 'Diajukan');
         return $this->db->get()->result();
     } 
 	public function add() {

@@ -18,7 +18,7 @@ class BirokrasiKetuaUmum extends CI_Controller {
 		if($q != "login") {
 			redirect('auth/auth_login','refresh');
 		}
-		// $menu['login'] = $this->ModLaporan->edit($this->session->userdata('id_user'));
+		$menu['login'] = $this->ModLaporan->edit($this->session->userdata('id_user'));
 		$data['laporan'] = $this->ModLaporan->getJoinAll();
 		$this->load->view('birokrasi-ketua-umum',$data);
 	}

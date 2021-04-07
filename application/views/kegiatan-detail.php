@@ -15,8 +15,8 @@ $this->load->view('_partials/sidebar');
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Notula Rapat/Sidang</h4>
-                            <?php if ($hakAkses == "Sekretaris" || $hakAkses == "Ketua Komisi"){ ?>
+                            <h4>Notula Rapat / Sidang</h4>
+                            <?php if (($hakAkses == "Sekretaris" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 1" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 2" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 3" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 4" && $this->session->userdata('id_user') == $kegiatan->id_user)){ ?>
                                 <div class="card-header-action">
                                     <button class="btn btn-primary" onclick="ganti(<?php echo $kegiatan->id_kegiatan;?>)"><i
                                             class="fas fa-pen-square"></i>
@@ -58,17 +58,27 @@ $this->load->view('_partials/sidebar');
                                     <tr class="table-active">
                                         <td>Pembahasan</td>
                                         <td>:</td>
-                                        <td class="p-2"><?php echo $kegiatan->pembahasan ?></td>
+                                        <td><?php echo $kegiatan->pembahasan ?></td>
                                     </tr>
                                     <tr>
                                         <td>Hasil Keputusan</td>
                                         <td>:</td>
-                                        <td class="p-2"><?php echo $kegiatan->notula ?></td>
+                                        <td><?php echo $kegiatan->notula ?></td>
                                     </tr>
                                     <tr class="table-active">
                                         <td>Notulis</td>
                                         <td>:</td>
                                         <td><?php echo $kegiatan->nama ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Status</td>
+                                        <td>:</td>
+                                        <td>
+                                        <?php if ($kegiatan->status != NULL) { ?>
+                                            <div class="badge badge-success"><?php echo $kegiatan->status;?></div>    
+                                        <?php } else { ?>
+                                            <div class="badge badge-danger">Anda Belum Melakukan Konfirmasi Status</div>
+                                        <?php } ?>
                                     </tr>
                                 </tbody>
                             </table>
@@ -77,7 +87,7 @@ $this->load->view('_partials/sidebar');
                     <div class="card">
                         <div class="card-header">
                             <h4>Laporan Hasil Rapat/Sidang</h4>
-                            <?php if ($hakAkses == "Sekretaris" || $hakAkses == "Ketua Komisi"){ ?>
+                            <?php if (($hakAkses == "Sekretaris" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 1" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 2" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 3" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 4" && $this->session->userdata('id_user') == $kegiatan->id_user)){ ?>
                                 <div class="card-header-action">
                                     <button class="btn btn-success"
                                         onclick="tambahLaporan(<?php echo $kegiatan->id_kegiatan;?>)"><i
@@ -98,7 +108,7 @@ $this->load->view('_partials/sidebar');
                                 <tbody>
                                     <?php $no=1;
                                         foreach ($laporan as $l) { ?>
-                                    <?php if($l->id_kegiatan == $kegiatan->id_kegiatan){ ?>
+                                        <?php if($l->id_kegiatan == $kegiatan->id_kegiatan && ($l->status != "Diajukan" || $hakAkses == "Sekretaris")){ ?>
                                     <tr>
                                         <td><?php echo $no;?></td>
                                         <td><?php echo $l->nama_laporan ?></td>
@@ -108,7 +118,7 @@ $this->load->view('_partials/sidebar');
                                                 onclick="lihatLaporan(<?php echo $l->id_laporan;?>)">
                                                 <i class="fas fa-eye"></i>
                                             </button>
-                                            <?php if ($hakAkses == "Sekretaris"){ ?>
+                                            <?php if (($hakAkses == "Sekretaris" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 1" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 2" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 3" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 4" && $this->session->userdata('id_user') == $kegiatan->id_user)){ ?>
                                                 <button class="btn btn-danger"
                                                     onclick="hapus(<?php echo $l->id_laporan;?>)">
                                                     <i class="fas fa-times"></i>
@@ -123,8 +133,8 @@ $this->load->view('_partials/sidebar');
                     </div>
                     <div class="card">
                         <div class="card-header">
-                            <h4>Dokumetasi Rapat/Sidang</h4>
-                            <?php if ($hakAkses == "Admin"){ ?>
+                            <h4>Dokumentasi Rapat/Sidang</h4>
+                            <?php if ($hakAkses == "Admin" || $hakAkses == "Sekretaris" || $hakAkses == "Ketua Komisi 1" || $hakAkses == "Ketua Komisi 2"|| $hakAkses == "Ketua Komisi 3" || $hakAkses == "Ketua Komisi 4"){ ?>
                             <div class="card-header-action">
                                 <button class="btn btn-success"
                                     onclick="tambahGambar(<?php echo $kegiatan->id_kegiatan;?>)"><i
@@ -135,7 +145,7 @@ $this->load->view('_partials/sidebar');
                         </div>
                         <div class="card-body">
                             <div class="gallery">
-                                <?php if ($hakAkses == "Admin"){ ?>
+                                <?php if (($hakAkses == "Sekretaris" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 1" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 2" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 3" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 4" && $this->session->userdata('id_user') == $kegiatan->id_user)){ ?>
                                 <div class="row">
                                     <?php foreach ($dokumentasi as $d) { ?>
                                         <?php if($d->id_kegiatan == $kegiatan->id_kegiatan){ ?>
@@ -205,6 +215,8 @@ $(document).ready(function() {
                 a = "<?php echo base_url();?>Dokumentasi/add"
             } else if (simpan == "tambahLaporan") {
                 a = "<?php echo base_url();?>Laporan/add"
+            } else if (simpan == "setStatusKegiatan") {
+                a = "<?php echo base_url();?>Kegiatan/setStatusKegiatan"
             } else {
                 a = "<?php echo base_url();?>Kegiatan/update"
             }
@@ -272,6 +284,15 @@ function lihatLaporan(a) {
     $("#myModalView").modal("show");
     $("#modalbodyView-lg").load("<?php echo base_url();?>Laporan/viewLaporan/" + a, function(b) {
         $("#modalbodyView-lg").html(b)
+    })
+}
+
+function setStatusKegiatan(a) {
+    simpan = "setStatusKegiatan";
+    $(".form")[0].reset();
+    $("#myModal").modal("show");
+    $("#modalbody").load("<?php echo base_url();?>Kegiatan/modalStatusKegiatan/" + a, function(b) {
+        $("#modalbody").html(b)
     })
 }
 

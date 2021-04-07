@@ -7,11 +7,23 @@
                 <option disabled selected>Pilih Referensi</option>
                 <option value="0">Referensi Baru</option>
                 <?php foreach ($usulan as $u): ?>
-                <?php if($this->session->userdata('level') == "Sekretaris" && $u->status == "Diajukan - Sekretaris" && ($u->jenis == "Kebijakan" || $u->jenis == "Pertimbangan")){ ?>
+                <?php if($this->session->userdata('level') == "Sekretaris" && ($u->status == "Diajukan - Sekretaris" || $u->status == "Perlu Tindak Lanjut - Sidang Pleno" || $u->status == "Perlu Tindak Lanjut - Sidang Paripurna")){ ?>
+                <option value="<?php echo $u->id_usulan; ?>"><?php echo $u->jenis;?> - <?php echo $u->keterangan;?> (<?php echo $u->status;?>)
+                </option>
+                <?php } ?>
+                <?php if($this->session->userdata('level') == "Ketua Komisi 1" && $u->status == "Diajukan - Komisi 1"){ ?>
                 <option value="<?php echo $u->id_usulan; ?>"><?php echo $u->jenis;?> - <?php echo $u->keterangan;?>
                 </option>
                 <?php } ?>
-                <?php if($this->session->userdata('level') == "Ketua Komisi" && ($u->status == "Diajukan - Komisi 1" || $u->status == "Diajukan - Komisi 2" || $u->status == "Diajukan - Komisi 3" || $u->status == "Diajukan - Komisi 4") && $u->jenis == "Pengawasan"){ ?>
+                <?php if($this->session->userdata('level') == "Ketua Komisi 2" && $u->status == "Diajukan - Komisi 2"){ ?>
+                <option value="<?php echo $u->id_usulan; ?>"><?php echo $u->jenis;?> - <?php echo $u->keterangan;?>
+                </option>
+                <?php } ?>
+                <?php if($this->session->userdata('level') == "Ketua Komisi 3" && $u->status == "Diajukan - Komisi 3"){ ?>
+                <option value="<?php echo $u->id_usulan; ?>"><?php echo $u->jenis;?> - <?php echo $u->keterangan;?>
+                </option>
+                <?php } ?>
+                <?php if($this->session->userdata('level') == "Ketua Komisi 4" && $u->status == "Diajukan - Komisi 4"){ ?>
                 <option value="<?php echo $u->id_usulan; ?>"><?php echo $u->jenis;?> - <?php echo $u->keterangan;?>
                 </option>
                 <?php } ?>
@@ -40,9 +52,9 @@
             <input class="form-control" name="waktu_selesai" type="time" placeholder="" required>
         </div>
         <div class="form-group">
-            <label>Jenis Rapat</label><br>
+            <label>Jenis Rapat / Sidang</label><br>
             <select name="jenis_rapat" class="custom-select form-control" required>
-                <option disabled selected>Pilih Jenis Rapat</option>
+                <option disabled selected>Pilih Jenis Rapat / Sidang</option>
                 <option disabled>------------------------------</option>
                 <option value="Luring">Luring</option>
                 <option value="Daring">Daring</option>
@@ -61,7 +73,7 @@
             <input class="form-control" name="password" type="text" placeholder="Masukkan password..."
                 autocomplete="off">
         </div>
-        <input type="hidden" name="status" value="Diajukan">
+        <!-- <input type="hidden" name="status" value="Dijadwalkan"> -->
         <input type="hidden" name="id_user" value="<?php echo $this->session->userdata('id_user');?>">
     </div>
 </div>
@@ -74,8 +86,8 @@
             <?php echo $penjadwalan->status;?></option>
         <option disabled>Pilih Status Rapat</option>
         <option disabled>------------------------------</option>
-        <option value="Ditolak">Ditolak</option>
-        <option value="Disetujui">Disetujui</option>
+        <option value="Dijadwalkan - Komisi 1">Dijadwalkan - Komisi 1</option>
+        <option value="Selesai">Selesai</option>
     </select>
 </div>
 <?php } else { ?>
@@ -91,18 +103,6 @@
                 <option disabled selected>Pilih Referensi</option>
                 <option value="<?php echo $penjadwalan->id_usulan;?>" selected><?php echo $penjadwalan->agenda;?> -
                     <?php echo $penjadwalan->pembahasan;?></option>
-                <option disabled>------------------------------</option>
-                <option value="0">Referensi Baru</option>
-                <?php foreach ($usulan as $u): ?>
-                <?php if($this->session->userdata('level') == "Sekretaris" && $u->status == "Diajukan - Sekretaris" && ($u->jenis == "Kebijakan" || $u->jenis == "Pertimbangan")){ ?>
-                <option value="<?php echo $u->id_usulan; ?>"><?php echo $u->jenis;?> - <?php echo $u->keterangan;?>
-                </option>
-                <?php } ?>
-                <?php if($this->session->userdata('level') == "Ketua Komisi" && ($u->status == "Diajukan - Komisi 1" || $u->status == "Diajukan - Komisi 2" || $u->status == "Diajukan - Komisi 3" || $u->status == "Diajukan - Komisi 4") && $u->jenis == "Pengawasan"){ ?>
-                <option value="<?php echo $u->id_usulan; ?>"><?php echo $u->jenis;?> - <?php echo $u->keterangan;?>
-                </option>
-                <?php } ?>
-                <?php endforeach; ?>
             </select>
         </div>
         <div class="set-usulan">
@@ -115,21 +115,6 @@
                 <label>Pembahasan</label><br>
                 <textarea id="summernote-simple" name="pembahasan"><?php echo $penjadwalan->pembahasan;?></textarea>
             </div>
-        </div>
-        <div class="form-group">
-            <label>Status</label><br>
-            <select name="status" class="custom-select form-control" required>
-                <option value="<?php echo $penjadwalan->status;?>" selected>
-                    <?php echo $penjadwalan->status;?></option>
-                <option disabled>Pilih Status Rapat</option>
-                <option disabled>------------------------------</option>
-                <?php if($penjadwalan->status == "Ditolak"){ ?>
-                <option value="Diajukan">Diajukan</option>
-                <?php }else if($penjadwalan->status == "Disetujui"){ ?>
-                <option value="Rapat Berlangsung">Rapat Berlangsung</option>
-                <option value="Selesai">Selesai</option>
-                <?php } ?>
-            </select>
         </div>
     </div>
     <div class="col-6">

@@ -91,5 +91,20 @@ class Usulan extends CI_Controller {
 		$name = $this->uri->segment(3);
 		force_download("assets/dokumenPendukung/".$name, null);
 	}
-
+	public function acceptAdmin($id) {
+		$q = $this->session->userdata('status');
+		if($q != "login") {
+			exit();
+		}
+		$this->ModUsulan->setStatus($id, 'Diajukan - Sekretaris');
+		echo json_encode(array("status" => TRUE));
+	}
+	public function refuseAdmin($id) {
+		$q = $this->session->userdata('status');
+		if($q != "login") {
+			exit();
+		}
+		$this->ModUsulan->setStatus($id, 'Ditolak');
+		echo json_encode(array("status" => TRUE));
+	}
 }
