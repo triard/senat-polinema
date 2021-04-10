@@ -7,6 +7,7 @@ class Penjadwalan extends CI_Controller {
 		parent::__construct();
 		$this->load->model('ModPenjadwalan');
 		$this->load->model('ModUsulan');
+		$this->load->model('ModUser');
 		$idUser = $this->session->userdata('id_user');
 	} 
 	public function index()
@@ -19,7 +20,8 @@ class Penjadwalan extends CI_Controller {
 			redirect('auth/auth_login','refresh');
 		}
 		$menu['login'] = $this->ModPenjadwalan->edit($this->session->userdata('id_user'));
-		$data['penjadwalan'] = $this->ModPenjadwalan->selectAll();
+		$data['penjadwalan'] = $this->ModPenjadwalan->selectDataAll();
+		$data['user'] = $this->ModUser->selectAll();
 		$this->load->view('penjadwalan',$data);
 	}
 	public function modal() {
@@ -29,6 +31,7 @@ class Penjadwalan extends CI_Controller {
 		}
 		$data['cek'] = 0;
 		$data['usulan'] = $this->ModUsulan->selectAll();
+		$data['user'] = $this->ModUser->selectAll();
 		$this->load->view('modal/penjadwalan', $data); 
 	}
 	public function add() {
@@ -51,6 +54,8 @@ class Penjadwalan extends CI_Controller {
 		}
 		$data['cek'] = 1;
 		$data['penjadwalan'] = $this->ModPenjadwalan->edit($id);
+		$data['getuser'] = $this->ModPenjadwalan->get_user_by_jadwal($id);
+		$data['user'] = $this->ModUser->selectAll();
 		$data['usulan'] = $this->ModUsulan->selectAll();
 		$this->load->view('modal/penjadwalan', $data);
 	}
@@ -62,6 +67,15 @@ class Penjadwalan extends CI_Controller {
 		$data['cek'] = 2;
 		$data['penjadwalan'] = $this->ModPenjadwalan->edit($id);
 		$data['usulan'] = $this->ModUsulan->selectAll();
+		$this->load->view('modal/penjadwalan', $data);
+	}
+	public function detail_peserta($id) {
+		$q = $this->session->userdata('status');
+		if($q != "login") {
+			exit();
+		}
+		$data['cek'] = 5;
+		$data['peserta'] = $this->ModPenjadwalan-> get_user_by_jadwal($id);
 		$this->load->view('modal/penjadwalan', $data);
 	}
 	public function delete($id) {

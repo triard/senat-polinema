@@ -18,7 +18,7 @@
                     <label>Notula</label><br>
                     <textarea class="form-control" id="summernote-notula" name="notula"></textarea>
                 </div>
-            </div>    
+            </div>
             <div class="col-6">
                 <div class="form-group">
                     <label>Tujuan</label><br>
@@ -78,8 +78,10 @@
                         <select name="status" class="custom-select form-control" required>
                             <option disabled selected>Pilih Status Kegiatan</option>
                             <option disabled>------------------------------</option>
-                            <option value="Perlu Tindak Lanjut - Sidang Pleno">Perlu Tindak Lanjut - Sidang Pleno</option>
-                            <option value="Perlu Tindak Lanjut - Sidang Paripurna">Perlu Tindak Lanjut - Sidang Paripurna</option>
+                            <option value="Perlu Tindak Lanjut - Sidang Pleno">Perlu Tindak Lanjut - Sidang Pleno
+                            </option>
+                            <option value="Perlu Tindak Lanjut - Sidang Paripurna">Perlu Tindak Lanjut - Sidang
+                                Paripurna</option>
                             <option value="Selesai">Selesai</option>
                         </select>
                     </div>
@@ -172,6 +174,36 @@
         <input type="hidden" name="id_user" value="<?php echo $this->session->userdata('id_user');?>">
     </div>
 </div>
+<?php }else if($cek == 5){ ?>
+<?php echo $absen->nama ?>
+<input type="hidden" name="id_peserta" id="id_peserta" value="<?php echo $absen->id_peserta?>">
+<div class="signature-pad" id="signature-pad">
+    <div class="m-signature-pad">
+            <canvas style="border:2px solid black !important;" width="700px" height="250"></canvas>
+    </div>
+    <div class="mt-4 mb-3 float-md-right">
+    <button type="button" id="save2" data-action="save" class="btn btn-primary"><i class="fa fa-check"></i>
+        Save</button>
+    <button type="button" data-action="clear" class="btn btn-danger"><i class="fa fa-trash-o"></i>
+        Clear</button>
+        <button type="button" class="btn btn-link" data-dismiss="modal">Batal</button>
+    </div>
+    
+</div>
+<!-- random id generated here  -->
+<input type="hidden" value="<?php echo rand();?>" id="rowno">
+
+<?php }else if($cek == 6){ ?>
+<?php echo $voting->nama ?>
+<input type="hidden" name="id_peserta" value="<?php echo $voting->id_peserta?>">
+<div class="form-group">
+    <select name="voting" class="custom-select form-control" required>
+        <option disabled selected>Pilih Voting</option>
+        <option disabled>------------------------------</option>
+        <option value="Setuju">Setuju</option>
+        <option value="Tidak Setuju">Tidak Setuju</option>
+    </select>
+</div>
 <?php } else { ?>
 <input type="hidden" name="id_kegiatan" value="<?php echo $kegiatan->id_kegiatan;?>">
 <input type="hidden" name="id_penjadwalan" value="<?php echo $kegiatan->id_penjadwalan;?>">
@@ -249,7 +281,8 @@
                     <option disabled>Pilih Status Kegiatan</option>
                     <option disabled>------------------------------</option>
                     <option value="Perlu Tindak Lanjut - Sidang Pleno">Perlu Tindak Lanjut - Sidang Pleno</option>
-                    <option value="Perlu Tindak Lanjut - Sidang Paripurna">Perlu Tindak Lanjut - Sidang Paripurna</option>
+                    <option value="Perlu Tindak Lanjut - Sidang Paripurna">Perlu Tindak Lanjut - Sidang Paripurna
+                    </option>
                     <option value="Selesai">Selesai</option>
                 </select>
             </div>
@@ -290,3 +323,61 @@ $("#penjadwalan").on("change keydown paste input", function() {
     })
 })
 </script>
+<script>
+var wrapper = document.getElementById("signature-pad"),
+    clearButton = wrapper.querySelector("[data-action=clear]"),
+    saveButton = wrapper.querySelector("[data-action=save]"),
+    canvas = wrapper.querySelector("canvas"),
+    signaturePad;
+
+
+function resizeCanvas() {
+
+    var ratio = window.devicePixelRatio || 1;
+    canvas.width = canvas.offsetWidth * ratio;
+    canvas.height = canvas.offsetHeight * ratio;
+    canvas.getContext("2d").scale(ratio, ratio);
+}
+signaturePad = new SignaturePad(canvas);
+
+clearButton.addEventListener("click", function(event) {
+    signaturePad.clear();
+});
+saveButton.addEventListener("click", function(event) {
+
+    if (signaturePad.isEmpty()) {
+        $('#myModal1').modal('show');
+    } else {
+
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url();?>Kegiatan/updateAbsen",
+            data: {
+                'id_peserta': $('#id_peserta').val(),
+                'image': signaturePad.toDataURL(),
+                'rowno': $('#rowno').val()
+            },
+            success: function(datas1) {
+                signaturePad.clear();
+                $("#myModal").modal("hide");
+                    swal("Sukses!", "", "success");
+                    location.reload();
+            },
+            error: function(datas1) {
+                    swal("Error", "", "error")
+                }
+        });
+    }
+});
+</script>
+<style>
+.m-signature-pad-body {
+    border: 1px dashed #ccc;
+    border-radius: 5px;
+    color: #bbbabb;
+    height: 453px;
+    width: 800px;
+    text-align: center;
+    vertical-align: middle;
+}
+</style>

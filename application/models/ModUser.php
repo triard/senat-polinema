@@ -37,8 +37,8 @@ class ModUser extends CI_model {
 		$this->db->insert('account', $data);
 	}
 	public function delete($id){
-		$this->db->where('id_user', $id);
 		$this->_deleteImage();
+		$this->db->where('id_user', $id);
 		$this->db->delete('user');
 	}
 	public function deleteAccount($id){
@@ -110,7 +110,7 @@ class ModUser extends CI_model {
 	private function _deleteImage()
 	{
     	$user = $this->edit($this->input->post('id_user'));
-    	if ($user->image != "avatar-1.jpg") {
+    	if ($user->image != "image.png") {
 	    $filename = explode(".", $user->image)[0];
 		return array_map('unlink', glob(FCPATH."assets/img/user/$filename.*"));
     }

@@ -11,181 +11,364 @@ $this->load->view('_partials/sidebar');
             <h4>Agenda Kegiatan Detail</h4>
         </div>
         <div class="section-body">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                        aria-controls="home" aria-selected="true">Notula</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                        aria-controls="profile" aria-selected="false">Absen</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                        aria-controls="contact" aria-selected="false">Laporan</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#dokumentasi" role="tab"
+                        aria-controls="contact" aria-selected="false">Dokumentasi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#voting" role="tab"
+                        aria-controls="contact" aria-selected="false">Voting</a>
+                </li>
+            </ul>
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">
-                            <h4>Notula Rapat / Sidang</h4>
-                            <?php if (($hakAkses == "Sekretaris" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 1" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 2" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 3" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 4" && $this->session->userdata('id_user') == $kegiatan->id_user)){ ?>
-                                <div class="card-header-action">
-                                    <button class="btn btn-primary" onclick="ganti(<?php echo $kegiatan->id_kegiatan;?>)"><i
-                                            class="fas fa-pen-square"></i>
-                                        Update</button>
-                                </div>
-                            <?php } ?>
-                        </div>
                         <div class="card-body">
-                            <center>
-                                <h5><?php echo $kegiatan->agenda ?></h5>
-                                <hr>
-                            </center>
-                            <br><br>
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="home" role="tabpanel"
+                                    aria-labelledby="home-tab">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4>Notula Rapat / Sidang</h4>
 
-                            <table class="table table-borderless text-dark">
-                                <tbody>
-                                    <tr class="table-active">
-                                        <td style="width: 200px;">Tanggal</td>
-                                        <td style="width: 30px;">:</td>
-                                        <td><?php echo date('d-m-Y', strtotime($kegiatan->waktu_mulai)); ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Waktu</td>
-                                        <td>:</td>
-                                        <td><?php echo date('H:i', strtotime($kegiatan->waktu_mulai)); ?> -
-                                            <?php echo date('H:i', strtotime($kegiatan->waktu_selesai)); ?> WIB</td>
+                                            <div class="card-header-action">
+                                                <?php if (($hakAkses == "Sekretaris" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 1" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 2" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 3" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 4" && $this->session->userdata('id_user') == $kegiatan->id_user)){ ?>
+                                                <button class="btn btn-primary"
+                                                    onclick="ganti(<?php echo $kegiatan->id_kegiatan;?>)"><i
+                                                        class="fas fa-pen-square"></i>
+                                                    Update</button>
+                                                <?php } ?>
+                                                <a class="btn btn-success" target="_blank"
+                                                    href="<?php echo base_url('Kegiatan/download_notula/'.$kegiatan->id_kegiatan) ?>"><i
+                                                        class="fas fa-file-export"></i></a>
+                                            </div>
 
-                                    </tr>
-                                    <tr class="table-active">
-                                        <td>Tempat</td>
-                                        <td>:</td>
-                                        <td><?php echo $kegiatan->tempat ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tujuan Pembahasan</td>
-                                        <td>:</td>
-                                        <td><?php echo $kegiatan->tujuan ?></td>
-                                    </tr>
-                                    <tr class="table-active">
-                                        <td>Pembahasan</td>
-                                        <td>:</td>
-                                        <td><?php echo $kegiatan->pembahasan ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hasil Keputusan</td>
-                                        <td>:</td>
-                                        <td><?php echo $kegiatan->notula ?></td>
-                                    </tr>
-                                    <tr class="table-active">
-                                        <td>Notulis</td>
-                                        <td>:</td>
-                                        <td><?php echo $kegiatan->nama ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Status</td>
-                                        <td>:</td>
-                                        <td>
-                                        <?php if ($kegiatan->status != NULL) { ?>
-                                            <div class="badge badge-success"><?php echo $kegiatan->status;?></div>    
-                                        <?php } else { ?>
-                                            <div class="badge badge-danger">Anda Belum Melakukan Konfirmasi Status</div>
-                                        <?php } ?>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Laporan Hasil Rapat/Sidang</h4>
-                            <?php if (($hakAkses == "Sekretaris" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 1" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 2" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 3" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 4" && $this->session->userdata('id_user') == $kegiatan->id_user)){ ?>
-                                <div class="card-header-action">
-                                    <button class="btn btn-success"
-                                        onclick="tambahLaporan(<?php echo $kegiatan->id_kegiatan;?>)"><i
-                                            class="fas fa-plus-circle"></i>
-                                        Tambah</button>
-                                </div>
-                            <?php } ?>
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 50px;">No.</th>
-                                        <th>Nama File</th>
-                                        <th style="width: 200px;">Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $no=1;
-                                        foreach ($laporan as $l) { ?>
-                                        <?php if($l->id_kegiatan == $kegiatan->id_kegiatan && ($l->status != "Diajukan" || $hakAkses == "Sekretaris")){ ?>
-                                    <tr>
-                                        <td><?php echo $no;?></td>
-                                        <td><?php echo $l->nama_laporan ?></td>
-                                        <td class="text-center">
-                                            <?php echo "<a class='btn btn-icon btn-success' target='_blank' href='".base_url()."Laporan/download_file/$l->file_laporan'><i class='fas fa-download'></i></a>";?>
-                                            <button class="btn btn-warning"
-                                                onclick="lihatLaporan(<?php echo $l->id_laporan;?>)">
-                                                <i class="fas fa-eye"></i>
-                                            </button>
-                                            <?php if (($hakAkses == "Sekretaris" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 1" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 2" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 3" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 4" && $this->session->userdata('id_user') == $kegiatan->id_user)){ ?>
-                                                <button class="btn btn-danger"
-                                                    onclick="hapus(<?php echo $l->id_laporan;?>)">
-                                                    <i class="fas fa-times"></i>
-                                                </button>
-                                            <?php } ?>
-                                        </td>
-                                    </tr>
-                                    <?php } $no++; } ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Dokumentasi Rapat/Sidang</h4>
-                            <?php if ($hakAkses == "Admin" || $hakAkses == "Sekretaris" || $hakAkses == "Ketua Komisi 1" || $hakAkses == "Ketua Komisi 2"|| $hakAkses == "Ketua Komisi 3" || $hakAkses == "Ketua Komisi 4"){ ?>
-                            <div class="card-header-action">
-                                <button class="btn btn-success"
-                                    onclick="tambahGambar(<?php echo $kegiatan->id_kegiatan;?>)"><i
-                                        class="fas fa-plus-circle"></i>
-                                    Tambah</button>
-                            </div>
-                            <?php } ?>
-                        </div>
-                        <div class="card-body">
-                            <div class="gallery">
-                                <?php if (($hakAkses == "Sekretaris" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 1" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 2" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 3" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 4" && $this->session->userdata('id_user') == $kegiatan->id_user)){ ?>
-                                <div class="row">
-                                    <?php foreach ($dokumentasi as $d) { ?>
-                                        <?php if($d->id_kegiatan == $kegiatan->id_kegiatan){ ?>
-                                    <div class="col-3">
-                                        <div class="card card-secondary">
-                                            <div class="card-header">
-                                                <h4></h4>
-                                                <div class="card-header-action">
-                                                    <button class="btn btn-danger"
-                                                        onclick="hapusDok(<?php echo $d->id_dokumentasi;?>)">
-                                                        <i class="fas fa-times"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div class="card-body gallery-item"
-                                                data-image="<?php echo base_url('assets/dokumentasiKegiatan/'.$d->nama_dokumentasi); ?>"
-                                                data-title="Image 1">
-                                            </div>
+
+                                        </div>
+                                        <div class="card-body">
+                                            <center>
+                                                <h5><?php echo $kegiatan->agenda ?></h5>
+                                                <hr>
+                                            </center>
+                                            <br><br>
+
+                                            <table class="table table-borderless text-dark">
+                                                <tbody>
+                                                    <tr class="table-active">
+                                                        <td style="width: 200px;">Tanggal</td>
+                                                        <td style="width: 30px;">:</td>
+                                                        <td><?php echo date('d-m-Y', strtotime($kegiatan->waktu_mulai)); ?>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Waktu</td>
+                                                        <td>:</td>
+                                                        <td><?php echo date('H:i', strtotime($kegiatan->waktu_mulai)); ?>
+                                                            -
+                                                            <?php echo date('H:i', strtotime($kegiatan->waktu_selesai)); ?>
+                                                            WIB</td>
+
+                                                    </tr>
+                                                    <tr class="table-active">
+                                                        <td>Tempat</td>
+                                                        <td>:</td>
+                                                        <td><?php echo $kegiatan->tempat ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Tujuan Pembahasan</td>
+                                                        <td>:</td>
+                                                        <td><?php echo $kegiatan->tujuan ?></td>
+                                                    </tr>
+                                                    <tr class="table-active">
+                                                        <td>Pembahasan</td>
+                                                        <td>:</td>
+                                                        <td><?php echo $kegiatan->pembahasan ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Hasil Keputusan</td>
+                                                        <td>:</td>
+                                                        <td><?php echo $kegiatan->notula ?></td>
+                                                    </tr>
+                                                    <tr class="table-active">
+                                                        <td>Notulis</td>
+                                                        <td>:</td>
+                                                        <td><?php echo $kegiatan->nama ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Status</td>
+                                                        <td>:</td>
+                                                        <td>
+                                                            <?php if ($kegiatan->status != NULL) { ?>
+                                                            <div class="badge badge-success">
+                                                                <?php echo $kegiatan->status;?></div>
+                                                            <?php } else { ?>
+                                                            <div class="badge badge-danger">Anda Belum Melakukan
+                                                                Konfirmasi Status</div>
+                                                            <?php } ?>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
-                                    <?php } } ?>
                                 </div>
-                                <?php } else { ?>
-                                <div class="row">
-                                    <?php foreach ($dokumentasi as $d) { ?>
-                                        <?php if($d->id_kegiatan == $kegiatan->id_kegiatan){ ?>
-                                    <div class="col-3">
-                                            <div class="card-body gallery-item"
-                                                data-image="<?php echo base_url('assets/dokumentasiKegiatan/'.$d->nama_dokumentasi); ?>"
-                                                data-title="Image 1">
+                                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                    <?php date_default_timezone_set('Asia/Jakarta');?>
+                                    <h4>Daftar Peserta Rapat</h4>
+                                    <a class="btn btn-success float-md-right m-2" target="_blank"
+                                        href="<?php echo base_url('Kegiatan/download_absen/'.$kegiatan->id_kegiatan) ?>"><i
+                                            class="fas fa-file-export"></i></a>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Nama</th>
+                                                <th>Keterangan</th>
+                                                <th style="width: 350px;">Absen</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach($peserta AS $p ): ?>
+                                            <?php if($p->id_penjadwalan == $kegiatan->id_penjadwalan ){ ?>
+                                            <tr>
+                                                <td><?php echo $p->nama ?></td>
+                                                <td><?php echo $p->jabatan ?></td>
+                                                <td>
+                                                    <center>
+                                                        <?php if($p->id_user == $this->session->userdata('id_user') && $p->absen == NULL &&  date('Y-m-d H:i:s') >= $kegiatan->waktu_mulai){ ?>
+                                                        <?php if(date('H:i:s') <= $kegiatan->waktu_selesai){?>
+                                                        <button class="btn btn-success btn-sm"
+                                                            onclick="setAbsen(<?php echo $p->id_peserta;?>)">
+                                                            Kirimikan Kehadiran</button>
+                                                        <?php }else{ ?>
+                                                        <?php if($p->absen != NULL){ ?>
+                                                        <img style="width: 40%; margin: 5px;"
+                                                            src="<?php echo base_url($p->absen)?>"
+                                                            alt="<?php echo $p->absen ?>">
+                                                        <?php }else{} ?>
+                                                        <?php } ?>
+                                                        <?php }else{ ?>
+                                                        <?php if($p->absen != NULL){ ?>
+                                                        <img style="width: 40%; margin: 5px;"
+                                                            src="<?php echo base_url($p->absen)?>"
+                                                            alt="<?php echo $p->absen ?>">
+                                                        <?php }else{} ?>
+                                                        <?php } ?>
+                                                    </center>
+                                                </td>
+                                            </tr>
+                                            <?php } endforeach ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4>Laporan Hasil Rapat/Sidang</h4>
+                                            <?php if (($hakAkses == "Sekretaris" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 1" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 2" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 3" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 4" && $this->session->userdata('id_user') == $kegiatan->id_user)){ ?>
+                                            <div class="card-header-action">
+                                                <button class="btn btn-success"
+                                                    onclick="tambahLaporan(<?php echo $kegiatan->id_kegiatan;?>)"><i
+                                                        class="fas fa-plus-circle"></i>
+                                                    Tambah</button>
                                             </div>
+                                            <?php } ?>
+                                        </div>
+                                        <div class="card-body">
+                                            <table class="table table-bordered table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="width: 50px;">No.</th>
+                                                        <th>Nama File</th>
+                                                        <th style="width: 200px;">Aksi</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php $no=1;
+                                        foreach ($laporan as $l) { ?>
+                                                    <?php if($l->id_kegiatan == $kegiatan->id_kegiatan && ($l->status != "Diajukan" || $hakAkses == "Sekretaris")){ ?>
+                                                    <tr>
+                                                        <td><?php echo $no;?></td>
+                                                        <td><?php echo $l->nama_laporan ?></td>
+                                                        <td class="text-center">
+                                                            <?php echo "<a class='btn btn-icon btn-success' target='_blank' href='".base_url()."Laporan/download_file/$l->file_laporan'><i class='fas fa-download'></i></a>";?>
+                                                            <button class="btn btn-warning"
+                                                                onclick="lihatLaporan(<?php echo $l->id_laporan;?>)">
+                                                                <i class="fas fa-eye"></i>
+                                                            </button>
+                                                            <?php if (($hakAkses == "Sekretaris" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 1" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 2" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 3" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 4" && $this->session->userdata('id_user') == $kegiatan->id_user)){ ?>
+                                                            <button class="btn btn-danger"
+                                                                onclick="hapus(<?php echo $l->id_laporan;?>)">
+                                                                <i class="fas fa-times"></i>
+                                                            </button>
+                                                            <?php } ?>
+                                                        </td>
+                                                    </tr>
+                                                    <?php } $no++; } ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
-                                    <?php } } ?>
                                 </div>
-                                <?php } ?>
+                                <div class="tab-pane fade" id="dokumentasi" role="tabpanel"
+                                    aria-labelledby="contact-tab">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4>Dokumentasi Rapat/Sidang</h4>
+                                            <?php if ($hakAkses == "Admin" || $hakAkses == "Sekretaris" || $hakAkses == "Ketua Komisi 1" || $hakAkses == "Ketua Komisi 2"|| $hakAkses == "Ketua Komisi 3" || $hakAkses == "Ketua Komisi 4"){ ?>
+                                            <div class="card-header-action">
+                                                <button class="btn btn-success"
+                                                    onclick="tambahGambar(<?php echo $kegiatan->id_kegiatan;?>)"><i
+                                                        class="fas fa-plus-circle"></i>
+                                                    Tambah</button>
+                                            </div>
+                                            <?php } ?>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="gallery">
+                                                <?php if (($hakAkses == "Sekretaris" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 1" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 2" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 3" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 4" && $this->session->userdata('id_user') == $kegiatan->id_user)){ ?>
+                                                <div class="row">
+                                                    <?php foreach ($dokumentasi as $d) { ?>
+                                                    <?php if($d->id_kegiatan == $kegiatan->id_kegiatan){ ?>
+                                                    <div class="col-3">
+                                                        <div class="card card-secondary">
+                                                            <div class="card-header">
+                                                                <h4></h4>
+                                                                <div class="card-header-action">
+                                                                    <button class="btn btn-danger"
+                                                                        onclick="hapusDok(<?php echo $d->id_dokumentasi;?>)">
+                                                                        <i class="fas fa-times"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-body gallery-item"
+                                                                data-image="<?php echo base_url('assets/dokumentasiKegiatan/'.$d->nama_dokumentasi); ?>"
+                                                                data-title="Image 1">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <?php } } ?>
+                                                </div>
+                                                <?php } else { ?>
+                                                <div class="row">
+                                                    <?php foreach ($dokumentasi as $d) { ?>
+                                                    <?php if($d->id_kegiatan == $kegiatan->id_kegiatan){ ?>
+                                                    <div class="col-3">
+                                                        <div class="card-body gallery-item"
+                                                            data-image="<?php echo base_url('assets/dokumentasiKegiatan/'.$d->nama_dokumentasi); ?>"
+                                                            data-title="Image 1">
+                                                        </div>
+                                                    </div>
+                                                    <?php } } ?>
+                                                </div>
+                                                <?php } ?>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="voting" role="tabpanel" aria-labelledby="contact-tab">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4>Voting Rapat/Sidang</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Nama</th>
+                                                        <th>Keterangan</th>
+                                                        <th>Voting</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php foreach($peserta AS $p ): ?>
+                                                    <?php if($p->id_user == $this->session->userdata('id_user') && $p->id_penjadwalan == $kegiatan->id_penjadwalan ){ ?>
+                                                    <tr>
+                                                        <td><?php echo $p->nama ?></td>
+                                                        <td><?php echo $p->jabatan ?></td>
+                                                        <td>
+                                                            <?php if($p->voting == NULL){ ?>
+                                                            <button class="btn btn-success btn-sm"
+                                                                onclick="setVoting(<?php echo $p->id_peserta;?>)">
+                                                                <i class="fas fa-vote-yea"></i>
+                                                                Lakukan Voting</button>
+                                                            <?php }else{ ?>
+                                                            <?php echo $p->voting ?>
+                                                            <?php } ?>
+                                                        </td>
+                                                    </tr>
+                                                    <?php ?>
+                                                    <?php } endforeach ?>
+                                                </tbody>
+                                            </table>
+                                            <?php if($hakAkses == "Sekretaris" || $hakAkses == "Ketua Komisi 1" || $hakAkses == "Ketua Komisi 2" || $hakAkses == "Ketua Komisi 3" || $hakAkses == "Ketua Komisi 4"){ ?>
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Nama</th>
+                                                        <th>Keterangan</th>
+                                                        <th>Voting</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php foreach($peserta AS $p ): ?>
+                                                    <?php if($p->id_penjadwalan == $kegiatan->id_penjadwalan){ ?>
+                                                    <tr>
+                                                        <td><?php echo $p->nama ?></td>
+                                                        <td><?php echo $p->jabatan ?></td>
+                                                        <td>
+                                                            <?php echo $p->voting ?>
+                                                        </td>
+                                                    </tr>
+                                                    <?php ?>
+                                                    <?php } endforeach ?>
+                                                </tbody>
+                                            </table>
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Setuju</th>
+                                                        <th>Tidak Setuju</th>
+                                                        <th class="text-success">Jumlah Peserta <br> Voting</th>
+                                                        <th class="text-danger">Jumlah Peserta<br>Tidak Voting</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+
+                                                        <td><?php echo $setuju->setuju ?> Orang</td>
+                                                        <td><?php echo $tidak_setuju->tidak_setuju ?> Orang</td>
+                                                        <td class="text-success">
+                                                            <?php echo $setuju->setuju + $tidak_setuju->tidak_setuju ?>
+                                                            Orang</td>
+                                                        <td class="text-danger"><?php echo $golput->golput ?> Orang</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <?php } ?>
+                                        </div>
+
+                                    </div>
+                                </div>
                             </div>
-
                         </div>
-
                     </div>
+
+                </div>
+                <div class="col-12">
                 </div>
             </div>
         </div>
@@ -217,6 +400,10 @@ $(document).ready(function() {
                 a = "<?php echo base_url();?>Laporan/add"
             } else if (simpan == "setStatusKegiatan") {
                 a = "<?php echo base_url();?>Kegiatan/setStatusKegiatan"
+            } else if (simpan == "setAbsen") {
+                a = "<?php echo base_url();?>Kegiatan/updateAbsen"
+            } else if (simpan == "setVoting") {
+                a = "<?php echo base_url();?>Kegiatan/updateVoting"
             } else {
                 a = "<?php echo base_url();?>Kegiatan/update"
             }
@@ -296,6 +483,25 @@ function setStatusKegiatan(a) {
     })
 }
 
+function setAbsen(a) {
+    simpan = "setAbsen";
+    $(".form")[0].reset();
+    $("#myModalModal").modal("show");
+    $("#modalbodybody").load("<?php echo base_url();?>Kegiatan/modalAbsen/" + a, function(b) {
+        $("#modalbodybody").html(b)
+    })
+
+}
+
+function setVoting(a) {
+    simpan = "setVoting";
+    $(".form")[0].reset();
+    $("#myModal").modal("show");
+    $("#modalbody").load("<?php echo base_url();?>Kegiatan/modalVoting/" + a, function(b) {
+        $("#modalbody").html(b)
+    })
+}
+
 function ganti(a) {
     simpan = "update";
     $(".form")[0].reset();
@@ -358,6 +564,7 @@ function hapus(a) {
         });
 
 };
+
 function hapusDok(a) {
     swal({
             title: "Apa Anda yakin?",
@@ -383,3 +590,67 @@ function hapusDok(a) {
 
 };
 </script>
+<script>
+var wrapper = document.getElementById("signature-pad"),
+    clearButton = wrapper.querySelector("[data-action=clear]"),
+    saveButton = wrapper.querySelector("[data-action=save]"),
+    canvas = wrapper.querySelector("canvas"),
+    signaturePad;
+
+
+function resizeCanvas() {
+
+    var ratio = window.devicePixelRatio || 1;
+    canvas.width = canvas.offsetWidth * ratio;
+    canvas.height = canvas.offsetHeight * ratio;
+    canvas.getContext("2d").scale(ratio, ratio);
+}
+signaturePad = new SignaturePad(canvas);
+
+clearButton.addEventListener("click", function(event) {
+    signaturePad.clear();
+});
+saveButton.addEventListener("click", function(event) {
+
+    if (signaturePad.isEmpty()) {
+        $('#myModal').modal('show');
+    } else {
+
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url();?>welcome/insert_single_signature",
+            data: {
+                'image': signaturePad.toDataURL(),
+                'rowno': $('#rowno').val()
+            },
+            success: function(datas1) {
+                signaturePad.clear();
+                $('.previewsign').html(datas1);
+            }
+        });
+    }
+});
+</script>
+<style type="text/css">
+.m-signature-pad-body {
+    border: 1px dashed #ccc;
+    border-radius: 5px;
+    color: #bbbabb;
+    height: 253px;
+    width: 46%;
+    text-align: center;
+    vertical-align: middle;
+
+}
+
+.m-signature-pad-footer {
+    bottom: 250px;
+    left: 218px;
+    position: fixed;
+}
+
+.img {
+    right: 0;
+    position: absolute;
+}
+</style>

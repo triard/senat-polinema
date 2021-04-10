@@ -53,8 +53,8 @@ class User extends CI_Controller {
 		if($q != "login") {
 			exit();
 		}
-		$this->ModUser->delete($id);
 		$this->ModUser->deleteAccount($id);
+		$this->ModUser->delete($id);
 		echo json_encode(array("status" => TRUE));
 	}
 	public function update() {

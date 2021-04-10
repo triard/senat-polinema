@@ -81,4 +81,65 @@ class ModKegiatan extends CI_model {
 		$this->db->where('id_kegiatan', $id_kegiatan);
 		$this->db->update('kegiatan', $data);
 	}
+
+	public function modalAbsen($id){ 
+        $this->db->select('p.*, u.*, j.id_penjadwalan');
+        $this->db->from('user as u');
+        $this->db->join('peserta as p', 'p.id_user=u.id_user');
+        $this->db->join('penjadwalan as j', 'j.id_penjadwalan=p.id_penjadwalan');
+		$this->db->where('p.id_peserta', $id);
+        return $this->db->get()->row();
+	}
+	public function updateAbsen(){ 
+		$img = $this->input->post('image');
+		$img = str_replace('data:image/png;base64,', '', $img);
+		$img = str_replace(' ', '+', $img);
+		$data = base64_decode($img);
+		$file = 'assets/signature-image/' . uniqid() . '.png';
+		$success = file_put_contents($file, $data); 
+		$image=str_replace('./','',$file);
+
+		$id_peserta = $this->input->post('id_peserta');
+		// $name = $this->input->post('signname');
+		$img= $image;
+		// $rowno = $this->input->post('rowno');
+		// $append = $this->input->post('appendcount');
+		$data = array('absen' => $img);
+		$this->db->where('id_peserta', $id_peserta);
+		$this->db->update('peserta', $data);
+	}
+	public function updateVoting(){ 
+		$id_peserta = $this->input->post('id_peserta');
+		$voting= $this->input->post('voting');
+		$data = array('voting' => $voting);
+		$this->db->where('id_peserta', $id_peserta);
+		$this->db->update('peserta', $data);
+	}
+	public function JumlahVotingSetuju($id)
+	{
+		$this->db->select('count(peserta.voting) AS setuju');
+		$this->db->from('peserta'); 
+		$this->db->join('kegiatan', 'peserta.id_penjadwalan=kegiatan.id_penjadwalan');
+		$this->db->where('peserta.voting','Setuju');    
+		$this->db->where('kegiatan.id_kegiatan',$id);       
+		return $this->db->get()->row();
+	}
+	public function JumlahVotingTidakSetuju($id)
+	{
+		$this->db->select('count(peserta.voting) AS tidak_setuju');
+		$this->db->from('peserta'); 
+		$this->db->join('kegiatan', 'peserta.id_penjadwalan=kegiatan.id_penjadwalan');
+		$this->db->where('peserta.voting','Tidak Setuju');    
+		$this->db->where('kegiatan.id_kegiatan',$id);        
+		return $this->db->get()->row();
+	}
+	public function JumlahGolput($id)
+	{
+		$this->db->select('count(peserta.voting) AS golput');
+		$this->db->from('peserta'); 
+		$this->db->join('kegiatan', 'peserta.id_penjadwalan=kegiatan.id_penjadwalan');
+		$this->db->where('peserta.voting','');    
+		$this->db->where('kegiatan.id_kegiatan',$id);  
+		return $this->db->get()->row();
+	}
 }

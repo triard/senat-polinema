@@ -65,6 +65,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </div>
 </div>
+<div class="modal fade" id="myModalModal" tabindex="-1" data-backdrop="static">
+<div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title pull-left">Form Absen</h5>
+            </div>
+            <form class="form xform" enctype="multipart/form-data">
+                <div class="modal-body" id="modalbodybody">
+                
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Warning!</h4>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-danger">
+          Sign before you submit!
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <?php $this->load->view('_partials/js'); ?>
 

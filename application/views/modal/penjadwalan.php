@@ -8,7 +8,8 @@
                 <option value="0">Referensi Baru</option>
                 <?php foreach ($usulan as $u): ?>
                 <?php if($this->session->userdata('level') == "Sekretaris" && ($u->status == "Diajukan - Sekretaris" || $u->status == "Perlu Tindak Lanjut - Sidang Pleno" || $u->status == "Perlu Tindak Lanjut - Sidang Paripurna")){ ?>
-                <option value="<?php echo $u->id_usulan; ?>"><?php echo $u->jenis;?> - <?php echo $u->keterangan;?> (<?php echo $u->status;?>)
+                <option value="<?php echo $u->id_usulan; ?>"><?php echo $u->jenis;?> - <?php echo $u->keterangan;?>
+                    (<?php echo $u->status;?>)
                 </option>
                 <?php } ?>
                 <?php if($this->session->userdata('level') == "Ketua Komisi 1" && $u->status == "Diajukan - Komisi 1"){ ?>
@@ -42,6 +43,44 @@
         </div>
     </div>
     <div class="col-6">
+        <div class="form-group">
+            <label>Peserta Rapat</label>
+            <select class="form-control" data-select="false" name="user[]" id="selectric" multiple="">
+                <option disabled>Pilih Peserta</option>
+
+                <?php foreach ($user as $row) :?>
+                <?php if($row->level == "Ketua Senat"|| $row->level == "Sekretaris"){ ?>
+                <option value="<?php echo $row->id_user;?>"><?php echo $row->nama;?> - <?php echo $row->jabatan;?>
+                </option>
+                <?php } ?>
+                <?php endforeach;?>
+                <option disabled>Komisi 1</option>
+                <?php foreach ($user as $row) :?>
+                <?php if($row->level == "Ketua Komisi 1" || $row->level == "Anggota Komisi 1"){ ?>
+                <option value="<?php echo $row->id_user;?>"><?php echo $row->nama;?></option>
+                <?php } ?>
+                <?php endforeach;?>
+                <option disabled>Komisi 2</option>
+                <?php foreach ($user as $row) :?>
+                <?php if($row->level == "Ketua Komisi 2" || $row->level == "Anggota Komisi 2"){ ?>
+                <option value="<?php echo $row->id_user;?>"><?php echo $row->nama;?></option>
+                <?php } ?>
+                <?php endforeach;?>
+                <option disabled>Komisi 3</option>
+                <?php foreach ($user as $row) :?>
+                <?php if($row->level == "Ketua Komisi 3" || $row->level == "Anggota Komisi 3"){ ?>
+                <option value="<?php echo $row->id_user;?>"><?php echo $row->nama;?></option>
+                <?php } ?>
+                <?php endforeach;?>
+                <option disabled>Komisi 4</option>
+                <?php foreach ($user as $row) :?>
+                <?php if($row->level == "Ketua Komisi 4" || $row->level == "Anggota Komisi 4"){ ?>
+                <option value="<?php echo $row->id_user;?>"><?php echo $row->nama;?></option>
+                <?php } ?>
+                <?php endforeach;?>
+
+            </select>
+        </div>
         <div class="form-group">
             <label>Waktu Mulai</label><br>
             <input class="form-control" name="waktu_mulai" id="datetimepicker" type="text"
@@ -90,10 +129,30 @@
         <option value="Selesai">Selesai</option>
     </select>
 </div>
+<?php }else if($cek == 5) { ?>
+<h4>Daftar Peserta Rapat</h4>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nama</th>
+            <th>Keterangan</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($peserta AS $p ): ?>
+        <tr>
+            <td><?php echo $p->nama ?></td>
+            <td><?php echo $p->jabatan ?></td>
+        </tr>
+        <?php endforeach ?>
+    </tbody>
+</table>
 <?php } else { ?>
 <input type="hidden" name="id_penjadwalan" value="<?php echo $penjadwalan->id_penjadwalan;?>">
 <?php if($penjadwalan->id_user != null){ ?>
 <input type="hidden" name="id_user" value="<?php echo $penjadwalan->id_user;?>">
+<?php }else if($penjadwalan->id_usulan != null){ ?>
+<input type="hidden" name="id_usulan" value="<?php echo $penjadwalan->id_usulan;?>">
 <?php } ?>
 <div class="row">
     <div class="col-6">
@@ -118,6 +177,45 @@
         </div>
     </div>
     <div class="col-6">
+        <div class="form-group">
+            <label>Peserta Rapat</label>
+            <select class="form-control strings" name="user[]" id="selectric" multiple="" data-live-search="true">
+                <?php foreach ($user as $u){ ?>
+                <?php if($u->level == "Ketua Senat"|| $u->level == "Sekretaris"){ ?>
+                <option value="<?php echo $u->id_user;?>"
+                    <?php foreach ($getuser as $v){ if($v->nama == $u->nama) { echo 'selected'; } } ?>>
+                    <?php echo $u->nama;?> - <?php echo $u->nama;?></option>
+                <?php }}?>
+                <option disabled>Komisi 1</option>
+                <?php foreach ($user as $u){ ?>
+                <?php if($u->level == "Ketua Komisi 1" || $u->level == "Anggota Komisi 1"){ ?>
+                <option value="<?php echo $u->id_user;?>"
+                    <?php foreach ($getuser as $v){ if($v->nama == $u->nama) { echo 'selected'; } } ?>>
+                    <?php echo $u->nama;?></option>
+                <?php }}?>
+                <option disabled>Komisi 2</option>
+                <?php foreach ($user as $u){ ?>
+                <?php if($u->level == "Ketua Komisi 2" || $u->level == "Anggota Komisi 2"){ ?>
+                <option value="<?php echo $u->id_user;?>"
+                    <?php foreach ($getuser as $v){ if($v->nama == $u->nama) { echo 'selected'; } } ?>>
+                    <?php echo $u->nama;?></option>
+                <?php }}?>
+                <option disabled>Komisi 3</option>
+                <?php foreach ($user as $u){ ?>
+                <?php if($u->level == "Ketua Komisi 3" || $u->level == "Anggota Komisi 3"){ ?>
+                <option value="<?php echo $u->id_user;?>"
+                    <?php foreach ($getuser as $v){ if($v->nama == $u->nama) { echo 'selected'; } } ?>>
+                    <?php echo $u->nama;?></option>
+                <?php }}?>
+                <option disabled>Komisi 4</option>
+                <?php foreach ($user as $u){ ?>
+                <?php if($u->level == "Ketua Komisi 4" || $u->level == "Anggota Komisi 4"){ ?>
+                <option value="<?php echo $u->id_user;?>"
+                    <?php foreach ($getuser as $v){ if($v->nama == $u->nama) { echo 'selected'; } } ?>>
+                    <?php echo $u->nama;?></option>
+                <?php }}?>
+            </select>
+        </div>
         <div class="form-group">
             <label>Waktu Mulai</label><br>
             <input class="form-control" name="waktu_mulai" id="datetimepicker" type="text"

@@ -5,6 +5,7 @@ class Kegiatan extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
+		$this->load->library('pdf');
 		$this->load->model('ModKegiatan'); 
 		$this->load->model('ModPenjadwalan');
 		$this->load->model('ModUsulan'); 
@@ -42,8 +43,7 @@ class Kegiatan extends CI_Controller {
 		}
 		$data['cek'] = 0;
 		$this->load->view('modal/statusKegiatan', $data); 
-	}
-	
+	}	
 	public function add() {
 		$q = $this->session->userdata('status');
 		if($q != "login") {
@@ -109,13 +109,68 @@ class Kegiatan extends CI_Controller {
 		if($q != "login") {
 			exit();
 		}
-		$data = array(
+		$data = array( 
 			'title' => "Senat Polinema | Agenda Kegiatan Detail"
 		);
 		$data['hakAkses'] = $this->session->userdata('level');
 		$data['kegiatan'] = $this->ModKegiatan->edit($id);
 		$data['laporan'] = $this->ModLaporan->selectAll();
+		$data['peserta'] = $this->ModPenjadwalan->selectJadwal();
 		$data['dokumentasi'] = $this->ModDokumentasi->selectAll();
+		$data['setuju'] = $this->ModKegiatan->JumlahVotingSetuju($id);
+		$data['tidak_setuju'] = $this->ModKegiatan->JumlahVotingTidakSetuju($id);
+		$data['golput'] = $this->ModKegiatan->JumlahGolput($id);
 		$this->load->view('kegiatan-detail', $data);
+	}
+	public function modalAbsen($id) {
+		$q = $this->session->userdata('status');
+		if($q != "login") {
+			exit();
+		}
+		$data['cek'] = 5;
+		$data['absen'] = $this->ModKegiatan->modalAbsen($id);
+		$this->load->view('modal/kegiatan', $data); 
+	}
+	public function updateAbsen() {
+		$q = $this->session->userdata('status');
+		if($q != "login") {
+			exit();
+		}
+		$this->ModKegiatan->updateAbsen();
+		echo json_encode(array("status" => TRUE));
+	}
+	public function modalVoting($id) {
+		$q = $this->session->userdata('status');
+		if($q != "login") {
+			exit();
+		}
+		$data['cek'] = 6;
+		$data['voting'] = $this->ModKegiatan->modalAbsen($id);
+		$this->load->view('modal/kegiatan', $data); 
+	}
+	public function updateVoting() {
+		$q = $this->session->userdata('status');
+		if($q != "login") {
+			exit();
+		}
+		$this->ModKegiatan->updateVoting();
+		echo json_encode(array("status" => TRUE));
+	}
+	public function download_notula($id){
+		$data['hakAkses'] = $this->session->userdata('level');
+		$data['kegiatan'] = $this->ModKegiatan->edit($id);
+		$this->pdf->setPaper('A4', 'potrait');
+		$this->pdf->filename = "notula.pdf"; 
+		$this->pdf->set_option('isRemoteEnabled', true);
+		$this->pdf->load_view('pdf/notula', $data);	
+	}
+	public function download_absen($id){
+		$data['hakAkses'] = $this->session->userdata('level');
+		$data['kegiatan'] = $this->ModKegiatan->edit($id);
+		$data['peserta'] = $this->ModPenjadwalan->selectJadwal();
+		$this->pdf->setPaper('A4', 'potrait');
+		$this->pdf->filename = "absen.pdf"; 
+		$this->pdf->set_option('isRemoteEnabled', true);
+		$this->pdf->load_view('pdf/absen', $data);	
 	}
 }

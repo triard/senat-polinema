@@ -17,10 +17,10 @@ $this->load->view('_partials/sidebar');
                         <div class="card-header">
                             <h4></h4>
                             <div class="card-header-action">
-                            <?php if($this->session->userdata('level') == "Ketua Komisi 1" || $this->session->userdata('level') == "Ketua Komisi 2" || $this->session->userdata('level') == "Ketua Komisi 3" || $this->session->userdata('level') == "Ketua Komisi 4" || $this->session->userdata('level') == "Sekretaris"){ ?>
+                                <?php if($this->session->userdata('level') == "Ketua Komisi 1" || $this->session->userdata('level') == "Ketua Komisi 2" || $this->session->userdata('level') == "Ketua Komisi 3" || $this->session->userdata('level') == "Ketua Komisi 4" || $this->session->userdata('level') == "Sekretaris"){ ?>
                                 <button class="btn btn-success" onclick="tambah()"><i class="fas fa-plus-circle"></i>
                                     Tambah</button>
-                            <?php } ?>
+                                <?php } ?>
                             </div>
                         </div>
                         <div class="card-body">
@@ -36,6 +36,7 @@ $this->load->view('_partials/sidebar');
                                             <th>Tempat</th>
                                             <th>Link</th>
                                             <th>Password</th>
+                                            <th>Peserta</th>
                                             <th>Status</th>
                                             <th class="disabled-sorting text-right">Actions</th>
                                         </tr>
@@ -50,6 +51,7 @@ $this->load->view('_partials/sidebar');
                                             <th>Tempat</th>
                                             <th>Link</th>
                                             <th>Password</th>
+                                            <th>Peserta</th>
                                             <th>Status</th>
                                             <th class="text-right" style="width: 150px;">Actions</th>
                                         </tr>
@@ -67,15 +69,23 @@ $this->load->view('_partials/sidebar');
                                             <td><?php echo $k->tempat;?></td>
                                             <td><?php echo $k->link;?></td>
                                             <td><?php echo $k->password;?></td>
+                                            <td><?php echo $k->item_user;?>
+                                            </td>
                                             <td><?php echo $k->status;?></td>
                                             <td class="td-actions text-right">
+                                                <button type="button"
+                                                    onclick="peserta(<?php echo $k->id_penjadwalan;?>)" rel="tooltip"
+                                                    class="btn btn-info" data-original-title="" title="">
+                                                    <i class="fas fa-users"></i>
+                                                </button>
+                                              
                                                 <?php if(($this->session->userdata('level') == "Sekretaris" && $this->session->userdata('id_user') == $k->id_user) || ($this->session->userdata('level') == "Ketua Komisi 1" && $this->session->userdata('id_user') == $k->id_user) || ($this->session->userdata('level') == "Ketua Komisi 2" && $this->session->userdata('id_user') == $k->id_user) || ($this->session->userdata('level') == "Ketua Komisi 3" && $this->session->userdata('id_user') == $k->id_user) || ($this->session->userdata('level') == "Ketua Komisi 4" && $this->session->userdata('id_user') == $k->id_user)){ ?>
                                                 <button type="button" onclick="ganti(<?php echo $k->id_penjadwalan;?>)"
                                                     rel="tooltip" class="btn btn-primary" data-original-title=""
                                                     title="">
                                                     <i class="fas fa-pen-square"></i>
                                                 </button>
-                                                &nbsp;
+                                          
                                                 <button type="button" rel="tooltip" class="btn btn-danger"
                                                     data-original-title="" title=""
                                                     onclick="hapus(<?php echo $k->id_penjadwalan;?>)">
@@ -142,6 +152,7 @@ function tambah() {
     $("#modalbody").load("<?php echo base_url();?>Penjadwalan/modal/", function(a) {
         $("#modalbody").html(a)
         $('#datetimepicker').datetimepicker();
+        $('#selectric').selectric();
         $("#summernote-simple").summernote({
             dialogsInBody: true,
             minHeight: 150,
@@ -161,6 +172,7 @@ function ganti(a) {
     $("#modalbody").load("<?php echo base_url();?>Penjadwalan/edit/" + a, function(b) {
         $("#modalbody").html(b)
         $('#datetimepicker').datetimepicker();
+        $('#selectric').selectric();
         $("#summernote-simple").summernote({
             dialogsInBody: true,
             minHeight: 150,
@@ -178,6 +190,15 @@ function status(a) {
     $(".form")[0].reset();
     $("#myModal").modal("show");
     $("#modalbody").load("<?php echo base_url();?>Penjadwalan/edit_status/" + a, function(b) {
+        $("#modalbody").html(b)
+    })
+}
+
+function peserta(a) {
+    simpan = "peserta";
+    $(".form")[0].reset();
+    $("#myModal").modal("show");
+    $("#modalbody").load("<?php echo base_url();?>Penjadwalan/detail_peserta/" + a, function(b) {
         $("#modalbody").html(b)
     })
 }

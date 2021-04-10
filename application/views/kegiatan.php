@@ -48,7 +48,7 @@ $this->load->view('_partials/sidebar');
                                             <th class="text-center" style="width: 150px;">Actions</th>
                                         </tr>
                                     </tfoot>
-                                    <tbody>
+                                    <tbody> 
                                         <?php $no=1;
                                         foreach ($kegiatan as $k) { ?>
                                         <tr>
