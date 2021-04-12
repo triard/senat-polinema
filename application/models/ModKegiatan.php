@@ -21,9 +21,13 @@ class ModKegiatan extends CI_model {
 		$tujuan = $this->input->post('tujuan');
 		$notula = $this->input->post('notula');
 		$status = "Selesai";
-		$data = array('id_penjadwalan' => $id_penjadwalan, 'agenda' => $agenda,'pembahasan' => $pembahasan,
+		if ($id_penjadwalan == 0) {
+		$data = array('agenda' => $agenda,'pembahasan' => $pembahasan,
 		'waktu_mulai'=>$waktu_mulai ,'waktu_selesai'=>$waktu_selesai,'tempat'=>$tempat, 
 		'tujuan'=>$tujuan, 'notula'=>$notula, 'jenis_rapat'=>$jenis_rapat,'link'=>$link,'password'=>$password,'status'=>$status,'id_user'=>$id_user);
+		} else {
+			$data = array('id_penjadwalan' => $id_penjadwalan, 'agenda' => $agenda,'pembahasan' => $pembahasan,'waktu_mulai'=>$waktu_mulai ,'waktu_selesai'=>$waktu_selesai,'tempat'=>$tempat, 'tujuan'=>$tujuan, 'notula'=>$notula, 'jenis_rapat'=>$jenis_rapat,'link'=>$link,'password'=>$password,'status'=>$status,'id_user'=>$id_user);
+		}
 		$this->db->insert('kegiatan', $data);
 	}
 	private function _uploadDokumen()
@@ -41,6 +45,17 @@ class ModKegiatan extends CI_model {
 	}
 	public function getById($id){
 		return $this->db->get_where($this->_table, ["id_kegiatan" => $id])->row();
+    }
+    public function getIdPenjadwalan($id){
+    	$query = $this->db->query("SELECT id_penjadwalan FROM kegiatan WHERE id_kegiatan='$id'");
+        $cek = $query->num_rows();
+		if ($cek > 0) {
+			$x = $query->row();
+			$hasil = $x->id_penjadwalan;
+		} else {
+			$hasil = 0;
+		}
+        return $hasil;	
     } 
 	public function delete($id){
 		$this->_deleteDokumen($id);
@@ -75,9 +90,13 @@ class ModKegiatan extends CI_model {
 		$password= $this->input->post('password');
 		$notula= $this->input->post('notula');
 		$status = "Selesai";
-		$data = array('id_penjadwalan' => $id_penjadwalan, 'agenda' => $agenda,'pembahasan' => $pembahasan,
-		'waktu_mulai'=>$waktu_mulai ,'waktu_selesai'=>$waktu_selesai,'tempat'=>$tempat, 'notula'=>$notula, 
-		'tujuan'=>$tujuan, 'jenis_rapat'=>$jenis_rapat,'link'=>$link,'notula'=>$notula,'password'=>$password, 'status'=>$status, 'id_user'=>$id_user);
+		if ($id_penjadwalan == NULL) {
+			$data = array('agenda' => $agenda,'pembahasan' => $pembahasan,'waktu_mulai'=>$waktu_mulai ,'waktu_selesai'=>$waktu_selesai,'tempat'=>$tempat, 'notula'=>$notula, 'tujuan'=>$tujuan, 'jenis_rapat'=>$jenis_rapat,'link'=>$link,'notula'=>$notula,'password'=>$password, 'status'=>$status, 'id_user'=>$id_user);
+		} else {
+			$data = array('id_penjadwalan' => $id_penjadwalan, 'agenda' => $agenda,'pembahasan' => $pembahasan,
+			'waktu_mulai'=>$waktu_mulai ,'waktu_selesai'=>$waktu_selesai,'tempat'=>$tempat, 'notula'=>$notula, 
+			'tujuan'=>$tujuan, 'jenis_rapat'=>$jenis_rapat,'link'=>$link,'notula'=>$notula,'password'=>$password, 'status'=>$status, 'id_user'=>$id_user);
+		}
 		$this->db->where('id_kegiatan', $id_kegiatan);
 		$this->db->update('kegiatan', $data);
 	}

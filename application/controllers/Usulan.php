@@ -96,7 +96,7 @@ class Usulan extends CI_Controller {
 		if($q != "login") {
 			exit();
 		}
-		$this->ModUsulan->setStatus($id, 'Diajukan - Sekretaris');
+		$this->ModUsulan->setStatus($id, 'Disetujui');
 		echo json_encode(array("status" => TRUE));
 	}
 	public function refuseAdmin($id) {

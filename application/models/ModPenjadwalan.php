@@ -28,10 +28,12 @@ class ModPenjadwalan extends CI_model {
 		$jenis_rapat = $this->input->post('jenis_rapat');
 		$link = $this->input->post('link');
 		$password= $this->input->post('password');
-		$status = $this->input->post('status'); 		
-		$data = array('id_user'=>$id_user, 'id_usulan'=>$id_usulan, 'agenda' => $agenda,'pembahasan' => $pembahasan,
-		'waktu_mulai'=>$waktu_mulai ,'waktu_selesai'=>$waktu_selesai,'tempat'=>$tempat,'jenis_rapat'=>$jenis_rapat,'link'=>$link,'password'=>$password,
-		 'status'=>$status);
+		$status = $this->input->post('status');
+		if ($id_usulan == 0) {
+			$data = array('id_user'=>$id_user, 'agenda' => $agenda,'pembahasan' => $pembahasan,'waktu_mulai'=>$waktu_mulai ,'waktu_selesai'=>$waktu_selesai,'tempat'=>$tempat,'jenis_rapat'=>$jenis_rapat,'link'=>$link,'password'=>$password,'status'=>$status);
+		} else {
+			$data = array('id_user'=>$id_user, 'id_usulan'=>$id_usulan, 'agenda' => $agenda,'pembahasan' => $pembahasan,'waktu_mulai'=>$waktu_mulai ,'waktu_selesai'=>$waktu_selesai,'tempat'=>$tempat,'jenis_rapat'=>$jenis_rapat,'link'=>$link,'password'=>$password,'status'=>$status);
+		} 		
 		$this->db->insert('penjadwalan', $data);
 		$user = $this->input->post('user',TRUE);
 		$id_penjadwalan = $this->db->insert_id();
@@ -75,6 +77,17 @@ class ModPenjadwalan extends CI_model {
 		}
         return $hasil;	
     }
+    public function getIdUser($id_penjadwalan){
+    	$query = $this->db->query("SELECT id_user FROM penjadwalan WHERE id_penjadwalan='$id_penjadwalan'");
+        $cek = $query->num_rows();
+		if ($cek > 0) {
+			$x = $query->row();
+			$hasil = $x->id_user;
+		} else {
+			$hasil = 0;
+		}
+        return $hasil;	
+    }
 
 	public function delete($id){
 		$this->db->delete('peserta', array('id_penjadwalan' => $id));
@@ -104,10 +117,14 @@ class ModPenjadwalan extends CI_model {
 		$jenis_rapat = $this->input->post('jenis_rapat');
 		$link = $this->input->post('link');
 		$password= $this->input->post('password');
-		$status = $this->input->post('status'); 		
-		$data = array('id_user'=>$id_user, 'id_usulan'=>$id_usulan,'agenda' => $agenda,'pembahasan' => $pembahasan,
-		'waktu_mulai'=>$waktu_mulai ,'waktu_selesai'=>$waktu_selesai, 'jenis_rapat'=>$jenis_rapat,'link'=>$link,'password'=>$password,
-		'tempat'=>$tempat, 'status'=>$status);
+		$status = $this->input->post('status');
+		if ($id_usulan == NULL) {
+			$data = array('id_user'=>$id_user, 'agenda' => $agenda,'pembahasan' => $pembahasan,
+			'waktu_mulai'=>$waktu_mulai ,'waktu_selesai'=>$waktu_selesai, 'jenis_rapat'=>$jenis_rapat,'link'=>$link,'password'=>$password,'tempat'=>$tempat, 'status'=>$status);
+		} else {
+			$data = array('id_user'=>$id_user, 'id_usulan'=>$id_usulan,'agenda' => $agenda,'pembahasan' => $pembahasan,
+			'waktu_mulai'=>$waktu_mulai ,'waktu_selesai'=>$waktu_selesai, 'jenis_rapat'=>$jenis_rapat,'link'=>$link,'password'=>$password,'tempat'=>$tempat, 'status'=>$status);
+		}
 			$this->db->where('id_penjadwalan', $id_penjadwalan);
 			$this->db->update('penjadwalan', $data);
 			$this->db->delete('peserta', array('id_penjadwalan' => $id_penjadwalan));

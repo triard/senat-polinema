@@ -9,8 +9,31 @@
                         <option disabled selected>Pilih Referensi</option>
                         <option value="0">Referensi Baru</option>
                         <?php foreach ($penjadwalan as $u): ?>
-                        <option value="<?php echo $u->id_penjadwalan; ?>"><?php echo $u->agenda;?> -
-                            <?php echo $u->pembahasan;?></option>
+                        <?php if($this->session->userdata('level') == "Sekretaris" && ($u->status == "Dijadwalkan - Sekretaris" || $u->status == "Dijadwalkan - Sidang Pleno" || $u->status == "Dijadwalkan - Sidang Paripurna")){ ?>
+                        <option value="<?php echo $u->id_penjadwalan; ?>">
+                            <?php echo $u->agenda;?> - <?php echo $u->pembahasan;?>
+                        </option>
+                        <?php } ?>
+                        <?php if($this->session->userdata('level') == "Ketua Komisi 1" && $u->status == "Dijadwalkan - Komisi 1"){ ?>
+                        <option value="<?php echo $u->id_penjadwalan; ?>">
+                            <?php echo $u->agenda;?> - <?php echo $u->pembahasan;?>
+                        </option>
+                        <?php } ?>
+                        <?php if($this->session->userdata('level') == "Ketua Komisi 2" && $u->status == "Dijadwalkan - Komisi 2"){ ?>
+                        <option value="<?php echo $u->id_penjadwalan; ?>">
+                            <?php echo $u->agenda;?> - <?php echo $u->pembahasan;?>
+                        </option>
+                        <?php } ?>
+                        <?php if($this->session->userdata('level') == "Ketua Komisi 3" && $u->status == "Dijadwalkan - Komisi 3"){ ?>
+                        <option value="<?php echo $u->id_penjadwalan; ?>">
+                            <?php echo $u->agenda;?> - <?php echo $u->pembahasan;?>
+                        </option>
+                        <?php } ?>
+                        <?php if($this->session->userdata('level') == "Ketua Komisi 4" && $u->status == "Dijadwalkan - Komisi 4"){ ?>
+                        <option value="<?php echo $u->id_penjadwalan; ?>">
+                            <?php echo $u->agenda;?> - <?php echo $u->pembahasan;?>
+                        </option>
+                        <?php } ?>
                         <?php endforeach; ?>
                     </select>
                 </div>

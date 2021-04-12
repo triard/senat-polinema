@@ -32,6 +32,7 @@
             </select>
         </div>
         <div class="set-usulan">
+            <input type="hidden" name="status" value="Dijadwalkan - Sekretaris">
             <div class="form-group">
                 <label>Agenda</label><br>
                 <input class="form-control" name="agenda" type="text" placeholder="Masukkan agenda Anda..." required>

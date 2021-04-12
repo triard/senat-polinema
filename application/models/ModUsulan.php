@@ -40,6 +40,17 @@ class ModUsulan extends CI_model {
 	}
 	public function getById($id){
 		return $this->db->get_where($this->_table, ["id_usulan" => $id])->row();
+    }
+    public function getStatus($id){
+    	$query = $this->db->query("SELECT status FROM usulan WHERE id_usulan='$id'");
+        $cek = $query->num_rows();
+		if ($cek > 0) {
+			$x = $query->row();
+			$hasil = $x->status;
+		} else {
+			$hasil = 0;
+		}
+        return $hasil;	
     } 
 	public function delete($id){
 		$this->_deleteDokumen($id);

@@ -342,6 +342,38 @@ $this->load->view('_partials/sidebar');
                                         <tbody>
                                             <?php $no=1;
                                                  foreach ($usulan as $k) { ?>
+                                                <?php if($this->session->userdata('level') == "Admin" && $k->status == "Disetujui"){ ?>
+                                            <tr>
+                                                <td><?php echo $no;?></td>
+                                                <td><?php echo $k->nama_pengusul;?></td>
+                                                <td><?php echo $k->email;?></td>
+                                                <td><?php echo $k->jenis;?></td>
+                                                <td><?php echo $k->keterangan;?></td>
+                                                <td><?php echo "<a target='_blank' href='".base_url()."Usulan/download_file/$k->dokumen_pendukung'>$k->dokumen_pendukung</a>";?>
+                                                </td>
+                                                <td>
+                                                    <div class="badge badge-success"><?php echo $k->status;?></div>
+                                                </td>
+                                                <td class="td-actions text-right">
+                                                    <button type="button" onclick="ganti(<?php echo $k->id_usulan;?>)"
+                                                        rel="tooltip" class="btn btn-primary" data-original-title=""
+                                                        title="">
+                                                        <i class="fas fa-pen-square"></i>
+                                                    </button>
+                                                    &nbsp;
+                                                    <button type="button" rel="tooltip" class="btn btn-danger"
+                                                        data-original-title="" title=""
+                                                        onclick="hapus(<?php echo $k->id_usulan;?>)">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <?php } ?>
+                                            <?php $no++; } ?>
+                                        </tbody>
+                                        <tbody>
+                                            <?php $no=1;
+                                                 foreach ($usulan as $k) { ?>
                                             <?php if($this->session->userdata('level') == "Sekretaris" && ($k->status == "Diajukan - Sekretaris" || $k->status == "Perlu Tindak Lanjut - Sidang Pleno" || $k->status == "Perlu Tindak Lanjut - Sidang Paripurna")){ ?>
                                             <tr>
                                                 <td><?php echo $no;?></td>

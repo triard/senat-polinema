@@ -83,6 +83,30 @@ class Penjadwalan extends CI_Controller {
 		if($q != "login") {
 			exit();
 		}
+		$usulan = $this->ModPenjadwalan->getIdUsulan($id);
+		$user = $this->ModPenjadwalan->getIdUser($id);
+		$statusUsulan = $this->ModUsulan->getStatus($usulan);
+		if ($statusUsulan == "Dijadwalkan - Komisi 1") {
+			$this->ModUsulan->setStatus($usulan, "Diajukan - Komisi 1");
+		} 
+		else if ($statusUsulan == "Dijadwalkan - Komisi 2") {
+			$this->ModUsulan->setStatus($usulan, "Diajukan - Komisi 2");
+		}
+		else if ($statusUsulan == "Dijadwalkan - Komisi 3") {
+			$this->ModUsulan->setStatus($usulan, "Diajukan - Komisi 3");
+		}
+		else if ($statusUsulan == "Dijadwalkan - Komisi 4") {
+			$this->ModUsulan->setStatus($usulan, "Diajukan - Komisi 4");
+		}
+		else if ($statusUsulan == "Dijadwalkan - Sekretaris") {
+			$this->ModUsulan->setStatus($usulan, "Diajukan - Sekretaris");
+		}
+		else if ($statusUsulan == "Dijadwalkan - Sidang Pleno") {
+			$this->ModUsulan->setStatus($usulan, "Perlu Tindak Lanjut - Sidang Pleno");
+		}
+		else if ($statusUsulan == "Dijadwalkan - Sidang Paripurna") {
+			$this->ModUsulan->setStatus($usulan, "Perlu Tindak Lanjut - Sidang Paripurna");
+		}
 		$this->ModPenjadwalan->delete($id);
 		echo json_encode(array("status" => TRUE));
 	}
