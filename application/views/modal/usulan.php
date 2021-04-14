@@ -69,20 +69,19 @@
             <label>Dokumen Pendukung*</label><br>
             <input class="form-control" name="dokumen_pendukung" type="file" placeholder="Masukkan dokumen Anda...">
             <input type="hidden" name="old_dokumen" value="<?php echo $usulan->dokumen_pendukung ?>" />
+            <?php echo "$usulan->dokumen_pendukung";?>
         </div>
         <div class="form-group">
             <label>Status</label><br>
             <select name="status" id="status" class="custom-select form-control">
                 <option value="<?php echo $usulan->status;?>" selected><?php echo $usulan->status;?></option>
                 <option disabled>------------------------------------</option>
-                <?php if ($this->session->userdata('level') == "Admin") { ?>
+                <?php if ($this->session->userdata('level') == "Sekretaris") { ?>
                 <option value="Diajukan - Sekretaris">Diajukan - Sekretaris</option>
                 <option value="Diajukan - Komisi 1">Diajukan - Komisi 1</option>
                 <option value="Diajukan - Komisi 2">Diajukan - Komisi 2</option>
                 <option value="Diajukan - Komisi 3">Diajukan - Komisi 3</option>
                 <option value="Diajukan - Komisi 4">Diajukan - Komisi 4</option>
-                <option value="Diajukan">Diajukan</option>
-                <option value="Ditolak">Ditolak</option>
                 <?php } ?>
             </select>
         </div>

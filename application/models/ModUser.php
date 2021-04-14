@@ -71,13 +71,6 @@ class ModUser extends CI_model {
 			$this->db->where('id_user', $id_user);
 			$this->db->update('account', $data);
 	}
-
-	public function getCountUser()
-	{
-		$this->db->select('id_user');
-		$this->db->from('user');
-		return $this->db->count_all_results(); 
-	} 
 	public function updateFoto(){
 		$id_user = $this->input->post('id_user');
 		if (!empty($_FILES["image"]["name"])) {
@@ -137,4 +130,10 @@ class ModUser extends CI_model {
 		$this->db->where('id_user', $id_user);
 		$this->db->update('user', $data);
 }
+public function getCountUser()
+{
+	$this->db->select('id_user');
+	$this->db->from('user');
+	return $this->db->count_all_results(); 
+} 
 }

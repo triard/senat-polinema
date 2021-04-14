@@ -38,7 +38,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Notula</label><br>
+                    <label>Hasil Pembahasan</label><br>
                     <textarea class="form-control" id="summernote-notula" name="notula"></textarea>
                 </div>
             </div>
@@ -101,6 +101,7 @@
                         <select name="status" class="custom-select form-control" required>
                             <option disabled selected>Pilih Status Kegiatan</option>
                             <option disabled>------------------------------</option>
+                            <option value="Proses">Proses</option>
                             <option value="Perlu Tindak Lanjut - Sidang Pleno">Perlu Tindak Lanjut - Sidang Pleno
                             </option>
                             <option value="Perlu Tindak Lanjut - Sidang Paripurna">Perlu Tindak Lanjut - Sidang
@@ -168,6 +169,7 @@
                     <?php echo $kegiatan->status;?></option>
                 <option disabled>Pilih Status Kegiatan</option>
                 <option disabled>------------------------------</option>
+                <option value="Proses">Proses</option>
                 <option value="Perlu Tindak Lanjut - Sidang Pleno">Perlu Tindak Lanjut - Sidang Pleno</option>
                 <option value="Perlu Tindak Lanjut - Sidang Paripurna">Perlu Tindak Lanjut - Sidang Paripurna</option>
                 <option value="Selesai">Selesai</option>
@@ -185,7 +187,7 @@
                 required><?php echo $kegiatan->tujuan ?></textarea>
         </div>
         <div class="form-group">
-            <label>Notula</label><br>
+            <label>Hasil Pembahasan</label><br>
             <textarea class="form-control" id="summernote-notula" name="notula"
                 required><?php echo $kegiatan->notula ?></textarea>
         </div>
@@ -303,6 +305,7 @@
                         <?php echo $kegiatan->status;?></option>
                     <option disabled>Pilih Status Kegiatan</option>
                     <option disabled>------------------------------</option>
+                    <option value="Proses">Proses</option>
                     <option value="Perlu Tindak Lanjut - Sidang Pleno">Perlu Tindak Lanjut - Sidang Pleno</option>
                     <option value="Perlu Tindak Lanjut - Sidang Paripurna">Perlu Tindak Lanjut - Sidang Paripurna
                     </option>

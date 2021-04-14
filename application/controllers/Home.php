@@ -4,6 +4,13 @@ class Home extends CI_Controller {
 
     public function __construct() {
 		parent::__construct();
+        $this->load->model('ModUser');
+        $this->load->model('ModUsulan');
+        $this->load->model('ModLaporan');
+		$this->load->model('ModKegiatan');
+        $this->load->model('ModDokumentasi');
+        $this->load->model('ModBerita');
+        $this->load->model('ModPenjadwalan');
 	} 
 
     public function index() {
@@ -14,6 +21,23 @@ class Home extends CI_Controller {
         $data = array(
             'title' => "Senat Polinema"
         );
+        $data['user'] = $this->ModUser->getCountUser();
+        $data['berita'] = $this->ModBerita->getCountBerita();
+        $data['usulan'] = $this->ModUsulan->getCountUsulan();
+        $data['verifikasi'] = $this->ModUsulan->getUsulanVerifikasi();
+        $data['status'] = $this->ModUsulan->getUsulanStatus();
+        $data['sekretaris'] = $this->ModUsulan->getUsulanSekretaris();
+        $data['laporan'] = $this->ModLaporan->getCountLaporan();
+        $data['birokrasi'] = $this->ModLaporan->getBirokrasi();
+        $data['komisi1'] = $this->ModUsulan->getUsulanKomisi1();
+        $data['komisi2'] = $this->ModUsulan->getUsulanKomisi2();
+        $data['komisi3'] = $this->ModUsulan->getUsulanKomisi3();
+        $data['komisi4'] = $this->ModUsulan->getUsulanKomisi4();
+        $data['dokumentasi'] = $this->ModDokumentasi->getCountDokumentasi();
+        $data['penjadwalan'] = $this->ModPenjadwalan->SelectDataById();
+        $data['agenda'] = $this->ModKegiatan->selectAgenda();
+        $data['totalUsulan'] = $this->ModUsulan->GetMostInput();
+        $data['usulanFilter'] = $this->ModUsulan->InputFilter();
         $this->load->view('home', $data);
     }
 }

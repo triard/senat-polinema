@@ -17,6 +17,15 @@ class ModPenjadwalan extends CI_model {
         $this->db->group_by('penjadwalan.id_penjadwalan');
         return $this->db->get()->result();
 	}
+	public function SelectDataById() {
+		$this->db->select('j.*, u.id_user AS user');
+		$this->db->from('user as u'); 
+		$this->db->join('peserta as p', 'p.id_user=u.id_user');
+		$this->db->join('penjadwalan as j', 'j.id_penjadwalan=p.id_penjadwalan');
+		$this->db->order_by('j.waktu_mulai','ASC');
+		// $this->db->limit(2);
+        return $this->db->get()->result();
+	}
 	public function add() {
 		$id_usulan = $this->input->post('id_usulan');
 		$agenda = $this->input->post('agenda'); 

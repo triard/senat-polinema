@@ -2,7 +2,7 @@
 
 var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
-  type: 'line',
+  type: 'pie',
   data: {
     labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
     datasets: [{
@@ -39,7 +39,7 @@ var myChart = new Chart(ctx, {
           display: false
         }
       }]
-    },
+    }, 
   }
 });
 

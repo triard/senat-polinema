@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 5.0.1
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 12 Apr 2021 pada 11.18
--- Versi Server: 10.1.13-MariaDB
--- PHP Version: 7.0.8
+-- Waktu pembuatan: 14 Apr 2021 pada 12.05
+-- Versi server: 10.4.11-MariaDB
+-- Versi PHP: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -77,7 +79,7 @@ INSERT INTO `berita` (`id_berita`, `judul`, `keterangan`, `image`, `tanggal`, `j
 (4, 'Orasi Ilmiah Dies Natalis Polinema ke-38 Secara Daring Orasi Ilmiah Dies Natalis Polinema 4', '<p>lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003v v lorem ipsum 1003 lorem ipsum 1003 lorem ipsum 1003lorem ipsum 1003<br></p>', 'lorem_ipsum_1003.png', '2021-03-25 11:23:00', 0, 1),
 (5, 'Orasi Ilmiah Dies Natalis Polinema ke-38 Secara Daring Orasi Ilmiah Dies Natalis Polinema 3', '<p>lorem ipsum 1004 lorem ipsum 1004 lorem ipsum 1004 lorem ipsum 1004 lorem ipsum 1004 lorem ipsum 1004 lorem ipsum 1004vlorem ipsum 1004 lorem ipsum 1004 lorem ipsum 1004 lorem ipsum 1004 lorem ipsum 1004vvlorem ipsum 1004lorem ipsum 1004lorem ipsum 1004lorem ipsum 1004lorem ipsum 1004lorem ipsum 1004lorem ipsum 1004lorem ipsum 1004lorem ipsum 1004lorem ipsum 1004lorem ipsum 1004lorem ipsum 1004<br></p>', 'lorem_ipsum_1004.png', '2021-03-27 11:24:00', 1, 1),
 (6, 'Orasi Ilmiah Dies Natalis Polinema ke-38 Secara Daring Orasi Ilmiah Dies Natalis Polinema 2', '<p>lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005v lorem ipsum 1005</p><p>lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005 lorem ipsum 1005<br></p>', 'lorem_ipsum_1005.jpg', '2021-03-26 11:24:00', 1, 1),
-(7, 'Orasi Ilmiah Dies Natalis Polinema ke-38 Secara Daring Orasi Ilmiah Dies Natalis Polinema 1', '<h5 style="font-family: Nunito, " segoe="" ui",="" arial;"=""><a href="http://localhost/senat-polinema/homepage/home" text-decoration:none""="" style="">Orasi Ilmiah Dies Natalis Polinema ke-38 Secara Daring Orasi Ilmiah Dies Natalis Polinema ke-38 Seca</a>&nbsp;</h5><p style="font-family: Nunito, " segoe="" ui",="" arial;="" color:="" rgb(108,="" 117,="" 125);"=""><br></p>', 'Orasi_Ilmiah_Dies_Natalis_Polinema_ke-38_Secara_Daring_Orasi_Ilmiah_Dies_Natalis_Polinema_ke-38.png', '2021-03-19 11:35:00', 2, 1);
+(7, 'Orasi Ilmiah Dies Natalis Polinema ke-38 Secara Daring Orasi Ilmiah Dies Natalis Polinema 1', '<h5 style=\"font-family: Nunito, \" segoe=\"\" ui\",=\"\" arial;\"=\"\"><a href=\"http://localhost/senat-polinema/homepage/home\" text-decoration:none\"\"=\"\" style=\"\">Orasi Ilmiah Dies Natalis Polinema ke-38 Secara Daring Orasi Ilmiah Dies Natalis Polinema ke-38 Seca</a>&nbsp;</h5><p style=\"font-family: Nunito, \" segoe=\"\" ui\",=\"\" arial;=\"\" color:=\"\" rgb(108,=\"\" 117,=\"\" 125);\"=\"\"><br></p>', 'Orasi_Ilmiah_Dies_Natalis_Polinema_ke-38_Secara_Daring_Orasi_Ilmiah_Dies_Natalis_Polinema_ke-38.png', '2021-03-19 11:35:00', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -116,7 +118,7 @@ CREATE TABLE `kegiatan` (
   `link` varchar(50) NOT NULL,
   `password` varchar(20) NOT NULL,
   `tujuan` varchar(100) NOT NULL,
-  `notula` text,
+  `notula` text DEFAULT NULL,
   `status` varchar(50) DEFAULT NULL,
   `id_user` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -129,7 +131,8 @@ INSERT INTO `kegiatan` (`id_kegiatan`, `id_penjadwalan`, `agenda`, `pembahasan`,
 (13, 9, 'Rapat Komisi', '<p>Kenaikan jabatan</p>', '2021-04-10 15:00:00', '17:00:00', 'Gedung AA lt. 2', 'Luring', '', '', '<p>Menaikkan jabatan salah satu staff pegawai polinema</p>', 'akan diputuskan berdasarkan hasil sidang tindak lanjut', 'Perlu Tindak Lanjut - Sidang Pleno', 7),
 (15, 11, 'Sidang Pleno', '<p>Kenaikan jabatan</p>', '2021-04-10 07:00:00', '18:10:00', 'Zoom Meeting', 'Daring', 'zoom.com/123', 'senat', '<p>mempertimbangkan kenaikan jabatan</p>', 'dari hasil sidang diputuskan naik jabatan', 'Selesai', 3),
 (17, NULL, 'Dadakan check', '<p>Dadakan</p>', '2021-04-12 16:00:00', '16:30:00', 'Gedung AA lt. 2', 'Luring', '', '', '<p>Dadakan        </p>', 'Dadakan', 'Selesai', 3),
-(18, 21, 'Rapat Komisi', '<p>Kenaikan Pangkat Dosen Kimia</p>', '2021-04-12 15:00:00', '16:00:00', 'Gedung AA lt.2', 'Luring', '', '', '<p>kenaikan pangkat</p>', 'naik pangkat bro', 'Selesai', 6);
+(18, 21, 'Rapat Komisi', '<p>Kenaikan Pangkat Dosen Kimia</p>', '2021-04-12 15:00:00', '16:00:00', 'Gedung AA lt.2', 'Luring', '', '', '<p>kenaikan pangkat</p>', 'naik pangkat bro', 'Selesai', 6),
+(19, 22, 'Rapat pengawasan', '<p>Libur Covid-19</p>', '2021-04-13 15:00:00', '15:17:00', 'RT01', 'Luring', '', '', '<p>lorem ipsum</p>', '<p>lorem ipsum</p>', 'Proses', 3);
 
 -- --------------------------------------------------------
 
@@ -184,7 +187,10 @@ INSERT INTO `penjadwalan` (`id_penjadwalan`, `id_user`, `id_usulan`, `agenda`, `
 (11, 3, 18, 'Sidang Pleno', '<p>Kenaikan jabatan</p>', '2021-04-15 18:00:00', '20:00:00', 'Daring', 'Zoom Meeting', 'zoom.com/123', 'senat', 'Selesai'),
 (12, 3, 18, 'Rapat Pertimbangan', '<p>Kenaikan jabatan</p>', '2021-04-08 02:34:00', '02:34:00', 'Luring', 'rt 1', '', '', ''),
 (19, 3, NULL, 'Rapat Pengawasan', '<p>Penyelewengan Staff Pudir 4</p>', '2021-04-15 15:00:00', '17:00:00', 'Luring', 'Gedung AA lt.2', '', '', 'Dijadwalkan - Sekretaris'),
-(21, 6, 20, 'Rapat Komisi', '<p>Kenaikan Pangkat Dosen Kimia</p>', '2021-04-12 15:00:00', '16:00:00', 'Luring', 'Gedung AA lt.2', '', '', 'Selesai');
+(21, 6, 20, 'Rapat Komisi', '<p>Kenaikan Pangkat Dosen Kimia</p>', '2021-04-12 15:00:00', '16:00:00', 'Luring', 'Gedung AA lt.2', '', '', 'Selesai'),
+(22, 3, NULL, 'Rapat pengawasan', '<p>Libur Covid-19</p>', '2021-04-13 15:00:00', '15:17:00', 'Luring', 'RT01', '', '', 'Selesai'),
+(23, 3, NULL, 'Sidang Terbuka', '<p>Wisuda IV</p>', '2021-04-13 15:00:00', '19:22:00', 'Daring', 'Google Meet', 'googlemeet/748632846ghe', 'Senat', 'Dijadwalkan - Sekretaris'),
+(24, 8, 21, 'Rapat Komisi', '<p>lorem ipsum 2</p>', '2021-04-13 18:00:00', '18:24:00', 'Luring', 'RT 2', '', '', 'Dijadwalkan - Komisi 3');
 
 -- --------------------------------------------------------
 
@@ -208,17 +214,32 @@ INSERT INTO `peserta` (`id_peserta`, `id_penjadwalan`, `id_user`, `voting`, `abs
 (4, 11, 3, 'Tidak Setuju', 'assets/signature-image/60711fd830c9f.png'),
 (5, 9, 10, '', NULL),
 (6, 11, 2, '', ''),
-(7, 12, 3, '', ''),
 (8, 11, 10, 'Setuju', 'assets/signature-image/60712c385f81d.png'),
 (9, 11, 6, '', ''),
 (10, 11, 12, '', ''),
-(11, 12, 8, 'Setuju', NULL),
 (16, 19, 2, NULL, NULL),
 (17, 19, 3, NULL, NULL),
 (18, 19, 10, NULL, NULL),
 (19, 19, 6, NULL, NULL),
 (22, 21, 10, NULL, NULL),
-(23, 21, 6, NULL, NULL);
+(23, 21, 6, NULL, NULL),
+(24, 22, 2, NULL, NULL),
+(25, 22, 3, NULL, NULL),
+(26, 23, 2, NULL, NULL),
+(27, 23, 3, NULL, NULL),
+(28, 23, 10, NULL, NULL),
+(29, 23, 6, NULL, NULL),
+(30, 23, 11, NULL, NULL),
+(31, 23, 7, NULL, NULL),
+(32, 23, 12, NULL, NULL),
+(33, 23, 8, NULL, NULL),
+(34, 23, 13, NULL, NULL),
+(35, 23, 9, NULL, NULL),
+(36, 24, 2, NULL, NULL),
+(37, 24, 3, NULL, NULL),
+(38, 24, 10, NULL, NULL),
+(39, 24, 6, NULL, NULL),
+(40, 12, 8, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -267,6 +288,7 @@ CREATE TABLE `usulan` (
   `keterangan` text NOT NULL,
   `dokumen_pendukung` varchar(50) NOT NULL,
   `status` varchar(50) NOT NULL,
+  `tanggal_pengajuan` date NOT NULL,
   `id_user` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -274,38 +296,40 @@ CREATE TABLE `usulan` (
 -- Dumping data untuk tabel `usulan`
 --
 
-INSERT INTO `usulan` (`id_usulan`, `nama_pengusul`, `email`, `jenis`, `keterangan`, `dokumen_pendukung`, `status`, `id_user`) VALUES
-(18, 'ketua_komisi_1', 'ketuakomisi1@polinema.ac.id', 'Pertimbangan', '<p>Kenaikan jabatan</p>', 'dokumen-pendukung-ee19efde034db9df.pdf', 'Selesai', 6),
-(19, 'admin', 'admin@senat', 'Pengawasan', '<p>Penyelewengan pudir 3</p>', 'dokumen-pendukung-7e1e5da4bef5166c.pdf', 'Diajukan - Sekretaris', 1),
-(20, 'sekretaris', 'sekretaris@polinema.ac.id', 'Pertimbangan', '<p>Kenaikan Pangkat Dosen Kimia</p>', 'dokumen-pendukung-b3378437ccdf1e20.docx', 'Perlu Tindak Lanjut - Sidang Pleno', 3);
+INSERT INTO `usulan` (`id_usulan`, `nama_pengusul`, `email`, `jenis`, `keterangan`, `dokumen_pendukung`, `status`, `tanggal_pengajuan`, `id_user`) VALUES
+(18, 'ketua_komisi_1', 'ketuakomisi1@polinema.ac.id', 'Pertimbangan', '<p>Kenaikan jabatan</p>', 'dokumen-pendukung-ee19efde034db9df.pdf', 'Selesai', '2021-04-14', 6),
+(19, 'admin', 'admin@senat', 'Pengawasan', '<p>Penyelewengan pudir 3</p>', 'dokumen-pendukung-7e1e5da4bef5166c.pdf', 'Diajukan - Sekretaris', '2021-04-13', 1),
+(20, 'sekretaris', 'sekretaris@polinema.ac.id', 'Pertimbangan', '<p>Kenaikan Pangkat Dosen Kimia</p>', 'dokumen-pendukung-b3378437ccdf1e20.docx', 'Perlu Tindak Lanjut - Sidang Pleno', '2021-04-15', 3),
+(21, 'anggota_komisi_1', 'anggotakomisi1@polinema.ac.id', 'Pertimbangan', '<p>lorem ipsum 2</p>', 'dokumen-pendukung-e7cab9e6dc8d9ead.pdf', 'Dijadwalkan - Komisi 3', '2021-04-13', 10),
+(22, 'anggota_komisi_4', 'anggotakomisi4@polinema.ac.id', 'Pertimbangan', '<p>Kenaikan Jabatan </p>', 'dokumen-pendukung-8f9a83d374ef1958.rar', 'Disetujui', '2021-04-13', 13);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `account`
+-- Indeks untuk tabel `account`
 --
 ALTER TABLE `account`
   ADD PRIMARY KEY (`username`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indexes for table `berita`
+-- Indeks untuk tabel `berita`
 --
 ALTER TABLE `berita`
   ADD PRIMARY KEY (`id_berita`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indexes for table `dokumentasi`
+-- Indeks untuk tabel `dokumentasi`
 --
 ALTER TABLE `dokumentasi`
   ADD PRIMARY KEY (`id_dokumentasi`),
   ADD KEY `id_kegiatan` (`id_kegiatan`);
 
 --
--- Indexes for table `kegiatan`
+-- Indeks untuk tabel `kegiatan`
 --
 ALTER TABLE `kegiatan`
   ADD PRIMARY KEY (`id_kegiatan`),
@@ -313,7 +337,7 @@ ALTER TABLE `kegiatan`
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indexes for table `laporan`
+-- Indeks untuk tabel `laporan`
 --
 ALTER TABLE `laporan`
   ADD PRIMARY KEY (`id_laporan`),
@@ -321,7 +345,7 @@ ALTER TABLE `laporan`
   ADD KEY `id_kegiatan_2` (`id_kegiatan`);
 
 --
--- Indexes for table `penjadwalan`
+-- Indeks untuk tabel `penjadwalan`
 --
 ALTER TABLE `penjadwalan`
   ADD PRIMARY KEY (`id_penjadwalan`),
@@ -329,7 +353,7 @@ ALTER TABLE `penjadwalan`
   ADD KEY `id_usulan` (`id_usulan`);
 
 --
--- Indexes for table `peserta`
+-- Indeks untuk tabel `peserta`
 --
 ALTER TABLE `peserta`
   ADD PRIMARY KEY (`id_peserta`),
@@ -337,62 +361,71 @@ ALTER TABLE `peserta`
   ADD KEY `FK_peserta_user` (`id_user`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Indexes for table `usulan`
+-- Indeks untuk tabel `usulan`
 --
 ALTER TABLE `usulan`
   ADD PRIMARY KEY (`id_usulan`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `berita`
+-- AUTO_INCREMENT untuk tabel `berita`
 --
 ALTER TABLE `berita`
   MODIFY `id_berita` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
--- AUTO_INCREMENT for table `dokumentasi`
+-- AUTO_INCREMENT untuk tabel `dokumentasi`
 --
 ALTER TABLE `dokumentasi`
   MODIFY `id_dokumentasi` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
--- AUTO_INCREMENT for table `kegiatan`
+-- AUTO_INCREMENT untuk tabel `kegiatan`
 --
 ALTER TABLE `kegiatan`
-  MODIFY `id_kegiatan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_kegiatan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
 --
--- AUTO_INCREMENT for table `laporan`
+-- AUTO_INCREMENT untuk tabel `laporan`
 --
 ALTER TABLE `laporan`
   MODIFY `id_laporan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
--- AUTO_INCREMENT for table `penjadwalan`
+-- AUTO_INCREMENT untuk tabel `penjadwalan`
 --
 ALTER TABLE `penjadwalan`
-  MODIFY `id_penjadwalan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_penjadwalan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
 --
--- AUTO_INCREMENT for table `peserta`
+-- AUTO_INCREMENT untuk tabel `peserta`
 --
 ALTER TABLE `peserta`
-  MODIFY `id_peserta` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_peserta` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
 --
--- AUTO_INCREMENT for table `usulan`
+-- AUTO_INCREMENT untuk tabel `usulan`
 --
 ALTER TABLE `usulan`
-  MODIFY `id_usulan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_usulan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

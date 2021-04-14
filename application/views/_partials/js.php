@@ -80,6 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url(); ?>assets/js/scripts.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/custom.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/js/signature-pad.js"></script> 
+<script src="<?php echo base_url(); ?>assets/js/page/modules-chartjs.js"></script>
 
 
 <!-- dataTables custom -->

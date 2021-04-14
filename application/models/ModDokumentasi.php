@@ -60,12 +60,17 @@ class ModDokumentasi extends CI_model {
 		$this->db->where('id_laporan', $id_laporan);
 		$this->db->update('laporan', $data);
 	}
-
 	public function Selectcarousel(){
 		$this->db->select('nama_dokumentasi');
         $this->db->from('dokumentasi');
 		$this->db->order_by('id_dokumentasi','DESC');
 		$this->db->limit('3');
         return $this->db->get()->result_array();
+	}
+	public function getCountDokumentasi()
+	{
+		$this->db->select('id_dokumentasi');
+		$this->db->from('dokumentasi');
+		return $this->db->count_all_results();
 	}
 }

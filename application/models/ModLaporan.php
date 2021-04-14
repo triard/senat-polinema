@@ -75,4 +75,17 @@ class ModLaporan extends CI_model {
 		$this->db->where('id_laporan', $id_laporan);
 		$this->db->update('laporan', $data);
 	}
+	public function getCountLaporan()
+	{
+		$this->db->select('id_laporan');
+		$this->db->from('laporan');
+		return $this->db->count_all_results();
+	}
+	public function getBirokrasi()
+	{
+		$this->db->select('id_laporan');
+		$this->db->from('laporan');
+		$this->db->where('status','Diajukan');
+		return $this->db->count_all_results();
+	}
 }

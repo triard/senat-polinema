@@ -52,7 +52,7 @@ class Penjadwalan extends CI_Controller {
 		if($q != "login") {
 			exit();
 		}
-		$data['cek'] = 1;
+		$data['cek'] = 1; 
 		$data['penjadwalan'] = $this->ModPenjadwalan->edit($id);
 		$data['getuser'] = $this->ModPenjadwalan->get_user_by_jadwal($id);
 		$data['user'] = $this->ModUser->selectAll();

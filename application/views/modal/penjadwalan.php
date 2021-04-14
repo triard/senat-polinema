@@ -126,7 +126,11 @@
             <?php echo $penjadwalan->status;?></option>
         <option disabled>Pilih Status Rapat</option>
         <option disabled>------------------------------</option>
+        <option value="Dijadwalkan - Komisi 1">Dijadwalkan - Sekretsris</option>
         <option value="Dijadwalkan - Komisi 1">Dijadwalkan - Komisi 1</option>
+        <option value="Dijadwalkan - Komisi 1">Dijadwalkan - Komisi 2</option>
+        <option value="Dijadwalkan - Komisi 1">Dijadwalkan - Komisi 3</option>
+        <option value="Dijadwalkan - Komisi 1">Dijadwalkan - Komisi 4</option>
         <option value="Selesai">Selesai</option>
     </select>
 </div>
