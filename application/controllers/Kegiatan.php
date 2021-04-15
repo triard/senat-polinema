@@ -51,11 +51,13 @@ class Kegiatan extends CI_Controller {
 		}
 		$id_penjadwalan = $this->input->post('id_penjadwalan');
 		$status = $this->input->post('status');
-		if ($id_penjadwalan != 0) {
-			$this->ModPenjadwalan->setStatus($id_penjadwalan, 'Selesai');
-			$id_usulan = $this->ModPenjadwalan->getIdUsulan($id_penjadwalan);
-			if ($id_usulan != 0) {
-				$this->ModUsulan->setStatus($id_usulan, $status);
+		if ($status != "Proses") {
+			if ($id_penjadwalan != 0) {
+				$this->ModPenjadwalan->setStatus($id_penjadwalan, 'Selesai');
+				$id_usulan = $this->ModPenjadwalan->getIdUsulan($id_penjadwalan);
+				if ($id_usulan != 0) {
+					$this->ModUsulan->setStatus($id_usulan, $status);
+				}
 			}
 		}
 		$this->ModKegiatan->add();
@@ -86,10 +88,59 @@ class Kegiatan extends CI_Controller {
 		}
 		$id_penjadwalan = $this->input->post('id_penjadwalan');
 		$status = $this->input->post('status');
-		if ($id_penjadwalan != 0) {
-			$id_usulan = $this->ModPenjadwalan->getIdUsulan($id_penjadwalan);
-			if ($id_usulan != 0) {
-				$this->ModUsulan->setStatus($id_usulan, $status);
+		if ($status != "Proses") {
+			if ($id_penjadwalan != 0) {
+				$this->ModPenjadwalan->setStatus($id_penjadwalan, 'Selesai');
+				$id_usulan = $this->ModPenjadwalan->getIdUsulan($id_penjadwalan);
+				if ($id_usulan != 0) {
+					$this->ModUsulan->setStatus($id_usulan, $status);
+				}
+			}
+		} else {
+			if ($this->session->userdata('level') == 'Sekretaris') {
+				if ($id_penjadwalan != 0) {
+					$this->ModPenjadwalan->setStatus($id_penjadwalan, 'Dijadwalkan - Sekretaris');
+					$id_usulan = $this->ModPenjadwalan->getIdUsulan($id_penjadwalan);
+					if ($id_usulan != 0) {
+						$this->ModUsulan->setStatus($id_usulan, 'Dijadwalkan - Sekretaris');
+					}
+				}	
+			} 
+			else if ($this->session->userdata('level') == 'Ketua Komisi 1') {
+				if ($id_penjadwalan != 0) {
+					$this->ModPenjadwalan->setStatus($id_penjadwalan, 'Dijadwalkan - Komisi 1');
+					$id_usulan = $this->ModPenjadwalan->getIdUsulan($id_penjadwalan);
+					if ($id_usulan != 0) {
+						$this->ModUsulan->setStatus($id_usulan, 'Dijadwalkan - Komisi 1');
+					}
+				}
+			}
+			else if ($this->session->userdata('level') == 'Ketua Komisi 2') {
+				if ($id_penjadwalan != 0) {
+					$this->ModPenjadwalan->setStatus($id_penjadwalan, 'Dijadwalkan - Komisi 2');
+					$id_usulan = $this->ModPenjadwalan->getIdUsulan($id_penjadwalan);
+					if ($id_usulan != 0) {
+						$this->ModUsulan->setStatus($id_usulan, 'Dijadwalkan - Komisi 2');
+					}
+				}
+			}
+			else if ($this->session->userdata('level') == 'Ketua Komisi 3') {
+				if ($id_penjadwalan != 0) {
+					$this->ModPenjadwalan->setStatus($id_penjadwalan, 'Dijadwalkan - Komisi 3');
+					$id_usulan = $this->ModPenjadwalan->getIdUsulan($id_penjadwalan);
+					if ($id_usulan != 0) {
+						$this->ModUsulan->setStatus($id_usulan, 'Dijadwalkan - Komisi 3');
+					}
+				}
+			}
+			else if ($this->session->userdata('level') == 'Ketua Komisi 4') {
+				if ($id_penjadwalan != 0) {
+					$this->ModPenjadwalan->setStatus($id_penjadwalan, 'Dijadwalkan - Komisi 4');
+					$id_usulan = $this->ModPenjadwalan->getIdUsulan($id_penjadwalan);
+					if ($id_usulan != 0) {
+						$this->ModUsulan->setStatus($id_usulan, 'Dijadwalkan - Komisi 4');
+					}
+				}
 			}
 		}
 		$this->ModKegiatan->update();
