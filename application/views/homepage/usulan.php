@@ -46,7 +46,7 @@ $this->load->view('homepage/_partials/header');
                         <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Email</label>
                             <div class="col-sm-12 col-md-7">
-                                <input type="email" name="email" class="form-control" required="">
+                                <input type="email" name="email" value="<?php echo $this->session->userdata('email_sess'); ?>" readonly class="form-control" required="">
                             </div>
                         </div>
                         <div class="form-group row mb-4">
@@ -73,14 +73,7 @@ $this->load->view('homepage/_partials/header');
                                 <textarea name="keterangan" class="form-control" required=""></textarea>
                             </div>
                         </div>
-                        <input type="hidden" name="status" value="diajukan">
-                        <div class="form-group row mb-4">
-                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Security</label>
-                            <div class="col-sm-12 col-md-7">
-                                <p><?php echo $img; ?></p>
-                                <input class="form-control" type="text" name="secutity_code" required>
-                            </div>
-                        </div>
+                        <input type="hidden" name="status" value="Diajukan">
                         <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                             <div class="col-sm-12 col-md-7">

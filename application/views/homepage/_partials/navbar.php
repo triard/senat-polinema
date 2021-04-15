@@ -27,7 +27,7 @@
                          class="far fa-newspaper"></i></i><span>Berita</span></a>
              </li>
              <li class="nav-item <?php echo $this->uri->segment(2) == 'usulan' ? 'active' : ''; ?>">
-                 <a href="<?php echo base_url('homepage/usulan')?>" class="nav-link"><i
+                 <a href="<?php echo base_url('homepage/email_usulan')?>" class="nav-link"><i
                          class="fas fa-file-alt"></i><span>Usulan</span></a>
              </li>
          </ul>

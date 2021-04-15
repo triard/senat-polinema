@@ -43,23 +43,14 @@ class Usulan extends CI_Controller {
 		echo json_encode(array("status" => TRUE));
 	}
 	public function add_homepage() {
-		$secutity_code = $this->input->post('secutity_code');
-		$mycaptcha = $this->session->userdata('mycaptcha');
-		if ($this->input->post() && ($secutity_code == $mycaptcha)) {
 			$this->ModUsulan->add();
 			if(json_encode(array("status" => TRUE))){
 				$this->session->set_flashdata('success', 'Usulan Anda berhasil diajukan');
 			}else{
 				$this->session->set_flashdata('failed', 'Usulan Anda gagal diajukan');
 			}
-			redirect('homepage/usulan', 'refresh'); 
-		}else {
-			// pesan akan muncul jika captcha salah
-			$this->session->set_flashdata('failed','Captcha salah');
-			redirect('homepage/usulan', 'refresh'); 
-		   }
-
-
+			$this->session->unset_userdata('email_sess');
+			redirect('Homepage/email_usulan', 'refresh');  
 	}
 	public function edit($id) {
 		$q = $this->session->userdata('status');
