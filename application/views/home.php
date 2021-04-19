@@ -210,7 +210,7 @@ $this->load->view('_partials/sidebar');
             <div class="col-lg-12 col-md-12 col-12 col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4><i class="far fa-calendar-alt"></i> Jadwal Rarap/Sidang yang akan datang</h4>
+                        <h4><i class="far fa-calendar-alt"></i> Jadwal Rapat / Sidang yang akan datang</h4>
                         <div class="card-header-action">
                             <a href="<?php echo base_url('Penjadwalan') ?>" class="btn btn-primary">Lihat Semua</a>
                         </div>
@@ -306,49 +306,52 @@ $this->load->view('_partials/sidebar');
                 </div>
                 <div class="card-body">
                     <ul class="list-unstyled list-unstyled-border">
-                        <li class="media">
+                        <?php foreach ($notifikasi as $k) { 
+                            if ((($this->session->userdata('level') == "Ketua Komisi 1" || $this->session->userdata('level') == "Anggota Komisi 1") && ($k->user == 'Ketua Komisi 1' || $k->user == 'Admin' || $k->user == 'Sekretaris'))) { ?>
+                            <li class="media">
                             <div class="media-body">
-                                <div class="float-right text-primary"><?php echo date('d/m/Y h:i') ?></div>
-                                <div class="media-title">Farhan A Mujib</div>
-                                <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla.
-                                    Nulla vel metus scelerisque ante sollicitudin.</span>
+                                <div class="float-right text-primary"><?php echo $k->time; ?></div>
+                                <div class="media-title"><?php echo $k->user; ?></div>
+                                <span class="text-small text-muted"><?php echo $k->text; ?></span>
                             </div>
                         </li>
-                        <li class="media">
+                        <?php } else if ((($this->session->userdata('level') == "Ketua Komisi 2" || $this->session->userdata('level') == "Anggota Komisi 2") && ($k->user == 'Ketua Komisi 2' || $k->user == 'Admin' || $k->user == 'Sekretaris'))) { ?>
+                            <li class="media">
                             <div class="media-body">
-                                <div class="float-right text-primary"><?php echo date('d/m/Y h:i') ?></div>
-                                <div class="media-title">Ujang Maman</div>
-                                <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla.
-                                    Nulla vel metus scelerisque ante sollicitudin.</span>
+                                <div class="float-right text-primary"><?php echo $k->time; ?></div>
+                                <div class="media-title"><?php echo $k->user; ?></div>
+                                <span class="text-small text-muted"><?php echo $k->text; ?></span>
                             </div>
                         </li>
-                        <li class="media">
+                        <?php } else if ((($this->session->userdata('level') == "Ketua Komisi 3" || $this->session->userdata('level') == "Anggota Komisi 3") && ($k->user == 'Ketua Komisi 3' || $k->user == 'Admin' || $k->user == 'Sekretaris'))) { ?>
+                            <li class="media">
                             <div class="media-body">
-                                <div class="float-right text-primary"><?php echo date('d/m/Y h:i') ?></div>
-                                <div class="media-title">Rizal Fakhri</div>
-                                <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla.
-                                    Nulla vel metus scelerisque ante sollicitudin.</span>
+                                <div class="float-right text-primary"><?php echo $k->time; ?></div>
+                                <div class="media-title"><?php echo $k->user; ?></div>
+                                <span class="text-small text-muted"><?php echo $k->text; ?></span>
                             </div>
                         </li>
-                        <li class="media">
+                        <?php } else if ((($this->session->userdata('level') == "Ketua Komisi 4" || $this->session->userdata('level') == "Anggota Komisi 4") && ($k->user == 'Ketua Komisi 4' || $k->user == 'Admin' || $k->user == 'Sekretaris'))) { ?>
+                            <li class="media">
                             <div class="media-body">
-                                <div class="float-right text-primary"><?php echo date('d/m/Y h:i') ?></div>
-                                <div class="media-title">Alfa Zulkarnain</div>
-                                <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla.
-                                    Nulla vel metus scelerisque ante sollicitudin.</span>
+                                <div class="float-right text-primary"><?php echo $k->time; ?></div>
+                                <div class="media-title"><?php echo $k->user; ?></div>
+                                <span class="text-small text-muted"><?php echo $k->text; ?></span>
                             </div>
                         </li>
-                        <li class="media">
+                        <?php } else if ($this->session->userdata('level') == "Sekretaris" || $this->session->userdata('level') == "Admin" || $this->session->userdata('level') == "Ketua Senat") { ?>
+                            <li class="media">
                             <div class="media-body">
-                                <div class="float-right text-primary"><?php echo date('d/m/Y h:i') ?></div>
-                                <div class="media-title">Alfa Zulkarnain</div>
-                                <span class="text-small text-muted">Cras sit amet nibh libero, in gravida nulla.
-                                    Nulla vel metus scelerisque ante sollicitudin.</span>
+                                <div class="float-right text-primary"><?php echo $k->time; ?></div>
+                                <div class="media-title"><?php echo $k->user; ?></div>
+                                <span class="text-small text-muted"><?php echo $k->text; ?></span>
                             </div>
                         </li>
+                        <?php } ?>
+                        <?php } ?>
                     </ul>
                     <div class="text-center pt-1 pb-1">
-                        <a href="#" class="btn btn-primary btn-lg btn-round btn-sm">
+                        <a href="<?php echo base_url('Notifikasi') ?>" class="btn btn-primary btn-lg btn-round btn-sm">
                             Lihat Semua
                         </a>
                     </div>

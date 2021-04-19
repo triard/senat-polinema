@@ -11,6 +11,7 @@ class Home extends CI_Controller {
         $this->load->model('ModDokumentasi');
         $this->load->model('ModBerita');
         $this->load->model('ModPenjadwalan');
+        $this->load->model('ModNotifikasi');
 	} 
 
     public function index() {
@@ -38,6 +39,7 @@ class Home extends CI_Controller {
         $data['agenda'] = $this->ModKegiatan->selectAgenda();
         $data['totalUsulan'] = $this->ModUsulan->GetMostInput();
         $data['usulanFilter'] = $this->ModUsulan->InputFilter();
+        $data['notifikasi'] = $this->ModNotifikasi->getAll();
         $this->load->view('home', $data);
     }
 }

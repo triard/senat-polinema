@@ -67,7 +67,7 @@ $this->load->view('_partials/sidebar');
                                             <tbody>
                                                 <?php $no=1;
                                                 foreach ($usulan as $k) { ?>
-                                                <?php if($this->session->userdata('id_user') == $k->id_user){ ?>
+                                                <?php if($this->session->userdata('id_user') == $k->id_user || $this->session->userdata('level') == 'Ketua Senat' || $this->session->userdata('level') == 'Admin'){ ?>
                                                 <tr>
                                                     <td><?php echo $no;?></td>
                                                     <td><?php echo $k->nama_pengusul;?></td>

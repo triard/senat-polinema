@@ -7,6 +7,7 @@ class Usulan extends CI_Controller {
 		parent::__construct();
 		$this->load->model('ModUsulan');
 		$this->load->model('ModUser');
+		$this->load->model('ModNotifikasi');
 		$idUser = $this->session->userdata('id_user');
 	} 
 	public function index()
@@ -19,6 +20,7 @@ class Usulan extends CI_Controller {
 			redirect('auth/auth_login','refresh');
 		}
 		$menu['login'] = $this->ModUsulan->edit($this->session->userdata('id_user'));
+		$data['notifikasi'] = $this->ModNotifikasi->getAll();
 		$data['usulan'] = $this->ModUsulan->selectAll();
 		$data['usulanById'] = $this->ModUsulan->selectById();
 		$data['userById'] = $this->ModUser->userById();

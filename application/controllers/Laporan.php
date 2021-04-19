@@ -7,6 +7,7 @@ class Laporan extends CI_Controller {
 		parent::__construct();
 		$this->load->model('ModLaporan');
 		$this->load->model('ModKegiatan');
+		$this->load->model('ModNotifikasi');
 		$idUser = $this->session->userdata('id_user');
 	} 
 	public function index()
@@ -19,6 +20,7 @@ class Laporan extends CI_Controller {
 			redirect('auth/auth_login','refresh');
 		}
 		$menu['login'] = $this->ModLaporan->edit($this->session->userdata('id_user'));
+		$data['notifikasi'] = $this->ModNotifikasi->getAll();
 		$data['laporan'] = $this->ModLaporan->selectAll();
 		$this->load->view('laporan',$data);
 	}
@@ -46,6 +48,17 @@ class Laporan extends CI_Controller {
 			exit();
 		}
 		$this->ModLaporan->add();
+
+		// Notifikasi
+		$user = $this->session->userdata('level');
+		$agenda = $this->ModNotifikasi->getKegiatanFromLaporan($this->input->post('id_kegiatan'));
+		$text = 'Mengunggah laporan kegiatan '.$agenda;
+		date_default_timezone_set('Asia/Jakarta');
+		$time = date('Y/m/d H:i:s'); 
+		$id_user = $this->session->userdata('id_user');
+		$id_laporan = $this->ModNotifikasi->getLastIdLaporan();
+		$this->ModNotifikasi->addByLaporan($user, $text, $time, $id_user, $id_laporan);
+
 		echo json_encode(array("status" => TRUE));
 	}
 	public function edit($id) {
@@ -63,6 +76,8 @@ class Laporan extends CI_Controller {
 			exit();
 		}
 		$this->ModLaporan->delete($id);
+		// Notifikasi
+		$this->ModNotifikasi->deleteByLaporan($id);
 		echo json_encode(array("status" => TRUE));
 	}
 	public function update() {

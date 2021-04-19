@@ -118,6 +118,8 @@ class ModUsulan extends CI_model {
 		$this->db->select('id_usulan');
 		$this->db->from('usulan');
 		$this->db->where('status','Diajukan - Sekretaris');	
+		$this->db->or_where('status','Perlu Tindak Lanjut - Sidang Pleno');	
+		$this->db->or_where('status','Perlu Tindak Lanjut - Sidang Paripurna');	
 		return $this->db->count_all_results();
 	}
 	public function getUsulanKomisi1()

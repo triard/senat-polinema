@@ -189,17 +189,15 @@ $this->load->view('_partials/sidebar');
                                             <table class="table table-bordered table-hover">
                                                 <thead>
                                                     <tr>
-                                                        <th style="width: 50px;">No.</th>
                                                         <th>Nama File</th>
                                                         <th style="width: 200px;">Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php $no=1;
-                                        foreach ($laporan as $l) { ?>
-                                                    <?php if($l->id_kegiatan == $kegiatan->id_kegiatan && ($l->status != "Diajukan" || $hakAkses == "Sekretaris")){ ?>
+                                                    <?php
+                                                    foreach ($laporan as $l) { ?>
+                                                    <?php if($l->id_kegiatan == $kegiatan->id_kegiatan && ($l->status != "Diajukan" || $this->session->userdata('id_user') == $kegiatan->id_user)){ ?>
                                                     <tr>
-                                                        <td><?php echo $no;?></td>
                                                         <td><?php echo $l->nama_laporan ?></td>
                                                         <td class="text-center">
                                                             <?php echo "<a class='btn btn-icon btn-success' target='_blank' href='".base_url()."Laporan/download_file/$l->file_laporan'><i class='fas fa-download'></i></a>";?>
@@ -215,7 +213,7 @@ $this->load->view('_partials/sidebar');
                                                             <?php } ?>
                                                         </td>
                                                     </tr>
-                                                    <?php } $no++; } ?>
+                                                    <?php } } ?>
                                                 </tbody>
                                             </table>
                                         </div>

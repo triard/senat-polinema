@@ -8,6 +8,7 @@ class Penjadwalan extends CI_Controller {
 		$this->load->model('ModPenjadwalan');
 		$this->load->model('ModUsulan');
 		$this->load->model('ModUser');
+		$this->load->model('ModNotifikasi');
 		$idUser = $this->session->userdata('id_user');
 	} 
 	public function index()
@@ -20,6 +21,7 @@ class Penjadwalan extends CI_Controller {
 			redirect('auth/auth_login','refresh');
 		}
 		$menu['login'] = $this->ModPenjadwalan->edit($this->session->userdata('id_user'));
+		$data['notifikasi'] = $this->ModNotifikasi->getAll();
 		$data['penjadwalan'] = $this->ModPenjadwalan->selectDataAll();
 		$data['user'] = $this->ModUser->selectAll();
 		$this->load->view('penjadwalan',$data);
@@ -45,6 +47,16 @@ class Penjadwalan extends CI_Controller {
 			$this->ModUsulan->setStatus($usulan, $status);
 		}
 		$this->ModPenjadwalan->add();
+	
+		// Notifikasi
+		$user = $this->session->userdata('level');
+		$text = 'Melakukan penjadwalan '.$this->input->post('agenda');
+		date_default_timezone_set('Asia/Jakarta');
+		$time = date('Y/m/d H:i:s'); 
+		$id_user = $this->session->userdata('id_user');
+		$id_penjadwalan = $this->ModNotifikasi->getLastIdPenjadwalan();
+		$this->ModNotifikasi->addByPenjadwalan($user, $text, $time, $id_user, $id_penjadwalan);
+		
 		echo json_encode(array("status" => TRUE));
 	}
 	public function edit($id) {
@@ -108,6 +120,8 @@ class Penjadwalan extends CI_Controller {
 			$this->ModUsulan->setStatus($usulan, "Perlu Tindak Lanjut - Sidang Paripurna");
 		}
 		$this->ModPenjadwalan->delete($id);
+		// Notifikasi
+		$this->ModNotifikasi->deleteByPenjadwalan($id);
 		echo json_encode(array("status" => TRUE));
 	}
 	public function update() {

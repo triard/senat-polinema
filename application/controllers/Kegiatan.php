@@ -11,6 +11,7 @@ class Kegiatan extends CI_Controller {
 		$this->load->model('ModUsulan'); 
 		$this->load->model('ModLaporan'); 
 		$this->load->model('ModDokumentasi'); 
+		$this->load->model('ModNotifikasi'); 
 		$idUser = $this->session->userdata('id_user');
 	} 
 	public function index()
@@ -23,6 +24,7 @@ class Kegiatan extends CI_Controller {
 			redirect('auth/auth_login','refresh');
 		}
 		$menu['login'] = $this->ModKegiatan->edit($this->session->userdata('id_user'));
+		$data['notifikasi'] = $this->ModNotifikasi->getAll();
 		$data['kegiatan'] = $this->ModKegiatan->selectAll();
 		$this->load->view('kegiatan',$data);
 	}
@@ -61,6 +63,16 @@ class Kegiatan extends CI_Controller {
 			}
 		}
 		$this->ModKegiatan->add();
+
+		// Notifikasi
+		$user = $this->session->userdata('level');
+		$text = 'Menambahkan kegiatan '.$this->input->post('agenda');
+		date_default_timezone_set('Asia/Jakarta');
+		$time = date('Y/m/d H:i:s'); 
+		$id_user = $this->session->userdata('id_user');
+		$id_kegiatan = $this->ModNotifikasi->getLastIdKegiatan();
+		$this->ModNotifikasi->addByKegiatan($user, $text, $time, $id_user, $id_kegiatan);
+
 		echo json_encode(array("status" => TRUE));
 	}
 	public function edit($id) {
@@ -79,6 +91,8 @@ class Kegiatan extends CI_Controller {
 			exit();
 		}
 		$this->ModKegiatan->delete($id);
+		// Notifikasi
+		$this->ModNotifikasi->deleteByKegiatan($id);
 		echo json_encode(array("status" => TRUE));
 	}
 	public function update() {

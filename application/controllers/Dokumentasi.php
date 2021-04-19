@@ -7,6 +7,7 @@ class Dokumentasi extends CI_Controller {
 		parent::__construct();
 		$this->load->model('ModDokumentasi');
 		$this->load->model('ModKegiatan');
+		$this->load->model('ModNotifikasi');
 		$idUser = $this->session->userdata('id_user');
 	} 
 	public function index()
@@ -20,6 +21,7 @@ class Dokumentasi extends CI_Controller {
 		}
 		$menu['login'] = $this->ModDokumentasi->edit($this->session->userdata('id_user'));
 		$data['berita'] = $this->ModDokumentasi->selectAll();
+		$data['notifikasi'] = $this->ModNotifikasi->getAll();
 		$this->load->view('berita',$data);
 	}
 
@@ -47,6 +49,17 @@ class Dokumentasi extends CI_Controller {
 			exit();
 		}
 		$this->ModDokumentasi->add();
+
+		// Notifikasi
+		$user = $this->session->userdata('level');
+		$agenda = $this->ModNotifikasi->getKegiatanFromDokumentasi($this->input->post('id_kegiatan'));
+		$text = 'Mengunggah dokumentasi kegiatan '.$agenda;
+		date_default_timezone_set('Asia/Jakarta');
+		$time = date('Y/m/d H:i:s'); 
+		$id_user = $this->session->userdata('id_user');
+		$id_dokumentasi = $this->ModNotifikasi->getLastIdDokumentasi();
+		$this->ModNotifikasi->addByDokumentasi($user, $text, $time, $id_user, $id_dokumentasi);
+
 		echo json_encode(array("status" => TRUE));
 	}
 	public function edit($id) {
@@ -64,6 +77,8 @@ class Dokumentasi extends CI_Controller {
 			exit();
 		}
 		$this->ModDokumentasi->delete($id);
+		// Notifikasi
+		$this->ModNotifikasi->deleteByDokumentasi($id);
 		echo json_encode(array("status" => TRUE));
 	}
 	public function update() {

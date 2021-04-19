@@ -45,7 +45,7 @@
             <div class="col-6">
                 <div class="form-group">
                     <label>Tujuan</label><br>
-                    <textarea id="summernote-tujuan" name="tujuan" required></textarea>
+                    <textarea id="summernote-tujuan" name="tujuan"></textarea>
                 </div>
             </div>
         </div>

@@ -6,6 +6,7 @@ class User extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('ModUser');
+		$this->load->model('ModNotifikasi');
 		$idUser = $this->session->userdata('id_user');
 	}
 	public function index()
@@ -18,6 +19,7 @@ class User extends CI_Controller {
 			redirect('auth/auth_login','refresh');
 		}
 		$menu['login'] = $this->ModUser->edit($this->session->userdata('id_user'));
+		$data['notifikasi'] = $this->ModNotifikasi->getAll();
 		$data['user'] = $this->ModUser->selectAll();
 		$this->load->view('user',$data);
 	}
