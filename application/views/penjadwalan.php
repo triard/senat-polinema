@@ -11,6 +11,21 @@ $this->load->view('_partials/sidebar');
             <h4>Penjadwalan</h4>
         </div>
         <div class="section-body">
+        <div class="row">
+                <div class="col-12">
+                    <?php if($this->session->flashdata('success') == TRUE){?>
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <?php echo $this->session->flashdata('success') ?>
+                    </div>
+                    <?php }else if($this->session->flashdata('failed') == TRUE){ ?>
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <?php echo $this->session->flashdata('failed') ?>
+                    </div>
+                    <?php } ?>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-12">
                     <div class="card">

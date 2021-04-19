@@ -52,6 +52,8 @@
     <label>Pembahasan</label><br>
     <textarea id="summernote-simple" name="pembahasan"><?php echo $usulan->keterangan;?></textarea>
 </div>
+<input type="hidden" name="nama_pengusul" value="<?php echo $usulan->nama_pengusul;?>">
+<input type="hidden" name="email" value="<?php echo $usulan->email;?>">
 <?php } else { ?>
 <input type="hidden" name="status" value="Dijadwalkan - Sekretaris">
 <div class="form-group">

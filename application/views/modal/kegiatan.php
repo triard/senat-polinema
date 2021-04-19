@@ -101,7 +101,7 @@
                         <select name="status" class="custom-select form-control" required>
                             <option disabled selected>Pilih Status Kegiatan</option>
                             <option disabled>------------------------------</option>
-                            <option value="Proses">Proses</option>
+                            <option value="Rapat/Sidang Sedang Berlangsung">Rapat/Sidang Sedang Berlangsung</option>
                             <option value="Perlu Tindak Lanjut - Sidang Pleno">Perlu Tindak Lanjut - Sidang Pleno
                             </option>
                             <option value="Perlu Tindak Lanjut - Sidang Paripurna">Perlu Tindak Lanjut - Sidang
@@ -169,7 +169,7 @@
                     <?php echo $kegiatan->status;?></option>
                 <option disabled>Pilih Status Kegiatan</option>
                 <option disabled>------------------------------</option>
-                <option value="Proses">Proses</option>
+                <option value="Rapat/Sidang Sedang Berlangsung">Rapat/Sidang Sedang Berlangsung</option>
                 <option value="Perlu Tindak Lanjut - Sidang Pleno">Perlu Tindak Lanjut - Sidang Pleno</option>
                 <option value="Perlu Tindak Lanjut - Sidang Paripurna">Perlu Tindak Lanjut - Sidang Paripurna</option>
                 <option value="Selesai">Selesai</option>
@@ -305,7 +305,7 @@
                         <?php echo $kegiatan->status;?></option>
                     <option disabled>Pilih Status Kegiatan</option>
                     <option disabled>------------------------------</option>
-                    <option value="Proses">Proses</option>
+                    <option value="Rapat/Sidang Sedang Berlangsung">Rapat/Sidang Sedang Berlangsung</option>
                     <option value="Perlu Tindak Lanjut - Sidang Pleno">Perlu Tindak Lanjut - Sidang Pleno</option>
                     <option value="Perlu Tindak Lanjut - Sidang Paripurna">Perlu Tindak Lanjut - Sidang Paripurna
                     </option>

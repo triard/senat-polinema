@@ -53,11 +53,52 @@ class Kegiatan extends CI_Controller {
 		$status = $this->input->post('status');
 		if ($status != "Proses") {
 			if ($id_penjadwalan != 0) {
-				$this->ModPenjadwalan->setStatus($id_penjadwalan, 'Selesai');
+				$this->ModPenjadwalan->setStatus($id_penjadwalan, $status);
 				$id_usulan = $this->ModPenjadwalan->getIdUsulan($id_penjadwalan);
+				$nama = $this->ModPenjadwalan->getPengusul($id_penjadwalan);
+				$email = $this->ModPenjadwalan-> getEmailPengusul($id_penjadwalan);
 				if ($id_usulan != 0) {
 					$this->ModUsulan->setStatus($id_usulan, $status);
-				}
+					
+					$this->load->library('email');
+					$config = array();
+					$config['charset']='utf-8';
+					$config['useragent']='Codeigniter';
+					$config['protocol']="smtp";
+					$config['mailtype']="html";
+					$config['smtp_host']="ssl://smtp.gmail.com";
+					$config['smtp_port']="465";
+					$config['smtp_timeout']="400";
+					$config['smtp_user']="triard78@gmail.com";
+					$config['smtp_pass']="";
+					$config['crlf']="\r\n";
+					$config['newline']="\r\n";
+					$config['wordwrap']=TRUE;
+					//memanggil library email dan set konfigurasi untuk pengiriman email	
+					$this->email->initialize($config);
+					// Email dan nama pengirim
+					$this->email->from('no-reply@senatpolinema.ac.id', 'Senat Polinema');
+					// Email penerima
+					$this->email->to($email); // Ganti dengan email tujuan
+					// Lampiran email, isi dengan url/path file
+					// $this->email->attach('https://masrud.com/content/images/20181215150137-codeigniter-smtp-gmail.png');	
+					// Subject email
+					$this->email->subject('Status Pengajuan Usulan');
+					// Isi email
+					$keterangan = $this->input->post('pembahasan');
+					$status = $this->input->post('status');
+					$this->email->message("Berdasarkan hasil verifikasi dari usulan yang anda ajukan. berikut ini detail usulan anda : <br>
+					Nama : $nama <br>
+					email : $email<br>
+					Keterangan : $keterangan<br>
+					Status : $status <br><br>
+					Demikian pemberitahuan ini kami sampaikan. Atas perhatian dan izin yang diberikan kami ucapkan terima kasih.");
+					if ($this->email->send()) {
+					$this->session->set_flashdata('success', 'Sukses! email status usulan berhasil dikirim.');
+					} else {
+					$this->session->set_flashdata('failed', 'Error! email status usulan tidak dapat dikirim.');
+					}
+			}
 			}
 		}
 		$this->ModKegiatan->add();
@@ -90,10 +131,52 @@ class Kegiatan extends CI_Controller {
 		$status = $this->input->post('status');
 		if ($status != "Proses") {
 			if ($id_penjadwalan != 0) {
-				$this->ModPenjadwalan->setStatus($id_penjadwalan, 'Selesai');
+				$this->ModPenjadwalan->setStatus($id_penjadwalan, $status);
 				$id_usulan = $this->ModPenjadwalan->getIdUsulan($id_penjadwalan);
+				$nama = $this->ModPenjadwalan->getPengusul($id_penjadwalan);
+				$email = $this->ModPenjadwalan-> getEmailPengusul($id_penjadwalan);
 				if ($id_usulan != 0) {
 					$this->ModUsulan->setStatus($id_usulan, $status);
+
+					$this->load->library('email');
+					$config = array();
+					$config['charset']='utf-8';
+					$config['useragent']='Codeigniter';
+					$config['protocol']="smtp";
+					$config['mailtype']="html";
+					$config['smtp_host']="ssl://smtp.gmail.com";
+					$config['smtp_port']="465";
+					$config['smtp_timeout']="400";
+					$config['smtp_user']="triard78@gmail.com";
+					$config['smtp_pass']="";
+					$config['crlf']="\r\n";
+					$config['newline']="\r\n";
+					$config['wordwrap']=TRUE;
+					//memanggil library email dan set konfigurasi untuk pengiriman email	
+					$this->email->initialize($config);
+					// Email dan nama pengirim
+					$this->email->from('no-reply@senatpolinema.ac.id', 'Senat Polinema');
+					// Email penerima
+					$this->email->to($email); // Ganti dengan email tujuan
+					// Lampiran email, isi dengan url/path file
+					// $this->email->attach('https://masrud.com/content/images/20181215150137-codeigniter-smtp-gmail.png');	
+					// Subject email
+					$this->email->subject('Status Pengajuan Usulan');
+					// Isi email
+					$keterangan = $this->input->post('pembahasan');
+					$status = $this->input->post('status');
+					$this->email->message("Berdasarkan hasil verifikasi dari usulan yang anda ajukan. berikut ini detail usulan anda : <br>
+					Nama : $nama <br>
+					email : $email<br>
+					Keterangan : $keterangan<br>
+					Status : $status <br>
+					Hasil dari Usulan Anda akan kami sampaikan Setelah ini. <br><br>
+					Demikian pemberitahuan ini kami sampaikan. Atas perhatian dan izin yang diberikan kami ucapkan terima kasih.");
+					if ($this->email->send()) {
+					$this->session->set_flashdata('success', 'Sukses! email status usulan berhasil dikirim.');
+					} else {
+					$this->session->set_flashdata('failed', 'Error! email status usulan tidak dapat dikirim.');
+					}
 				}
 			}
 		} else {
