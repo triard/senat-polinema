@@ -86,6 +86,28 @@ class ModPenjadwalan extends CI_model {
 		}
         return $hasil;	
     }
+	public function getPengusul($id_penjadwalan){
+    	$query = $this->db->query("SELECT nama_pengusul FROM penjadwalan AS p JOIN usulan AS u ON p.id_usulan=u.id_usulan WHERE id_penjadwalan='$id_penjadwalan'");
+        $cek = $query->num_rows();
+		if ($cek > 0) {
+			$x = $query->row();
+			$hasil = $x->nama_pengusul;
+		} else {
+			$hasil = 0;
+		}
+        return $hasil;	
+    }
+	public function getEmailPengusul($id_penjadwalan){
+    	$query = $this->db->query("SELECT email FROM penjadwalan AS p JOIN usulan AS u ON p.id_usulan=u.id_usulan WHERE id_penjadwalan='$id_penjadwalan'");
+        $cek = $query->num_rows();
+		if ($cek > 0) {
+			$x = $query->row();
+			$hasil = $x->email;
+		} else {
+			$hasil = 0;
+		}
+        return $hasil;	
+    }
     public function getIdUser($id_penjadwalan){
     	$query = $this->db->query("SELECT id_user FROM penjadwalan WHERE id_penjadwalan='$id_penjadwalan'");
         $cek = $query->num_rows();

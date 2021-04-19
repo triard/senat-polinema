@@ -157,7 +157,7 @@
                 <td class="tdtable">
                     <center>
                         <?php if($p->absen != NULL){ ?>
-                        <img style="width: 20%; margin: 5px;" src="<?php echo base_url($p->absen)?>"
+                        <img style="width: 100px; margin: 5px;" src="<?php echo base_url($p->absen)?>"
                             alt="<?php echo $p->absen ?>">
                         <?php }else{} ?>
                     </center>
@@ -206,14 +206,16 @@
 			return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
 		}
         ?>
-    <!-- <div class="ttd">
+        <br><br>
+    <div class="ttd">
         <a><?php echo hari_ini().', ';
 		echo  tgl_indo(date('Y-m-d'));date('l'); ?></a>
         <p>Mengetahui</p>
         <br><br><br>
         <p>...........................................</p>
-        <p>Ketua Senat</p>
-    </div> -->
+        <p style="text-decoration: underline;">Ketua Senat</p>
+        NIP. 
+    </div>
 </body>
 
 </html>

@@ -20,9 +20,9 @@ class ModKegiatan extends CI_model {
 		$password= $this->input->post('password');
 		$tujuan = $this->input->post('tujuan');
 		$status = $this->input->post('status');
-		if ($status != 'Proses') {
-			$status = 'Selesai';
-		}
+		// if ($status != 'Proses') {
+		// 	$status = 'Selesai';
+		// }
 		$notula = $this->input->post('notula');
 		if ($id_penjadwalan == 0) {
 		$data = array('agenda' => $agenda,'pembahasan' => $pembahasan,
@@ -92,9 +92,9 @@ class ModKegiatan extends CI_model {
 		$tujuan = $this->input->post('tujuan');
 		$password= $this->input->post('password');
 		$status = $this->input->post('status');
-		if ($status != 'Proses') {
-			$status = 'Selesai';
-		}
+		// if ($status != 'Proses') {
+		// 	$status = 'Selesai';
+		// }
 		$notula= $this->input->post('notula');
 		if ($id_penjadwalan == NULL) {
 			$data = array('agenda' => $agenda,'pembahasan' => $pembahasan,'waktu_mulai'=>$waktu_mulai ,'waktu_selesai'=>$waktu_selesai,'tempat'=>$tempat, 'notula'=>$notula, 'tujuan'=>$tujuan, 'jenis_rapat'=>$jenis_rapat,'link'=>$link,'notula'=>$notula,'password'=>$password, 'status'=>$status, 'id_user'=>$id_user);
@@ -125,20 +125,25 @@ class ModKegiatan extends CI_model {
 		$image=str_replace('./','',$file);
 
 		$id_peserta = $this->input->post('id_peserta');
-		// $name = $this->input->post('signname');
 		$img= $image;
-		// $rowno = $this->input->post('rowno');
-		// $append = $this->input->post('appendcount');
 		$data = array('absen' => $img);
 		$this->db->where('id_peserta', $id_peserta);
-		$this->db->update('peserta', $data);
+		if ($this->db->update('peserta', $data)) {
+			$this->session->set_flashdata('success', 'Sukses! Absen anda berhasil tersimpan.');
+			} else {
+			$this->session->set_flashdata('failed', 'Error! Absen anda gagal berhasil tersimpan.');
+			}
 	}
 	public function updateVoting(){ 
 		$id_peserta = $this->input->post('id_peserta');
 		$voting= $this->input->post('voting');
 		$data = array('voting' => $voting);
 		$this->db->where('id_peserta', $id_peserta);
-		$this->db->update('peserta', $data);
+		if ($this->db->update('peserta', $data)) {
+			$this->session->set_flashdata('success', 'Sukses! Voting anda berhasil tersimpan.');
+			} else {
+			$this->session->set_flashdata('failed', 'Error! Voting anda gagal berhasil tersimpan.');
+			}
 	}
 	public function JumlahVotingSetuju($id)
 	{

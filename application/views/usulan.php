@@ -13,6 +13,21 @@ $this->load->view('_partials/sidebar');
         <div class="section-body">
             <div class="row">
                 <div class="col-12">
+                    <?php if($this->session->flashdata('success') == TRUE){?>
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <?php echo $this->session->flashdata('success') ?>
+                    </div>
+                    <?php }else if($this->session->flashdata('failed') == TRUE){ ?>
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <?php echo $this->session->flashdata('failed') ?>
+                    </div>
+                    <?php } ?>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
                     <ul class="nav nav-tabs" id="myTab2" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="home-tab2" data-toggle="tab" href="#home2" role="tab"
@@ -136,7 +151,7 @@ $this->load->view('_partials/sidebar');
                                         <tbody>
                                             <?php $no=1;
                                                  foreach ($usulan as $k) { ?>
-                                                <?php if($this->session->userdata('level') == "Admin" && $k->status == "Diajukan"){ ?>
+                                            <?php if($this->session->userdata('level') == "Admin" && $k->status == "Diajukan"){ ?>
                                             <tr>
                                                 <td><?php echo $no;?></td>
                                                 <td><?php echo $k->nama_pengusul;?></td>
@@ -424,6 +439,7 @@ function acceptAdmin(a) {
         });
 
 };
+
 function refuseAdmin(a) {
     swal({
             title: "Pengajuan Usulan Ditolak?",

@@ -87,6 +87,7 @@ class ModUsulan extends CI_model {
 		'dokumen_pendukung'=>$dokumen_pendukung, 'status'=>$status, 'id_user'=>$id_user);
 			$this->db->where('id_usulan', $id_usulan);
 			$this->db->update('usulan', $data);
+		
 	}
 	public function setStatus($id_usulan, $status){ 		
 		$data = array('status'=>$status);
