@@ -43,7 +43,7 @@ anggota komisi 4
 - username : anggota_komisi_4
 - password : anggotakomisi4
 
-Alur status = (Diajukan) - (Disetujua) - (Diajukan - Sekretaris)  - (Dijadwalkan - Sekretaris) - Selesai (if selesai)
+Alur status = (Diajukan) - (Disetujui) - (Diajukan - Sekretaris)  - (Dijadwalkan - Sekretaris) - Selesai (if selesai)
                                        \ (Diajukan - Komisi X)    - (Dijadwalkan - Komisi X)   - Selesai (if selesai)
                                                                                                \ (Perlu Tindak Lanjut - Sidang Pleno) - (Dijadwalkan - Sidang Pleno) - Selesai
                                                                                                \ (Perlu Tindak Lanjut - Sidang Prprn) - (Dijadwalkan - Sidang Prprn) - Selesai
