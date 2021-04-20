@@ -20,9 +20,9 @@ class ModKegiatan extends CI_model {
 		$password= $this->input->post('password');
 		$tujuan = $this->input->post('tujuan');
 		$status = $this->input->post('status');
-		// if ($status != 'Proses') {
-		// 	$status = 'Selesai';
-		// }
+		if ($status != 'Rapat/Sidang Sedang Berlangsung') {
+			$status = 'Selesai';
+		}
 		$notula = $this->input->post('notula');
 		if ($id_penjadwalan == 0) {
 		$data = array('agenda' => $agenda,'pembahasan' => $pembahasan,
@@ -92,9 +92,9 @@ class ModKegiatan extends CI_model {
 		$tujuan = $this->input->post('tujuan');
 		$password= $this->input->post('password');
 		$status = $this->input->post('status');
-		// if ($status != 'Proses') {
-		// 	$status = 'Selesai';
-		// }
+		if ($status != 'Rapat/Sidang Sedang Berlangsung') {
+			$status = 'Selesai';
+		}
 		$notula= $this->input->post('notula');
 		if ($id_penjadwalan == NULL) {
 			$data = array('agenda' => $agenda,'pembahasan' => $pembahasan,'waktu_mulai'=>$waktu_mulai ,'waktu_selesai'=>$waktu_selesai,'tempat'=>$tempat, 'notula'=>$notula, 'tujuan'=>$tujuan, 'jenis_rapat'=>$jenis_rapat,'link'=>$link,'notula'=>$notula,'password'=>$password, 'status'=>$status, 'id_user'=>$id_user);

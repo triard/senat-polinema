@@ -15,16 +15,21 @@ $this->load->view('_partials/sidebar');
             </div>
         </div>
         <div class="section-body">
-            <?php if ($this->session->flashdata('success')): ?>
-            <div class="alert alert-success" role="alert">
-                <?php echo $this->session->flashdata('success'); ?>
+            <div class="row">
+                <div class="col-12">
+                    <?php if($this->session->flashdata('success') == TRUE){?>
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <?php echo $this->session->flashdata('success') ?>
+                    </div>
+                    <?php }else if($this->session->flashdata('failed') == TRUE){ ?>
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <?php echo $this->session->flashdata('failed') ?>
+                    </div>
+                    <?php } ?>
+                </div>
             </div>
-            <?php endif; ?>
-            <?php if ($this->session->flashdata('fail')): ?>
-            <div class="alert alert-danger" role="alert">
-                <?php echo $this->session->flashdata('fail'); ?>
-            </div>
-            <?php endif; ?>
             <h2 class="section-title"><?php echo $user->nama ?></h2>
             <p class="section-lead">
                 <!-- Change information about yourself on this page. -->
@@ -81,7 +86,7 @@ $this->load->view('_partials/sidebar');
                                     </div>
                                     <div class="form-group col-md-6 col-12">
                                         <div class="card-footer text-right">
-                                            <button class="btn btn-primary m-2">Save Changes</button>
+                                            <button class="btn btn-primary m-2">Simpan Perubahan</button>
                                         </div>
                                     </div>
                                 </div>
@@ -106,16 +111,22 @@ $this->load->view('_partials/sidebar');
                                 <input type="hidden" name="old_image" value="<?php echo $user->image ?>" />
                                 <div class="form-group col-md-10 col-12">
                                     <label>Edit Foto Profile</label>
-                                    <input type="file" class="form-control" name="image" required="">
+                                       <center>
+                                       <div id="image-preview" class="image-preview">
+                                            <label for="image-upload" id="image-label">Choose File</label>
+                                            <input type="file" name="image" id="image-upload" />
+                                        </div>
+                                       </center>
+                                    <label for="">Maksimum Gambar 5mb</label>
                                     <div class="invalid-feedback">
                                         Tolong Pilih Foto Profile Anda!
                                     </div>
                                 </div>
                         </div>
                         <div class="card-footer text-right">
-                            <button class="btn btn-primary">Save Changes</button>
+                            <button class="btn btn-primary">Simpan Perubahan</button>
                         </div>
-                            </form>
+                        </form>
                     </div>
                 </div>
                 <div class="col-6">
@@ -146,7 +157,7 @@ $this->load->view('_partials/sidebar');
                                 </div>
                         </div>
                         <div class="card-footer text-right">
-                            <button class="btn btn-primary">Save Changes</button>
+                            <button class="btn btn-primary">Simpan Perubahan</button>
                         </div>
                         </form>
                     </div>

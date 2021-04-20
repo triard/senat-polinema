@@ -3,14 +3,22 @@
     <div class="col-6">
         <div class="form-group">
             <label>Nama Pengusul</label><br>
-            <input class="form-control" name="nama_pengusul" type="text" value="<?php echo "$nama"; ?>" readonly>
+            <input class="form-control" name="nama_pengusul" type="text" value="<?php echo "$user->nama"; ?>" readonly>
         </div>
         <div class="form-group">
             <label>Email</label><br>
             <input class="form-control" name="email" type="email" value="<?php echo "$email"; ?>"
                 placeholder="Masukkan email Anda..." readonly>
         </div>
-
+        <div class="form-group">
+            <label>NIP</label><br>
+            <input class="form-control" name="NIP" type="text" value="<?php echo "$user->NIP"; ?>" readonly>
+        </div>
+        <div class="form-group">
+            <label>Jabatan</label><br>
+            <input class="form-control" name="jabatan" type="text" value="<?php echo "$user->jabatan"; ?>"
+                placeholder="Masukkan jabatan Anda..." readonly>
+        </div>
     </div>
     <div class="col-6">
         <div class="form-group">
@@ -25,6 +33,7 @@
         <div class="form-group">
             <label>Dokumen Pendukung*</label><br>
             <input class="form-control" name="dokumen_pendukung" type="file" placeholder="Masukkan dokumen Anda...">
+            <label for="">Ukuran file maksimum: 5MB</label>
         </div>
         <div class="form-group">
             <label>Keterangan</label><br>
@@ -34,7 +43,7 @@
         <input type="hidden" name="id_user" value="<?php echo $this->session->userdata('id_user');?>">
     </div>
     <div class="col-12">
-    * untuk file pendukung lebih dari satu harap upload dengan format zip/rar
+        * untuk file pendukung lebih dari satu harap upload dengan format zip/rar
     </div>
 </div>
 <?php } else { ?>
@@ -50,6 +59,15 @@
                 placeholder="Masukkan email Anda..." required>
         </div>
         <div class="form-group">
+            <label>NIP</label><br>
+            <input class="form-control" name="NIP" type="text" value="<?php echo "$usulan->NIP"; ?>">
+        </div>
+        <div class="form-group">
+            <label>Jabatan</label><br>
+            <input class="form-control" name="jabatan" type="text" value="<?php echo "$usulan->jabatan"; ?>"
+                placeholder="Masukkan jabatan Anda...">
+        </div>
+        <div class="form-group">
             <label>Jenis</label><br>
             <select name="jenis" id="jenis" class="custom-select form-control">
                 <option value="<?php echo $usulan->jenis;?>" selected><?php echo $usulan->jenis ?></option>
@@ -59,17 +77,19 @@
                 <option value="Pertimbangan">Usulan Pertimbangan</option>
             </select>
         </div>
+
+    </div>
+    <div class="col-6">
         <div class="form-group">
             <label>Keterangan</label><br>
             <textarea id="summernote-simple" name="keterangan"><?php echo $usulan->keterangan;?></textarea>
         </div>
-    </div>
-    <div class="col-6">
         <div class="form-group">
             <label>Dokumen Pendukung*</label><br>
             <input class="form-control" name="dokumen_pendukung" type="file" placeholder="Masukkan dokumen Anda...">
+            <label>Ukuran file maksimum: 5MB</label>
             <input type="hidden" name="old_dokumen" value="<?php echo $usulan->dokumen_pendukung ?>" />
-            <?php echo "$usulan->dokumen_pendukung";?>
+            <p><?php echo "$usulan->dokumen_pendukung";?></p>
         </div>
         <div class="form-group">
             <label>Status</label><br>
@@ -89,7 +109,7 @@
         </div>
     </div>
     <div class="col-12">
-    * untuk file pendukung lebih dari satu harap upload dengan format zip/rar
+        * untuk file pendukung lebih dari satu harap upload dengan format zip/rar
     </div>
 </div>
 <?php } ?>

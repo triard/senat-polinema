@@ -71,8 +71,8 @@ class Kegiatan extends CI_Controller {
 					$config['smtp_host']="ssl://smtp.gmail.com";
 					$config['smtp_port']="465";
 					$config['smtp_timeout']="400";
-					$config['smtp_user']="triard78@gmail.com";
-					$config['smtp_pass']="";
+					$config['smtp_user']="laporanakhir41@gmail.com";
+					$config['smtp_pass']="laporanakhir2021";
 					$config['crlf']="\r\n";
 					$config['newline']="\r\n";
 					$config['wordwrap']=TRUE;
@@ -96,9 +96,9 @@ class Kegiatan extends CI_Controller {
 					Status : $status <br><br>
 					Demikian pemberitahuan ini kami sampaikan. Atas perhatian dan izin yang diberikan kami ucapkan terima kasih.");
 					if ($this->email->send()) {
-					$this->session->set_flashdata('success', 'Sukses! email status usulan berhasil dikirim.');
+					$this->session->set_flashdata('successemail', 'Sukses! email status usulan berhasil dikirim.');
 					} else {
-					$this->session->set_flashdata('failed', 'Error! email status usulan tidak dapat dikirim.');
+					$this->session->set_flashdata('failedemail', 'Error! email status usulan tidak dapat dikirim.');
 					}
 			}
 			}
@@ -114,7 +114,11 @@ class Kegiatan extends CI_Controller {
 		$id_kegiatan = $this->ModNotifikasi->getLastIdKegiatan();
 		$this->ModNotifikasi->addByKegiatan($user, $text, $time, $id_user, $id_kegiatan);
 
-		echo json_encode(array("status" => TRUE));
+		if(json_encode(array("status" => TRUE))){
+			$this->session->set_flashdata('success', 'Berhasil Menambah Agenda Baru');
+		}else{
+			$this->session->set_flashdata('failed', 'Gagal Menambah Agenda Baru');
+		}
 	}
 	public function edit($id) {
 		$q = $this->session->userdata('status');
@@ -161,8 +165,8 @@ class Kegiatan extends CI_Controller {
 					$config['smtp_host']="ssl://smtp.gmail.com";
 					$config['smtp_port']="465";
 					$config['smtp_timeout']="400";
-					$config['smtp_user']="triard78@gmail.com";
-					$config['smtp_pass']="";
+					$config['smtp_user']="laporanakhir41@gmail.com";
+					$config['smtp_pass']="laporanakhir2021";
 					$config['crlf']="\r\n";
 					$config['newline']="\r\n";
 					$config['wordwrap']=TRUE;
@@ -187,9 +191,9 @@ class Kegiatan extends CI_Controller {
 					Hasil dari Usulan Anda akan kami sampaikan Setelah ini. <br><br>
 					Demikian pemberitahuan ini kami sampaikan. Atas perhatian dan izin yang diberikan kami ucapkan terima kasih.");
 					if ($this->email->send()) {
-					$this->session->set_flashdata('success', 'Sukses! email status usulan berhasil dikirim.');
+					$this->session->set_flashdata('successemail', 'Sukses! email status usulan berhasil dikirim.');
 					} else {
-					$this->session->set_flashdata('failed', 'Error! email status usulan tidak dapat dikirim.');
+					$this->session->set_flashdata('failedemail', 'Error! email status usulan tidak dapat dikirim.');
 					}
 				}
 			}
@@ -241,7 +245,11 @@ class Kegiatan extends CI_Controller {
 			}
 		}
 		$this->ModKegiatan->update();
-		echo json_encode(array("status" => TRUE));
+		if(json_encode(array("status" => TRUE))){
+			$this->session->set_flashdata('success', 'Berhasil Mengedit Agenda Baru');
+		}else{
+			$this->session->set_flashdata('failed', 'Gagal Mengedit Agenda Baru');
+		}
 	}
 	public function set_penjadwalan($id) {
 		$q = $this->session->userdata('status');
@@ -286,6 +294,7 @@ class Kegiatan extends CI_Controller {
 		}
 		$this->ModKegiatan->updateAbsen();
 		echo json_encode(array("status" => TRUE));
+		
 	}
 	public function modalVoting($id) {
 		$q = $this->session->userdata('status');

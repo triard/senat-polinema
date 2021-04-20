@@ -33,15 +33,19 @@
     <div class="col-6">
         <div class="form-group">
             <label>Nama</label><br>
-            <input class="form-control" name="nama" type="text" placeholder="Nama..." required>
+            <input class="form-control" name="nama" type="text" placeholder="Masukkan Nama..." required>
+        </div>
+        <div class="form-group">
+            <label>NIP</label><br>
+            <input class="form-control" name="NIP" type="text" maxlength="18" minlength="18" placeholder="Masukkan NIP..." value="">
         </div>
         <div class="form-group">
             <label>Jabatan</label><br>
-            <input class="form-control" name="jabatan" type="text" placeholder="Jabatan..." value="">
+            <input class="form-control" name="jabatan" type="text" placeholder="Masukkan Jabatan..." value="">
         </div>
         <div class="form-group">
             <label>Keterangan</label><br>
-            <input class="form-control" name="keterangan" type="text" placeholder="Keternagan..." value="">
+            <input class="form-control" name="keterangan" type="text" placeholder="Masukkan Keternagan..." value="">
         </div>
     </div>
 </div>
@@ -82,6 +86,10 @@
             <label>Nama</label><br>
             <input class="form-control" value="<?php echo $user->nama;?>" name="nama" type="text" placeholder="Nama..."
                 required>
+        </div>
+        <div class="form-group">
+            <label>NIP</label><br>
+            <input class="form-control" name="NIP" type="text" maxlength="18" minlength="18" value="<?php echo $user->NIP;?>" placeholder="Masukkan NIP..." value="">
         </div>
         <div class="form-group">
             <label>Jabatan</label><br>

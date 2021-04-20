@@ -65,8 +65,11 @@ class Berita extends CI_Controller {
 		$id_user = $this->session->userdata('id_user');
 		$id_berita = $this->ModNotifikasi->getLastIdBerita();
 		$this->ModNotifikasi->addByBerita($user, $text, $time, $id_user, $id_berita);
-		
-		echo json_encode(array("status" => TRUE));
+		if(json_encode(array("status" => TRUE))){
+			$this->session->set_flashdata('success', 'Berhasil Menambah Berita Baru');
+		}else{
+			$this->session->set_flashdata('failed', 'Gagal Menambah Berita Baru');
+		}		
 	}
 	public function edit($id) {
 		$q = $this->session->userdata('status');
@@ -85,7 +88,11 @@ class Berita extends CI_Controller {
 		$this->ModBerita->delete($id);
 		// Notifikasi
 		$this->ModNotifikasi->deleteByBerita($id);
-		echo json_encode(array("status" => TRUE));
+		if(json_encode(array("status" => TRUE))){
+			$this->session->set_flashdata('success', 'Berhasil Menghapus Berita');
+		}else{
+			$this->session->set_flashdata('failed', 'Gagal Menghapus Berita');
+		}		
 	}
 	public function update() {
 		$q = $this->session->userdata('status');
@@ -94,6 +101,10 @@ class Berita extends CI_Controller {
 		}
 		
 		$this->ModBerita->update();
-		echo json_encode(array("status" => TRUE));
+		if(json_encode(array("status" => TRUE))){
+			$this->session->set_flashdata('success', 'Berhasil Mengedit Berita');
+		}else{
+			$this->session->set_flashdata('failed', 'Gagal Mengedit Berita');
+		}		
 	}
 }

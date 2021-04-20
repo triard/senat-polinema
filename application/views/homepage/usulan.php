@@ -46,17 +46,31 @@ $this->load->view('homepage/_partials/header');
                         <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Email</label>
                             <div class="col-sm-12 col-md-7">
-                                <input type="email" name="email" value="<?php echo $this->session->userdata('email_sess'); ?>" readonly class="form-control" required="">
+                                <input type="email" name="email"
+                                    value="<?php echo $this->session->userdata('email_sess'); ?>" readonly
+                                    class="form-control" required="">
+                            </div>
+                        </div>
+                        <div class="form-group row mb-4">
+                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">NIP</label>
+                            <div class="col-sm-12 col-md-7">
+                                <input type="text" class="form-control" name="NIP" required="">
+                            </div>
+                        </div>
+                        <div class="form-group row mb-4">
+                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Jabatan</label>
+                            <div class="col-sm-12 col-md-7">
+                                <input type="text" class="form-control" name="jabatan" required="">
                             </div>
                         </div>
                         <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Jenis</label>
                             <div class="col-sm-12 col-md-7">
                                 <select name="jenis" class="form-control selectric" required>
-                                    <option disabled selected>Pilih Jenis</option>
-                                    <option disabled>-----------------------------------</option>
-                                    <option value="Pertimbangan">Pertimbangan</option>
-                                    <option value="Pengawasan">Pengawasan</option>
+                                    <option selected disabled>---- Pilih Jenis Usulan ----</option>
+                                    <option value="Pengawasan">Usulan Pengawasan</option>
+                                    <option value="Kebijakan">Usulan Kebijakan</option>
+                                    <option value="Pertimbangan">Usulan Pertimbangan</option>
                                 </select>
                             </div>
                         </div>

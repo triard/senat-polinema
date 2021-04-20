@@ -47,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- <script src="<?php echo base_url(); ?>assets/js/page/index.js"></script> -->
 <!-- <script src="<?php echo base_url(); ?>assets/js/page/index-0.js"></script> -->
 <script src="<?php echo base_url(); ?>assets/js/page/bootstrap-modal.js"></script>
-<script src="<?php echo base_url(); ?>assets/js/page/components-chat-box.js"></script>
+<!-- <script src="<?php echo base_url(); ?>assets/js/page/components-chat-box.js"></script> -->
 <!-- <script src="<?php echo base_url(); ?>assets/js/page/components-multiple-upload.js"></script> -->
 <!-- <script src="<?php echo base_url(); ?>assets/js/page/components-statistic.js"></script> -->
 <script src="<?php echo base_url(); ?>assets/js/page/components-table.js"></script>
@@ -79,54 +79,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- Template JS File -->
 <script src="<?php echo base_url(); ?>assets/js/scripts.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/custom.js"></script>
-<script type="text/javascript" src="<?php echo base_url();?>assets/js/signature-pad.js"></script> 
-<script src="<?php echo base_url(); ?>assets/js/page/modules-chartjs.js"></script>
-
-
-<!-- dataTables custom -->
-<!-- <script>
-$(document).ready(function() {
-    var table = $('#dataTables-custom').DataTable({
-        dom: "<'row'<'col-sm-8 mt-2'f><'col-sm-2'l><'col-sm-2 mt-4 float-right'B>>" +
-            "<'row'<'col-sm-12'tr>>" +
-            "<'row'<'col-sm-5'i><'col-sm-7'p>>",
-        buttons: [{
-                extend: 'excel',
-                text: '<i class="far fa-file-excel"></i>',
-                exportOptions: {
-                    columns: ':visible',
-                    rows: ':visible'
-                }
-            },
-            {
-                extend: 'print',
-                text: '<i class="fas fa-print"></i>',
-                exportOptions: {
-                    columns: ':visible',
-                    rows: ':visible'
-                }
-            },
-            {
-                extend: 'pdf',
-                text: '<i class="far fa-file-pdf"></i>',
-                pageSize: 'A4',
-                orientation: 'landscape',
-                exportOptions: {
-                    columns: ':visible',
-                }
-            },
-
-        ],
-        language: {
-            searchPlaceholder: "Search for records..."
-        },
-        "lengthMenu": [
-            [10, 25, 50, -1],
-            [10, 25, 50, "All"]
-        ]
-    });
-});
-</script> -->
+<script type="text/javascript" src="<?php echo base_url();?>assets/js/signature-pad.js"></script>
+<script src="<?php echo base_url(); ?>assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
 </body>
 
 </html>

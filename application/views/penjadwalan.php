@@ -28,6 +28,21 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="row">
                 <div class="col-12">
+                    <?php if($this->session->flashdata('successemail') == TRUE){?>
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <?php echo $this->session->flashdata('successemail') ?>
+                    </div>
+                    <?php }else if($this->session->flashdata('failedemail') == TRUE){ ?>
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <?php echo $this->session->flashdata('failedemail') ?>
+                    </div>
+                    <?php } ?>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
                     <div class="card">
                         <div class="card-header">
                             <h4></h4>
@@ -147,11 +162,12 @@ $(document).ready(function() {
                 processData: false,
                 success: function(c) {
                     $("#myModal").modal("hide");
-                    swal("Sukses!", "", "success");
+                    // swal("Sukses!", "", "success");
                     location.reload();
                 },
                 error: function(c, e, d) {
-                    swal("Error", "", "error")
+                    // swal("Error", "", "error")
+                    location.reload();
                 }
             });
             return false

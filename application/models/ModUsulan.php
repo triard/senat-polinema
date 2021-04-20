@@ -19,11 +19,14 @@ class ModUsulan extends CI_model {
 		$jenis = $this->input->post('jenis');
 		$keterangan = $this->input->post('keterangan');
 		$id_user = $this->input->post('id_user');
+		$NIP = $this->input->post('NIP');
+		$jabatan = $this->input->post('jabatan');
 		$tanggal_pengajuan = date('Y-m-d');
 		$dokumen_pendukung = $this->_uploadDokumen();
 		$status = $this->input->post('status'); 		
 		$data = array('nama_pengusul' => $nama_pengusul, 'email' => $email,'jenis' => $jenis, 'keterangan' => $keterangan,
-		'dokumen_pendukung'=>$dokumen_pendukung, 'status'=>$status, 'id_user'=>$id_user,'tanggal_pengajuan'=>$tanggal_pengajuan);
+		'dokumen_pendukung'=>$dokumen_pendukung, 'status'=>$status, 'id_user'=>$id_user,
+		'tanggal_pengajuan'=>$tanggal_pengajuan, 'NIP' => $NIP, 'jabatan'=> $jabatan);
 		$this->db->insert('usulan', $data);
 	}
 	private function _uploadDokumen()
@@ -76,6 +79,8 @@ class ModUsulan extends CI_model {
 		$jenis = $this->input->post('jenis');
 		$keterangan = $this->input->post('keterangan');
 		$id_user = $this->input->post('id_user');
+		$NIP = $this->input->post('NIP');
+		$jabatan = $this->input->post('jabatan');
 		if (!empty($_FILES["dokumen_pendukung"]["name"])) {
 			$this->_deleteDokumen($id_usulan);
             $dokumen_pendukung = $this->_uploadDokumen();
@@ -84,7 +89,7 @@ class ModUsulan extends CI_model {
 		}
 		$status = $this->input->post('status'); 		
 		$data = array('email' => $email,'jenis' => $jenis, 'keterangan' => $keterangan,
-		'dokumen_pendukung'=>$dokumen_pendukung, 'status'=>$status, 'id_user'=>$id_user);
+		'dokumen_pendukung'=>$dokumen_pendukung, 'status'=>$status, 'id_user'=>$id_user, 'NIP' => $NIP, 'jabatan'=> $jabatan);
 			$this->db->where('id_usulan', $id_usulan);
 			$this->db->update('usulan', $data);
 		

@@ -34,6 +34,7 @@ class Usulan extends CI_Controller {
 		$data['cek'] = 0;
 		$data['nama'] = $this->session->userdata('username');
 		$data['email'] = $this->session->userdata('email');
+		$data['user'] = $this->ModUser->userId();
 		$this->load->view('modal/usulan', $data); 
 	}
 	public function add() {
@@ -42,7 +43,11 @@ class Usulan extends CI_Controller {
 			exit(); 
 		}
 		$this->ModUsulan->add();
-		echo json_encode(array("status" => TRUE));
+		if(json_encode(array("status" => TRUE))){
+			$this->session->set_flashdata('success', 'Usulan Anda berhasil diajukan');
+		}else{
+			$this->session->set_flashdata('failed', 'Usulan Anda gagal diajukan');
+		}		
 	}
 	public function add_homepage() {
 			$this->ModUsulan->add();
@@ -69,7 +74,11 @@ class Usulan extends CI_Controller {
 			exit();
 		}
 		$this->ModUsulan->delete($id);
-		echo json_encode(array("status" => TRUE));
+		if(json_encode(array("status" => TRUE))){
+			$this->session->set_flashdata('success', 'Usulan Anda berhasil dihapus');
+		}else{
+			$this->session->set_flashdata('failed', 'Usulan Anda gagal dihapus');
+		}		
 	}
 	public function update() {
 		$q = $this->session->userdata('status');
@@ -87,8 +96,8 @@ class Usulan extends CI_Controller {
 		$config['smtp_host']="ssl://smtp.gmail.com";
 		$config['smtp_port']="465";
 		$config['smtp_timeout']="400";
-		$config['smtp_user']="triard78@gmail.com";
-		$config['smtp_pass']="";
+		$config['smtp_user']="laporanakhir41@gmail.com";
+		$config['smtp_pass']="laporanakhir2021";
 		$config['crlf']="\r\n";
 		$config['newline']="\r\n";
 		$config['wordwrap']=TRUE;
@@ -112,11 +121,15 @@ class Usulan extends CI_Controller {
 		 Status : $status <br><br>
 		 Demikian pemberitahuan ini kami sampaikan. Atas perhatian dan izin yang diberikan kami ucapkan terima kasih.");
 	 	if ($this->email->send()) {
-		 $this->session->set_flashdata('success', 'Sukses! email status usulan berhasil dikirim.');
+		 $this->session->set_flashdata('successemail', 'Sukses! email status usulan berhasil dikirim.');
 	 	} else {
-		 $this->session->set_flashdata('failed', 'Error! email status usulan tidak dapat dikirim.');
+		 $this->session->set_flashdata('failedemail', 'Error! email status usulan tidak dapat dikirim.');
 	 	}
-		echo json_encode(array("status" => TRUE));
+		if(json_encode(array("status" => TRUE))){
+			$this->session->set_flashdata('success', 'Usulan Anda berhasil diajukan');
+		}else{
+			$this->session->set_flashdata('failed', 'Usulan Anda gagal diajukan');
+		}		
 	}
 	function download_file(){
 		$this->load->helper('download');

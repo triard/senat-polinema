@@ -12,11 +12,18 @@ class ModUser extends CI_model {
 		$this->db->where('id_user',$this->session->userdata('id_user'));
         return $this->db->get()->result();
 	}
+	public function userId() {
+		$this->db->select('*');
+        $this->db->from('user');
+		$this->db->where('id_user',$this->session->userdata('id_user'));
+        return $this->db->get()->row();
+	}
 	public function add() {
 		$nama = $this->input->post('nama');
 		$jabatan = $this->input->post('jabatan');
+		$NIP = $this->input->post('NIP');
 		$keterangan = $this->input->post('keterangan'); 		
-		$data = array('nama' => $nama,'jabatan' => $jabatan, 'keterangan' => $keterangan);
+		$data = array('nama' => $nama,'jabatan' => $jabatan, 'keterangan' => $keterangan, 'NIP' => $NIP);
 		$this->db->insert('user', $data);
 	}
 	public function getId(){
@@ -36,15 +43,26 @@ class ModUser extends CI_model {
 		$data = array('username' => $username,'password' => $password, 'level' => $level, 'email' => $email,'id_user' => $id_user);
 		$this->db->insert('account', $data);
 	}
+	// public function deleteAccount($id){
+	// 	$this->db->where('id_user', $id);
+	// 	$this->db->delete('account');
+	// }
 	public function delete($id){
-		$this->_deleteImage();
+		$this->_deleteImagebyAdmin($id);
+		$this->db->where('id_user', $id);
+		$this->db->delete('account');
 		$this->db->where('id_user', $id);
 		$this->db->delete('user');
 	}
-	public function deleteAccount($id){
-		$this->db->where('id_user', $id);
-		$this->db->delete('account');
+	private function _deleteImagebyAdmin($id)
+	{
+    	$user = $this->edit($id);
+    	if ($user->image != "image.png") {
+	    $filename = explode(".", $user->image)[0];
+		return array_map('unlink', glob(FCPATH."assets/img/user/$filename.*"));
+    }
 	}
+
 	public function edit($id){ 
 		$this->db->select('*');
         $this->db->from('user');
@@ -57,8 +75,9 @@ class ModUser extends CI_model {
 		$id_user = $this->input->post('id_user');
 		$nama = $this->input->post('nama');
 		$jabatan = $this->input->post('jabatan');
-		$keterangan = $this->input->post('keterangan'); 		
-		$data = array('nama' => $nama,'jabatan' => $jabatan, 'keterangan' => $keterangan);
+		$keterangan = $this->input->post('keterangan'); 
+		$NIP = $this->input->post('NIP');		
+		$data = array('nama' => $nama,'jabatan' => $jabatan, 'keterangan' => $keterangan, 'NIP' => $NIP);
 			$this->db->where('id_user', $id_user);
 			$this->db->update('user', $data);
 	}
@@ -79,7 +98,7 @@ class ModUser extends CI_model {
 			$this->session->set_flashdata('success', 'Update Foto berhasil.');  
 		} else {
 			$image = $this->input->post('old_image');
-			$this->session->set_flashdata('fail', 'Update password gagal.');  
+			$this->session->set_flashdata('failed', 'Update password gagal.');  
 		}
 		$data = array('image' => $image);
 			$this->db->where('id_user', $id_user);
@@ -98,7 +117,7 @@ class ModUser extends CI_model {
 		if ($this->upload->do_upload('image')) {
 			return $this->upload->data("file_name");
 		}
-		return "avatar-1.png";
+		return "image.png";
 	}
 	private function _deleteImage()
 	{
@@ -119,6 +138,7 @@ class ModUser extends CI_model {
    public function updateProfile(){ 
 	$id_user = $this->input->post('id_user');
 	$nama = $this->input->post('nama');
+	$NIP = $this->input->post('NIP');
 	$jabatan = $this->input->post('jabatan');
 	$keterangan = $this->input->post('keterangan'); 
 	$username = $this->input->post('username');
@@ -126,7 +146,7 @@ class ModUser extends CI_model {
 	$data = array('username' => $username, 'email' => $email);
 		$this->db->where('id_user', $id_user);
 		$this->db->update('account', $data);			
-	$data = array('nama' => $nama,'jabatan' => $jabatan, 'keterangan' => $keterangan);
+	$data = array('nama' => $nama,'jabatan' => $jabatan,'NIP' => $NIP,'keterangan' => $keterangan);
 		$this->db->where('id_user', $id_user);
 		$this->db->update('user', $data);
 }

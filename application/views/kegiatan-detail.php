@@ -429,11 +429,12 @@ $(document).ready(function() {
                 processData: false,
                 success: function(c) {
                     $("#myModal").modal("hide");
-                    swal("Sukses!", "", "success");
+                    // swal("Sukses!", "", "success");
                     location.reload();
                 },
                 error: function(c, e, d) {
-                    swal("Error", "", "error")
+                    // swal("Error", "", "error")
+                    location.reload();
                 }
             });
             return false

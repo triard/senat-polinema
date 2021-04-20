@@ -227,6 +227,7 @@
         <option disabled>------------------------------</option>
         <option value="Setuju">Setuju</option>
         <option value="Tidak Setuju">Tidak Setuju</option>
+        <option value="Tidak Setuju">Absent</option>
     </select>
 </div>
 <?php } else { ?>
