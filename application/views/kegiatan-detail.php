@@ -66,9 +66,11 @@ $this->load->view('_partials/sidebar');
                                                         class="fas fa-pen-square"></i>
                                                     Update</button>
                                                 <?php } ?>
-                                                <a class="btn btn-success" target="_blank"
-                                                    href="<?php echo base_url('Kegiatan/download_notula/'.$kegiatan->id_kegiatan) ?>"><i
-                                                        class="fas fa-file-export"></i></a>
+                                                <!-- <a class="btn btn-success" target="_blank"
+                                                    href="<?php echo base_url('Kegiatan/download_notula/'.$kegiatan->id_kegiatan) ?>"><i class="fas fa-file-export"></i></a> -->
+                                                <button class="btn btn-success btn-sm"
+                                                    onclick="downloadNotula(<?php echo $kegiatan->id_kegiatan;?>)">
+                                                    <i class="fas fa-file-export"></i></button>
                                             </div>
 
 
@@ -142,10 +144,16 @@ $this->load->view('_partials/sidebar');
                                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                     <?php date_default_timezone_set('Asia/Jakarta');?>
                                     <h4>Daftar Peserta Rapat</h4>
-                                    <a class="btn btn-success float-md-right m-2" target="_blank"
+                                    <div class="float-md-right m-2">
+                                    <!-- <a class="btn btn-success float-md-right m-2" target="_blank"
                                         href="<?php echo base_url('Kegiatan/download_absen/'.$kegiatan->id_kegiatan) ?>"><i
-                                            class="fas fa-file-export"></i></a>
+                                            class="fas fa-file-export"></i></a> -->
+                                            <button class="btn btn-success btn-sm"
+                                                    onclick="downloadAbsen(<?php echo $kegiatan->id_kegiatan;?>)">
+                                                    <i class="fas fa-file-export"></i></button>
+                                    </div>
                                     <table class="table table-bordered">
+                                    
                                         <thead>
                                             <tr>
                                                 <th>Nama</th>
@@ -429,11 +437,12 @@ $(document).ready(function() {
                 processData: false,
                 success: function(c) {
                     $("#myModal").modal("hide");
-                    swal("Sukses!", "", "success");
+                    // swal("Sukses!", "", "success");
                     location.reload();
                 },
                 error: function(c, e, d) {
-                    swal("Error", "", "error")
+                    // swal("Error", "", "error")
+                    location.reload();
                 }
             });
             return false
@@ -503,9 +512,23 @@ function setAbsen(a) {
     $("#modalbodybody").load("<?php echo base_url();?>Kegiatan/modalAbsen/" + a, function(b) {
         $("#modalbodybody").html(b)
     })
-
 }
-
+function downloadNotula(a) {
+    simpan = "downloadNotula";
+    $(".form")[0].reset();
+    $("#myModalnot").modal("show");
+    $("#modalbodynot").load("<?php echo base_url();?>Kegiatan/modalUnduhNotula/" + a, function(b) {
+        $("#modalbodynot").html(b)
+    })
+}
+function downloadAbsen(a) {
+    simpan = "downloadAbsen";
+    $(".form")[0].reset();
+    $("#myModalabsen").modal("show");
+    $("#modalbodyabsen").load("<?php echo base_url();?>Kegiatan/modalUnduhAbsen/" + a, function(b) {
+        $("#modalbodyabsen").html(b)
+    })
+}
 function setVoting(a) {
     simpan = "setVoting";
     $(".form")[0].reset();

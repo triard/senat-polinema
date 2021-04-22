@@ -39,7 +39,11 @@ class User extends CI_Controller {
 		$this->ModUser->add();
 			$id = $this->ModUser->getId();
 			$this->ModUser->addAccount($id);
-		echo json_encode(array("status" => TRUE));
+		if(json_encode(array("status" => TRUE))){
+			$this->session->set_flashdata('success', 'Data User Berhasil Ditambah');
+		}else{
+			$this->session->set_flashdata('failed', 'Data User Gagal Ditambah');
+		}
 	}
 	public function edit($id) {
 		$q = $this->session->userdata('status');
@@ -54,10 +58,13 @@ class User extends CI_Controller {
 		$q = $this->session->userdata('status');
 		if($q != "login") {
 			exit();
-		}
-		$this->ModUser->deleteAccount($id);
+		}		
 		$this->ModUser->delete($id);
-		echo json_encode(array("status" => TRUE));
+		if(json_encode(array("status" => TRUE))){
+			$this->session->set_flashdata('success', 'Data User Berhasil Dihapus');
+		}else{
+			$this->session->set_flashdata('failed', 'Data User Gagal Dihapus');
+		}
 	}
 	public function update() {
 		$q = $this->session->userdata('status');
@@ -66,7 +73,11 @@ class User extends CI_Controller {
 		}
 		$this->ModUser->update();
 		$this->ModUser->updateAccount();
-		echo json_encode(array("status" => TRUE));
+		if(json_encode(array("status" => TRUE))){
+			$this->session->set_flashdata('success', 'Data User Berhasil Diedit');
+		}else{
+			$this->session->set_flashdata('failed', 'Data User Gagal Diedit');
+		}
 	}
 	public function editProfile($id) {
 		$q = $this->session->userdata('status');
@@ -112,8 +123,13 @@ class User extends CI_Controller {
 		$id = $this->session->userdata('id_user');
 		if($q != "login") {
 			exit();
-		}
+		} 
 		$this->ModUser->updateProfile();
+		if(json_encode(array("status" => TRUE))){
+			$this->session->set_flashdata('success', 'Berhasil Update Profile');
+		}else{
+			$this->session->set_flashdata('failed', 'Gagal Update Profile');
+		}
 		redirect(site_url('user/editProfile/'.$id));
 	}  
 }

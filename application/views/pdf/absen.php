@@ -64,8 +64,8 @@
 
     .ttd {
         font-size: 15px;
-        text-align: right;
-        margin-right: 30px;
+        float: right;
+        text-align: center;
     }
 
     .styletab,
@@ -206,15 +206,14 @@
 			return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
 		}
         ?>
-        <br><br>
+    <br><br>
     <div class="ttd">
         <a><?php echo hari_ini().', ';
-		echo  tgl_indo(date('Y-m-d'));date('l'); ?></a>
-        <p>Mengetahui</p>
-        <br><br><br>
-        <p>...........................................</p>
-        <p style="text-decoration: underline;">Ketua Senat</p>
-        NIP. 
+		echo  tgl_indo(date('Y-m-d'));date('l'); ?></a><br>
+        <a>Mengetahui</a><br>
+        <br><br><br><br>
+        <a style="text-decoration: underline;"><?php echo $koresponden; ?></a><br>
+        <a><?php echo $nip; ?></a>
     </div>
 </body>
 

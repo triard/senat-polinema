@@ -79,6 +79,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </div>
 </div>
+<div class="modal fade" id="myModalnot" tabindex="-1" data-backdrop="static">
+<div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title pull-left">Download Laporan Notula</h5>
+            </div>
+           
+                <div class="modal-body" id="modalbodynot">
+                
+                </div>
+         
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModalabsen" tabindex="-1" data-backdrop="static">
+<div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title pull-left">Download Laporan Absen</h5>
+            </div>
+           
+                <div class="modal-body" id="modalbodyabsen">
+                
+                </div>
+         
+        </div>
+    </div>
+</div>
   <!-- Modal -->
   <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">

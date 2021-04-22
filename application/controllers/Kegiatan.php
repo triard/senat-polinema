@@ -71,8 +71,8 @@ class Kegiatan extends CI_Controller {
 					$config['smtp_host']="ssl://smtp.gmail.com";
 					$config['smtp_port']="465";
 					$config['smtp_timeout']="400";
-					$config['smtp_user']="triard78@gmail.com";
-					$config['smtp_pass']="";
+					$config['smtp_user']="laporanakhir41@gmail.com";
+					$config['smtp_pass']="laporanakhir2021";
 					$config['crlf']="\r\n";
 					$config['newline']="\r\n";
 					$config['wordwrap']=TRUE;
@@ -96,9 +96,9 @@ class Kegiatan extends CI_Controller {
 					Status : $status <br><br>
 					Demikian pemberitahuan ini kami sampaikan. Atas perhatian dan izin yang diberikan kami ucapkan terima kasih.");
 					if ($this->email->send()) {
-					$this->session->set_flashdata('success', 'Sukses! email status usulan berhasil dikirim.');
+					$this->session->set_flashdata('successemail', 'Sukses! email status usulan berhasil dikirim.');
 					} else {
-					$this->session->set_flashdata('failed', 'Error! email status usulan tidak dapat dikirim.');
+					$this->session->set_flashdata('failedemail', 'Error! email status usulan tidak dapat dikirim.');
 					}
 			}
 			}
@@ -114,7 +114,11 @@ class Kegiatan extends CI_Controller {
 		$id_kegiatan = $this->ModNotifikasi->getLastIdKegiatan();
 		$this->ModNotifikasi->addByKegiatan($user, $text, $time, $id_user, $id_kegiatan);
 
-		echo json_encode(array("status" => TRUE));
+		if(json_encode(array("status" => TRUE))){
+			$this->session->set_flashdata('success', 'Berhasil Menambah Agenda Baru');
+		}else{
+			$this->session->set_flashdata('failed', 'Gagal Menambah Agenda Baru');
+		}
 	}
 	public function edit($id) {
 		$q = $this->session->userdata('status');
@@ -161,8 +165,8 @@ class Kegiatan extends CI_Controller {
 					$config['smtp_host']="ssl://smtp.gmail.com";
 					$config['smtp_port']="465";
 					$config['smtp_timeout']="400";
-					$config['smtp_user']="triard78@gmail.com";
-					$config['smtp_pass']="";
+					$config['smtp_user']="laporanakhir41@gmail.com";
+					$config['smtp_pass']="laporanakhir2021";
 					$config['crlf']="\r\n";
 					$config['newline']="\r\n";
 					$config['wordwrap']=TRUE;
@@ -187,9 +191,9 @@ class Kegiatan extends CI_Controller {
 					Hasil dari Usulan Anda akan kami sampaikan Setelah ini. <br><br>
 					Demikian pemberitahuan ini kami sampaikan. Atas perhatian dan izin yang diberikan kami ucapkan terima kasih.");
 					if ($this->email->send()) {
-					$this->session->set_flashdata('success', 'Sukses! email status usulan berhasil dikirim.');
+					$this->session->set_flashdata('successemail', 'Sukses! email status usulan berhasil dikirim.');
 					} else {
-					$this->session->set_flashdata('failed', 'Error! email status usulan tidak dapat dikirim.');
+					$this->session->set_flashdata('failedemail', 'Error! email status usulan tidak dapat dikirim.');
 					}
 				}
 			}
@@ -241,7 +245,11 @@ class Kegiatan extends CI_Controller {
 			}
 		}
 		$this->ModKegiatan->update();
-		echo json_encode(array("status" => TRUE));
+		if(json_encode(array("status" => TRUE))){
+			$this->session->set_flashdata('success', 'Berhasil Mengedit Agenda Baru');
+		}else{
+			$this->session->set_flashdata('failed', 'Gagal Mengedit Agenda Baru');
+		}
 	}
 	public function set_penjadwalan($id) {
 		$q = $this->session->userdata('status');
@@ -279,6 +287,28 @@ class Kegiatan extends CI_Controller {
 		$data['absen'] = $this->ModKegiatan->modalAbsen($id);
 		$this->load->view('modal/kegiatan', $data); 
 	}
+
+	public function modalUnduhNotula($id) {
+		$q = $this->session->userdata('status');
+		if($q != "login") {
+			exit();
+		}
+		$data['cek'] = 7;
+		$data['hakAkses'] = $this->session->userdata('level');
+		$data['kegiatan'] = $this->ModKegiatan->edit($id);
+		$this->load->view('modal/kegiatan', $data); 
+	}
+	public function modalUnduhAbsen($id) {
+		$q = $this->session->userdata('status');
+		if($q != "login") {
+			exit();
+		}
+		$data['cek'] = 8;
+		$data['hakAkses'] = $this->session->userdata('level');
+		$data['kegiatan'] = $this->ModKegiatan->edit($id);
+		$data['peserta'] = $this->ModPenjadwalan->selectJadwal();
+		$this->load->view('modal/kegiatan', $data); 
+	}
 	public function updateAbsen() {
 		$q = $this->session->userdata('status');
 		if($q != "login") {
@@ -286,6 +316,7 @@ class Kegiatan extends CI_Controller {
 		}
 		$this->ModKegiatan->updateAbsen();
 		echo json_encode(array("status" => TRUE));
+		
 	}
 	public function modalVoting($id) {
 		$q = $this->session->userdata('status');
@@ -307,6 +338,8 @@ class Kegiatan extends CI_Controller {
 	public function download_notula($id){
 		$data['hakAkses'] = $this->session->userdata('level');
 		$data['kegiatan'] = $this->ModKegiatan->edit($id);
+		$data['koresponden'] = $this->input->post('koresponden');
+		$data['nip'] = $this->input->post('nip');
 		$this->pdf->setPaper('A4', 'potrait');
 		$this->pdf->filename = "notula.pdf"; 
 		$this->pdf->set_option('isRemoteEnabled', true);
@@ -316,6 +349,8 @@ class Kegiatan extends CI_Controller {
 		$data['hakAkses'] = $this->session->userdata('level');
 		$data['kegiatan'] = $this->ModKegiatan->edit($id);
 		$data['peserta'] = $this->ModPenjadwalan->selectJadwal();
+		$data['koresponden'] = $this->input->post('koresponden');
+		$data['nip'] = $this->input->post('nip');
 		$this->pdf->setPaper('A4', 'potrait');
 		$this->pdf->filename = "absen.pdf"; 
 		$this->pdf->set_option('isRemoteEnabled', true);

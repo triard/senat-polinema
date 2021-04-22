@@ -105,14 +105,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <div class="dropdown-title">Logged in 5 min ago</div>
                             <a href="<?php echo base_url('user/editProfile/'.$this->session->userdata('id_user')); ?>"
                                 class="dropdown-item has-icon">
                                 <i class="far fa-user"></i> Profile
                             </a>
-                            <a href="<?php echo base_url(); ?>dist/features_activities" class="dropdown-item has-icon">
+                            <!-- <a href="<?php echo base_url(); ?>dist/features_activities" class="dropdown-item has-icon">
                                 <i class="fas fa-bolt"></i> Activities
-                            </a>
+                            </a> -->
                             <div class="dropdown-divider"></div>
                             <a href="<?php echo base_url('auth/logout') ?>" class="dropdown-item has-icon text-danger">
                                 <i class="fas fa-sign-out-alt"></i> Logout

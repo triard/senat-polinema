@@ -3,7 +3,8 @@
     <div class="col-12">
         <div class="form-group">
             <label>Judul Berita</label><br>
-            <input class="form-control" name="judul" type="judul" maxlength="99" placeholder="Judul berita  ..." required autocomplete="off">
+            <input class="form-control" name="judul" type="judul" maxlength="99" placeholder="Judul berita  ..."
+                required autocomplete="off">
         </div>
         <div class="form-group">
             <label>Isi Berita</label><br>
@@ -14,12 +15,15 @@
     <div class="col-6">
         <div class="form-group">
             <label>Tanggal</label><br>
-            <input class="form-control" type="text" id="datetimepicker" name="tanggal" autocomplete="off" placeholder="Masukkan tanggal ..." required>
+            <input class="form-control" type="text" id="datetimepicker" name="tanggal" autocomplete="off"
+                placeholder="Masukkan tanggal ..." required>
         </div>
-
+    </div>
+    <div class="col-6">
         <div class="form-group">
             <label>Image</label><br>
             <input class="form-control" name="image" type="file" placeholder="Masukkan image ..." required>
+            <label for="">Maksimun Gambar 5mb</label>
         </div>
     </div>
     <div class="col-6">
@@ -38,22 +42,26 @@
         </div>
         <div class="form-group">
             <label>Isi Berita</label><br>
-            <textarea  id="content" name="keterangan"><?php echo $berita->keterangan;?></textarea>
+            <textarea id="content" name="keterangan"><?php echo $berita->keterangan;?></textarea>
         </div>
     </div>
     <div class="col-6">
         <div class="form-group">
             <label>Tanggal</label><br>
-            <input class="form-control" id="datetimepicker" name="tanggal" type="text" value="<?php echo $berita->tanggal;?>"
-                placeholder="Masukkan tanggal ..." required autocomplete="off">
+            <input class="form-control" id="datetimepicker" name="tanggal" type="text"
+                value="<?php echo $berita->tanggal;?>" placeholder="Masukkan tanggal ..." required autocomplete="off">
         </div>
+    </div>
+    <div class="col-6">
         <div class="form-group">
             <label>Image</label><br>
             <input class="form-control" name="image" type="file" placeholder="Masukkan image  ...">
+            <label for="">Maksimun Gambar 5mb</label>
             <input type="hidden" name="old_image" value="<?php echo $berita->image ?>" />
         </div>
 
     </div>
-    </div>
+</div>
+* Jika Gambar Tidak diganti dikosongi saja
 </div>
 <?php } ?>
