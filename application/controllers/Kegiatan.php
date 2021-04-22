@@ -287,6 +287,28 @@ class Kegiatan extends CI_Controller {
 		$data['absen'] = $this->ModKegiatan->modalAbsen($id);
 		$this->load->view('modal/kegiatan', $data); 
 	}
+
+	public function modalUnduhNotula($id) {
+		$q = $this->session->userdata('status');
+		if($q != "login") {
+			exit();
+		}
+		$data['cek'] = 7;
+		$data['hakAkses'] = $this->session->userdata('level');
+		$data['kegiatan'] = $this->ModKegiatan->edit($id);
+		$this->load->view('modal/kegiatan', $data); 
+	}
+	public function modalUnduhAbsen($id) {
+		$q = $this->session->userdata('status');
+		if($q != "login") {
+			exit();
+		}
+		$data['cek'] = 8;
+		$data['hakAkses'] = $this->session->userdata('level');
+		$data['kegiatan'] = $this->ModKegiatan->edit($id);
+		$data['peserta'] = $this->ModPenjadwalan->selectJadwal();
+		$this->load->view('modal/kegiatan', $data); 
+	}
 	public function updateAbsen() {
 		$q = $this->session->userdata('status');
 		if($q != "login") {
@@ -316,6 +338,8 @@ class Kegiatan extends CI_Controller {
 	public function download_notula($id){
 		$data['hakAkses'] = $this->session->userdata('level');
 		$data['kegiatan'] = $this->ModKegiatan->edit($id);
+		$data['koresponden'] = $this->input->post('koresponden');
+		$data['nip'] = $this->input->post('nip');
 		$this->pdf->setPaper('A4', 'potrait');
 		$this->pdf->filename = "notula.pdf"; 
 		$this->pdf->set_option('isRemoteEnabled', true);
@@ -325,6 +349,8 @@ class Kegiatan extends CI_Controller {
 		$data['hakAkses'] = $this->session->userdata('level');
 		$data['kegiatan'] = $this->ModKegiatan->edit($id);
 		$data['peserta'] = $this->ModPenjadwalan->selectJadwal();
+		$data['koresponden'] = $this->input->post('koresponden');
+		$data['nip'] = $this->input->post('nip');
 		$this->pdf->setPaper('A4', 'potrait');
 		$this->pdf->filename = "absen.pdf"; 
 		$this->pdf->set_option('isRemoteEnabled', true);

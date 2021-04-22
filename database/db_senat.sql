@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Apr 2021 pada 07.10
--- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.4.3
+-- Generation Time: 19 Apr 2021 pada 08.59
+-- Versi Server: 10.1.13-MariaDB
+-- PHP Version: 7.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -32,7 +30,7 @@ CREATE TABLE `account` (
   `username` varchar(16) NOT NULL,
   `password` varchar(100) NOT NULL,
   `level` varchar(20) NOT NULL,
-  `email` varchar(35) NOT NULL,
+  `email` varchar(30) NOT NULL,
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -74,7 +72,7 @@ CREATE TABLE `berita` (
 --
 
 INSERT INTO `berita` (`id_berita`, `judul`, `keterangan`, `image`, `tanggal`, `jumlah_view`, `id_user`) VALUES
-(9, 'Benchmarking BLU, Senat Polmed Melakukan Kunjungan Kerja Ke Polinema', '<p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 13px; vertical-align: baseline; text-align: justify; padding: 0px; border: 0px; color: rgb(77, 77, 77);\">Direktur Polinema, Drs. Awan Setiawan, MM dan Ketua Senat Polinema Dr. Ir. Tundung Subali Patma, M.T menerima kunjungan kerja Ketua Senat Politeknik Negeri Medan (Polmed)&nbsp;<a style=\"color: rgb(16, 48, 93); background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: inherit; font-weight: inherit; font-style: inherit; vertical-align: baseline; text-align: left; margin: 0px; padding: 0px; border: 0px; line-height: inherit;\">Drs. Bambang Sugianto, MP</a>&nbsp;di Ruang Rapat pimpinan Gedung AA pada hari Senin (16/03/2020).</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 13px; vertical-align: baseline; text-align: justify; padding: 0px; border: 0px; color: rgb(77, 77, 77);\">Kunjungan kerja Senat Polmed ke Polinema dalam rangka benchmarking Badan Layanan Umum (BLU).</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 13px; vertical-align: baseline; text-align: justify; padding: 0px; border: 0px; color: rgb(77, 77, 77);\">Direktur Polinema dalam sambutannya menyampaikan bahwa kunjungan ini adalah forum untuk saling sharing dan diskusi terkait Kampus Merdeka maupun tentang perubahan status PTN dari BLU menjadi PTNBH</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 13px; vertical-align: baseline; text-align: justify; padding: 0px; border: 0px; color: rgb(77, 77, 77);\">Ketua Senat Polinema memberikan gambaran singkat tentang tugas Senat Polinema dalam membantu pimpinan untuk kemajuan Polinema. Senat melakukan pengawasan serta memberikan pertimbangan kepada pimpinan. Senat Polinema terdiri dari 4 komisi yang bersinergi dengan masing-masing pembantu direktur.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 13px; vertical-align: baseline; text-align: justify; padding: 0px; border: 0px; color: rgb(77, 77, 77);\">Ketua Senat Polmed menyampaikan tujuan kunjungan ke Polinema adalah untuk menimba ilmu dan sharing tentang BLU, tugas senat dan kerjasama yang nantinya dapat diimplementasikan di Polmed. Drs. Bambang Sugianto, MP juga mengatakan bahwa Senat Polmed terdiri dari Komisi A Bidang Akademik, Komisi B Bidang Etika dan Sumberdaya dan Komisi C bidang Kemahasiswaan dan Kerjasama.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 13px; vertical-align: baseline; text-align: justify; padding: 0px; border: 0px; color: rgb(77, 77, 77);\">Turut hadir pada acara tersebut pimpinan Polinema yaitu Pembantu Direktur I, III dan IV, Sekretaris Senat, Ketua dan anggota Komisi Senat serta para Ketua Jurusan yang ada di Polinema.</p>', 'Benchmarking_BLU,_Senat_Polmed_Melakukan_Kunjungan_Kerja_Ke_Polinema.jpg', '2021-04-19 07:00:00', 0, 1);
+(9, 'Benchmarking BLU, Senat Polmed Melakukan Kunjungan Kerja Ke Polinema', '<p style="margin-right: 0px; margin-bottom: 20px; margin-left: 0px; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 13px; vertical-align: baseline; text-align: justify; padding: 0px; border: 0px; color: rgb(77, 77, 77);">Direktur Polinema, Drs. Awan Setiawan, MM dan Ketua Senat Polinema Dr. Ir. Tundung Subali Patma, M.T menerima kunjungan kerja Ketua Senat Politeknik Negeri Medan (Polmed)&nbsp;<a style="color: rgb(16, 48, 93); background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: inherit; font-weight: inherit; font-style: inherit; vertical-align: baseline; text-align: left; margin: 0px; padding: 0px; border: 0px; line-height: inherit;">Drs. Bambang Sugianto, MP</a>&nbsp;di Ruang Rapat pimpinan Gedung AA pada hari Senin (16/03/2020).</p><p style="margin-right: 0px; margin-bottom: 20px; margin-left: 0px; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 13px; vertical-align: baseline; text-align: justify; padding: 0px; border: 0px; color: rgb(77, 77, 77);">Kunjungan kerja Senat Polmed ke Polinema dalam rangka benchmarking Badan Layanan Umum (BLU).</p><p style="margin-right: 0px; margin-bottom: 20px; margin-left: 0px; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 13px; vertical-align: baseline; text-align: justify; padding: 0px; border: 0px; color: rgb(77, 77, 77);">Direktur Polinema dalam sambutannya menyampaikan bahwa kunjungan ini adalah forum untuk saling sharing dan diskusi terkait Kampus Merdeka maupun tentang perubahan status PTN dari BLU menjadi PTNBH</p><p style="margin-right: 0px; margin-bottom: 20px; margin-left: 0px; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 13px; vertical-align: baseline; text-align: justify; padding: 0px; border: 0px; color: rgb(77, 77, 77);">Ketua Senat Polinema memberikan gambaran singkat tentang tugas Senat Polinema dalam membantu pimpinan untuk kemajuan Polinema. Senat melakukan pengawasan serta memberikan pertimbangan kepada pimpinan. Senat Polinema terdiri dari 4 komisi yang bersinergi dengan masing-masing pembantu direktur.</p><p style="margin-right: 0px; margin-bottom: 20px; margin-left: 0px; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 13px; vertical-align: baseline; text-align: justify; padding: 0px; border: 0px; color: rgb(77, 77, 77);">Ketua Senat Polmed menyampaikan tujuan kunjungan ke Polinema adalah untuk menimba ilmu dan sharing tentang BLU, tugas senat dan kerjasama yang nantinya dapat diimplementasikan di Polmed. Drs. Bambang Sugianto, MP juga mengatakan bahwa Senat Polmed terdiri dari Komisi A Bidang Akademik, Komisi B Bidang Etika dan Sumberdaya dan Komisi C bidang Kemahasiswaan dan Kerjasama.</p><p style="margin-right: 0px; margin-bottom: 20px; margin-left: 0px; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 13px; vertical-align: baseline; text-align: justify; padding: 0px; border: 0px; color: rgb(77, 77, 77);">Turut hadir pada acara tersebut pimpinan Polinema yaitu Pembantu Direktur I, III dan IV, Sekretaris Senat, Ketua dan anggota Komisi Senat serta para Ketua Jurusan yang ada di Polinema.</p>', 'Benchmarking_BLU,_Senat_Polmed_Melakukan_Kunjungan_Kerja_Ke_Polinema.jpg', '2021-04-19 07:00:00', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -114,7 +112,7 @@ CREATE TABLE `kegiatan` (
   `link` varchar(50) NOT NULL,
   `password` varchar(20) NOT NULL,
   `tujuan` varchar(100) NOT NULL,
-  `notula` text DEFAULT NULL,
+  `notula` text,
   `status` varchar(50) DEFAULT NULL,
   `id_user` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -125,8 +123,7 @@ CREATE TABLE `kegiatan` (
 
 INSERT INTO `kegiatan` (`id_kegiatan`, `id_penjadwalan`, `agenda`, `pembahasan`, `waktu_mulai`, `waktu_selesai`, `tempat`, `jenis_rapat`, `link`, `password`, `tujuan`, `notula`, `status`, `id_user`) VALUES
 (24, 33, 'Rapat Komisi', '<p>Sertifikasi dosen</p>', '2021-04-20 19:00:00', '21:30:00', 'Gedung AA lt. 2', 'Luring', '', '', '<p>Menyertifikasi dosen</p>', '<p>Diperlukan sidang pleno sih</p>', 'Selesai', 6),
-(25, 34, 'Sidang Pleno', '<p>Sertifikasi dosen</p>', '2021-04-19 14:00:00', '15:30:00', 'Gedung AA lt. 2', 'Luring', '', '', '<p>Menyertifikasi dosen</p>', 'Dari pembahasan sidang pleno diputuskan bahwa sertifikasi dosen diterima', 'Selesai', 3),
-(26, 36, '', '', '0000-00-00 00:00:00', '00:00:00', '', '', '', '', '', NULL, 'Selesai', NULL);
+(25, 34, 'Sidang Pleno', '<p>Sertifikasi dosen</p>', '2021-04-19 14:00:00', '15:30:00', 'Gedung AA lt. 2', 'Luring', '', '', '<p>Menyertifikasi dosen</p>', 'Dari pembahasan sidang pleno diputuskan bahwa sertifikasi dosen diterima', 'Selesai', 3);
 
 -- --------------------------------------------------------
 
@@ -182,9 +179,7 @@ INSERT INTO `notifikasi` (`id_notifikasi`, `user`, `text`, `time`, `id_user`, `i
 (12, 'Sekretaris', 'Melakukan penjadwalan Sidang Pleno', '2021-04-19 13:40:33', 3, 34, 0, 0, 0, 0),
 (13, 'Sekretaris', 'Menambahkan kegiatan Sidang Pleno', '2021-04-19 13:43:55', 3, 0, 25, 0, 0, 0),
 (14, 'Sekretaris', 'Mengunggah laporan kegiatan Sidang Pleno', '2021-04-19 13:51:01', 3, 0, 0, 0, 11, 0),
-(15, 'Sekretaris', 'Mengunggah dokumentasi kegiatan Sidang Pleno', '2021-04-19 13:52:51', 3, 0, 0, 13, 0, 0),
-(19, 'Sekretaris', 'Melakukan penjadwalan Rapat Pertimbangan', '2021-04-20 15:28:41', 3, 36, 0, 0, 0, 0),
-(20, 'Sekretaris', 'Menambahkan kegiatan Rapat Pertimbangan', '2021-04-20 15:33:09', 3, 0, 26, 0, 0, 0);
+(15, 'Sekretaris', 'Mengunggah dokumentasi kegiatan Sidang Pleno', '2021-04-19 13:52:51', 3, 0, 0, 13, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -213,8 +208,7 @@ CREATE TABLE `penjadwalan` (
 
 INSERT INTO `penjadwalan` (`id_penjadwalan`, `id_user`, `id_usulan`, `agenda`, `pembahasan`, `waktu_mulai`, `waktu_selesai`, `jenis_rapat`, `tempat`, `link`, `password`, `status`) VALUES
 (33, 6, 24, 'Rapat Komisi', '<p>Sertifikasi dosen</p>', '2021-04-20 19:00:00', '21:30:00', 'Luring', 'Gedung AA lt. 2', '', '', 'Selesai'),
-(34, 3, 24, 'Sidang Pleno', '<p>Sertifikasi dosen</p>', '2021-04-19 14:00:00', '15:30:00', 'Luring', 'Gedung AA lt. 2', '', '', 'Selesai'),
-(36, 3, 28, 'Rapat Pertimbangan', '<p>ddd</p>', '2021-04-20 15:00:00', '15:28:00', 'Luring', 'Ruang Auditorium', '', '', 'Rapat/Sidang Sedang Berlangsung');
+(34, 3, 24, 'Sidang Pleno', '<p>Sertifikasi dosen</p>', '2021-04-19 14:00:00', '15:30:00', 'Luring', 'Gedung AA lt. 2', '', '', 'Selesai');
 
 -- --------------------------------------------------------
 
@@ -246,9 +240,7 @@ INSERT INTO `peserta` (`id_peserta`, `id_penjadwalan`, `id_user`, `voting`, `abs
 (73, 34, 12, NULL, NULL),
 (74, 34, 8, NULL, NULL),
 (75, 34, 13, NULL, NULL),
-(76, 34, 9, NULL, NULL),
-(85, 36, 2, NULL, NULL),
-(86, 36, 3, 'Setuju', 'assets/signature-image/607e9259c2891.png');
+(76, 34, 9, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -259,7 +251,6 @@ INSERT INTO `peserta` (`id_peserta`, `id_penjadwalan`, `id_user`, `voting`, `abs
 CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
   `nama` varchar(50) NOT NULL,
-  `NIP` varchar(20) NOT NULL,
   `jabatan` varchar(30) NOT NULL,
   `keterangan` varchar(30) NOT NULL,
   `image` varchar(50) DEFAULT 'image.png'
@@ -269,18 +260,20 @@ CREATE TABLE `user` (
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id_user`, `nama`, `NIP`, `jabatan`, `keterangan`, `image`) VALUES
-(1, 'admin', '123456789765456789', 'admin', 'admin', '1.png'),
-(2, 'Ketua Senat', '123456789765456789', 'Ketua Senat', 'lorem ipsum', 'image.png'),
-(3, 'Sekretaris', '123456789765456789', 'Sekretaris', 'Sekretaris', 'image.png'),
-(6, 'Ketua Komisi 1', '123456789765456789', 'Ketua Komisi 1', '', 'image.png'),
-(7, 'Ketua Komisi 2', '123456789765456789', 'Ketua Komisi 2', '', 'image.png'),
-(8, 'Ketua Komisi 3', '123456789765456789', 'Ketua Komisi 3', '', 'image.png'),
-(9, 'Ketua Komisi 4', '123456789765456789', 'Ketua Komisi 4', '', 'image.png'),
-(10, 'Anggota Komisi 1', '123456789765456789', 'Anggota Komisi 1', '', 'image.png'),
-(11, 'Anggota Komisi 2', '123456789765456789', 'Anggota Komisi 2', '', 'image.png'),
-(12, 'Anggota Komisi 3', '123456789765456789', 'Anggota Komisi 3', '', 'image.png'),
-(13, 'Anggota Komisi 4', '123456789765456789', 'Anggota Komisi 4', '', 'image.png');
+INSERT INTO `user` (`id_user`, `nama`, `jabatan`, `keterangan`, `image`) VALUES
+(1, 'admin', 'admin', 'admin', '1.png'),
+(2, 'Ketua Senat', 'Ketua Senat', 'lorem ipsum', 'image.png'),
+(3, 'Sekretaris', 'Sekretaris', 'Sekretaris', 'image.png'),
+(4, 'Ketua Komisi 1', 'Ketua Komisi 1', 'lorem ipsum', 'image.png'),
+(5, 'Anggota', 'Anggota Komisi I', 'Wakil Dosen JTI', 'image.png'),
+(6, 'Ketua Komisi 1', 'Ketua Komisi 1', '', 'image.png'),
+(7, 'Ketua Komisi 2', 'Ketua Komisi 2', '', 'image.png'),
+(8, 'Ketua Komisi 3', 'Ketua Komisi 3', '', 'image.png'),
+(9, 'Ketua Komisi 4', 'Ketua Komisi 4', '', 'image.png'),
+(10, 'Anggota Komisi 1', 'Anggota Komisi 1', '', 'image.png'),
+(11, 'Anggota Komisi 2', 'Anggota Komisi 2', '', 'image.png'),
+(12, 'Anggota Komisi 3', 'Anggota Komisi 3', '', 'image.png'),
+(13, 'Anggota Komisi 4', 'Anggota Komisi 4', '', 'image.png');
 
 -- --------------------------------------------------------
 
@@ -291,9 +284,7 @@ INSERT INTO `user` (`id_user`, `nama`, `NIP`, `jabatan`, `keterangan`, `image`) 
 CREATE TABLE `usulan` (
   `id_usulan` bigint(20) NOT NULL,
   `nama_pengusul` varchar(100) NOT NULL,
-  `email` varchar(35) NOT NULL,
-  `NIP` varchar(20) NOT NULL,
-  `jabatan` varchar(50) NOT NULL,
+  `email` varchar(30) NOT NULL,
   `jenis` varchar(20) NOT NULL,
   `keterangan` text NOT NULL,
   `dokumen_pendukung` varchar(50) NOT NULL,
@@ -306,38 +297,36 @@ CREATE TABLE `usulan` (
 -- Dumping data untuk tabel `usulan`
 --
 
-INSERT INTO `usulan` (`id_usulan`, `nama_pengusul`, `email`, `NIP`, `jabatan`, `jenis`, `keterangan`, `dokumen_pendukung`, `status`, `tanggal_pengajuan`, `id_user`) VALUES
-(24, 'anggota_komisi_1', 'anggotakomisi1@polinema.ac.id', '', '', 'Kebijakan', '<p>Sertifikasi dosen</p>', 'dokumen-pendukung-170ede4327efb9aa.pdf', 'Selesai', '2021-04-18', 10),
-(28, 'admin', 'admin@senat', '123456789765456789', 'admin', 'Pertimbangan', '<p>ddd</p>', 'dokumen-pendukung-a84f8f797a3f7f64.pdf', 'Rapat/Sidang Sedang Berlangsung', '2021-04-20', 1),
-(29, 'Adit Pramudia', '1831710143@student.polinema.ac.id', '123456765654444455', 'Dosen JTI', 'Pertimbangan', '<p>Kenaikan jabatan</p>', 'dokumen-pendukung-c2997990cac326f9.pdf', 'Diajukan', '2021-04-20', NULL);
+INSERT INTO `usulan` (`id_usulan`, `nama_pengusul`, `email`, `jenis`, `keterangan`, `dokumen_pendukung`, `status`, `tanggal_pengajuan`, `id_user`) VALUES
+(24, 'anggota_komisi_1', 'anggotakomisi1@polinema.ac.id', 'Kebijakan', '<p>Sertifikasi dosen</p>', 'dokumen-pendukung-170ede4327efb9aa.pdf', 'Selesai', '2021-04-18', 10);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `account`
+-- Indexes for table `account`
 --
 ALTER TABLE `account`
   ADD PRIMARY KEY (`username`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indeks untuk tabel `berita`
+-- Indexes for table `berita`
 --
 ALTER TABLE `berita`
   ADD PRIMARY KEY (`id_berita`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indeks untuk tabel `dokumentasi`
+-- Indexes for table `dokumentasi`
 --
 ALTER TABLE `dokumentasi`
   ADD PRIMARY KEY (`id_dokumentasi`),
   ADD KEY `id_kegiatan` (`id_kegiatan`);
 
 --
--- Indeks untuk tabel `kegiatan`
+-- Indexes for table `kegiatan`
 --
 ALTER TABLE `kegiatan`
   ADD PRIMARY KEY (`id_kegiatan`),
@@ -345,7 +334,7 @@ ALTER TABLE `kegiatan`
   ADD KEY `id_user` (`id_user`);
 
 --
--- Indeks untuk tabel `laporan`
+-- Indexes for table `laporan`
 --
 ALTER TABLE `laporan`
   ADD PRIMARY KEY (`id_laporan`),
@@ -353,13 +342,13 @@ ALTER TABLE `laporan`
   ADD KEY `id_kegiatan_2` (`id_kegiatan`);
 
 --
--- Indeks untuk tabel `notifikasi`
+-- Indexes for table `notifikasi`
 --
 ALTER TABLE `notifikasi`
   ADD PRIMARY KEY (`id_notifikasi`);
 
 --
--- Indeks untuk tabel `penjadwalan`
+-- Indexes for table `penjadwalan`
 --
 ALTER TABLE `penjadwalan`
   ADD PRIMARY KEY (`id_penjadwalan`),
@@ -367,7 +356,7 @@ ALTER TABLE `penjadwalan`
   ADD KEY `id_usulan` (`id_usulan`);
 
 --
--- Indeks untuk tabel `peserta`
+-- Indexes for table `peserta`
 --
 ALTER TABLE `peserta`
   ADD PRIMARY KEY (`id_peserta`),
@@ -375,77 +364,67 @@ ALTER TABLE `peserta`
   ADD KEY `FK_peserta_user` (`id_user`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Indeks untuk tabel `usulan`
+-- Indexes for table `usulan`
 --
 ALTER TABLE `usulan`
   ADD PRIMARY KEY (`id_usulan`),
   ADD KEY `id_user` (`id_user`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `berita`
+-- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
-  MODIFY `id_berita` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
+  MODIFY `id_berita` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
--- AUTO_INCREMENT untuk tabel `dokumentasi`
+-- AUTO_INCREMENT for table `dokumentasi`
 --
 ALTER TABLE `dokumentasi`
   MODIFY `id_dokumentasi` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
 --
--- AUTO_INCREMENT untuk tabel `kegiatan`
+-- AUTO_INCREMENT for table `kegiatan`
 --
 ALTER TABLE `kegiatan`
-  MODIFY `id_kegiatan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
-
+  MODIFY `id_kegiatan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
--- AUTO_INCREMENT untuk tabel `laporan`
+-- AUTO_INCREMENT for table `laporan`
 --
 ALTER TABLE `laporan`
   MODIFY `id_laporan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
 --
--- AUTO_INCREMENT untuk tabel `notifikasi`
+-- AUTO_INCREMENT for table `notifikasi`
 --
 ALTER TABLE `notifikasi`
-  MODIFY `id_notifikasi` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
+  MODIFY `id_notifikasi` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
--- AUTO_INCREMENT untuk tabel `penjadwalan`
+-- AUTO_INCREMENT for table `penjadwalan`
 --
 ALTER TABLE `penjadwalan`
-  MODIFY `id_penjadwalan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
-
+  MODIFY `id_penjadwalan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
--- AUTO_INCREMENT untuk tabel `peserta`
+-- AUTO_INCREMENT for table `peserta`
 --
 ALTER TABLE `peserta`
-  MODIFY `id_peserta` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
-
+  MODIFY `id_peserta` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
-
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
--- AUTO_INCREMENT untuk tabel `usulan`
+-- AUTO_INCREMENT for table `usulan`
 --
 ALTER TABLE `usulan`
-  MODIFY `id_usulan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-COMMIT;
-
+  MODIFY `id_usulan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

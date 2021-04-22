@@ -128,7 +128,7 @@ $this->load->view('homepage/_partials/header');
             </div>
         </div>
         <div class="col-sm-7">
-            <img src="<?php echo base_url(); ?>assets/img/polinema.jpg" alt="poinema" height="285" width="650">
+            <img src="<?php echo base_url(); ?>assets/img/polinema.jpg" alt="poinema"width="90%">
         </div>
     </div>
 </div>

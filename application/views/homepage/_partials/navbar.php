@@ -1,8 +1,10 @@
- <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
- <nav class="navbar navbar-secondary navbar-expand-lg">
-     <div class="container">
-         <ul class="navbar-nav">
-             <li class="nav-item <?php echo $this->uri->segment(2) == 'home' ? 'active' : ''; ?>">
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
+      <nav class="navbar navbar-secondary navbar-expand-lg">
+        <div class="container">
+          <ul class="navbar-nav">
+          <li class="nav-item <?php echo $this->uri->segment(2) == 'home' ? 'active' : ''; ?>">
                  <a href="<?php echo base_url('homepage/home') ?>" class="nav-link"><i
                          class="fas fa-home"></i><span>Beranda</span></a>
              </li>
@@ -30,6 +32,6 @@
                  <a href="<?php echo base_url('homepage/email_usulan')?>" class="nav-link"><i
                          class="fas fa-file-alt"></i><span>Usulan</span></a>
              </li>
-         </ul>
-     </div>
- </nav>
+          </ul>
+        </div>
+      </nav>

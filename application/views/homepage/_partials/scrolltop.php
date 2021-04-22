@@ -4,14 +4,14 @@
     position: fixed;
     bottom: 30px;
     right: 30px;
-    width: 64px;
-    height: 64px;
+    width: 50px;
+    height: 50px;
     z-index: 9999;
     cursor: pointer;
     text-decoration: none;
     transition: opacity 0.2s ease-out;
 	color:white;
-    border-radius: 50%;
+    border-radius: 40%;
 }
 
 .back-to-top:hover {

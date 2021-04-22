@@ -94,8 +94,8 @@ class Homepage extends CI_Controller {
 			   $config['smtp_host']="ssl://smtp.gmail.com";
 			   $config['smtp_port']="465";
 			   $config['smtp_timeout']="400";
-			   $config['smtp_user']="triard78@gmail.com";
-			   $config['smtp_pass']="";
+			   $config['smtp_user']="laporanakhir41@gmail.com";
+			   $config['smtp_pass']="laporanakhir2021";
 			   $config['crlf']="\r\n";
 			   $config['newline']="\r\n";
 			   $config['wordwrap']=TRUE;

@@ -64,10 +64,12 @@
 
     .ttd {
         font-size: 15px;
-        text-align: right;
-        margin-right: 30px;
+        float: right;
+        text-align: center;
     }
-
+    .ttd p{
+        margin-right: 300px;
+    }
     /* Table Body */
     </style>
 </head>
@@ -183,14 +185,14 @@
 			return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
 		}
         ?>
-    <!-- <div class="ttd">
+    <div class="ttd">
         <a><?php echo hari_ini().', ';
-		echo  tgl_indo(date('Y-m-d'));date('l'); ?></a>
-        <p>Mengetahui</p>
-        <br><br><br>
-        <p>...........................................</p>
-        <p>Ketua Senat</p>
-    </div> -->
+		echo  tgl_indo(date('Y-m-d'));date('l'); ?></a><br>
+        <a>Mengetahui</a><br>
+        <br><br><br><br>
+        <a style="text-decoration: underline;"><?php echo $koresponden; ?></a><br>
+        <a><?php echo $nip; ?></a>
+    </div>
 </body>
 
 </html>

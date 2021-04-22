@@ -204,16 +204,16 @@
 <input type="hidden" name="id_peserta" id="id_peserta" value="<?php echo $absen->id_peserta?>">
 <div class="signature-pad" id="signature-pad">
     <div class="m-signature-pad">
-            <canvas style="border:2px solid black !important;" width="700px" height="250"></canvas>
+        <canvas style="border:2px solid black !important;" width="700px" height="250"></canvas>
     </div>
     <div class="mt-4 mb-3 float-md-right">
-    <button type="button" id="save2" data-action="save" class="btn btn-primary"><i class="fa fa-check"></i>
-        Save</button>
-    <button type="button" data-action="clear" class="btn btn-danger"><i class="fa fa-trash-o"></i>
-        Clear</button>
+        <button type="button" id="save2" data-action="save" class="btn btn-primary"><i class="fa fa-check"></i>
+            Save</button>
+        <button type="button" data-action="clear" class="btn btn-danger"><i class="fa fa-trash-o"></i>
+            Clear</button>
         <button type="button" class="btn btn-link" data-dismiss="modal">Batal</button>
     </div>
-    
+
 </div>
 <!-- random id generated here  -->
 <input type="hidden" value="<?php echo rand();?>" id="rowno">
@@ -227,9 +227,41 @@
         <option disabled>------------------------------</option>
         <option value="Setuju">Setuju</option>
         <option value="Tidak Setuju">Tidak Setuju</option>
-        <option value="Tidak Setuju">Absent</option>
+        <option value="Absent">Absent</option>
     </select>
 </div>
+<?php }else if($cek == 7){ ?>
+<?php echo $kegiatan->agenda ?>
+<form method="POST" action="<?php echo base_url('Kegiatan/download_notula/'.$kegiatan->id_kegiatan) ?>">
+    <input type="hidden" name="id_kegiatan" value="<?php echo $kegiatan->id_kegiatan ?>">
+    <div class="form-group">
+        <label>Nama Koresponden</label><br>
+        <input class="form-control" name="koresponden" type="text" placeholder="Masukkan Koresponden..."
+            autocomplete="off" required>
+    </div>
+    <div class="form-group">
+        <label>NIP</label><br>
+        <input class="form-control" name="nip" maxlength="18" type="text" placeholder="Masukkan NIP Koresponden..." autocomplete="off" required>
+    </div>
+<button class="btn btn-success">download</button>
+<button type="button" class="btn btn-link" data-dismiss="modal">Batal</button>
+</form>
+<?php }else if($cek == 8){ ?>
+<?php echo $kegiatan->agenda ?>
+<form method="POST" action="<?php echo base_url('Kegiatan/download_absen/'.$kegiatan->id_kegiatan) ?>">
+    <input type="hidden" name="id_kegiatan" value="<?php echo $kegiatan->id_kegiatan ?>">
+    <div class="form-group">
+        <label>Nama Koresponden</label><br>
+        <input class="form-control" name="koresponden" type="text" placeholder="Masukkan Koresponden..."
+            autocomplete="off" required>
+    </div>
+    <div class="form-group">
+        <label>NIP</label><br>
+        <input class="form-control" name="nip" maxlength="18" type="text" placeholder="Masukkan NIP Koresponden..." autocomplete="off" required>
+    </div>
+<button class="btn btn-success">download</button>
+<button type="button" class="btn btn-link" data-dismiss="modal">Tutup</button>
+</form>
 <?php } else { ?>
 <input type="hidden" name="id_kegiatan" value="<?php echo $kegiatan->id_kegiatan;?>">
 <input type="hidden" name="id_penjadwalan" value="<?php echo $kegiatan->id_penjadwalan;?>">
@@ -387,12 +419,12 @@ saveButton.addEventListener("click", function(event) {
             success: function(datas1) {
                 signaturePad.clear();
                 $("#myModal").modal("hide");
-                    swal("Sukses!", "", "success");
-                    location.reload();
+                swal("Sukses!", "", "success");
+                location.reload();
             },
             error: function(datas1) {
-                    swal("Error", "", "error")
-                }
+                swal("Error", "", "error")
+            }
         });
     }
 });
