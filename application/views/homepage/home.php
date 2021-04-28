@@ -37,7 +37,7 @@ $this->load->view('homepage/_partials/header');
                                     <?php foreach ($dokumentasi as $key => $value) { 
                                         $active = ($key == 0) ? 'active' : '';
                                         echo '<div class="carousel-item ' . $active . '">
-                                            <img class="d-block w-100" src="' . base_url('assets/dokumentasiKegiatan/') . $value['nama_dokumentasi'] . '" alt="…">
+                                            <img style="height:250px" class="d-block w-100" src="' . base_url('assets/dokumentasiKegiatan/') . $value['nama_dokumentasi'] . '" alt="…">
                                         </div>';
                                         ?>
                                     <?php } ?>

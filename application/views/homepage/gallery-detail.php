@@ -26,6 +26,7 @@ $this->load->view('homepage/_partials/header');
             </style>
             <div class="container">
                 <div class="row">
+                    <?php if($dokumentasi != null){ ?>
                     <?php foreach ($dokumentasi as $d) { ?>
                     <?php if($d->id_kegiatan == $kegiatan->id_kegiatan){ ?>
                     <div class="col-sm-3">
@@ -39,20 +40,10 @@ $this->load->view('homepage/_partials/header');
                         </div>
 
                     </div>
-                    <?php }} ?>
+                    <?php }}} ?>
                 </div>
             </div>
         </div>
-        <!-- <center>
-            <div class="d-flex justify-content-center p-5" style="width: 50%;">
-                <div class="embed-responsive embed-responsive-4by3">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/zRy-PlYt4s4" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-            </div>
-        </center> -->
-
 </div>
 </section>
 

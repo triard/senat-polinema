@@ -32,14 +32,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <a href="<?php echo base_url('Homepage/arsip')?>" class="nav-link"><i
                         class="fas fa-file-archive"></i><span>Arsip</span></a>
             </li>
+            <?php if($this->uri->segment(2) == 'gallery'){ ?>
             <li class="nav-item <?php echo $this->uri->segment(2) == 'gallery' ? 'active' : ''; ?>">
                 <a href="<?php echo base_url('Homepage/gallery')?>" class="nav-link"><i
                         class="fas fa-image"></i></i><span>Galeri</span></a>
             </li>
+            <?php }else if($this->uri->segment(2) == 'gallery_folder'){ ?>
+            <li class="nav-item <?php echo $this->uri->segment(2) == 'gallery_folder' ? 'active' : ''; ?>">
+                <a href="<?php echo base_url('Homepage/gallery')?>" class="nav-link"><i
+                        class="fas fa-image"></i></i><span>Galeri</span></a>
+            </li>
+            <?php }else if($this->uri->segment(2) == 'gallery_detail'){ ?>
+            <li class="nav-item <?php echo $this->uri->segment(2) == 'gallery_detail' ? 'active' : ''; ?>">
+                <a href="<?php echo base_url('Homepage/gallery')?>" class="nav-link"><i
+                        class="fas fa-image"></i></i><span>Galeri</span></a>
+            </li>
+            <?php }else{ ?>
+            <li class="nav-item">
+                <a href="<?php echo base_url('Homepage/gallery')?>" class="nav-link"><i
+                        class="fas fa-image"></i></i><span>Galeri</span></a>
+            </li>
+            <?php } ?>
+            <?php if($this->uri->segment(2) == 'berita'){ ?>
             <li class="nav-item <?php echo $this->uri->segment(2) == 'berita' ? 'active' : ''; ?>">
                 <a href="<?php echo base_url('Berita/berita')?>" class="nav-link"><i
                         class="far fa-newspaper"></i></i><span>Berita</span></a>
             </li>
+            <?php }else if($this->uri->segment(2) == 'berita_detail'){ ?>
+            <li class="nav-item <?php echo $this->uri->segment(2) == 'berita_detail' ? 'active' : ''; ?>">
+                <a href="<?php echo base_url('Berita/berita')?>" class="nav-link"><i
+                        class="far fa-newspaper"></i></i><span>Berita</span></a>
+            </li>
+            <?php }else{ ?>
+            <li class="nav-item">
+                <a href="<?php echo base_url('Berita/berita')?>" class="nav-link"><i
+                        class="far fa-newspaper"></i></i><span>Berita</span></a>
+            </li>
+            <?php } ?>
             <?php if($this->uri->segment(2) == 'usulan'){ ?>
             <li class="nav-item <?php echo $this->uri->segment(2) == 'usulan' ? 'active' : ''; ?>">
                 <a href="<?php echo base_url('Homepage/email_usulan')?>" class="nav-link"><i

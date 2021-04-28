@@ -8,6 +8,8 @@ $this->load->view('_partials/sidebar');
 <div class="main-content">
     <section class="section">
         <div class="section-header">
+        <a class="btn btn-warning btn-sm" href="<?php echo base_url('Kegiatan') ?>"><i
+                    class="fas fa-arrow-left"></i> </a>&nbsp;&nbsp;
             <h4>Agenda Kegiatan Detail</h4>
         </div>
         <div class="row">
