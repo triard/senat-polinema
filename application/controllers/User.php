@@ -20,6 +20,7 @@ class User extends CI_Controller {
 		}
 		$menu['login'] = $this->ModUser->edit($this->session->userdata('id_user'));
 		$data['notifikasi'] = $this->ModNotifikasi->getAll();
+		$data['status_notifikasi'] = $this->ModUser->getStatusNotifikasi();
 		$data['user'] = $this->ModUser->selectAll();
 		$this->load->view('user',$data);
 	}

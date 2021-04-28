@@ -21,6 +21,7 @@ class Notifikasi extends CI_Controller {
 		$data['notifikasiAll'] = $this->ModNotifikasi->selectAll();
 		$data['notifikasi'] = $this->ModNotifikasi->getAll();
 		$data['user'] = $this->ModUser->selectAll();
+		$data['status_notifikasi'] = $this->ModUser->getStatusNotifikasi();
 		$this->load->view('notifikasi',$data);
 	}
 }

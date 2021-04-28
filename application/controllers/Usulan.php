@@ -21,6 +21,7 @@ class Usulan extends CI_Controller {
 		}
 		$menu['login'] = $this->ModUsulan->edit($this->session->userdata('id_user'));
 		$data['notifikasi'] = $this->ModNotifikasi->getAll();
+		$data['status_notifikasi'] = $this->ModUser->getStatusNotifikasi();
 		$data['usulan'] = $this->ModUsulan->selectAll();
 		$data['usulanById'] = $this->ModUsulan->selectById();
 		$data['userById'] = $this->ModUser->userById();

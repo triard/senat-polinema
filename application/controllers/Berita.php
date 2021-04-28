@@ -7,6 +7,7 @@ class Berita extends CI_Controller {
 		parent::__construct();
 		$this->load->model('ModBerita');
 		$this->load->model('ModNotifikasi');
+		$this->load->model('ModUser');
 		$idUser = $this->session->userdata('id_user');
 	} 
 	public function index()
@@ -20,6 +21,7 @@ class Berita extends CI_Controller {
 		}
 		$menu['login'] = $this->ModBerita->edit($this->session->userdata('id_user'));
 		$data['notifikasi'] = $this->ModNotifikasi->getAll();
+		$data['status_notifikasi'] = $this->ModUser->getStatusNotifikasi();
 		$data['berita'] = $this->ModBerita->selectAll();
 		$this->load->view('berita',$data);
 	}
@@ -65,6 +67,7 @@ class Berita extends CI_Controller {
 		$id_user = $this->session->userdata('id_user');
 		$id_berita = $this->ModNotifikasi->getLastIdBerita();
 		$this->ModNotifikasi->addByBerita($user, $text, $time, $id_user, $id_berita);
+		$this->ModUser->setUnreadStatusNotifikasi();
 		if(json_encode(array("status" => TRUE))){
 			$this->session->set_flashdata('success', 'Berhasil Menambah Berita Baru');
 		}else{

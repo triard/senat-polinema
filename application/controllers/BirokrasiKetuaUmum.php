@@ -8,6 +8,7 @@ class BirokrasiKetuaUmum extends CI_Controller {
 		$this->load->model('ModLaporan');
 		$this->load->model('ModKegiatan');
 		$this->load->model('ModNotifikasi');
+		$this->load->model('ModUser');
 		$idUser = $this->session->userdata('id_user');
 	} 
 	public function index()
@@ -21,6 +22,7 @@ class BirokrasiKetuaUmum extends CI_Controller {
 		}
 		$menu['login'] = $this->ModLaporan->edit($this->session->userdata('id_user'));
 		$data['notifikasi'] = $this->ModNotifikasi->getAll();
+		$data['status_notifikasi'] = $this->ModUser->getStatusNotifikasi();
 		$data['laporan'] = $this->ModLaporan->getJoinAll();
 		$this->load->view('birokrasi-ketua-umum',$data);
 	}

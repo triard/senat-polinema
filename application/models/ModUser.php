@@ -149,11 +149,26 @@ class ModUser extends CI_model {
 	$data = array('nama' => $nama,'jabatan' => $jabatan,'NIP' => $NIP,'keterangan' => $keterangan);
 		$this->db->where('id_user', $id_user);
 		$this->db->update('user', $data);
-}
-public function getCountUser()
-{
-	$this->db->select('id_user');
-	$this->db->from('user');
-	return $this->db->count_all_results(); 
-} 
+	}
+	public function getCountUser() {
+		$this->db->select('id_user');
+		$this->db->from('user');
+		return $this->db->count_all_results(); 
+	} 
+	public function getStatusNotifikasi() {
+		$id_user = $this->session->userdata('id_user');
+		$query = $this->db->query("SELECT status_notifikasi FROM user WHERE id_user = '$id_user'");
+        $hasil = $query->row();
+        return $hasil->status_notifikasi;	
+	}
+	public function setUnreadStatusNotifikasi() {
+		$data = array('status_notifikasi' => 'Unread');
+		$this->db->update('user', $data);
+	}
+	public function setReadStatusNotifikasi() {
+		$id_user = $this->session->userdata('id_user');
+		$data = array('status_notifikasi' => 'Read');
+		$this->db->where('id_user', $id_user);
+		$this->db->update('user', $data);
+	}
 }

@@ -12,6 +12,7 @@ class Kegiatan extends CI_Controller {
 		$this->load->model('ModLaporan'); 
 		$this->load->model('ModDokumentasi'); 
 		$this->load->model('ModNotifikasi'); 
+		$this->load->model('ModUser');
 		$idUser = $this->session->userdata('id_user');
 	} 
 	public function index()
@@ -25,6 +26,7 @@ class Kegiatan extends CI_Controller {
 		}
 		$menu['login'] = $this->ModKegiatan->edit($this->session->userdata('id_user'));
 		$data['notifikasi'] = $this->ModNotifikasi->getAll();
+		$data['status_notifikasi'] = $this->ModUser->getStatusNotifikasi();
 		$data['kegiatan'] = $this->ModKegiatan->selectAll();
 		$this->load->view('kegiatan',$data);
 	}
@@ -113,6 +115,7 @@ class Kegiatan extends CI_Controller {
 		$id_user = $this->session->userdata('id_user');
 		$id_kegiatan = $this->ModNotifikasi->getLastIdKegiatan();
 		$this->ModNotifikasi->addByKegiatan($user, $text, $time, $id_user, $id_kegiatan);
+		$this->ModUser->setUnreadStatusNotifikasi();
 
 		if(json_encode(array("status" => TRUE))){
 			$this->session->set_flashdata('success', 'Berhasil Menambah Agenda Baru');
@@ -276,6 +279,8 @@ class Kegiatan extends CI_Controller {
 		$data['setuju'] = $this->ModKegiatan->JumlahVotingSetuju($id);
 		$data['tidak_setuju'] = $this->ModKegiatan->JumlahVotingTidakSetuju($id);
 		$data['golput'] = $this->ModKegiatan->JumlahGolput($id);
+		$data['notifikasi'] = $this->ModNotifikasi->getAll();
+		$data['status_notifikasi'] = $this->ModUser->getStatusNotifikasi();
 		$this->load->view('kegiatan-detail', $data);
 	}
 	public function modalAbsen($id) {

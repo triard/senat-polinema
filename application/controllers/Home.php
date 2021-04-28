@@ -40,6 +40,16 @@ class Home extends CI_Controller {
         $data['totalUsulan'] = $this->ModUsulan->GetMostInput();
         $data['usulanFilter'] = $this->ModUsulan->InputFilter();
         $data['notifikasi'] = $this->ModNotifikasi->getAll();
+        $data['status_notifikasi'] = $this->ModUser->getStatusNotifikasi();
         $this->load->view('home', $data);
+    }
+
+    public function setReadNotifikasi() {
+        $q = $this->session->userdata('status');
+        if($q != "login") {
+            exit();
+        }
+        $this->ModUser->setReadStatusNotifikasi();
+        redirect($_SERVER['HTTP_REFERER']);
     }
 }

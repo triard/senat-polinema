@@ -8,6 +8,7 @@ class Dokumentasi extends CI_Controller {
 		$this->load->model('ModDokumentasi');
 		$this->load->model('ModKegiatan');
 		$this->load->model('ModNotifikasi');
+		$this->load->model('ModUser');
 		$idUser = $this->session->userdata('id_user');
 	} 
 	public function index()
@@ -22,6 +23,7 @@ class Dokumentasi extends CI_Controller {
 		$menu['login'] = $this->ModDokumentasi->edit($this->session->userdata('id_user'));
 		$data['berita'] = $this->ModDokumentasi->selectAll();
 		$data['notifikasi'] = $this->ModNotifikasi->getAll();
+		$data['status_notifikasi'] = $this->ModUser->getStatusNotifikasi();
 		$this->load->view('berita',$data);
 	}
 
@@ -59,7 +61,7 @@ class Dokumentasi extends CI_Controller {
 		$id_user = $this->session->userdata('id_user');
 		$id_dokumentasi = $this->ModNotifikasi->getLastIdDokumentasi();
 		$this->ModNotifikasi->addByDokumentasi($user, $text, $time, $id_user, $id_dokumentasi);
-
+		$this->ModUser->setUnreadStatusNotifikasi();
 		echo json_encode(array("status" => TRUE));
 	}
 	public function edit($id) {

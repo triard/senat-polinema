@@ -8,6 +8,7 @@ class Laporan extends CI_Controller {
 		$this->load->model('ModLaporan');
 		$this->load->model('ModKegiatan');
 		$this->load->model('ModNotifikasi');
+		$this->load->model('ModUser');
 		$idUser = $this->session->userdata('id_user');
 	} 
 	public function index()
@@ -21,6 +22,7 @@ class Laporan extends CI_Controller {
 		}
 		$menu['login'] = $this->ModLaporan->edit($this->session->userdata('id_user'));
 		$data['notifikasi'] = $this->ModNotifikasi->getAll();
+		$data['status_notifikasi'] = $this->ModUser->getStatusNotifikasi();
 		$data['laporan'] = $this->ModLaporan->selectAll();
 		$this->load->view('laporan',$data);
 	}
@@ -58,7 +60,7 @@ class Laporan extends CI_Controller {
 		$id_user = $this->session->userdata('id_user');
 		$id_laporan = $this->ModNotifikasi->getLastIdLaporan();
 		$this->ModNotifikasi->addByLaporan($user, $text, $time, $id_user, $id_laporan);
-
+		$this->ModUser->setUnreadStatusNotifikasi();
 		echo json_encode(array("status" => TRUE));
 	}
 	public function edit($id) {

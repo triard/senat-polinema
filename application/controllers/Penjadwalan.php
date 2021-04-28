@@ -22,6 +22,7 @@ class Penjadwalan extends CI_Controller {
 		}
 		$menu['login'] = $this->ModPenjadwalan->edit($this->session->userdata('id_user'));
 		$data['notifikasi'] = $this->ModNotifikasi->getAll();
+		$data['status_notifikasi'] = $this->ModUser->getStatusNotifikasi();
 		$data['penjadwalan'] = $this->ModPenjadwalan->selectDataAll();
 		$data['user'] = $this->ModUser->selectAll();
 		$this->load->view('penjadwalan',$data);
@@ -96,6 +97,7 @@ class Penjadwalan extends CI_Controller {
 		$id_user = $this->session->userdata('id_user');
 		$id_penjadwalan = $this->ModNotifikasi->getLastIdPenjadwalan();
 		$this->ModNotifikasi->addByPenjadwalan($user, $text, $time, $id_user, $id_penjadwalan);
+		$this->ModUser->setUnreadStatusNotifikasi();
 		
 		if(json_encode(array("status" => TRUE))){
 			$this->session->set_flashdata('success', 'Berhasil Menambah Jadwal Baru');
