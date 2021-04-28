@@ -65,7 +65,7 @@ $this->load->view('_partials/sidebar');
                                     </tfoot>
                                     <tbody>
                                         <?php $no=1;
-                                 foreach ($user as $k) { ?>
+                                        foreach ($user as $k) { ?>
                                         <tr>
                                             <td><?php echo $no;?></td>
                                             <td><?php echo $k->nama;?></td>
@@ -97,8 +97,8 @@ $this->load->view('_partials/sidebar');
                 </div>
             </div>
         </div>
-        <?php $this->load->view('_partials/scrolltop'); ?>
-        <!-- <?php $this->load->view('_partials/loader'); ?> -->
+        <?php $this->load->view('homepage/_partials/scrolltop'); ?>
+        <?php $this->load->view('_partials/loader'); ?>
     </section>
 </div>
 <?php $this->load->view('_partials/footer'); ?>
@@ -125,11 +125,11 @@ $(document).ready(function() {
                 success: function(c) {
                     $("#myModal").modal("hide");
                     // swal("Sukses!", "", "success");
-                   
+
                     location.reload();
                 },
                 error: function(c, e, d) {
-                   
+
                     location.reload();
                     // swal("Error", "", "error")
                 }

@@ -133,21 +133,21 @@ $this->load->view('homepage/_partials/header');
                                         diupayakan proporsional antar jurusan.
                                     </p>
                                     <p style="text-indent: 45px;text-align: justify;">
-                                    Ketua dan Sekretaris Senat dipilih di antara anggota. Pemilihan Ketua
-                                    Senat dilakukan dalam rapat Senat yang diselenggarakan khusus. Rapat
-                                    pemilihan Ketua Senat dipimpin oleh anggota Senat tertua didampingi oleh
-                                    anggota Senat termuda. Rapat Senat sebagaimana dinyatakan sah apabila
-                                    dihadiri oleh paling sedikit ⅔ dari seluruh anggota Senat. Pimpinan
-                                    rapat menjaring paling sedikit 2 (dua) nama calon Ketua Senat dari
-                                    anggota Senat yang hadir. Pemilihan Ketua Senat dilakukan melalui
-                                    pemungutan suara. Setiap anggota Senat memiliki hak 1 (satu) suara.
-                                    Ketua Senat terpilih adalah calon yang memperoleh suara terbanyak. Ketua
-                                    Senat terpilih ditetapkan oleh Direktur. Ketua Senat terpilih menunjuk
-                                    salah satu anggota Senat sebagai Sekretaris Senat. Ketentuan lebih
-                                    lanjut mengenai persyaratan dan tata cara pemilihan Ketua Senat diatur
-                                    dalam Peraturan Senat.
+                                        Ketua dan Sekretaris Senat dipilih di antara anggota. Pemilihan Ketua
+                                        Senat dilakukan dalam rapat Senat yang diselenggarakan khusus. Rapat
+                                        pemilihan Ketua Senat dipimpin oleh anggota Senat tertua didampingi oleh
+                                        anggota Senat termuda. Rapat Senat sebagaimana dinyatakan sah apabila
+                                        dihadiri oleh paling sedikit ⅔ dari seluruh anggota Senat. Pimpinan
+                                        rapat menjaring paling sedikit 2 (dua) nama calon Ketua Senat dari
+                                        anggota Senat yang hadir. Pemilihan Ketua Senat dilakukan melalui
+                                        pemungutan suara. Setiap anggota Senat memiliki hak 1 (satu) suara.
+                                        Ketua Senat terpilih adalah calon yang memperoleh suara terbanyak. Ketua
+                                        Senat terpilih ditetapkan oleh Direktur. Ketua Senat terpilih menunjuk
+                                        salah satu anggota Senat sebagai Sekretaris Senat. Ketentuan lebih
+                                        lanjut mengenai persyaratan dan tata cara pemilihan Ketua Senat diatur
+                                        dalam Peraturan Senat.
                                     </p>
-                                    
+
                                 </div>
                                 <div class="tab-pane fade" id="profile4" role="tabpanel" aria-labelledby="profile-tab4">
                                     <h4>Visi</h4>
@@ -211,12 +211,15 @@ $this->load->view('homepage/_partials/header');
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <?php $no=1;
+                                        foreach ($user as $k) { ?>
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>nama Ketua Senat</td>
-                                                    <td>Ketua</td>
-                                                    <td></td>
+                                                    <td><?php echo $no;?></td>
+                                                    <td><?php echo $k->nama;?></td>
+                                                    <td><?php echo $k->jabatan;?></td>
+                                                    <td><?php echo $k->keterangan;?></td>
                                                 </tr>
+                                                <?php $no++; } ?>
                                             </tbody>
                                         </table>
                                     </div>

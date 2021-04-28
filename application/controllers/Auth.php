@@ -37,8 +37,8 @@ class Auth extends CI_Controller {
 		$this->load->view('auth/auth-forgot-password', $data);
 	}
 	public function logout() {
-		$this->session->sess_destroy();
-		redirect(base_url('auth/auth_login'));
+		$this->session->sess_destroy(); 
+		redirect(base_url('Homepage/home'));
 	}
 
 	public function auth_forgot_password()  
@@ -76,8 +76,8 @@ class Auth extends CI_Controller {
 			   $config['smtp_host']="ssl://smtp.gmail.com";
 			   $config['smtp_port']="465";
 			   $config['smtp_timeout']="400";
-			   $config['smtp_user']="triard78@gmail.com";
-			   $config['smtp_pass']="";
+			   $config['smtp_user']="laporanakhir41@gmail.com";
+			   $config['smtp_pass']="laporanakhir2021";
 			   $config['crlf']="\r\n";
 			   $config['newline']="\r\n";
 			   $config['wordwrap']=TRUE;
@@ -85,9 +85,9 @@ class Auth extends CI_Controller {
 				   
 			   $this->email->initialize($config);
 			   //konfigurasi pengiriman
-			   $this->email->from($config['smtp_user']);
+			   $this->email->from('no-reply@senatpolinema.ac.id', 'Senat Polinema');
 			   $this->email->to($this->input->post('email'));
-			   $this->email->subject("Reset your password");
+			   $this->email->subject("Mereset password Anda");
 
 			   $message = "<p>Anda melakukan permintaan reset password</p>";
 			   $message .= '<strong>Hai, anda menerima email ini karena ada permintaan untuk memperbaharui  

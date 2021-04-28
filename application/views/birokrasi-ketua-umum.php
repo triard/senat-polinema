@@ -16,7 +16,7 @@ $this->load->view('_partials/sidebar');
                     <div class="card">
                         <div class="card-header">
                             <h4></h4>
-<!--                             <div class="card-header-action">
+                            <!--                             <div class="card-header-action">
                                 <button class="btn btn-success" onclick="tambah()"><i class="fas fa-plus-circle"></i>
                                     Tambah</button>
                             </div> -->
@@ -53,7 +53,9 @@ $this->load->view('_partials/sidebar');
                                             <td><?php echo $k->nama_laporan;?></td>
                                             <td><?php echo "<a target='_blank' href='".base_url()."BirokrasiKetuaUmum/download_file/$k->file_laporan'>$k->file_laporan</a>";?>
                                             </td>
-                                            <td><div class="badge badge-warning"><?php echo $k->status;?></div></td>
+                                            <td>
+                                                <div class="badge badge-warning"><?php echo $k->status;?></div>
+                                            </td>
                                             <td class="td-actions text-right">
                                                 <button type="button" onclick="setuju(<?php echo $k->id_laporan;?>)"
                                                     rel="tooltip" class="btn btn-primary" data-original-title=""
@@ -77,8 +79,8 @@ $this->load->view('_partials/sidebar');
                 </div>
             </div>
         </div>
-        <?php $this->load->view('_partials/scrolltop'); ?>
-        <!-- <?php $this->load->view('_partials/loader'); ?> -->
+        <?php $this->load->view('homepage/_partials/scrolltop'); ?>
+        <?php $this->load->view('_partials/loader'); ?>
     </section>
 </div>
 <?php $this->load->view('_partials/footer'); ?>

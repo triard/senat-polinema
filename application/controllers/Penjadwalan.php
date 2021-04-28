@@ -18,7 +18,7 @@ class Penjadwalan extends CI_Controller {
 		);
         $q = $this->session->userdata('status');
 		if($q != "login") {
-			redirect('auth/auth_login','refresh');
+			redirect('Homepage/home','refresh');
 		}
 		$menu['login'] = $this->ModPenjadwalan->edit($this->session->userdata('id_user'));
 		$data['notifikasi'] = $this->ModNotifikasi->getAll();

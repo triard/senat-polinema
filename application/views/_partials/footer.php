@@ -123,9 +123,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
   </div>
 </div>
-
 <?php $this->load->view('_partials/js'); ?>
-
 <script>
 $(document).ready(function() {
     $(".preloader").fadeOut();

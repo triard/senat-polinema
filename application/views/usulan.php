@@ -328,8 +328,8 @@ $this->load->view('_partials/sidebar');
             </div>
         </div>
 </div>
-<?php $this->load->view('_partials/scrolltop'); ?>
-<!-- <?php $this->load->view('_partials/loader'); ?> -->
+<?php $this->load->view('homepage/_partials/scrolltop'); ?>
+<?php $this->load->view('_partials/loader'); ?>
 </section>
 </div>
 <?php $this->load->view('_partials/footer'); ?>

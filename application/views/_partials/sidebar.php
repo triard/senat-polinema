@@ -4,12 +4,14 @@
   <div class="main-sidebar sidebar-style-2">
       <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-              <!-- <a href="<?php echo base_url(); ?>dist/index">Senat</a> -->
-              <a style="font-weight: 700;" class="mb-0">Senat<span
-                      style="font-weight: 500; color: blue;">POLINEMA</span></a>
+              <!-- <a href="<?php echo base_url(); ?>Home">Senat</a> -->
+              <img src="<?php echo base_url('assets/img/logo-sidebar.png') ?>" alt="logo polinema">
+              <!-- <a style="font-weight: 800; font-family: serif; font-size: 15px;" class="mb-0">kinerja senat</a> -->
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-              <a href="<?php echo base_url(); ?>dist/index">St</a>
+              <a href="<?php echo base_url(); ?>Home">
+              <img src="<?php echo base_url('assets/img/polinema-sidebar.png') ?>" alt="logo polinema">
+              </a>
           </div>
           <ul class="sidebar-menu">
 
@@ -34,12 +36,14 @@
                           Kegiatan</span></a>
               </li>
               <?php if($this->session->userdata('level') == "Ketua Senat" || $this->session->userdata('level') == "Ketua Komisi"){ ?>
-              <li class="dropdown <?php echo $this->uri->segment(1) == 'Birokrasi' ? 'active' : ''; ?>">
+              <li class="dropdown <?php echo $this->uri->segment(1) == 'BirokrasiKetuaUmum' ? 'active' : ''; ?>">
                   <a href="#" class="nav-link has-dropdown"><i
                           class="fas fa-file-signature"></i><span>Birokrasi</span></a>
                   <ul class="dropdown-menu">
                       <?php if($this->session->userdata('level') == "Ketua Senat"){ ?>
-                      <li><a class="nav-link" href="<?php echo base_url(); ?>BirokrasiKetuaUmum">Birokrasi Ketua
+
+                      <li><a class="nav-link " style="<?php echo $this->uri->segment(1) == 'BirokrasiKetuaUmum' ? 'color: #0077C0;' : ''; ?>"
+                              href="<?php echo base_url(); ?>BirokrasiKetuaUmum">Birokrasi Ketua
                               Umum</a>
                       </li>
                       <?php } else if($this->session->userdata('level') == "Ketua Komisi"){ ?>

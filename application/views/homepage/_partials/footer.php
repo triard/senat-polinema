@@ -16,5 +16,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </footer>
 </div>
 </div>
-
 <?php $this->load->view('homepage/_partials/js'); ?>

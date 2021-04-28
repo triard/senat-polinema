@@ -1014,7 +1014,7 @@ table tr:hover .table-links {
   padding: 10px 0;
   line-height: 24px; }
 
-.tab-bordered .tab-pane {
+.tab-bordered .tab-pane { 
   padding: 15px;
   border: 1px solid #ededed;
   margin-top: -1px; }
@@ -1715,9 +1715,9 @@ h6 .badge {
         color: #6c757d; }
         .nav-collapse .navbar-nav .nav-item .nav-link:hover {
           background-color: #fcfcfd;
-          color: #6777ef; }
+          color: #0077C0; }
       .nav-collapse .navbar-nav .nav-item:focus > a, .nav-collapse .navbar-nav .nav-item.active > a {
-        background-color: #6777ef;
+        background-color: #0077C0;
         color: #fff; }
 
   .navbar {

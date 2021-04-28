@@ -8,6 +8,7 @@ class Homepage extends CI_Controller {
 		$this->load->model('ModBerita');
 		$this->load->model('ModKegiatan');
 		$this->load->model('ModLaporan');
+		$this->load->model('ModUser');
 	} 
 
 	public function home() {
@@ -23,6 +24,7 @@ class Homepage extends CI_Controller {
 		$data = array(
 			'title' => "Senat Polinema | Tentang Senat"
 		);
+		$data['user'] = $this->ModUser->selectAll();
 		$this->load->view('homepage/tentang', $data);
 	}
 	

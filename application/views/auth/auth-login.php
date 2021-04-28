@@ -7,12 +7,17 @@ $this->load->view('_partials/header');
     <div id="app">
         <section class="section">
             <div class="container mt-5">
+                <?php if($this->session->flashdata('message') == TRUE){?>
+                <div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <?php echo $this->session->flashdata('message') ?>
+                </div>
+                <?php } ?>
                 <div class="row">
                     <div
                         class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                         <div class="login-brand">
-                            <img src="<?php echo base_url(); ?>assets/img/logo.png" alt="logo" width="100"
-                                class="">
+                            <img src="<?php echo base_url(); ?>assets/img/logo.png" alt="logo" width="100" class="">
                         </div>
 
                         <div class="card card-primary">
@@ -26,7 +31,7 @@ $this->load->view('_partials/header');
                                         <input id="username" type="text" class="form-control" name="username"
                                             tabindex="1" required autofocus>
                                         <div class="invalid-feedback">
-                                        Silahkan isi username Anda
+                                            Silahkan isi username Anda
                                         </div>
                                     </div>
 
@@ -43,7 +48,7 @@ $this->load->view('_partials/header');
                                         <input id="password" type="password" class="form-control" name="password"
                                             tabindex="2" required>
                                         <div class="invalid-feedback">
-                                        Silahkan isi password Anda
+                                            Silahkan isi password Anda
                                         </div>
                                         <p class="text-small"><input type="checkbox" onclick="myFunction()"> Lihat
                                             Password</p>

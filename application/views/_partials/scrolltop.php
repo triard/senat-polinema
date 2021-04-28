@@ -11,6 +11,7 @@
     text-decoration: none;
     transition: opacity 0.2s ease-out;
 	color:white;
+    border-radius: 40%;
 }
 
 .back-to-top:hover {

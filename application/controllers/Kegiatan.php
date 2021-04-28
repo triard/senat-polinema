@@ -266,7 +266,7 @@ class Kegiatan extends CI_Controller {
 	{
 		$q = $this->session->userdata('status');
 		if($q != "login") {
-			exit();
+			redirect('Homepage/home','refresh');
 		}
 		$data = array( 
 			'title' => "Senat Polinema | Agenda Kegiatan Detail"

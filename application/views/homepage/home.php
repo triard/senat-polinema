@@ -6,7 +6,27 @@ $this->load->view('homepage/_partials/header');
 <!-- Main Content -->
 <div class="main-content" style="font-size: 1rem;">
     <section class="section">
-        <div class="section-header">
+    <div class="section-header">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="card">
+                        <div class="card-body mt-5">
+                            <div class="section-title" style="color: #1E3799;">
+                                <h2><b>Selamat Datang di
+                                        Webiste Senat Polinema</b></h1>
+                            </div>
+                            <hr>
+                            <p style="font-size: 20px;"><strong>Tetap semangat menghadapi mimpi, <br>
+                                    Tetap tangguh hadapi pandemi.</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <img src="<?php echo base_url(); ?>assets/img/polinema.jpg" alt="poinema" width="90%">
+                </div>
+            </div>
+        </div>
+        <div class="section-body">
             <div class="row">
                 <div class="col-sm-6">
                     <div class="card">
@@ -97,7 +117,8 @@ $this->load->view('homepage/_partials/header');
                                 <li class="media">
                                     <div class="media-body">
                                         <?php foreach ($berita as $b) { ?>
-                                        <p style="text-align: justify;"><a href="<?php echo base_url('Berita/berita_detail/').$b->id_berita ?>"
+                                        <p style="text-align: justify;"><a
+                                                href="<?php echo base_url('Berita/berita_detail/').$b->id_berita ?>"
                                                 style="text-decoration:none"><?php echo $b->judul ?></a></p>
                                         <?php } ?>
                                     </div>
@@ -112,26 +133,7 @@ $this->load->view('homepage/_partials/header');
 
 </div>
 
-<div class="section-body">
-    <div class="row">
-        <div class="col-sm-5">
-            <div class="card">
-                <div class="card-body mt-5">
-                    <div class="section-title" style="color: #1E3799;">
-                        <h3><b>Selamat Datang di
-                                Webiste Senat Polinema</b></h3>
-                    </div>
-                    <hr>
-                    <p><strong>Tetap semangat menghadapi mimpi, <br>
-                            Tetap tangguh hadapi pandemi.</strong></p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-7">
-            <img src="<?php echo base_url(); ?>assets/img/polinema.jpg" alt="poinema"width="90%">
-        </div>
-    </div>
-</div>
+
 <?php $this->load->view('homepage/_partials/scrolltop'); ?>
 </section>
 <?php $this->load->view('homepage/_partials/loader'); ?>

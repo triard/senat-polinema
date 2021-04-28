@@ -11,7 +11,7 @@ $this->load->view('_partials/sidebar');
             <h4>Penjadwalan</h4>
         </div>
         <div class="section-body">
-        <div class="row">
+            <div class="row">
                 <div class="col-12">
                     <?php if($this->session->flashdata('success') == TRUE){?>
                     <div class="alert alert-success alert-dismissible">
@@ -108,14 +108,14 @@ $this->load->view('_partials/sidebar');
                                                     class="btn btn-info" data-original-title="" title="">
                                                     <i class="fas fa-users"></i>
                                                 </button>
-                                              
+
                                                 <?php if(($this->session->userdata('level') == "Sekretaris" && $this->session->userdata('id_user') == $k->id_user) || ($this->session->userdata('level') == "Ketua Komisi 1" && $this->session->userdata('id_user') == $k->id_user) || ($this->session->userdata('level') == "Ketua Komisi 2" && $this->session->userdata('id_user') == $k->id_user) || ($this->session->userdata('level') == "Ketua Komisi 3" && $this->session->userdata('id_user') == $k->id_user) || ($this->session->userdata('level') == "Ketua Komisi 4" && $this->session->userdata('id_user') == $k->id_user)){ ?>
                                                 <button type="button" onclick="ganti(<?php echo $k->id_penjadwalan;?>)"
                                                     rel="tooltip" class="btn btn-primary" data-original-title=""
                                                     title="">
                                                     <i class="fas fa-pen-square"></i>
                                                 </button>
-                                          
+
                                                 <button type="button" rel="tooltip" class="btn btn-danger"
                                                     data-original-title="" title=""
                                                     onclick="hapus(<?php echo $k->id_penjadwalan;?>)">
@@ -133,8 +133,8 @@ $this->load->view('_partials/sidebar');
                 </div>
             </div>
         </div>
-        <?php $this->load->view('_partials/scrolltop'); ?>
-        <!-- <?php $this->load->view('_partials/loader'); ?> -->
+        <?php $this->load->view('homepage/_partials/scrolltop'); ?>
+        <?php $this->load->view('_partials/loader'); ?>
     </section>
 </div>
 <?php $this->load->view('_partials/footer'); ?>

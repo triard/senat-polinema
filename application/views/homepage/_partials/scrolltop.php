@@ -1,6 +1,6 @@
 <!-- CSS -->
 <style>
-.back-to-top {
+.back-to-top { 
     position: fixed;
     bottom: 30px;
     right: 30px;

@@ -53,7 +53,8 @@ $this->load->view('_partials/sidebar');
                                             <td><?php echo $k->user;?></td>
                                             <td><?php echo $k->text;?></td>
                                             <td><?php echo date('d-m-Y H:i:s', strtotime($k->time)); ?></td>
-                                        </tr>                                        <?php } else if ((($this->session->userdata('level') == "Ketua Komisi 4" || $this->session->userdata('level') == "Anggota Komisi 4") && ($k->user == 'Ketua Komisi 4' || $k->user == 'Admin' || $k->user == 'Sekretaris'))) { ?>
+                                        </tr>
+                                        <?php } else if ((($this->session->userdata('level') == "Ketua Komisi 4" || $this->session->userdata('level') == "Anggota Komisi 4") && ($k->user == 'Ketua Komisi 4' || $k->user == 'Admin' || $k->user == 'Sekretaris'))) { ?>
                                         <tr>
                                             <td><?php echo $k->user;?></td>
                                             <td><?php echo $k->text;?></td>
@@ -75,8 +76,8 @@ $this->load->view('_partials/sidebar');
                 </div>
             </div>
         </div>
-        <?php $this->load->view('_partials/scrolltop'); ?>
-        <!-- <?php $this->load->view('_partials/loader'); ?> -->
+        <?php $this->load->view('homepage/_partials/scrolltop'); ?>
+        <?php $this->load->view('_partials/loader'); ?>
     </section>
 </div>
 <?php $this->load->view('_partials/footer'); ?>

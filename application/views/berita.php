@@ -107,19 +107,11 @@ $this->load->view('_partials/sidebar');
                 </div>
             </div>
         </div>
-        <?php $this->load->view('_partials/scrolltop'); ?>
-        <!-- <?php $this->load->view('_partials/loader'); ?> -->
+        <?php $this->load->view('homepage/_partials/scrolltop'); ?>
+        <?php $this->load->view('_partials/loader'); ?>
     </section>
 </div>
 <?php $this->load->view('_partials/footer'); ?>
-<!-- <script type="text/javascript">
-  $(document).ready(function() {
-    $('#content').summernote({
-      height: "300px",
-      styleWithSpan: false
-    });
-  }); 
-</script> -->
 <script>
 var table;
 var simpan;
