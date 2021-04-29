@@ -6,10 +6,10 @@ $this->load->view('homepage/_partials/header');
 <div class="main-content">
     <section class="section">
     <div class="section-header">
-            <h1>Dokuemntasi Rapat</h1>
+            <h1>Dokumentasi Rapat</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="<?php echo base_url('Homepage/home') ?>">Beranda</a></div>
-                <div class="breadcrumb-item">Dokuemntasi Rapat</div>
+                <div class="breadcrumb-item">Dokumentasi Rapat</div>
             </div>
         </div> 
         <div class="row">

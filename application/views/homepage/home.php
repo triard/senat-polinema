@@ -8,12 +8,12 @@ $this->load->view('homepage/_partials/header');
     <section class="section">
     <div class="section-header">
             <div class="row">
-                <div class="col-sm-5">
+                <div class="col-sm-6">
                     <div class="card">
                         <div class="card-body mt-5">
                             <div class="section-title" style="color: #1E3799;">
                                 <h2><b>Selamat Datang di
-                                        Webiste Senat Polinema</b></h1>
+                                        Website Senat Polinema</b></h1>
                             </div>
                             <hr>
                             <p style="font-size: 20px;"><strong>Tetap semangat menghadapi mimpi, <br>
@@ -21,8 +21,8 @@ $this->load->view('homepage/_partials/header');
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-7">
-                    <img src="<?php echo base_url(); ?>assets/img/polinema.jpg" alt="poinema" width="90%">
+                <div class="col-sm-6">
+                    <img src="<?php echo base_url(); ?>assets/img/polinema.jpg" style="margin-top: 5%;" alt="poinema" width="95%">
                 </div>
             </div>
         </div>

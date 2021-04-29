@@ -89,6 +89,8 @@ class User extends CI_Controller {
 			'title' => "Senat Polinema | profile"
 		);
 		$data['user'] = $this->ModUser->edit($id);
+		$data['notifikasi'] = $this->ModNotifikasi->getAll();
+		$data['status_notifikasi'] = $this->ModUser->getStatusNotifikasi();
 		$this->load->view('auth/features_profile', $data);
 	}
 

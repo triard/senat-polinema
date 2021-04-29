@@ -5,12 +5,12 @@
       <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
               <!-- <a href="<?php echo base_url(); ?>Home">Senat</a> -->
-              <img src="<?php echo base_url('assets/img/logo-sidebar.png') ?>" alt="logo polinema">
+              <img src="<?php echo base_url('assets/img/logo-sidebar.png') ?>" alt="logo polinema" style="width: 65%;">
               <!-- <a style="font-weight: 800; font-family: serif; font-size: 15px;" class="mb-0">kinerja senat</a> -->
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
               <a href="<?php echo base_url(); ?>Home">
-              <img src="<?php echo base_url('assets/img/polinema-sidebar.png') ?>" alt="logo polinema">
+              <img src="<?php echo base_url('assets/img/polinema-sidebar.png') ?>" alt="logo polinema" style="width: 65%;">
               </a>
           </div>
           <ul class="sidebar-menu">
