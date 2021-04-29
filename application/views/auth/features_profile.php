@@ -31,9 +31,6 @@ $this->load->view('_partials/sidebar');
                 </div>
             </div>
             <h2 class="section-title"><?php echo $user->nama ?></h2>
-            <p class="section-lead">
-                <!-- Change information about yourself on this page. -->
-            </p>
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -94,9 +91,7 @@ $this->load->view('_partials/sidebar');
                         </form>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-6">
+                <div class="col-12">
                     <div class="card">
                         <div class="card-header">
                             <center>
@@ -109,19 +104,19 @@ $this->load->view('_partials/sidebar');
                                 enctype="multipart/form-data">
                                 <input type="hidden" name="id_user" value="<?php echo $user->id_user;?>">
                                 <input type="hidden" name="old_image" value="<?php echo $user->image ?>" />
-                                <div class="form-group col-md-10 col-12">
-                                    <label>Edit Foto Profile</label>
-                                       <center>
-                                       <div id="image-preview" class="image-preview">
-                                            <label for="image-upload" id="image-label">Choose File</label>
-                                            <input type="file" name="image" id="image-upload" />
-                                        </div>
-                                       </center>
-                                    <label for="">Maksimum Gambar 5mb</label>
-                                    <div class="invalid-feedback">
-                                        Tolong Pilih Foto Profile Anda!
+
+                                <label>Edit Foto Profile</label>
+                                <center>
+                                    <div id="image-preview" class="image-preview">
+                                        <label for="image-upload" id="image-label">Choose File</label>
+                                        <input type="file" name="image" id="image-upload" />
                                     </div>
+                                </center>
+                                <label for="">Maksimum Gambar 5mb</label>
+                                <div class="invalid-feedback">
+                                    Tolong Pilih Foto Profile Anda!
                                 </div>
+
                         </div>
                         <div class="card-footer text-right">
                             <button class="btn btn-primary">Simpan Perubahan</button>
@@ -129,7 +124,7 @@ $this->load->view('_partials/sidebar');
                         </form>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-12">
                     <div class="card">
                         <div class="card-header">
                             <h4>Update Password</h4>
