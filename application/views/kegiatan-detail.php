@@ -8,7 +8,7 @@ $this->load->view('_partials/sidebar');
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-        <a class="btn btn-warning btn-sm" href="<?php echo base_url('Kegiatan') ?>"><i
+            <a class="btn btn-warning btn-sm" href="<?php echo base_url('Kegiatan') ?>"><i
                     class="fas fa-arrow-left"></i> </a>&nbsp;&nbsp;
             <h4>Agenda Kegiatan Detail</h4>
         </div>
@@ -83,63 +83,64 @@ $this->load->view('_partials/sidebar');
                                                 <hr>
                                             </center>
                                             <br><br>
+                                            <div class="table-responsive">
+                                                <table class="table table-borderless text-dark">
+                                                    <tbody>
+                                                        <tr class="table-active">
+                                                            <td style="width: 200px;">Tanggal</td>
+                                                            <td style="width: 30px;">:</td>
+                                                            <td><?php echo date('d-m-Y', strtotime($kegiatan->waktu_mulai)); ?>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Waktu</td>
+                                                            <td>:</td>
+                                                            <td><?php echo date('H:i', strtotime($kegiatan->waktu_mulai)); ?>
+                                                                -
+                                                                <?php echo date('H:i', strtotime($kegiatan->waktu_selesai)); ?>
+                                                                WIB</td>
 
-                                            <table class="table table-borderless text-dark">
-                                                <tbody>
-                                                    <tr class="table-active">
-                                                        <td style="width: 200px;">Tanggal</td>
-                                                        <td style="width: 30px;">:</td>
-                                                        <td><?php echo date('d-m-Y', strtotime($kegiatan->waktu_mulai)); ?>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Waktu</td>
-                                                        <td>:</td>
-                                                        <td><?php echo date('H:i', strtotime($kegiatan->waktu_mulai)); ?>
-                                                            -
-                                                            <?php echo date('H:i', strtotime($kegiatan->waktu_selesai)); ?>
-                                                            WIB</td>
-
-                                                    </tr>
-                                                    <tr class="table-active">
-                                                        <td>Tempat</td>
-                                                        <td>:</td>
-                                                        <td><?php echo $kegiatan->tempat ?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Tujuan Pembahasan</td>
-                                                        <td>:</td>
-                                                        <td><?php echo $kegiatan->tujuan ?></td>
-                                                    </tr>
-                                                    <tr class="table-active">
-                                                        <td>Pembahasan</td>
-                                                        <td>:</td>
-                                                        <td><?php echo $kegiatan->pembahasan ?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Hasil Keputusan</td>
-                                                        <td>:</td>
-                                                        <td><?php echo $kegiatan->notula ?></td>
-                                                    </tr>
-                                                    <tr class="table-active">
-                                                        <td>Notulis</td>
-                                                        <td>:</td>
-                                                        <td><?php echo $kegiatan->nama ?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Status</td>
-                                                        <td>:</td>
-                                                        <td>
-                                                            <?php if ($kegiatan->status != NULL) { ?>
-                                                            <div class="badge badge-success">
-                                                                <?php echo $kegiatan->status;?></div>
-                                                            <?php } else { ?>
-                                                            <div class="badge badge-danger">Anda Belum Melakukan
-                                                                Konfirmasi Status</div>
-                                                            <?php } ?>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                                        </tr>
+                                                        <tr class="table-active">
+                                                            <td>Tempat</td>
+                                                            <td>:</td>
+                                                            <td><?php echo $kegiatan->tempat ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tujuan Pembahasan</td>
+                                                            <td>:</td>
+                                                            <td><?php echo $kegiatan->tujuan ?></td>
+                                                        </tr>
+                                                        <tr class="table-active">
+                                                            <td>Pembahasan</td>
+                                                            <td>:</td>
+                                                            <td><?php echo $kegiatan->pembahasan ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Hasil Keputusan</td>
+                                                            <td>:</td>
+                                                            <td><?php echo $kegiatan->notula ?></td>
+                                                        </tr>
+                                                        <tr class="table-active">
+                                                            <td>Notulis</td>
+                                                            <td>:</td>
+                                                            <td><?php echo $kegiatan->nama ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Status</td>
+                                                            <td>:</td>
+                                                            <td>
+                                                                <?php if ($kegiatan->status != NULL) { ?>
+                                                                <div class="badge badge-success">
+                                                                    <?php echo $kegiatan->status;?></div>
+                                                                <?php } else { ?>
+                                                                <div class="badge badge-danger">Anda Belum Melakukan
+                                                                    Konfirmasi Status</div>
+                                                                <?php } ?>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -147,55 +148,57 @@ $this->load->view('_partials/sidebar');
                                     <?php date_default_timezone_set('Asia/Jakarta');?>
                                     <h4>Daftar Peserta Rapat</h4>
                                     <div class="float-md-right m-2">
-                                    <!-- <a class="btn btn-success float-md-right m-2" target="_blank"
+                                        <!-- <a class="btn btn-success float-md-right m-2" target="_blank"
                                         href="<?php echo base_url('Kegiatan/download_absen/'.$kegiatan->id_kegiatan) ?>"><i
                                             class="fas fa-file-export"></i></a> -->
-                                            <button class="btn btn-success btn-sm"
-                                                    onclick="downloadAbsen(<?php echo $kegiatan->id_kegiatan;?>)">
-                                                    <i class="fas fa-file-export"></i></button>
+                                        <button class="btn btn-success btn-sm"
+                                            onclick="downloadAbsen(<?php echo $kegiatan->id_kegiatan;?>)">
+                                            <i class="fas fa-file-export"></i></button>
                                     </div>
-                                    <table class="table table-bordered">
-                                    
-                                        <thead>
-                                            <tr>
-                                                <th>Nama</th>
-                                                <th>Keterangan</th>
-                                                <th style="width: 350px;">Absen</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php foreach($peserta AS $p ): ?>
-                                            <?php if($p->id_penjadwalan == $kegiatan->id_penjadwalan ){ ?>
-                                            <tr>
-                                                <td><?php echo $p->nama ?></td>
-                                                <td><?php echo $p->jabatan ?></td>
-                                                <td>
-                                                    <center>
-                                                        <?php if($p->id_user == $this->session->userdata('id_user') && $p->absen == NULL &&  date('Y-m-d H:i:s') >= $kegiatan->waktu_mulai){ ?>
-                                                        <?php if(date('H:i:s') <= $kegiatan->waktu_selesai){?>
-                                                        <button class="btn btn-success btn-sm"
-                                                            onclick="setAbsen(<?php echo $p->id_peserta;?>)">
-                                                            Kirimikan Kehadiran</button>
-                                                        <?php }else{ ?>
-                                                        <?php if($p->absen != NULL){ ?>
-                                                        <img style="width: 40%; margin: 5px;"
-                                                            src="<?php echo base_url($p->absen)?>"
-                                                            alt="<?php echo $p->absen ?>">
-                                                        <?php }else{} ?>
-                                                        <?php } ?>
-                                                        <?php }else{ ?>
-                                                        <?php if($p->absen != NULL){ ?>
-                                                        <img style="width: 40%; margin: 5px;"
-                                                            src="<?php echo base_url($p->absen)?>"
-                                                            alt="<?php echo $p->absen ?>">
-                                                        <?php }else{} ?>
-                                                        <?php } ?>
-                                                    </center>
-                                                </td>
-                                            </tr>
-                                            <?php } endforeach ?>
-                                        </tbody>
-                                    </table>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+
+                                            <thead>
+                                                <tr>
+                                                    <th>Nama</th>
+                                                    <th>Keterangan</th>
+                                                    <th style="width: 350px;">Absen</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach($peserta AS $p ): ?>
+                                                <?php if($p->id_penjadwalan == $kegiatan->id_penjadwalan ){ ?>
+                                                <tr>
+                                                    <td><?php echo $p->nama ?></td>
+                                                    <td><?php echo $p->jabatan ?></td>
+                                                    <td>
+                                                        <center>
+                                                            <?php if($p->id_user == $this->session->userdata('id_user') && $p->absen == NULL &&  date('Y-m-d H:i:s') >= $kegiatan->waktu_mulai){ ?>
+                                                            <?php if(date('H:i:s') <= $kegiatan->waktu_selesai){?>
+                                                            <button class="btn btn-success btn-sm"
+                                                                onclick="setAbsen(<?php echo $p->id_peserta;?>)">
+                                                                Kirimikan Kehadiran</button>
+                                                            <?php }else{ ?>
+                                                            <?php if($p->absen != NULL){ ?>
+                                                            <img style="width: 40%; margin: 5px;"
+                                                                src="<?php echo base_url($p->absen)?>"
+                                                                alt="<?php echo $p->absen ?>">
+                                                            <?php }else{} ?>
+                                                            <?php } ?>
+                                                            <?php }else{ ?>
+                                                            <?php if($p->absen != NULL){ ?>
+                                                            <img style="width: 40%; margin: 5px;"
+                                                                src="<?php echo base_url($p->absen)?>"
+                                                                alt="<?php echo $p->absen ?>">
+                                                            <?php }else{} ?>
+                                                            <?php } ?>
+                                                        </center>
+                                                    </td>
+                                                </tr>
+                                                <?php } endforeach ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                                     <div class="card">
@@ -211,36 +214,38 @@ $this->load->view('_partials/sidebar');
                                             <?php } ?>
                                         </div>
                                         <div class="card-body">
-                                            <table class="table table-bordered table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Nama File</th>
-                                                        <th style="width: 200px;">Aksi</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Nama File</th>
+                                                            <th style="width: 200px;">Aksi</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php
                                                     foreach ($laporan as $l) { ?>
-                                                    <?php if($l->id_kegiatan == $kegiatan->id_kegiatan && ($l->status != "Diajukan" || $this->session->userdata('id_user') == $kegiatan->id_user)){ ?>
-                                                    <tr>
-                                                        <td><?php echo $l->nama_laporan ?></td>
-                                                        <td class="text-center">
-                                                            <?php echo "<a class='btn btn-icon btn-success' target='_blank' href='".base_url()."Laporan/download_file/$l->file_laporan'><i class='fas fa-download'></i></a>";?>
-                                                            <button class="btn btn-warning"
-                                                                onclick="lihatLaporan(<?php echo $l->id_laporan;?>)">
-                                                                <i class="fas fa-eye"></i>
-                                                            </button>
-                                                            <?php if (($hakAkses == "Sekretaris" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 1" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 2" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 3" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 4" && $this->session->userdata('id_user') == $kegiatan->id_user)){ ?>
-                                                            <button class="btn btn-danger"
-                                                                onclick="hapus(<?php echo $l->id_laporan;?>)">
-                                                                <i class="fas fa-times"></i>
-                                                            </button>
-                                                            <?php } ?>
-                                                        </td>
-                                                    </tr>
-                                                    <?php } } ?>
-                                                </tbody>
-                                            </table>
+                                                        <?php if($l->id_kegiatan == $kegiatan->id_kegiatan && ($l->status != "Diajukan" || $this->session->userdata('id_user') == $kegiatan->id_user)){ ?>
+                                                        <tr>
+                                                            <td><?php echo $l->nama_laporan ?></td>
+                                                            <td class="text-center">
+                                                                <?php echo "<a class='btn btn-icon btn-success' target='_blank' href='".base_url()."Laporan/download_file/$l->file_laporan'><i class='fas fa-download'></i></a>";?>
+                                                                <button class="btn btn-warning"
+                                                                    onclick="lihatLaporan(<?php echo $l->id_laporan;?>)">
+                                                                    <i class="fas fa-eye"></i>
+                                                                </button>
+                                                                <?php if (($hakAkses == "Sekretaris" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 1" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 2" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 3" && $this->session->userdata('id_user') == $kegiatan->id_user) || ($hakAkses == "Ketua Komisi 4" && $this->session->userdata('id_user') == $kegiatan->id_user)){ ?>
+                                                                <button class="btn btn-danger"
+                                                                    onclick="hapus(<?php echo $l->id_laporan;?>)">
+                                                                    <i class="fas fa-times"></i>
+                                                                </button>
+                                                                <?php } ?>
+                                                            </td>
+                                                        </tr>
+                                                        <?php } } ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -308,79 +313,86 @@ $this->load->view('_partials/sidebar');
                                             <h4>Voting Rapat/Sidang</h4>
                                         </div>
                                         <div class="card-body">
-                                            <table class="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Nama</th>
-                                                        <th>Keterangan</th>
-                                                        <th>Voting</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php foreach($peserta AS $p ): ?>
-                                                    <?php if($p->id_user == $this->session->userdata('id_user') && $p->id_penjadwalan == $kegiatan->id_penjadwalan ){ ?>
-                                                    <tr>
-                                                        <td><?php echo $p->nama ?></td>
-                                                        <td><?php echo $p->jabatan ?></td>
-                                                        <td>
-                                                            <?php if($p->voting == NULL){ ?>
-                                                            <button class="btn btn-success btn-sm"
-                                                                onclick="setVoting(<?php echo $p->id_peserta;?>)">
-                                                                <i class="fas fa-vote-yea"></i>
-                                                                Lakukan Voting</button>
-                                                            <?php }else{ ?>
-                                                            <?php echo $p->voting ?>
-                                                            <?php } ?>
-                                                        </td>
-                                                    </tr>
-                                                    <?php ?>
-                                                    <?php } endforeach ?>
-                                                </tbody>
-                                            </table>
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Nama</th>
+                                                            <th>Keterangan</th>
+                                                            <th>Voting</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php foreach($peserta AS $p ): ?>
+                                                        <?php if($p->id_user == $this->session->userdata('id_user') && $p->id_penjadwalan == $kegiatan->id_penjadwalan ){ ?>
+                                                        <tr>
+                                                            <td><?php echo $p->nama ?></td>
+                                                            <td><?php echo $p->jabatan ?></td>
+                                                            <td>
+                                                                <?php if($p->voting == NULL){ ?>
+                                                                <button class="btn btn-success btn-sm"
+                                                                    onclick="setVoting(<?php echo $p->id_peserta;?>)">
+                                                                    <i class="fas fa-vote-yea"></i>
+                                                                    Lakukan Voting</button>
+                                                                <?php }else{ ?>
+                                                                <?php echo $p->voting ?>
+                                                                <?php } ?>
+                                                            </td>
+                                                        </tr>
+                                                        <?php ?>
+                                                        <?php } endforeach ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                             <?php if($hakAkses == "Sekretaris" || $hakAkses == "Ketua Komisi 1" || $hakAkses == "Ketua Komisi 2" || $hakAkses == "Ketua Komisi 3" || $hakAkses == "Ketua Komisi 4"){ ?>
-                                            <table class="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Nama</th>
-                                                        <th>Keterangan</th>
-                                                        <th>Voting</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php foreach($peserta AS $p ): ?>
-                                                    <?php if($p->id_penjadwalan == $kegiatan->id_penjadwalan){ ?>
-                                                    <tr>
-                                                        <td><?php echo $p->nama ?></td>
-                                                        <td><?php echo $p->jabatan ?></td>
-                                                        <td>
-                                                            <?php echo $p->voting ?>
-                                                        </td>
-                                                    </tr>
-                                                    <?php ?>
-                                                    <?php } endforeach ?>
-                                                </tbody>
-                                            </table>
-                                            <table class="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Setuju</th>
-                                                        <th>Tidak Setuju</th>
-                                                        <th class="text-success">Jumlah Peserta <br> Voting</th>
-                                                        <th class="text-danger">Jumlah Peserta<br>Tidak Voting</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Nama</th>
+                                                            <th>Keterangan</th>
+                                                            <th>Voting</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php foreach($peserta AS $p ): ?>
+                                                        <?php if($p->id_penjadwalan == $kegiatan->id_penjadwalan){ ?>
+                                                        <tr>
+                                                            <td><?php echo $p->nama ?></td>
+                                                            <td><?php echo $p->jabatan ?></td>
+                                                            <td>
+                                                                <?php echo $p->voting ?>
+                                                            </td>
+                                                        </tr>
+                                                        <?php ?>
+                                                        <?php } endforeach ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Setuju</th>
+                                                            <th>Tidak Setuju</th>
+                                                            <th class="text-success">Jumlah Peserta <br> Voting</th>
+                                                            <th class="text-danger">Jumlah Peserta<br>Tidak Voting</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
 
-                                                        <td><?php echo $setuju->setuju ?> Orang</td>
-                                                        <td><?php echo $tidak_setuju->tidak_setuju ?> Orang</td>
-                                                        <td class="text-success">
-                                                            <?php echo $setuju->setuju + $tidak_setuju->tidak_setuju ?>
-                                                            Orang</td>
-                                                        <td class="text-danger"><?php echo $golput->golput ?> Orang</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                                            <td><?php echo $setuju->setuju ?> Orang</td>
+                                                            <td><?php echo $tidak_setuju->tidak_setuju ?> Orang</td>
+                                                            <td class="text-success">
+                                                                <?php echo $setuju->setuju + $tidak_setuju->tidak_setuju ?>
+                                                                Orang</td>
+                                                            <td class="text-danger"><?php echo $golput->golput ?> Orang
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                             <?php } ?>
                                         </div>
 
@@ -515,6 +527,7 @@ function setAbsen(a) {
         $("#modalbodybody").html(b)
     })
 }
+
 function downloadNotula(a) {
     simpan = "downloadNotula";
     $(".form")[0].reset();
@@ -523,6 +536,7 @@ function downloadNotula(a) {
         $("#modalbodynot").html(b)
     })
 }
+
 function downloadAbsen(a) {
     simpan = "downloadAbsen";
     $(".form")[0].reset();
@@ -531,6 +545,7 @@ function downloadAbsen(a) {
         $("#modalbodyabsen").html(b)
     })
 }
+
 function setVoting(a) {
     simpan = "setVoting";
     $(".form")[0].reset();
