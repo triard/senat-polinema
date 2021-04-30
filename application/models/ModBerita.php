@@ -6,6 +6,7 @@ class ModBerita extends CI_model {
 		$this->db->select('u.nama, b.*');
         $this->db->from('berita as b');
 		$this->db->join('user as u','b.id_user=u.id_user');
+		$this->db->order_by('id_berita','DESC');
         return $this->db->get()->result();
 	}
 	public function selectBerita() {
