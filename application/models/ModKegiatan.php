@@ -163,6 +163,15 @@ class ModKegiatan extends CI_model {
 		$this->db->where('kegiatan.id_kegiatan',$id);        
 		return $this->db->get()->row();
 	}
+	public function JumlahVotingAbsent($id)
+	{
+		$this->db->select('count(peserta.voting) AS absent');
+		$this->db->from('peserta'); 
+		$this->db->join('kegiatan', 'peserta.id_penjadwalan=kegiatan.id_penjadwalan');
+		$this->db->where('peserta.voting','Absent');    
+		$this->db->where('kegiatan.id_kegiatan',$id);        
+		return $this->db->get()->row();
+	}
 	public function JumlahGolput($id)
 	{
 		$this->db->select('count(peserta.voting) AS golput');

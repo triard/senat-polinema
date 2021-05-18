@@ -13,6 +13,21 @@ $this->load->view('_partials/sidebar');
         <div class="section-body">
             <div class="row">
                 <div class="col-12">
+                    <?php if($this->session->flashdata('success') == TRUE){?>
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <?php echo $this->session->flashdata('success') ?>
+                    </div>
+                    <?php }else if($this->session->flashdata('failed') == TRUE){ ?>
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <?php echo $this->session->flashdata('failed') ?>
+                    </div>
+                    <?php } ?>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
                     <div class="card">
                         <div class="card-header">
                             <h4></h4>
@@ -28,8 +43,8 @@ $this->load->view('_partials/sidebar');
                                         <tr>
                                             <th>No</th>
                                             <th>Nama Kegiatan</th>
-                                            <th>Laporan</th>
-                                            <th>File</th>
+                                            <th>Nama Laporan</th>
+                                            <th>Dokumen</th>
                                             <th>Status</th>
                                             <th class="disabled-sorting text-right">Actions</th>
                                         </tr>
@@ -38,8 +53,8 @@ $this->load->view('_partials/sidebar');
                                         <tr>
                                             <th>No</th>
                                             <th>Nama Kegiatan</th>
-                                            <th>Laporan</th>
-                                            <th>File</th>
+                                            <th>Nama Laporan</th>
+                                            <th>Dokumen</th>
                                             <th>Status</th>
                                             <th class="disabled-sorting text-right">Actions</th>
                                         </tr>

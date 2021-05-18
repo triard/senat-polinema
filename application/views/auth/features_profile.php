@@ -95,7 +95,8 @@ $this->load->view('_partials/sidebar');
                     <div class="card">
                         <div class="card-header">
                             <center>
-                                <img alt="image" src="<?php echo base_url('assets/img/user/'.$user->image); ?>"
+
+                                <img alt="image" src="<?php echo base_url('assets/img/user/'.$user->image.'?rand='.rand(1,2000)); ?>"
                                     class="rounded mx-auto d-block" width="50%">
                             </center>
                         </div>
@@ -109,7 +110,7 @@ $this->load->view('_partials/sidebar');
                                 <center>
                                     <div id="image-preview" class="image-preview">
                                         <label for="image-upload" id="image-label">Choose File</label>
-                                        <input type="file" name="image" id="image-upload" />
+                                        <input type="file" name="image" id="image-upload" required/>
                                     </div>
                                 </center>
                                 <label for="">Maksimum Gambar 5mb</label>

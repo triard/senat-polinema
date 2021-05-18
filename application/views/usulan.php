@@ -135,191 +135,198 @@ $this->load->view('_partials/sidebar');
                         </div>
                         <div class="tab-pane fade" id="profile2" role="tabpanel" aria-labelledby="profile-tab2">
                             <div class="card">
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" style="width: 100%;" id="dataTables-custom">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Nama Pengusul</th>
-                                                <th>Email</th>
-                                                <th>Jenis</th>
-                                                <th>Keterangan</th>
-                                                <th>Dokumen Pendukung</th>
-                                                <th>Status</th>
-                                                <th class="disabled-sorting text-right">Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Nama Pengusul</th>
-                                                <th>Email</th>
-                                                <th>Jenis</th>
-                                                <th>Keterangan</th>
-                                                <th>Dokumen Pendukung</th>
-                                                <th>Status</th>
-                                                <th class="text-right" style="width: 150px;">Actions</th>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
-                                            <?php $no=1;
+                                <div class="card-header">
+                                    <h4>
+                                        <?php if($this->session->userdata('level') == "Admin"){
+                                        echo 'Verifikasi Usulan Masuk';
+                                    } ?>
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" style="width: 100%;" id="dataTables-custom">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Nama Pengusul</th>
+                                                    <th>Email</th>
+                                                    <th>Jenis</th>
+                                                    <th>Keterangan</th>
+                                                    <th>Dokumen Pendukung</th>
+                                                    <th>Status</th>
+                                                    <th class="disabled-sorting text-right">Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Nama Pengusul</th>
+                                                    <th>Email</th>
+                                                    <th>Jenis</th>
+                                                    <th>Keterangan</th>
+                                                    <th>Dokumen Pendukung</th>
+                                                    <th>Status</th>
+                                                    <th class="text-right" style="width: 150px;">Actions</th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                <?php $no=1;
                                                  foreach ($usulan as $k) { ?>
-                                            <?php if($this->session->userdata('level') == "Admin" && $k->status == "Diajukan"){ ?>
-                                            <tr>
-                                                <td><?php echo $no;?></td>
-                                                <td><?php echo $k->nama_pengusul;?></td>
-                                                <td><?php echo $k->email;?></td>
-                                                <td><?php echo $k->jenis;?></td>
-                                                <td><?php echo $k->keterangan;?></td>
-                                                <td><?php echo "<a target='_blank' href='".base_url()."Usulan/download_file/$k->dokumen_pendukung'>$k->dokumen_pendukung</a>";?>
-                                                </td>
-                                                <td>
-                                                    <div class="badge badge-success"><?php echo $k->status;?></div>
-                                                </td>
-                                                <td class="td-actions text-right">
-                                                    <button type="button" onclick="ganti(<?php echo $k->id_usulan;?>)"
-                                                        rel="tooltip" class="btn btn-primary" data-original-title=""
-                                                        title="">
-                                                        <i class="fas fa-pen-square"></i>
-                                                    </button>
-                                                    &nbsp;
-                                                    <button type="button" rel="tooltip" class="btn btn-danger"
-                                                        data-original-title="" title=""
-                                                        onclick="hapus(<?php echo $k->id_usulan;?>)">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <?php } ?>
-                                            <?php $no++; } ?>
-                                        </tbody>
-                                        <tbody>
-                                            <?php $no=1;
+                                                <?php if($this->session->userdata('level') == "Admin" && $k->status == "Diajukan"){ ?>
+                                                <tr>
+                                                    <td><?php echo $no;?></td>
+                                                    <td><?php echo $k->nama_pengusul;?></td>
+                                                    <td><?php echo $k->email;?></td>
+                                                    <td><?php echo $k->jenis;?></td>
+                                                    <td><?php echo $k->keterangan;?></td>
+                                                    <td><?php echo "<a target='_blank' href='".base_url()."Usulan/download_file/$k->dokumen_pendukung'>$k->dokumen_pendukung</a>";?>
+                                                    </td>
+                                                    <td>
+                                                        <div class="badge badge-success"><?php echo $k->status;?></div>
+                                                    </td>
+                                                    <td class="td-actions text-right">
+                                                        <button type="button"
+                                                            onclick="verifikasi(<?php echo $k->id_usulan;?>)"
+                                                            rel="tooltip" class="btn btn-primary" data-original-title=""
+                                                            title="">
+                                                            <i class="fas fa-file"></i>
+                                                        </button>
+                                                        <button type="button" rel="tooltip" class="btn btn-danger"
+                                                            data-original-title="" title=""
+                                                            onclick="hapus(<?php echo $k->id_usulan;?>)">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <?php } ?>
+                                                <?php $no++; } ?>
+                                            </tbody>
+                                            <tbody>
+                                                <?php $no=1;
                                                  foreach ($usulan as $k) { ?>
-                                            <?php if($this->session->userdata('level') == "Sekretaris" && ($k->status == "Diajukan - Sekretaris" || $k->status == "Perlu Tindak Lanjut - Sidang Pleno" || $k->status == "Perlu Tindak Lanjut - Sidang Paripurna")){ ?>
-                                            <tr>
-                                                <td><?php echo $no;?></td>
-                                                <td><?php echo $k->nama_pengusul;?></td>
-                                                <td><?php echo $k->email;?></td>
-                                                <td><?php echo $k->jenis;?></td>
-                                                <td><?php echo $k->keterangan;?></td>
-                                                <td><?php echo "<a target='_blank' href='".base_url()."Usulan/download_file/$k->dokumen_pendukung'>$k->dokumen_pendukung</a>";?>
-                                                </td>
-                                                <td>
-                                                    <div class="badge badge-success"><?php echo $k->status;?></div>
-                                                </td>
-                                            </tr>
-                                            <?php } ?>
-                                            <?php $no++; } ?>
-                                        </tbody>
-                                        <tbody>
-                                            <?php $no=1;
+                                                <?php if($this->session->userdata('level') == "Sekretaris" && ($k->status == "Diajukan - Sekretaris" || $k->status == "Perlu Tindak Lanjut - Sidang Pleno" || $k->status == "Perlu Tindak Lanjut - Sidang Paripurna")){ ?>
+                                                <tr>
+                                                    <td><?php echo $no;?></td>
+                                                    <td><?php echo $k->nama_pengusul;?></td>
+                                                    <td><?php echo $k->email;?></td>
+                                                    <td><?php echo $k->jenis;?></td>
+                                                    <td><?php echo $k->keterangan;?></td>
+                                                    <td><?php echo "<a target='_blank' href='".base_url()."Usulan/download_file/$k->dokumen_pendukung'>$k->dokumen_pendukung</a>";?>
+                                                    </td>
+                                                    <td>
+                                                        <div class="badge badge-success"><?php echo $k->status;?></div>
+                                                    </td>
+                                                </tr>
+                                                <?php } ?>
+                                                <?php $no++; } ?>
+                                            </tbody>
+                                            <tbody>
+                                                <?php $no=1;
                                                  foreach ($usulan as $k) { ?>
-                                            <?php if($this->session->userdata('level') == "Ketua Komisi 1" && ($k->status == "Diajukan - Komisi 1")){ ?>
-                                            <tr>
-                                                <td><?php echo $no;?></td>
-                                                <td><?php echo $k->nama_pengusul;?></td>
-                                                <td><?php echo $k->email;?></td>
-                                                <td><?php echo $k->jenis;?></td>
-                                                <td><?php echo $k->keterangan;?></td>
-                                                <td><?php echo "<a target='_blank' href='".base_url()."Usulan/download_file/$k->dokumen_pendukung'>$k->dokumen_pendukung</a>";?>
-                                                </td>
-                                                <td>
-                                                    <div class="badge badge-success"><?php echo $k->status;?></div>
-                                                </td>
-                                                <td class="td-actions text-right">
-                                                </td>
-                                            </tr>
-                                            <?php } ?>
-                                            <?php $no++; } ?>
-                                        </tbody>
-                                        <tbody>
-                                            <?php $no=1;
+                                                <?php if($this->session->userdata('level') == "Ketua Komisi 1" && ($k->status == "Diajukan - Komisi 1")){ ?>
+                                                <tr>
+                                                    <td><?php echo $no;?></td>
+                                                    <td><?php echo $k->nama_pengusul;?></td>
+                                                    <td><?php echo $k->email;?></td>
+                                                    <td><?php echo $k->jenis;?></td>
+                                                    <td><?php echo $k->keterangan;?></td>
+                                                    <td><?php echo "<a target='_blank' href='".base_url()."Usulan/download_file/$k->dokumen_pendukung'>$k->dokumen_pendukung</a>";?>
+                                                    </td>
+                                                    <td>
+                                                        <div class="badge badge-success"><?php echo $k->status;?></div>
+                                                    </td>
+                                                    <td class="td-actions text-right">
+                                                    </td>
+                                                </tr>
+                                                <?php } ?>
+                                                <?php $no++; } ?>
+                                            </tbody>
+                                            <tbody>
+                                                <?php $no=1;
                                                  foreach ($usulan as $k) { ?>
-                                            <?php if($this->session->userdata('level') == "Ketua Komisi 2" && ($k->status == "Diajukan - Komisi 2")){ ?>
-                                            <tr>
-                                                <td><?php echo $no;?></td>
-                                                <td><?php echo $k->nama_pengusul;?></td>
-                                                <td><?php echo $k->email;?></td>
-                                                <td><?php echo $k->jenis;?></td>
-                                                <td><?php echo $k->keterangan;?></td>
-                                                <td><?php echo "<a target='_blank' href='".base_url()."Usulan/download_file/$k->dokumen_pendukung'>$k->dokumen_pendukung</a>";?>
-                                                </td>
-                                                <td>
-                                                    <div class="badge badge-success"><?php echo $k->status;?></div>
-                                                </td>
-                                                <td class="td-actions text-right">
-                                                </td>
-                                            </tr>
-                                            <?php } ?>
-                                            <?php $no++; } ?>
-                                        </tbody>
-                                        <tbody>
-                                            <?php $no=1;
+                                                <?php if($this->session->userdata('level') == "Ketua Komisi 2" && ($k->status == "Diajukan - Komisi 2")){ ?>
+                                                <tr>
+                                                    <td><?php echo $no;?></td>
+                                                    <td><?php echo $k->nama_pengusul;?></td>
+                                                    <td><?php echo $k->email;?></td>
+                                                    <td><?php echo $k->jenis;?></td>
+                                                    <td><?php echo $k->keterangan;?></td>
+                                                    <td><?php echo "<a target='_blank' href='".base_url()."Usulan/download_file/$k->dokumen_pendukung'>$k->dokumen_pendukung</a>";?>
+                                                    </td>
+                                                    <td>
+                                                        <div class="badge badge-success"><?php echo $k->status;?></div>
+                                                    </td>
+                                                    <td class="td-actions text-right">
+                                                    </td>
+                                                </tr>
+                                                <?php } ?>
+                                                <?php $no++; } ?>
+                                            </tbody>
+                                            <tbody>
+                                                <?php $no=1;
                                                  foreach ($usulan as $k) { ?>
-                                            <?php if($this->session->userdata('level') == "Ketua Komisi 3" && ($k->status == "Diajukan - Komisi 3")){ ?>
-                                            <tr>
-                                                <td><?php echo $no;?></td>
-                                                <td><?php echo $k->nama_pengusul;?></td>
-                                                <td><?php echo $k->email;?></td>
-                                                <td><?php echo $k->jenis;?></td>
-                                                <td><?php echo $k->keterangan;?></td>
-                                                <td><?php echo "<a target='_blank' href='".base_url()."Usulan/download_file/$k->dokumen_pendukung'>$k->dokumen_pendukung</a>";?>
-                                                </td>
-                                                <td>
-                                                    <div class="badge badge-success"><?php echo $k->status;?></div>
-                                                </td>
-                                                <td class="td-actions text-right">
-                                                </td>
-                                            </tr>
-                                            <?php } ?>
-                                            <?php $no++; } ?>
-                                        </tbody>
-                                        <tbody>
-                                            <?php $no=1;
+                                                <?php if($this->session->userdata('level') == "Ketua Komisi 3" && ($k->status == "Diajukan - Komisi 3")){ ?>
+                                                <tr>
+                                                    <td><?php echo $no;?></td>
+                                                    <td><?php echo $k->nama_pengusul;?></td>
+                                                    <td><?php echo $k->email;?></td>
+                                                    <td><?php echo $k->jenis;?></td>
+                                                    <td><?php echo $k->keterangan;?></td>
+                                                    <td><?php echo "<a target='_blank' href='".base_url()."Usulan/download_file/$k->dokumen_pendukung'>$k->dokumen_pendukung</a>";?>
+                                                    </td>
+                                                    <td>
+                                                        <div class="badge badge-success"><?php echo $k->status;?></div>
+                                                    </td>
+                                                    <td class="td-actions text-right">
+                                                    </td>
+                                                </tr>
+                                                <?php } ?>
+                                                <?php $no++; } ?>
+                                            </tbody>
+                                            <tbody>
+                                                <?php $no=1;
                                                  foreach ($usulan as $k) { ?>
-                                            <?php if($this->session->userdata('level') == "Ketua Komisi 4" && ($k->status == "Diajukan - Komisi 4")){ ?>
-                                            <tr>
-                                                <td><?php echo $no;?></td>
-                                                <td><?php echo $k->nama_pengusul;?></td>
-                                                <td><?php echo $k->email;?></td>
-                                                <td><?php echo $k->jenis;?></td>
-                                                <td><?php echo $k->keterangan;?></td>
-                                                <td><?php echo "<a target='_blank' href='".base_url()."Usulan/download_file/$k->dokumen_pendukung'>$k->dokumen_pendukung</a>";?>
-                                                </td>
-                                                <td>
-                                                    <div class="badge badge-success"><?php echo $k->status;?></div>
-                                                </td>
-                                                <td class="td-actions text-right">
-                                                </td>
-                                            </tr>
-                                            <?php } ?>
-                                            <?php $no++; } ?>
-                                        </tbody>
-                                        <tbody>
-                                            <?php $no=1;
+                                                <?php if($this->session->userdata('level') == "Ketua Komisi 4" && ($k->status == "Diajukan - Komisi 4")){ ?>
+                                                <tr>
+                                                    <td><?php echo $no;?></td>
+                                                    <td><?php echo $k->nama_pengusul;?></td>
+                                                    <td><?php echo $k->email;?></td>
+                                                    <td><?php echo $k->jenis;?></td>
+                                                    <td><?php echo $k->keterangan;?></td>
+                                                    <td><?php echo "<a target='_blank' href='".base_url()."Usulan/download_file/$k->dokumen_pendukung'>$k->dokumen_pendukung</a>";?>
+                                                    </td>
+                                                    <td>
+                                                        <div class="badge badge-success"><?php echo $k->status;?></div>
+                                                    </td>
+                                                    <td class="td-actions text-right">
+                                                    </td>
+                                                </tr>
+                                                <?php } ?>
+                                                <?php $no++; } ?>
+                                            </tbody>
+                                            <tbody>
+                                                <?php $no=1;
                                                  foreach ($usulan as $k) { ?>
-                                            <?php if($this->session->userdata('level') == "Ketua Senat"){ ?>
-                                            <tr>
-                                                <td><?php echo $no;?></td>
-                                                <td><?php echo $k->nama_pengusul;?></td>
-                                                <td><?php echo $k->email;?></td>
-                                                <td><?php echo $k->jenis;?></td>
-                                                <td><?php echo $k->keterangan;?></td>
-                                                <td><?php echo "<a target='_blank' href='".base_url()."Usulan/download_file/$k->dokumen_pendukung'>$k->dokumen_pendukung</a>";?>
-                                                </td>
-                                                <td>
-                                                    <div class="badge badge-success"><?php echo $k->status;?></div>
-                                                </td>
-                                                <td class="td-actions text-right">
-                                                </td>
-                                            </tr>
-                                            <?php } ?>
-                                            <?php $no++; } ?>
-                                        </tbody>
-                                    </table>
+                                                <?php if($this->session->userdata('level') == "Ketua Senat"){ ?>
+                                                <tr>
+                                                    <td><?php echo $no;?></td>
+                                                    <td><?php echo $k->nama_pengusul;?></td>
+                                                    <td><?php echo $k->email;?></td>
+                                                    <td><?php echo $k->jenis;?></td>
+                                                    <td><?php echo $k->keterangan;?></td>
+                                                    <td><?php echo "<a target='_blank' href='".base_url()."Usulan/download_file/$k->dokumen_pendukung'>$k->dokumen_pendukung</a>";?>
+                                                    </td>
+                                                    <td>
+                                                        <div class="badge badge-success"><?php echo $k->status;?></div>
+                                                    </td>
+                                                    <td class="td-actions text-right">
+                                                    </td>
+                                                </tr>
+                                                <?php } ?>
+                                                <?php $no++; } ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -327,10 +334,9 @@ $this->load->view('_partials/sidebar');
                 </div>
             </div>
         </div>
-</div>
-<?php $this->load->view('homepage/_partials/scrolltop'); ?>
-<?php $this->load->view('_partials/loader'); ?>
-</section>
+        <?php $this->load->view('homepage/_partials/scrolltop'); ?>
+        <?php $this->load->view('_partials/loader'); ?>
+    </section>
 </div>
 <?php $this->load->view('_partials/footer'); ?>
 <script>
@@ -343,6 +349,8 @@ $(document).ready(function() {
             var a;
             if (simpan == "tambah") {
                 a = "<?php echo base_url();?>usulan/add"
+            } else if (simpan == "verifikasi") {
+                a = "<?php echo base_url();?>usulan/update"
             } else {
                 a = "<?php echo base_url();?>usulan/update"
             }
@@ -405,6 +413,14 @@ function ganti(a) {
     })
 }
 
+function verifikasi(a) {
+    simpan = "verifikasi";
+    $(".form")[0].reset();
+    $("#myModal").modal("show");
+    $("#modalbody").load("<?php echo base_url();?>usulan/edit_verifikasi/" + a, function(b) {
+        $("#modalbody").html(b)
+    })
+}
 
 function hapus(a) {
     swal({

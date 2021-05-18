@@ -39,6 +39,7 @@ $this->load->view('homepage/_partials/header');
                                         <tbody>
                                             <?php $no=1;
                                             foreach ($laporan as $l) { ?>
+                                            <?php if($l->status != "Diajukan" && $l->status != "Revisi"){ ?>
                                             <tr>
                                                 <td><?php echo $no;?></td>
                                                 <td><?php echo $l->nama_laporan ?></td>
@@ -46,7 +47,7 @@ $this->load->view('homepage/_partials/header');
                                                     <?php echo "<a class='btn btn-icon btn-success' target='_blank' href='".base_url()."Laporan/download_file/$l->file_laporan'><i class='fas fa-download'></i></a>";?>
                                                 </td>
                                             </tr>
-                                            <?php  $no++; }  ?>
+                                            <?php  $no++; }}  ?>
                                         </tbody>
                                     </table>
                                 </div>

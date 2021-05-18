@@ -22,7 +22,7 @@ $this->load->view('homepage/_partials/header');
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <img src="<?php echo base_url(); ?>assets/img/polinema.jpg" style="margin-top: 5%;" alt="poinema" width="95%">
+                    <img src="<?php echo base_url(); ?>assets/img/Polinema.jpg" style="margin-top: 5%;" alt="poinema" width="95%">
                 </div>
             </div>
         </div>

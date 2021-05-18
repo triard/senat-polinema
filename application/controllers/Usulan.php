@@ -69,6 +69,15 @@ class Usulan extends CI_Controller {
 		$data['usulan'] = $this->ModUsulan->edit($id);
 		$this->load->view('modal/usulan', $data);
 	}
+	public function edit_verifikasi($id) {
+		$q = $this->session->userdata('status');
+		if($q != "login") {
+			exit();
+		}
+		$data['cek'] = 2;
+		$data['usulan'] = $this->ModUsulan->edit($id);
+		$this->load->view('modal/usulan', $data);
+	}
 	public function delete($id) {
 		$q = $this->session->userdata('status');
 		if($q != "login") {
@@ -127,9 +136,9 @@ class Usulan extends CI_Controller {
 		 $this->session->set_flashdata('failedemail', 'Error! email status usulan tidak dapat dikirim.');
 	 	}
 		if(json_encode(array("status" => TRUE))){
-			$this->session->set_flashdata('success', 'Usulan Anda berhasil diajukan');
+			$this->session->set_flashdata('success', 'Usulan Anda berhasil diperbarui');
 		}else{
-			$this->session->set_flashdata('failed', 'Usulan Anda gagal diajukan');
+			$this->session->set_flashdata('failed', 'Usulan Anda gagal diperbarui');
 		}		
 	}
 	function download_file(){

@@ -16,11 +16,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <ul class="navbar-nav navbar-right">
                     <li class="dropdown dropdown-list-toggle">
                         <?php if ($status_notifikasi == "Read") { ?>
-                        <a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg"><i
-                                class="far fa-bell"></i></a>
+                            <a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg"><i class="far fa-bell"></i></a>
                         <?php } else { ?>
-                        <a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i
-                                class="far fa-bell"></i></a>
+                            <a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="far fa-bell"></i></a>
                         <?php } ?>
                         <div class="dropdown-menu dropdown-list dropdown-menu-right">
                             <div class="dropdown-header">Notifikasi
@@ -33,8 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     if ((($this->session->userdata('level') == "Ketua Komisi 1" || $this->session->userdata('level') == "Anggota Komisi 1") && ($k->user == 'Ketua Komisi 1' || $k->user == 'Admin' || $k->user == 'Sekretaris'))) { ?>
                                 <a href="#" class="dropdown-item dropdown-item-unread">
                                     <div class="dropdown-item-desc">
-                                        <span
-                                            style="color: black; font-style: bold;text-transform: capitalize; font-family:  sans-serif;">
+                                        <span style="color: black; font-style: bold;text-transform: capitalize; font-family:  sans-serif;">
                                             <b>
                                                 <?php echo $k->user; ?>
                                             </b>
@@ -47,8 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <?php } else if ((($this->session->userdata('level') == "Ketua Komisi 2" || $this->session->userdata('level') == "Anggota Komisi 2") && ($k->user == 'Ketua Komisi 2' || $k->user == 'Admin' || $k->user == 'Sekretaris'))) { ?>
                                 <a href="#" class="dropdown-item dropdown-item-unread">
                                     <div class="dropdown-item-desc">
-                                        <span
-                                            style="color: black; font-style: bold;text-transform: capitalize; font-family:  sans-serif;">
+                                        <span style="color: black; font-style: bold;text-transform: capitalize; font-family:  sans-serif;">
                                             <b>
                                                 <?php echo $k->user; ?>
                                             </b>
@@ -61,8 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <?php } else if ((($this->session->userdata('level') == "Ketua Komisi 3" || $this->session->userdata('level') == "Anggota Komisi 3") && ($k->user == 'Ketua Komisi 3' || $k->user == 'Admin' || $k->user == 'Sekretaris'))) { ?>
                                 <a href="#" class="dropdown-item dropdown-item-unread">
                                     <div class="dropdown-item-desc">
-                                        <span
-                                            style="color: black; font-style: bold;text-transform: capitalize; font-family:  sans-serif;">
+                                        <span style="color: black; font-style: bold;text-transform: capitalize; font-family:  sans-serif;">
                                             <b>
                                                 <?php echo $k->user; ?>
                                             </b>
@@ -75,8 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <?php } else if ((($this->session->userdata('level') == "Ketua Komisi 4" || $this->session->userdata('level') == "Anggota Komisi 4") && ($k->user == 'Ketua Komisi 4' || $k->user == 'Admin' || $k->user == 'Sekretaris'))) { ?>
                                 <a href="#" class="dropdown-item dropdown-item-unread">
                                     <div class="dropdown-item-desc">
-                                        <span
-                                            style="color: black; font-style: bold;text-transform: capitalize; font-family:  sans-serif;">
+                                        <span style="color: black; font-style: bold;text-transform: capitalize; font-family:  sans-serif;">
                                             <b>
                                                 <?php echo $k->user; ?>
                                             </b>
@@ -89,8 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <?php } else if ($this->session->userdata('level') == "Sekretaris" || $this->session->userdata('level') == "Admin" || $this->session->userdata('level') == "Ketua Senat") { ?>
                                 <a href="#" class="dropdown-item dropdown-item-unread">
                                     <div class="dropdown-item-desc">
-                                        <span
-                                            style="color: black; font-style: bold;text-transform: capitalize; font-family:  sans-serif;">
+                                        <span style="color: black; font-style: bold;text-transform: capitalize; font-family:  sans-serif;">
                                             <b>
                                                 <?php echo $k->user; ?>
                                             </b>
@@ -104,8 +97,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <?php } ?>
                             </div>
                             <div class="dropdown-footer text-center">
-                                <a href="<?php echo base_url('Notifikasi') ?>">View All <i
-                                        class="fas fa-chevron-right"></i></a>
+                                <a href="<?php echo base_url('Notifikasi') ?>">View All <i class="fas fa-chevron-right"></i></a>
                             </div>
                         </div>
                     </li>

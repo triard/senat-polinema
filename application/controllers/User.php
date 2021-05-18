@@ -83,7 +83,7 @@ class User extends CI_Controller {
 	public function editProfile($id) {
 		$q = $this->session->userdata('status');
 		if($q != "login") {
-			exit();
+            redirect('Homepage/home','refresh');
 		}
 		$data = array(
 			'title' => "Senat Polinema | profile"
@@ -91,6 +91,7 @@ class User extends CI_Controller {
 		$data['user'] = $this->ModUser->edit($id);
 		$data['notifikasi'] = $this->ModNotifikasi->getAll();
 		$data['status_notifikasi'] = $this->ModUser->getStatusNotifikasi();
+		$this->output->delete_cache();
 		$this->load->view('auth/features_profile', $data);
 	}
 
@@ -98,16 +99,17 @@ class User extends CI_Controller {
 		$q = $this->session->userdata('status');
 		$id = $this->session->userdata('id_user');
 		if($q != "login") {
-			exit();
+            redirect('Homepage/home','refresh');
 		}
 		$this->ModUser->updateFoto();
+		$this->output->delete_cache();
 		redirect(site_url('user/editProfile/'.$id));
 	}
 	public function resetPassword()  
 	{  
 		$q = $this->session->userdata('status');
 		if($q != "login") {
-			exit();
+		$this->output->delete_cache();
 		}
 		$id = $this->session->userdata('id_user');
 		$password = $this->input->post('password');
@@ -125,7 +127,7 @@ class User extends CI_Controller {
 		$q = $this->session->userdata('status');
 		$id = $this->session->userdata('id_user');
 		if($q != "login") {
-			exit();
+		$this->output->delete_cache();
 		} 
 		$this->ModUser->updateProfile();
 		if(json_encode(array("status" => TRUE))){

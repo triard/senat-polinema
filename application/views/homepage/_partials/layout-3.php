@@ -7,9 +7,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="main-wrapper container">
             <div class="navbar-bg"></div>
             <nav class="navbar navbar-expand-lg main-navbar" style="background-color: #1E3799;">
-                <a href="<?php echo base_url(); ?>Homepage/Home" class="navbar-brand sidebar-gone-hide">
-                    <img alt="image"  src="<?php echo base_url(); ?>assets/img/logo-homepage.png" style="width: 95%; margin-left: 10%;">
-                </a>
+            <a href="<?php echo base_url(); ?>Homepage/Home" class="navbar-brand sidebar-gone-hide">
+            <img alt="image"  src="<?php echo base_url(); ?>assets/img/logo-homepage.png" style="width: 90%; margin-left: 10%;">
+            </a>
+
                 <a href="#" class="nav-link sidebar-gone-show" data-toggle="sidebar"><i class="fas fa-bars"></i></a>
                 <ul class="navbar-nav mr-auto"></ul>
                     <a href="<?php echo base_url('auth/auth_login') ?>" class="btn float-right text-white"
