@@ -62,17 +62,21 @@ class Dokumentasi extends CI_Controller {
 		$id_dokumentasi = $this->ModNotifikasi->getLastIdDokumentasi();
 		$this->ModNotifikasi->addByDokumentasi($user, $text, $time, $id_user, $id_dokumentasi);
 		$this->ModUser->setUnreadStatusNotifikasi();
-		echo json_encode(array("status" => TRUE));
-	}
-	public function edit($id) {
-		$q = $this->session->userdata('status');
-		if($q != "login") {
-			exit();
+		if(json_encode(array("status" => TRUE))){
+			$this->session->set_flashdata('success', 'Berhasil Menambah Dokumentasi Baru');
+		}else{
+			$this->session->set_flashdata('failed', 'Gagal Menambah Dokumentasi Baru');
 		}
-		$data['cek'] = 1;
-		$data['berita'] = $this->ModDokumentasi->edit($id);
-		$this->load->view('modal/berita', $data);
 	}
+	// public function edit($id) {
+	// 	$q = $this->session->userdata('status');
+	// 	if($q != "login") {
+	// 		exit();
+	// 	}
+	// 	$data['cek'] = 1;
+	// 	$data['berita'] = $this->ModDokumentasi->edit($id);
+	// 	$this->load->view('modal/berita', $data);
+	// }
 	public function delete($id) {
 		$q = $this->session->userdata('status');
 		if($q != "login") {
@@ -81,7 +85,11 @@ class Dokumentasi extends CI_Controller {
 		$this->ModDokumentasi->delete($id);
 		// Notifikasi
 		$this->ModNotifikasi->deleteByDokumentasi($id);
-		echo json_encode(array("status" => TRUE));
+		if(json_encode(array("status" => TRUE))){
+			$this->session->set_flashdata('success', 'Berhasil Menghapus Dokumentasi');
+		}else{
+			$this->session->set_flashdata('failed', 'Gagal Menghapus Dokumentasi');
+		}
 	}
 	public function update() {
 		$q = $this->session->userdata('status');

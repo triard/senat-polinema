@@ -95,10 +95,10 @@ class ModUser extends CI_model {
 		if (!empty($_FILES["image"]["name"])) {
 			$this->_deleteImage();
 			$image = $this->_uploadImage();
-			$this->session->set_flashdata('success', 'Update Foto berhasil.');  
+			$this->session->set_flashdata('success', 'Update Foto Profil berhasil.');  
 		} else {
 			$image = $this->input->post('old_image');
-			$this->session->set_flashdata('failed', 'Update password gagal.');  
+			$this->session->set_flashdata('failed', 'Update Foto Profil gagal.');  
 		}
 		$data = array('image' => $image);
 			$this->db->where('id_user', $id_user);

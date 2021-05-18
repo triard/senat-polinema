@@ -60,13 +60,14 @@ class ModLaporan extends CI_model {
 		$id_laporan = $this->input->post('id_laporan');
 		$id_kegiatan = $this->input->post('id_kegiatan');
 		$status = $this->input->post('status');
-		if (!empty($_FILES["nama_laporan"]["name"])) {
+		$nama_laporan = $this->input->post('nama_laporan');
+		if (!empty($_FILES["file_laporan"]["name"])) {
 			$this->_deleteDokumen($id_laporan);
-            $nama_laporan = $this->_uploadDokumen();
+            $file_laporan = $this->_uploadDokumen();
         } else {
-            $nama_laporan = $this->input->post('old_dokumen');
+            $file_laporan = $this->input->post('old_dokumen');
 		} 		
-		$data = array('id_kegiatan' => $id_kegiatan, 'nama_laporan'=>$nama_laporan, 'status'=>$status);
+		$data = array('id_kegiatan' => $id_kegiatan, 'nama_laporan'=>$nama_laporan, 'status'=>$status, 'file_laporan'=>$file_laporan);
 		$this->db->where('id_laporan', $id_laporan);
 		$this->db->update('laporan', $data);
 	}

@@ -6,6 +6,7 @@
             <label>File Dokumentasi</label><br>
             <input class="form-control" name="nama_dokumentasi" type="file" placeholder="Masukkan File Dokumentasi..."
                 required>
+            <label for="">Ukuran file maksimum: 5MB</label>
         </div>
     </div>
 </div>

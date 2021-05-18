@@ -267,7 +267,7 @@ class Kegiatan extends CI_Controller {
 		$q = $this->session->userdata('status');
 		if($q != "login") {
 			redirect('Homepage/home','refresh');
-		}
+		} 
 		$data = array( 
 			'title' => "Senat Polinema | Agenda Kegiatan Detail"
 		);
@@ -278,6 +278,7 @@ class Kegiatan extends CI_Controller {
 		$data['dokumentasi'] = $this->ModDokumentasi->selectAll();
 		$data['setuju'] = $this->ModKegiatan->JumlahVotingSetuju($id);
 		$data['tidak_setuju'] = $this->ModKegiatan->JumlahVotingTidakSetuju($id);
+		$data['absent'] = $this->ModKegiatan->JumlahVotingAbsent($id);
 		$data['golput'] = $this->ModKegiatan->JumlahGolput($id);
 		$data['notifikasi'] = $this->ModNotifikasi->getAll();
 		$data['status_notifikasi'] = $this->ModUser->getStatusNotifikasi();
