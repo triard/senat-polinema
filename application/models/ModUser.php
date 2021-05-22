@@ -165,6 +165,10 @@ class ModUser extends CI_model {
 		$data = array('status_notifikasi' => 'Unread');
 		$this->db->update('user', $data);
 	}
+	public function setUnreadStatusNotifikasiAdmin() {
+		$data = array('status_notifikasi' => 'Unread');
+		$this->db->update('user', $data);
+	}
 	public function setReadStatusNotifikasi() {
 		$id_user = $this->session->userdata('id_user');
 		$data = array('status_notifikasi' => 'Read');

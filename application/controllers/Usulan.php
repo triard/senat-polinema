@@ -46,6 +46,14 @@ class Usulan extends CI_Controller {
 		$this->ModUsulan->add();
 		if(json_encode(array("status" => TRUE))){
 			$this->session->set_flashdata('success', 'Usulan Anda berhasil diajukan');
+			// Notifikasi
+			$user = 'Civitas Akademika';
+			$text = 'Mengajukan sebuah usulan';
+			date_default_timezone_set('Asia/Jakarta');
+			$time = date('Y/m/d H:i:s'); 
+			$id_usulan = $this->ModNotifikasi->getLastIdUsulan();
+			$this->ModNotifikasi->addByUsulan($user, $text, $time, $id_usulan);
+			$this->ModUser->setUnreadStatusNotifikasiAdmin();
 		}else{
 			$this->session->set_flashdata('failed', 'Usulan Anda gagal diajukan');
 		}		
@@ -54,6 +62,14 @@ class Usulan extends CI_Controller {
 			$this->ModUsulan->add();
 			if(json_encode(array("status" => TRUE))){
 				$this->session->set_flashdata('success', 'Usulan Anda berhasil diajukan');
+				// Notifikasi
+				$user = 'Civitas Akademika';
+				$text = 'Mengajukan sebuah usulan';
+				date_default_timezone_set('Asia/Jakarta');
+				$time = date('Y/m/d H:i:s'); 
+				$id_usulan = $this->ModNotifikasi->getLastIdUsulan();
+				$this->ModNotifikasi->addByUsulan($user, $text, $time, $id_usulan);
+				$this->ModUser->setUnreadStatusNotifikasiAdmin();
 			}else{
 				$this->session->set_flashdata('failed', 'Usulan Anda gagal diajukan');
 			}
@@ -84,6 +100,8 @@ class Usulan extends CI_Controller {
 			exit();
 		}
 		$this->ModUsulan->delete($id);
+		// Notifikasi
+		$this->ModNotifikasi->deleteByUsulan($id);
 		if(json_encode(array("status" => TRUE))){
 			$this->session->set_flashdata('success', 'Usulan Anda berhasil dihapus');
 		}else{
@@ -125,10 +143,10 @@ class Usulan extends CI_Controller {
 		 $email = $this->input->post('email');
 		 $keterangan = $this->input->post('keterangan');
 		 $status = $this->input->post('status');
-	 	$this->email->message("Berdasarkan hasil verifikasi dari usulan yang anda ajukan. berikut ini detail usulan anda : <br>
-		 email : $email<br>
-		 Keterangan : $keterangan<br>
-		 Status : $status <br><br>
+	 	$this->email->message("Berdasarkan hasil verifikasi dari usulan yang anda ajukan. Berikut ini detail usulan anda : <br>
+		 Email <t>: $email<br>
+		 Keterangan <t>: $keterangan<br>
+		 Status <t>: $status <br><br>
 		 Demikian pemberitahuan ini kami sampaikan. Atas perhatian dan izin yang diberikan kami ucapkan terima kasih.");
 	 	if ($this->email->send()) {
 		 $this->session->set_flashdata('successemail', 'Sukses! email status usulan berhasil dikirim.');
