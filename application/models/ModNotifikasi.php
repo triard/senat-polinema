@@ -92,4 +92,18 @@ class ModNotifikasi extends CI_model {
 		$this->db->where('id_berita', $id_berita);
 		$this->db->delete('notifikasi');
 	}
+
+	public function addByUsulan($user, $text, $time, $id_usulan) {
+		$data = array('user' => $user, 'text' => $text, 'time' => $time, 'id_usulan' => $id_usulan);
+		$this->db->insert('notifikasi', $data);
+	}
+	public function getLastIdUsulan(){
+    	$query = $this->db->query("SELECT MAX(id_usulan) AS id_usulan FROM usulan");
+        $hasil = $query->row();
+        return $hasil->id_usulan;	
+    }
+    public function deleteByUsulan($id_usulan){
+		$this->db->where('id_usulan', $id_usulan);
+		$this->db->delete('notifikasi');
+	}
 }

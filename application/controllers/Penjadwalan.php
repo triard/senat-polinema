@@ -75,11 +75,11 @@ class Penjadwalan extends CI_Controller {
 			 $email = $this->input->post('email');
 			 $keterangan = $this->input->post('pembahasan');
 			 $status = $this->input->post('status');
-			 $this->email->message("Berdasarkan hasil verifikasi dari usulan yang anda ajukan. berikut ini detail usulan anda : <br>
-			 nama : $nama_pengusul <br>
-			 email : $email<br>
-			 Keterangan : $keterangan<br>
-			 Status : $status <br><br>
+			 $this->email->message("Berdasarkan hasil verifikasi dari usulan yang anda ajukan. Berikut ini detail usulan anda : <br>
+			 Nama <t>: $nama_pengusul <br>
+			 Email <t>: $email<br>
+			 Keterangan <t>: $keterangan<br>
+			 Status <t>: $status <br><br>
 			 Demikian pemberitahuan ini kami sampaikan. Atas perhatian dan izin yang diberikan kami ucapkan terima kasih.");
 			 if ($this->email->send()) {
 			 $this->session->set_flashdata('successemail', 'Sukses! email status usulan berhasil dikirim.');
