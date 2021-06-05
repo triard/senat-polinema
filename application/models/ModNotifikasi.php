@@ -9,7 +9,7 @@ class ModNotifikasi extends CI_model {
         return $this->db->get()->result(); 
 	}
 	public function getAll(){
-    	$query = $this->db->query("SELECT * FROM notifikasi ORDER BY time DESC LIMIT 4");
+    	$query = $this->db->query("SELECT * FROM notifikasi ORDER BY time");
         return $query->result();
     }
 

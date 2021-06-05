@@ -138,6 +138,53 @@ class Kegiatan extends CI_Controller {
 		if($q != "login") {
 			exit();
 		}
+		$id_penjadwalan = $this->ModKegiatan->getIdPenjadwalan($id);
+		$id_usulan = $this->ModPenjadwalan->getIdUsulan($id_penjadwalan);
+		if ($this->session->userdata('level') == 'Sekretaris') {
+			if ($id_penjadwalan != 0) {
+				$this->ModPenjadwalan->setStatus($id_penjadwalan, 'Dijadwalkan - Sidang Pleno');
+				$id_usulan = $this->ModPenjadwalan->getIdUsulan($id_penjadwalan);
+				if ($id_usulan != 0) {
+					$this->ModUsulan->setStatus($id_usulan, 'Dijadwalkan - Sidang Pleno');
+				}
+			}	
+		} 
+		else if ($this->session->userdata('level') == 'Ketua Komisi 1') {
+			if ($id_penjadwalan != 0) {
+				$this->ModPenjadwalan->setStatus($id_penjadwalan, 'Dijadwalkan - Komisi 1');
+				$id_usulan = $this->ModPenjadwalan->getIdUsulan($id_penjadwalan);
+				if ($id_usulan != 0) {
+					$this->ModUsulan->setStatus($id_usulan, 'Dijadwalkan - Komisi 1');
+				}
+			}
+		}
+		else if ($this->session->userdata('level') == 'Ketua Komisi 2') {
+			if ($id_penjadwalan != 0) {
+				$this->ModPenjadwalan->setStatus($id_penjadwalan, 'Dijadwalkan - Komisi 2');
+				$id_usulan = $this->ModPenjadwalan->getIdUsulan($id_penjadwalan);
+				if ($id_usulan != 0) {
+					$this->ModUsulan->setStatus($id_usulan, 'Dijadwalkan - Komisi 2');
+				}
+			}
+		}
+		else if ($this->session->userdata('level') == 'Ketua Komisi 3') {
+			if ($id_penjadwalan != 0) {
+				$this->ModPenjadwalan->setStatus($id_penjadwalan, 'Dijadwalkan - Komisi 3');
+				$id_usulan = $this->ModPenjadwalan->getIdUsulan($id_penjadwalan);
+				if ($id_usulan != 0) {
+					$this->ModUsulan->setStatus($id_usulan, 'Dijadwalkan - Komisi 3');
+				}
+			}
+		}
+		else if ($this->session->userdata('level') == 'Ketua Komisi 4') {
+			if ($id_penjadwalan != 0) {
+				$this->ModPenjadwalan->setStatus($id_penjadwalan, 'Dijadwalkan - Komisi 4');
+				$id_usulan = $this->ModPenjadwalan->getIdUsulan($id_penjadwalan);
+				if ($id_usulan != 0) {
+					$this->ModUsulan->setStatus($id_usulan, 'Dijadwalkan - Komisi 4');
+				}
+			}
+		}
 		$this->ModKegiatan->delete($id);
 		// Notifikasi
 		$this->ModNotifikasi->deleteByKegiatan($id);
