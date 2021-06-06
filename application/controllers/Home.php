@@ -40,7 +40,22 @@ class Home extends CI_Controller {
         $data['totalUsulan'] = $this->ModUsulan->GetMostInput();
         $data['usulanFilter'] = $this->ModUsulan->InputFilter();
         $data['notifikasi'] = $this->ModNotifikasi->getAll();
+        $data['notifikasiLimit'] = $this->ModNotifikasi->getAllLimit4();
         $data['status_notifikasi'] = $this->ModUser->getStatusNotifikasi();
+        $data['jadwalTerlaksana'] = $this->ModPenjadwalan->getJadwalTerlaksana();
+        $data['jadwalBelumTerlaksana'] = $this->ModPenjadwalan->getJadwalBelumTerlaksana();
+        $data['jadwalKomisi1'] = $this->ModPenjadwalan->getJadwalKomisi1();
+        $data['jadwalKomisi1Terlaksana'] = $this->ModPenjadwalan->getJadwalKomisi1Terlaksana();
+        $data['jadwalKomisi1BelumTerlaksana'] = $this->ModPenjadwalan->getJadwalKomisi1BelumTerlaksana();
+        $data['jadwalKomisi2'] = $this->ModPenjadwalan->getJadwalKomisi2();
+        $data['jadwalKomisi2Terlaksana'] = $this->ModPenjadwalan->getJadwalKomisi2Terlaksana();
+        $data['jadwalKomisi2BelumTerlaksana'] = $this->ModPenjadwalan->getJadwalKomisi2BelumTerlaksana();
+        $data['jadwalKomisi3'] = $this->ModPenjadwalan->getJadwalKomisi3();
+        $data['jadwalKomisi3Terlaksana'] = $this->ModPenjadwalan->getJadwalKomisi3Terlaksana();
+        $data['jadwalKomisi3BelumTerlaksana'] = $this->ModPenjadwalan->getJadwalKomisi3BelumTerlaksana();
+        $data['jadwalKomisi4'] = $this->ModPenjadwalan->getJadwalKomisi4();
+        $data['jadwalKomisi4Terlaksana'] = $this->ModPenjadwalan->getJadwalKomisi4Terlaksana();
+        $data['jadwalKomisi4BelumTerlaksana'] = $this->ModPenjadwalan->getJadwalKomisi4BelumTerlaksana();
         $this->load->view('home', $data);
     }
 
