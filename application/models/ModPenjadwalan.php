@@ -173,6 +173,7 @@ class ModPenjadwalan extends CI_model {
         $this->db->insert_batch('peserta', $result);
         $this->db->trans_complete();
 	}
+
 	public function updateStatus(){
 		$id_penjadwalan = $this->input->post('id_penjadwalan');
 		$status = $this->input->post('status'); 		
@@ -180,15 +181,186 @@ class ModPenjadwalan extends CI_model {
 			$this->db->where('id_penjadwalan', $id_penjadwalan);
 			$this->db->update('penjadwalan', $data);
 	}
+
 	public function getCountPenjadwalan()
 	{
 		$this->db->select('id_penjadwalan');
 		$this->db->from('penjadwalan');
 		return $this->db->count_all_results();
 	}
+
 	public function setStatus($id_penjadwalan, $status){ 		
 		$data = array('status'=>$status);
 		$this->db->where('id_penjadwalan', $id_penjadwalan);
 		$this->db->update('penjadwalan', $data);
 	}
+
+	public function getJadwalTerlaksana()
+	{
+		$query = $this->db->query("SELECT * FROM penjadwalan WHERE status='Selesai'");
+        $cek = $query->num_rows();
+		if ($cek > 0) {
+			$hasil = $cek;
+		} else {
+			$hasil = 0;
+		}
+        return $hasil;	
+	}
+
+	public function getJadwalBelumTerlaksana()
+	{
+		$query = $this->db->query("SELECT * FROM penjadwalan WHERE status!='Selesai'");
+        $cek = $query->num_rows();
+		if ($cek > 0) {
+			$hasil = $cek;
+		} else {
+			$hasil = 0;
+		}
+        return $hasil;	
+	}
+
+	public function getJadwalKomisi1()
+	{
+		$query = $this->db->query("SELECT * FROM penjadwalan INNER JOIN user ON penjadwalan.id_user=user.id_user WHERE jabatan='Ketua Komisi 1'");
+        $cek = $query->num_rows();
+		if ($cek > 0) {
+			$hasil = $cek;
+		} else {
+			$hasil = 0;
+		}
+        return $hasil;	
+	}
+
+	public function getJadwalKomisi1Terlaksana()
+	{
+		$query = $this->db->query("SELECT * FROM penjadwalan INNER JOIN user ON penjadwalan.id_user=user.id_user WHERE status='Selesai' AND jabatan='Ketua Komisi 1'");
+        $cek = $query->num_rows();
+		if ($cek > 0) {
+			$hasil = $cek;
+		} else {
+			$hasil = 0;
+		}
+        return $hasil;	
+	}
+
+	public function getJadwalKomisi1BelumTerlaksana()
+	{
+		$query = $this->db->query("SELECT * FROM penjadwalan INNER JOIN user ON penjadwalan.id_user=user.id_user WHERE status!='Selesai' AND jabatan='Ketua Komisi 1'");
+        $cek = $query->num_rows();
+		if ($cek > 0) {
+			$hasil = $cek;
+		} else {
+			$hasil = 0;
+		}
+        return $hasil;	
+	}
+
+	public function getJadwalKomisi2()
+	{
+		$query = $this->db->query("SELECT * FROM penjadwalan INNER JOIN user ON penjadwalan.id_user=user.id_user WHERE jabatan='Ketua Komisi 2'");
+        $cek = $query->num_rows();
+		if ($cek > 0) {
+			$hasil = $cek;
+		} else {
+			$hasil = 0;
+		}
+        return $hasil;	
+	}
+
+	public function getJadwalKomisi2Terlaksana()
+	{
+		$query = $this->db->query("SELECT * FROM penjadwalan INNER JOIN user ON penjadwalan.id_user=user.id_user WHERE status='Selesai' AND jabatan='Ketua Komisi 2'");
+        $cek = $query->num_rows();
+		if ($cek > 0) {
+			$hasil = $cek;
+		} else {
+			$hasil = 0;
+		}
+        return $hasil;	
+	}
+
+	public function getJadwalKomisi2BelumTerlaksana()
+	{
+		$query = $this->db->query("SELECT * FROM penjadwalan INNER JOIN user ON penjadwalan.id_user=user.id_user WHERE status!='Selesai' AND jabatan='Ketua Komisi 2'");
+        $cek = $query->num_rows();
+		if ($cek > 0) {
+			$hasil = $cek;
+		} else {
+			$hasil = 0;
+		}
+        return $hasil;	
+	}
+
+	public function getJadwalKomisi3()
+	{
+		$query = $this->db->query("SELECT * FROM penjadwalan INNER JOIN user ON penjadwalan.id_user=user.id_user WHERE jabatan='Ketua Komisi 3'");
+        $cek = $query->num_rows();
+		if ($cek > 0) {
+			$hasil = $cek;
+		} else {
+			$hasil = 0;
+		}
+        return $hasil;	
+	}
+
+	public function getJadwalKomisi3Terlaksana()
+	{
+		$query = $this->db->query("SELECT * FROM penjadwalan INNER JOIN user ON penjadwalan.id_user=user.id_user WHERE status='Selesai' AND jabatan='Ketua Komisi 3'");
+        $cek = $query->num_rows();
+		if ($cek > 0) {
+			$hasil = $cek;
+		} else {
+			$hasil = 0;
+		}
+        return $hasil;	
+	}
+
+	public function getJadwalKomisi3BelumTerlaksana()
+	{
+		$query = $this->db->query("SELECT * FROM penjadwalan INNER JOIN user ON penjadwalan.id_user=user.id_user WHERE status!='Selesai' AND jabatan='Ketua Komisi 3'");
+        $cek = $query->num_rows();
+		if ($cek > 0) {
+			$hasil = $cek;
+		} else {
+			$hasil = 0;
+		}
+        return $hasil;	
+	}
+
+	public function getJadwalKomisi4()
+	{
+		$query = $this->db->query("SELECT * FROM penjadwalan INNER JOIN user ON penjadwalan.id_user=user.id_user WHERE jabatan='Ketua Komisi 4'");
+        $cek = $query->num_rows();
+		if ($cek > 0) {
+			$hasil = $cek;
+		} else {
+			$hasil = 0;
+		}
+        return $hasil;	
+	}
+
+	public function getJadwalKomisi4Terlaksana()
+	{
+		$query = $this->db->query("SELECT * FROM penjadwalan INNER JOIN user ON penjadwalan.id_user=user.id_user WHERE status='Selesai' AND jabatan='Ketua Komisi 4'");
+        $cek = $query->num_rows();
+		if ($cek > 0) {
+			$hasil = $cek;
+		} else {
+			$hasil = 0;
+		}
+        return $hasil;	
+	}
+
+	public function getJadwalKomisi4BelumTerlaksana()
+	{
+		$query = $this->db->query("SELECT * FROM penjadwalan INNER JOIN user ON penjadwalan.id_user=user.id_user WHERE status!='Selesai' AND jabatan='Ketua Komisi 4'");
+        $cek = $query->num_rows();
+		if ($cek > 0) {
+			$hasil = $cek;
+		} else {
+			$hasil = 0;
+		}
+        return $hasil;	
+	}
+
 }

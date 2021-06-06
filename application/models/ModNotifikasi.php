@@ -13,6 +13,11 @@ class ModNotifikasi extends CI_model {
         return $query->result();
     }
 
+    public function getAllLimit4(){
+    	$query = $this->db->query("SELECT * FROM notifikasi ORDER BY time LIMIT 4");
+        return $query->result();
+    }
+
 	public function addByPenjadwalan($user, $text, $time, $id_user, $id_penjadwalan) {
 		$data = array('user' => $user, 'text' => $text, 'time' => $time, 'id_user' => $id_user, 'id_penjadwalan' => $id_penjadwalan);
 		$this->db->insert('notifikasi', $data);

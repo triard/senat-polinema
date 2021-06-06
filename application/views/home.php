@@ -87,7 +87,7 @@ $this->load->view('_partials/sidebar');
                 </div>
             </div>
             <?php if($this->session->userdata('level') == "Admin"){?>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                     <div class="card-icon bg-danger">
                         <i class="fas fa-circle"></i>
@@ -102,26 +102,99 @@ $this->load->view('_partials/sidebar');
                     </div>
                 </div>
             </div>
-            <?php } ?>
-            <?php if($this->session->userdata('level') == "Sekretaris"){?>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                     <div class="card-icon bg-danger">
                         <i class="fas fa-circle"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>Usulan Perlu Diupdate Status</h4>
+                            <h4>Agenda Kegiatan Terlaksana</h4>
                         </div>
                         <div class="card-body">
-                            <?php echo $status ?>
+                            <?php echo $jadwalTerlaksana ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Agenda Kegiatan Belum Terlaksana</h4>
+                        </div>
+                        <div class="card-body">
+                            <?php echo $jadwalBelumTerlaksana ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Agenda Kegiatan Komisi 1</h4>
+                        </div>
+                        <div class="card-body">
+                            <?php echo $jadwalKomisi1 ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Agenda Kegiatan Komisi 2</h4>
+                        </div>
+                        <div class="card-body">
+                            <?php echo $jadwalKomisi2 ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Agenda Kegiatan Komisi 3</h4>
+                        </div>
+                        <div class="card-body">
+                            <?php echo $jadwalKomisi3 ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Agenda Kegiatan Komisi 4</h4>
+                        </div>
+                        <div class="card-body">
+                            <?php echo $jadwalKomisi4 ?>
                         </div>
                     </div>
                 </div>
             </div>
             <?php } ?>
-            <?php if($this->session->userdata('level') == "Sekretaris" || $this->session->userdata('level') == "Ketua Komisi 1" || $this->session->userdata('level') == "Ketua Komisi 2" || $this->session->userdata('level') == "Ketua Komisi 3" || $this->session->userdata('level') == "Ketua Komisi 4"){?>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+            <?php if($this->session->userdata('level') == "Sekretaris"){?>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                     <div class="card-icon bg-danger">
                         <i class="fas fa-circle"></i>
@@ -131,10 +204,114 @@ $this->load->view('_partials/sidebar');
                             <h4>Usulan Perlu Dijadwalkan</h4>
                         </div>
                         <div class="card-body">
-                            <?php if($this->session->userdata('level') == "Sekretaris"){
-                                echo $sekretaris;
-                            }
-                            else if($this->session->userdata('level') == "Ketua Komisi 1"){
+                            <?php echo $sekretaris; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Agenda Kegiatan Terlaksana</h4>
+                        </div>
+                        <div class="card-body">
+                            <?php echo $jadwalTerlaksana ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Agenda Kegiatan Belum Terlaksana</h4>
+                        </div>
+                        <div class="card-body">
+                            <?php echo $jadwalBelumTerlaksana ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Agenda Kegiatan Komisi 1</h4>
+                        </div>
+                        <div class="card-body">
+                            <?php echo $jadwalKomisi1 ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Agenda Kegiatan Komisi 2</h4>
+                        </div>
+                        <div class="card-body">
+                            <?php echo $jadwalKomisi2 ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Agenda Kegiatan Komisi 3</h4>
+                        </div>
+                        <div class="card-body">
+                            <?php echo $jadwalKomisi3 ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Agenda Kegiatan Komisi 4</h4>
+                        </div>
+                        <div class="card-body">
+                            <?php echo $jadwalKomisi4 ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
+            <?php if($this->session->userdata('level') == "Ketua Komisi 1" || $this->session->userdata('level') == "Ketua Komisi 2" || $this->session->userdata('level') == "Ketua Komisi 3" || $this->session->userdata('level') == "Ketua Komisi 4"){?>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Usulan Perlu Dijadwalkan</h4>
+                        </div>
+                        <div class="card-body">
+                            <?php if($this->session->userdata('level') == "Ketua Komisi 1"){
                                 echo $komisi1;
                             }else if($this->session->userdata('level') == "Ketua Komisi 2"){
                                 echo $komisi2;
@@ -147,9 +324,188 @@ $this->load->view('_partials/sidebar');
                     </div>
                 </div>
             </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Agenda Kegiatan Terlaksana</h4>
+                        </div>
+                        <div class="card-body">
+                            <?php echo $jadwalTerlaksana ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Agenda Kegiatan Belum Terlaksana</h4>
+                        </div>
+                        <div class="card-body">
+                            <?php echo $jadwalBelumTerlaksana ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <?php if($this->session->userdata('level') == "Ketua Komisi 1"){
+                            ?>
+                            <h4>Agenda Kegiatan Komisi 1 Terlaksana</h4>
+                            <?php
+                            }else if($this->session->userdata('level') == "Ketua Komisi 2"){
+                            ?>
+                            <h4>Agenda Kegiatan Komisi 2 Terlaksana</h4>
+                            <?php
+                            }else if($this->session->userdata('level') == "Ketua Komisi 3"){
+                            ?>
+                            <h4>Agenda Kegiatan Komisi 3 Terlaksana</h4>
+                            <?php
+                            }else if($this->session->userdata('level') == "Ketua Komisi 4"){
+                            ?>
+                            <h4>Agenda Kegiatan Komisi 4 Terlaksana</h4>
+                            <?php
+                            } ?>
+                        </div>
+                        <div class="card-body">
+                            <?php if($this->session->userdata('level') == "Ketua Komisi 1"){
+                                echo $jadwalKomisi1Terlaksana;
+                            }else if($this->session->userdata('level') == "Ketua Komisi 2"){
+                                echo $jadwalKomisi2Terlaksana;
+                            }else if($this->session->userdata('level') == "Ketua Komisi 3"){
+                                echo $jadwalKomisi3Terlaksana;
+                            }else if($this->session->userdata('level') == "Ketua Komisi 4"){
+                                echo $jadwalKomisi4Terlaksana;
+                            } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <?php if($this->session->userdata('level') == "Ketua Komisi 1"){
+                            ?>
+                            <h4>Agenda Kegiatan Komisi 1 Belum Terlaksana</h4>
+                            <?php
+                            }else if($this->session->userdata('level') == "Ketua Komisi 2"){
+                            ?>
+                            <h4>Agenda Kegiatan Komisi 2 Belum Terlaksana</h4>
+                            <?php
+                            }else if($this->session->userdata('level') == "Ketua Komisi 3"){
+                            ?>
+                            <h4>Agenda Kegiatan Komisi 3 Belum Terlaksana</h4>
+                            <?php
+                            }else if($this->session->userdata('level') == "Ketua Komisi 4"){
+                            ?>
+                            <h4>Agenda Kegiatan Komisi 4 Belum Terlaksana</h4>
+                            <?php
+                            } ?>
+                        </div>
+                        <div class="card-body">
+                            <?php if($this->session->userdata('level') == "Ketua Komisi 1"){
+                                echo $jadwalKomisi1BelumTerlaksana;
+                            }else if($this->session->userdata('level') == "Ketua Komisi 2"){
+                                echo $jadwalKomisi2BelumTerlaksana;
+                            }else if($this->session->userdata('level') == "Ketua Komisi 3"){
+                                echo $jadwalKomisi3BelumTerlaksana;
+                            }else if($this->session->userdata('level') == "Ketua Komisi 4"){
+                                echo $jadwalKomisi4BelumTerlaksana;
+                            } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
+            <?php if($this->session->userdata('level') == "Anggota Komisi 1" || $this->session->userdata('level') == "Anggota Komisi 2" || $this->session->userdata('level') == "Anggota Komisi 3" || $this->session->userdata('level') == "Anggota Komisi 4"){?>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Agenda Kegiatan Terlaksana</h4>
+                        </div>
+                        <div class="card-body">
+                            <?php echo $jadwalTerlaksana ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Agenda Kegiatan Belum Terlaksana</h4>
+                        </div>
+                        <div class="card-body">
+                            <?php echo $jadwalBelumTerlaksana ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <?php if($this->session->userdata('level') == "Anggota Komisi 1"){
+                            ?>
+                            <h4>Agenda Kegiatan Komisi 1</h4>
+                            <?php
+                            }else if($this->session->userdata('level') == "Anggota Komisi 2"){
+                            ?>
+                            <h4>Agenda Kegiatan Komisi 2</h4>
+                            <?php
+                            }else if($this->session->userdata('level') == "Anggota Komisi 3"){
+                            ?>
+                            <h4>Agenda Kegiatan Komisi 3</h4>
+                            <?php
+                            }else if($this->session->userdata('level') == "Anggota Komisi 4"){
+                            ?>
+                            <h4>Agenda Kegiatan Komisi 4</h4>
+                            <?php
+                            } ?>
+                        </div>
+                        <div class="card-body">
+                            <?php if($this->session->userdata('level') == "Anggota Komisi 1"){
+                                echo $jadwalKomisi1;
+                            }else if($this->session->userdata('level') == "Anggota Komisi 2"){
+                                echo $jadwalKomisi2;
+                            }else if($this->session->userdata('level') == "Anggota Komisi 3"){
+                                echo $jadwalKomisi3;
+                            }else if($this->session->userdata('level') == "Anggota Komisi 4"){
+                                echo $jadwalKomisi4;
+                            } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <?php } ?>
             <?php if($this->session->userdata('level') == "Ketua Senat"){?>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                     <div class="card-icon bg-danger">
                         <i class="fas fa-circle"></i>
@@ -160,6 +516,96 @@ $this->load->view('_partials/sidebar');
                         </div>
                         <div class="card-body">
                             <?php echo $birokrasi ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Agenda Kegiatan Terlaksana</h4>
+                        </div>
+                        <div class="card-body">
+                            <?php echo $jadwalTerlaksana ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Agenda Kegiatan Belum Terlaksana</h4>
+                        </div>
+                        <div class="card-body">
+                            <?php echo $jadwalBelumTerlaksana ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Agenda Kegiatan Komisi 1</h4>
+                        </div>
+                        <div class="card-body">
+                            <?php echo $jadwalKomisi1 ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Agenda Kegiatan Komisi 2</h4>
+                        </div>
+                        <div class="card-body">
+                            <?php echo $jadwalKomisi2 ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Agenda Kegiatan Komisi 3</h4>
+                        </div>
+                        <div class="card-body">
+                            <?php echo $jadwalKomisi3 ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="card card-statistic-1">
+                    <div class="card-icon bg-danger">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Agenda Kegiatan Komisi 4</h4>
+                        </div>
+                        <div class="card-body">
+                            <?php echo $jadwalKomisi4 ?>
                         </div>
                     </div>
                 </div>
@@ -306,7 +752,7 @@ $this->load->view('_partials/sidebar');
                 </div>
                 <div class="card-body">
                     <ul class="list-unstyled list-unstyled-border">
-                        <?php foreach ($notifikasi as $k) { 
+                        <?php foreach ($notifikasiLimit as $k) { 
                             if ((($this->session->userdata('level') == "Ketua Komisi 1" || $this->session->userdata('level') == "Anggota Komisi 1") && ($k->user == 'Ketua Komisi 1' || $k->user == 'Admin' || $k->user == 'Sekretaris'))) { ?>
                             <li class="media">
                             <div class="media-body">
