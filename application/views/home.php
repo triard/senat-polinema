@@ -14,7 +14,7 @@ $this->load->view('_partials/sidebar');
         <?php if($this->session->userdata('level') == "Admin"){?>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-primary">
+                    <div class="card-icon bg-success">
                         <i class="far fa-user"></i>
                     </div>
                     <div class="card-wrap">
@@ -29,7 +29,7 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-secondary">
+                    <div class="card-icon" style="background-color: #f1c40f;">
                         <i class="far fa-newspaper"></i>
                     </div>
                     <div class="card-wrap">
@@ -45,12 +45,12 @@ $this->load->view('_partials/sidebar');
             <?php } ?>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-warning">
+                    <div class="card-icon bg-primary">
                         <i class="far fa-lightbulb"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>Usulan</h4>
+                            <h4>Total Usulan</h4>
                         </div>
                         <div class="card-body">
                             <?php echo $usulan?>
@@ -60,7 +60,7 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-success">
+                    <div class="card-icon bg-warning">
                         <i class="far fa-file-alt"></i>
                     </div>
                     <div class="card-wrap">
@@ -75,7 +75,7 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-info">
+                    <div class="card-icon" style="background-color:#706fd3;">
                         <i class="far fa-file-image"></i>
                     </div>
                     <div class="card-wrap">
@@ -92,7 +92,7 @@ $this->load->view('_partials/sidebar');
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                     <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+                        <i class="fas fa-lightbulb"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -106,8 +106,8 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+                    <div class="card-icon bg-success">
+                        <i class="far fa-calendar-check"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -119,10 +119,10 @@ $this->load->view('_partials/sidebar');
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+            <div class="col-lg-3 col-md-5 col-sm-7 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+                    <div class="card-icon" style="background-color:#f1c40f;">
+                        <i class="far fa-calendar-minus"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -136,8 +136,8 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+                    <div class="card-icon" style="background-color:#44bd32;">
+                        <i class="far fa-calendar"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -151,8 +151,8 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+                    <div class="card-icon" style="background-color:#a29bfe;">
+                       <i class="far fa-calendar"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -166,8 +166,8 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+                    <div class="card-icon" style="background-color:#81ecec;">
+                       <i class="far fa-calendar"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -181,8 +181,8 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+                    <div class="card-icon" style="background-color:#ff7675;">
+                        <i class="far fa-calendar"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -199,7 +199,7 @@ $this->load->view('_partials/sidebar');
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                     <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+                        <i class="far fa-calendar-alt"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -213,8 +213,8 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+                        <div class="card-icon bg-success">
+                        <i class="far fa-calendar-check"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -228,8 +228,8 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+                    <div class="card-icon" style="background-color:#f1c40f;">
+                        <i class="far fa-calendar-minus"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -243,8 +243,8 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+                   <div class="card-icon" style="background-color:#55efc4;">
+                        <i class="far fa-calendar"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -258,8 +258,8 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+                    <div class="card-icon" style="background-color:#a29bfe;">
+                       <i class="far fa-calendar"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -273,8 +273,8 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+                    <div class="card-icon" style="background-color:#81ecec;">
+                       <i class="far fa-calendar"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -288,8 +288,8 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+                   <div class="card-icon" style="background-color:#ff7675;">
+                        <i class="far fa-calendar"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -306,7 +306,7 @@ $this->load->view('_partials/sidebar');
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                     <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+                        <i class="far fa-calendar-alt"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -328,8 +328,8 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+                    <div class="card-icon bg-success">
+                        <i class="far fa-calendar-check"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -343,8 +343,8 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+                   <div class="card-icon" style="background-color:#f1c40f;">
+                        <i class="far fa-calendar-minus"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -358,8 +358,8 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+                   <div class="card-icon" style="background-color:#44bd32;">
+                        <i class="far fa-calendar"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -397,8 +397,8 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+                    <div class="card-icon" style="background-color:#f9ca24;">
+                        <i class="far fa-calendar"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -438,8 +438,8 @@ $this->load->view('_partials/sidebar');
             <?php if($this->session->userdata('level') == "Anggota Komisi 1" || $this->session->userdata('level') == "Anggota Komisi 2" || $this->session->userdata('level') == "Anggota Komisi 3" || $this->session->userdata('level') == "Anggota Komisi 4"){?>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+                        <div class="card-icon bg-success">
+                        <i class="far fa-calendar-check"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -453,8 +453,8 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+                   <div class="card-icon" style="background-color:#f1c40f;">
+                        <i class="far fa-calendar-minus"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -468,8 +468,8 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+               <div class="card-icon" style="background-color:#44bd32;">
+                        <i class="far fa-calendar"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -510,7 +510,7 @@ $this->load->view('_partials/sidebar');
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                     <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+                    <i class="far fa-file-alt"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -524,8 +524,8 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+                         <div class="card-icon bg-success">
+                        <i class="far fa-calendar-check"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -539,8 +539,8 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+                   <div class="card-icon" style="background-color:#f1c40f;">
+                        <i class="far fa-calendar-minus"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -554,8 +554,8 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+              <div class="card-icon" style="background-color:#55efc4;">
+                        <i class="far fa-calendar"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -569,8 +569,8 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+                     <div class="card-icon" style="background-color:#a29bfe;">
+                       <i class="far fa-calendar"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -584,8 +584,8 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+                    <div class="card-icon" style="background-color:#81ecec;">
+                       <i class="far fa-calendar"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -599,8 +599,8 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                    <div class="card-icon bg-danger">
-                        <i class="fas fa-circle"></i>
+                    <div class="card-icon" style="background-color:#ff7675;">
+                        <i class="far fa-calendar"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
