@@ -102,7 +102,7 @@ class Kegiatan extends CI_Controller {
 					} else {
 					$this->session->set_flashdata('failedemail', 'Error! email status usulan tidak dapat dikirim.');
 					}
-			}
+				}
 			}
 		}
 		$this->ModKegiatan->add();
@@ -140,12 +140,21 @@ class Kegiatan extends CI_Controller {
 		}
 		$id_penjadwalan = $this->ModKegiatan->getIdPenjadwalan($id);
 		$id_usulan = $this->ModPenjadwalan->getIdUsulan($id_penjadwalan);
+		$status = $this->ModKegiatan->getStatus($id);
 		if ($this->session->userdata('level') == 'Sekretaris') {
 			if ($id_penjadwalan != 0) {
-				$this->ModPenjadwalan->setStatus($id_penjadwalan, 'Dijadwalkan - Sidang Pleno');
-				$id_usulan = $this->ModPenjadwalan->getIdUsulan($id_penjadwalan);
-				if ($id_usulan != 0) {
-					$this->ModUsulan->setStatus($id_usulan, 'Dijadwalkan - Sidang Pleno');
+				if ($status=='Sidang Sedang Berlangsung') {
+					$this->ModPenjadwalan->setStatus($id_penjadwalan, 'Dijadwalkan - Sidang Pleno');
+					$id_usulan = $this->ModPenjadwalan->getIdUsulan($id_penjadwalan);
+					if ($id_usulan != 0) {
+						$this->ModUsulan->setStatus($id_usulan, 'Dijadwalkan - Sidang Pleno');
+					}	
+				} else {
+					$this->ModPenjadwalan->setStatus($id_penjadwalan, 'Dijadwalkan - Sekretaris');
+					$id_usulan = $this->ModPenjadwalan->getIdUsulan($id_penjadwalan);
+					if ($id_usulan != 0) {
+						$this->ModUsulan->setStatus($id_usulan, 'Dijadwalkan - Sekretaris');
+					}
 				}
 			}	
 		} 

@@ -20,7 +20,9 @@ class ModKegiatan extends CI_model {
 		$password= $this->input->post('password');
 		$tujuan = $this->input->post('tujuan');
 		$status = $this->input->post('status');
-		if ($status != 'Rapat/Sidang Sedang Berlangsung') {
+		if ($status == 'Sidang Sedang Berlangsung' || $status == 'Rapat Sedang Berlangsung') {
+			$status = $this->input->post('status');
+		} else {
 			$status = 'Selesai';
 		}
 		$notula = $this->input->post('notula');
@@ -55,6 +57,17 @@ class ModKegiatan extends CI_model {
 		if ($cek > 0) {
 			$x = $query->row();
 			$hasil = $x->id_penjadwalan;
+		} else {
+			$hasil = 0;
+		}
+        return $hasil;	
+    } 
+    public function getStatus($id){
+    	$query = $this->db->query("SELECT status FROM kegiatan WHERE id_kegiatan='$id'");
+        $cek = $query->num_rows();
+		if ($cek > 0) {
+			$x = $query->row();
+			$hasil = $x->status;
 		} else {
 			$hasil = 0;
 		}
