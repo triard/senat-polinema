@@ -114,7 +114,8 @@
             <select name="status" class="custom-select form-control" required>
                 <option disabled selected>Pilih Status Kegiatan</option>
                 <option disabled>------------------------------</option>
-                <option value="Rapat/Sidang Sedang Berlangsung">Rapat/Sidang Sedang Berlangsung</option>
+                <option value="Rapat Sedang Berlangsung">Rapat Sedang Berlangsung</option>
+                <option value="Sidang Sedang Berlangsung">Sidang Sedang Berlangsung</option>
                 <option value="Perlu Tindak Lanjut - Sidang Pleno">Perlu Tindak Lanjut - Sidang Pleno</option>
                 <option value="Perlu Tindak Lanjut - Sidang Paripurna">Perlu Tindak Lanjut - Sidang Paripurna</option>
                 <option value="Selesai">Selesai</option>

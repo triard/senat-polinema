@@ -11,7 +11,7 @@ $this->load->view('_partials/sidebar');
             <h1>Dashboard</h1>
         </div>
         <div class="row">
-        <?php if($this->session->userdata('level') == "Admin"){?>
+            <?php if($this->session->userdata('level') == "Admin"){?>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                     <div class="card-icon bg-success">
@@ -152,7 +152,7 @@ $this->load->view('_partials/sidebar');
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                     <div class="card-icon" style="background-color:#a29bfe;">
-                       <i class="far fa-calendar"></i>
+                        <i class="far fa-calendar"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -167,7 +167,7 @@ $this->load->view('_partials/sidebar');
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                     <div class="card-icon" style="background-color:#81ecec;">
-                       <i class="far fa-calendar"></i>
+                        <i class="far fa-calendar"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -213,7 +213,7 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                        <div class="card-icon bg-success">
+                    <div class="card-icon bg-success">
                         <i class="far fa-calendar-check"></i>
                     </div>
                     <div class="card-wrap">
@@ -243,7 +243,7 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                   <div class="card-icon" style="background-color:#55efc4;">
+                    <div class="card-icon" style="background-color:#55efc4;">
                         <i class="far fa-calendar"></i>
                     </div>
                     <div class="card-wrap">
@@ -259,7 +259,7 @@ $this->load->view('_partials/sidebar');
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                     <div class="card-icon" style="background-color:#a29bfe;">
-                       <i class="far fa-calendar"></i>
+                        <i class="far fa-calendar"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -274,7 +274,7 @@ $this->load->view('_partials/sidebar');
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                     <div class="card-icon" style="background-color:#81ecec;">
-                       <i class="far fa-calendar"></i>
+                        <i class="far fa-calendar"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -288,7 +288,7 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                   <div class="card-icon" style="background-color:#ff7675;">
+                    <div class="card-icon" style="background-color:#ff7675;">
                         <i class="far fa-calendar"></i>
                     </div>
                     <div class="card-wrap">
@@ -343,7 +343,7 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                   <div class="card-icon" style="background-color:#f1c40f;">
+                    <div class="card-icon" style="background-color:#f1c40f;">
                         <i class="far fa-calendar-minus"></i>
                     </div>
                     <div class="card-wrap">
@@ -358,7 +358,7 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                   <div class="card-icon" style="background-color:#44bd32;">
+                    <div class="card-icon" style="background-color:#44bd32;">
                         <i class="far fa-calendar"></i>
                     </div>
                     <div class="card-wrap">
@@ -438,7 +438,7 @@ $this->load->view('_partials/sidebar');
             <?php if($this->session->userdata('level') == "Anggota Komisi 1" || $this->session->userdata('level') == "Anggota Komisi 2" || $this->session->userdata('level') == "Anggota Komisi 3" || $this->session->userdata('level') == "Anggota Komisi 4"){?>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                        <div class="card-icon bg-success">
+                    <div class="card-icon bg-success">
                         <i class="far fa-calendar-check"></i>
                     </div>
                     <div class="card-wrap">
@@ -453,7 +453,7 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                   <div class="card-icon" style="background-color:#f1c40f;">
+                    <div class="card-icon" style="background-color:#f1c40f;">
                         <i class="far fa-calendar-minus"></i>
                     </div>
                     <div class="card-wrap">
@@ -468,7 +468,7 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-               <div class="card-icon" style="background-color:#44bd32;">
+                    <div class="card-icon" style="background-color:#44bd32;">
                         <i class="far fa-calendar"></i>
                     </div>
                     <div class="card-wrap">
@@ -510,7 +510,7 @@ $this->load->view('_partials/sidebar');
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                     <div class="card-icon bg-danger">
-                    <i class="far fa-file-alt"></i>
+                        <i class="far fa-file-alt"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -524,7 +524,7 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                         <div class="card-icon bg-success">
+                    <div class="card-icon bg-success">
                         <i class="far fa-calendar-check"></i>
                     </div>
                     <div class="card-wrap">
@@ -539,7 +539,7 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                   <div class="card-icon" style="background-color:#f1c40f;">
+                    <div class="card-icon" style="background-color:#f1c40f;">
                         <i class="far fa-calendar-minus"></i>
                     </div>
                     <div class="card-wrap">
@@ -554,7 +554,7 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-              <div class="card-icon" style="background-color:#55efc4;">
+                    <div class="card-icon" style="background-color:#55efc4;">
                         <i class="far fa-calendar"></i>
                     </div>
                     <div class="card-wrap">
@@ -569,8 +569,8 @@ $this->load->view('_partials/sidebar');
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
-                     <div class="card-icon" style="background-color:#a29bfe;">
-                       <i class="far fa-calendar"></i>
+                    <div class="card-icon" style="background-color:#a29bfe;">
+                        <i class="far fa-calendar"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -585,7 +585,7 @@ $this->load->view('_partials/sidebar');
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                     <div class="card-icon" style="background-color:#81ecec;">
-                       <i class="far fa-calendar"></i>
+                        <i class="far fa-calendar"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -623,7 +623,6 @@ $this->load->view('_partials/sidebar');
                     </div>
                     <div class="card-body p-0">
                         <div class="fc-overflow">
-                            <!-- <div id="myEvent"></div> -->
                             <div class="table-responsive">
                                 <table class="table table-striped mb-0">
                                     <thead>
@@ -637,7 +636,7 @@ $this->load->view('_partials/sidebar');
                                     <tbody>
                                         <?php $no=1;
                                         foreach ($agenda as $k) { ?>
-                                        <?php if($k->status == "Proses" && $this->session->userdata('id_user') == $k->user){?>
+                                        <?php if(($k->status == "Rapat Sedang Berlangsung" || $k->status == "Sidang Sedang Berlangsung") && $this->session->userdata('id_user') == $k->user){?>
                                         <tr>
                                             <td><?php echo $no;?></td>
                                             <td><?php echo $k->agenda;?></td>
@@ -659,7 +658,7 @@ $this->load->view('_partials/sidebar');
             <div class="col-lg-12 col-md-12 col-12 col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4><i class="far fa-calendar-alt"></i> Jadwal Rapat / Sidang yang akan datang</h4>
+                        <h4><i class="far fa-calendar-alt"></i> Jadwal yang akan datang</h4>
                         <div class="card-header-action">
                             <a href="<?php echo base_url('Penjadwalan') ?>" class="btn btn-primary">Lihat Semua</a>
                         </div>
@@ -671,7 +670,7 @@ $this->load->view('_partials/sidebar');
                                 <table class="table table-striped mb-0">
                                     <thead>
                                         <tr>
-                                            <th>No</th>
+                                        
                                             <th>Agenda</th>
                                             <th>Pembahasan</th>
                                             <th>Waktu</th>
@@ -680,19 +679,19 @@ $this->load->view('_partials/sidebar');
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $no=1;
-                                        foreach ($penjadwalan as $k) { ?>
-                                        <?php if($k->status != "Selesai" && $this->session->userdata('id_user') == $k->user){?>
+                                        
+                                        <?php foreach ($penjadwalan as $k) { ?>
+                                        <?php if($this->session->userdata('id_user') == $k->user && $k->status != "Selesai"){?>
                                         <tr>
-                                            <td><?php echo $no;?></td>
+                                       
                                             <td><?php echo $k->agenda;?></td>
                                             <td><?php echo $k->pembahasan;?></td>
                                             <td><?php echo date('d-m-Y H:i', strtotime($k->waktu_mulai)); ?> -
                                                 <?php echo date('H:i', strtotime($k->waktu_selesai)); ?> WIB</td>
                                             <td><?php echo $k->tempat;?></td>
-                                            <td><?php echo $k->link;?></td>
+                                            <td><?php echo $k->link;?>(<?php echo $k->password;?>)</td>
                                         </tr>
-                                        <?php $no++; }} ?>
+                                        <?php }}?>
                                     </tbody>
                                 </table>
                             </div>
@@ -758,7 +757,7 @@ $this->load->view('_partials/sidebar');
                     <ul class="list-unstyled list-unstyled-border">
                         <?php foreach ($notifikasiLimit as $k) { 
                             if ((($this->session->userdata('level') == "Ketua Komisi 1" || $this->session->userdata('level') == "Anggota Komisi 1") && ($k->user == 'Ketua Komisi 1' || $k->user == 'Admin' || $k->user == 'Sekretaris'))) { ?>
-                            <li class="media">
+                        <li class="media">
                             <div class="media-body">
                                 <div class="float-right text-primary"><?php echo $k->time; ?></div>
                                 <div class="media-title"><?php echo $k->user; ?></div>
@@ -766,7 +765,7 @@ $this->load->view('_partials/sidebar');
                             </div>
                         </li>
                         <?php } else if ((($this->session->userdata('level') == "Ketua Komisi 2" || $this->session->userdata('level') == "Anggota Komisi 2") && ($k->user == 'Ketua Komisi 2' || $k->user == 'Admin' || $k->user == 'Sekretaris'))) { ?>
-                            <li class="media">
+                        <li class="media">
                             <div class="media-body">
                                 <div class="float-right text-primary"><?php echo $k->time; ?></div>
                                 <div class="media-title"><?php echo $k->user; ?></div>
@@ -774,7 +773,7 @@ $this->load->view('_partials/sidebar');
                             </div>
                         </li>
                         <?php } else if ((($this->session->userdata('level') == "Ketua Komisi 3" || $this->session->userdata('level') == "Anggota Komisi 3") && ($k->user == 'Ketua Komisi 3' || $k->user == 'Admin' || $k->user == 'Sekretaris'))) { ?>
-                            <li class="media">
+                        <li class="media">
                             <div class="media-body">
                                 <div class="float-right text-primary"><?php echo $k->time; ?></div>
                                 <div class="media-title"><?php echo $k->user; ?></div>
@@ -782,7 +781,7 @@ $this->load->view('_partials/sidebar');
                             </div>
                         </li>
                         <?php } else if ((($this->session->userdata('level') == "Ketua Komisi 4" || $this->session->userdata('level') == "Anggota Komisi 4") && ($k->user == 'Ketua Komisi 4' || $k->user == 'Admin' || $k->user == 'Sekretaris'))) { ?>
-                            <li class="media">
+                        <li class="media">
                             <div class="media-body">
                                 <div class="float-right text-primary"><?php echo $k->time; ?></div>
                                 <div class="media-title"><?php echo $k->user; ?></div>
@@ -790,7 +789,7 @@ $this->load->view('_partials/sidebar');
                             </div>
                         </li>
                         <?php } else if ($this->session->userdata('level') == "Sekretaris" || $this->session->userdata('level') == "Admin" || $this->session->userdata('level') == "Ketua Senat") { ?>
-                            <li class="media">
+                        <li class="media">
                             <div class="media-body">
                                 <div class="float-right text-primary"><?php echo $k->time; ?></div>
                                 <div class="media-title"><?php echo $k->user; ?></div>

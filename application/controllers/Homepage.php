@@ -41,7 +41,10 @@ class Homepage extends CI_Controller {
 		$data =  array(
 			'title' => "Senat Polinema | Arsip"
 		);
-		$data['laporan'] = $this->ModLaporan->selectAll();
+		$data['laporan'] = $this->ModLaporan->selectHomepage();
+	    $data['pengawasan'] = $this->ModLaporan->selectPengawasan();
+		$data['pertimbangan'] = $this->ModLaporan->selectPertimbangan();
+		$data['kebijakan'] = $this->ModLaporan->selectKebijakan();
 		$this->load->view('homepage/arsip', $data);
 	}
 
@@ -97,7 +100,7 @@ class Homepage extends CI_Controller {
 			   $config['smtp_port']="465";
 			   $config['smtp_timeout']="400";
 			   $config['smtp_user']="laporanakhir41@gmail.com";
-			   $config['smtp_pass']="laporanakhir2021";
+			   $config['smtp_pass']="kinerjasenatpolinema";
 			   $config['crlf']="\r\n";
 			   $config['newline']="\r\n";
 			   $config['wordwrap']=TRUE;

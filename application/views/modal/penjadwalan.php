@@ -32,7 +32,6 @@
             </select>
         </div>
         <div class="set-usulan">
-            <input type="hidden" name="status" value="Dijadwalkan - Sekretaris">
             <div class="form-group">
                 <label>Agenda</label><br>
                 <input class="form-control" name="agenda" type="text" placeholder="Masukkan agenda Anda..." required>
@@ -113,7 +112,21 @@
             <input class="form-control" name="password" type="text" placeholder="Masukkan password..."
                 autocomplete="off">
         </div>
-        <!-- <input type="hidden" name="status" value="Dijadwalkan"> -->
+        <?php if($this->session->userdata('level') == "Sekretaris"){ ?>
+        <input type="hidden" name="status" value="Dijadwalkan - Sekretaris">
+        <?php } ?>
+        <?php if($this->session->userdata('level') == "Ketua Komisi 1"){ ?>
+        <input type="hidden" name="status" value="Dijadwalkan - Komisi 1">
+        <?php } ?>
+        <?php if($this->session->userdata('level') == "Ketua Komisi 2"){ ?>
+        <input type="hidden" name="status" value="Dijadwalkan - Komisi 2">
+        <?php } ?>
+        <?php if($this->session->userdata('level') == "Ketua Komisi 3"){ ?>
+        <input type="hidden" name="status" value="Dijadwalkan - Komisi 3">
+        <?php } ?>
+        <?php if($this->session->userdata('level') == "Ketua Komisi 4"){ ?>
+        <input type="hidden" name="status" value="Dijadwalkan - Komisi 4">
+        <?php } ?>
         <input type="hidden" name="id_user" value="<?php echo $this->session->userdata('id_user');?>">
     </div>
 </div>

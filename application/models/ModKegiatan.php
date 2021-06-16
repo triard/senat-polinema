@@ -105,7 +105,9 @@ class ModKegiatan extends CI_model {
 		$tujuan = $this->input->post('tujuan');
 		$password= $this->input->post('password');
 		$status = $this->input->post('status');
-		if ($status != 'Rapat/Sidang Sedang Berlangsung') {
+		if ($status == 'Sidang Sedang Berlangsung' || $status == 'Rapat Sedang Berlangsung' || $status == 'Perlu Tindak Lanjut - Sidang Pleno' || $status == 'Perlu Tindak Lanjut - Sidang Paripurna') {
+			$status = $this->input->post('status');
+		} else {
 			$status = 'Selesai';
 		}
 		$notula= $this->input->post('notula');
@@ -202,5 +204,12 @@ class ModKegiatan extends CI_model {
 		$this->db->join('penjadwalan as j', 'j.id_penjadwalan=p.id_penjadwalan');
 		$this->db->join('kegiatan AS k', 'j.id_penjadwalan=k.id_penjadwalan');
 		return $this->db->get()->result();
+	}
+	public function updateEnableVote(){ 
+		$id_kegiatan = $this->input->post('id_kegiatan');
+		$vote_status = $this->input->post('vote_status');
+		$data = array('vote_status' => $vote_status);
+		$this->db->where('id_kegiatan', $id_kegiatan);
+		$this->db->update('kegiatan', $data);
 	}
 }

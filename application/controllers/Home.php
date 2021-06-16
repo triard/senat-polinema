@@ -19,7 +19,7 @@ class Home extends CI_Controller {
 	    if($cek != "login") {
 	        redirect('auth/auth_login','refresh');
         }
-        $data = array(
+        $data = array( 
             'title' => "Senat Polinema"
         );
         $data['user'] = $this->ModUser->getCountUser();

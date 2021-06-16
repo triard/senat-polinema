@@ -170,7 +170,8 @@
                     <?php echo $kegiatan->status;?></option>
                 <option disabled>Pilih Status Kegiatan</option>
                 <option disabled>------------------------------</option>
-                <option value="Rapat/Sidang Sedang Berlangsung">Rapat/Sidang Sedang Berlangsung</option>
+                <option value="Rapat Sedang Berlangsung">Rapat Sedang Berlangsung</option>
+                <option value="Sidang Sedang Berlangsung">Sidang Sedang Berlangsung</option>
                 <option value="Perlu Tindak Lanjut - Sidang Pleno">Perlu Tindak Lanjut - Sidang Pleno</option>
                 <option value="Perlu Tindak Lanjut - Sidang Paripurna">Perlu Tindak Lanjut - Sidang Paripurna</option>
                 <option value="Selesai">Selesai</option>
@@ -263,13 +264,26 @@
 <button class="btn btn-success">download</button>
 <button type="button" class="btn btn-link" data-dismiss="modal">Tutup</button>
 </form>
+<?php }else if($cek == 9){ ?>
+<div class="form-group">
+<label>Aktifkan/Nonaktifkan Fitur Vote</label><br>
+<input type="hidden" name="id_kegiatan" value="<?php echo $statusVote->id_kegiatan;?>">
+    <select name="vote_status" class="custom-select form-control" required>
+    <option value="<?php echo $statusVote->vote_status;?>" selected>
+                        <?php echo $statusVote->vote_status;?></option>>
+        <option disabled>------------------------------</option>
+        <option value="Aktif">Aktif</option>
+        <option value="Nonaktif">Nonaktif</option>
+
+    </select>
+</div>
 <?php } else { ?>
 <input type="hidden" name="id_kegiatan" value="<?php echo $kegiatan->id_kegiatan;?>">
 <input type="hidden" name="id_penjadwalan" value="<?php echo $kegiatan->id_penjadwalan;?>">
 <?php if($kegiatan->id_user != null){ ?>
 <input type="hidden" name="id_user" value="<?php echo $kegiatan->id_user;?>">
 <?php } ?>
-<div class="row">
+<div class="row"> 
     <div class="col-6">
         <div class="form-group">
             <label>Referensi Penjadwalan</label>

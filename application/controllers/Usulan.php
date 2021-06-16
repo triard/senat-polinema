@@ -125,7 +125,7 @@ class Usulan extends CI_Controller {
 		$config['smtp_port']="465";
 		$config['smtp_timeout']="400";
 		$config['smtp_user']="laporanakhir41@gmail.com";
-		$config['smtp_pass']="laporanakhir2021";
+		$config['smtp_pass']="kinerjasenatpolinema";
 		$config['crlf']="\r\n";
 		$config['newline']="\r\n";
 		$config['wordwrap']=TRUE;

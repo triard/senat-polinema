@@ -7,6 +7,41 @@ class ModLaporan extends CI_model {
         $this->db->from('laporan');
         return $this->db->get()->result();
 	}
+	public function selectHomepage(){
+		$this->db->select('l.*, p.waktu_mulai, u.jenis');
+		$this->db->from('laporan AS l');
+		$this->db->join('kegiatan AS k', 'l.id_kegiatan=k.id_kegiatan');
+		$this->db->join('penjadwalan AS p', 'k.id_penjadwalan=p.id_penjadwalan');
+		$this->db->join('usulan AS u', 'p.id_usulan=u.id_usulan');
+        return $this->db->get()->result();
+    } 
+    	public function selectPengawasan(){
+		$this->db->select('l.*, p.waktu_mulai, u.jenis');
+		$this->db->from('laporan AS l');
+		$this->db->join('kegiatan AS k', 'l.id_kegiatan=k.id_kegiatan');
+		$this->db->join('penjadwalan AS p', 'k.id_penjadwalan=p.id_penjadwalan');
+		$this->db->join('usulan AS u', 'p.id_usulan=u.id_usulan');
+		$this->db->where('u.jenis', 'Pengawasan');
+        return $this->db->get()->result();
+    } 
+    	public function selectKebijakan(){
+		$this->db->select('l.*, p.waktu_mulai, u.jenis');
+		$this->db->from('laporan AS l');
+		$this->db->join('kegiatan AS k', 'l.id_kegiatan=k.id_kegiatan');
+		$this->db->join('penjadwalan AS p', 'k.id_penjadwalan=p.id_penjadwalan');
+		$this->db->join('usulan AS u', 'p.id_usulan=u.id_usulan');
+		$this->db->where('u.jenis', 'Kebijakan');
+        return $this->db->get()->result();
+    } 
+    	public function selectPertimbangan(){
+		$this->db->select('l.*, p.waktu_mulai, u.jenis');
+		$this->db->from('laporan AS l');
+		$this->db->join('kegiatan AS k', 'l.id_kegiatan=k.id_kegiatan');
+		$this->db->join('penjadwalan AS p', 'k.id_penjadwalan=p.id_penjadwalan');
+		$this->db->join('usulan AS u', 'p.id_usulan=u.id_usulan');
+		$this->db->where('u.jenis', 'Pertimbangan');
+        return $this->db->get()->result();
+    } 
 	public function getJoinAll(){
 		$this->db->select('laporan.*');
 		$this->db->select('agenda');

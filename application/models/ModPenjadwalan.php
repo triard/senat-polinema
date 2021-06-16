@@ -23,7 +23,7 @@ class ModPenjadwalan extends CI_model {
 		$this->db->join('peserta as p', 'p.id_user=u.id_user');
 		$this->db->join('penjadwalan as j', 'j.id_penjadwalan=p.id_penjadwalan');
 		$this->db->order_by('j.waktu_mulai','ASC');
-		// $this->db->limit(2);
+		$this->db->limit(5);
         return $this->db->get()->result();
 	}
 	public function add() {
