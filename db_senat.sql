@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 22 Mei 2021 pada 10.23
+-- Generation Time: 06 Jul 2021 pada 08.46
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -73,6 +73,28 @@ CREATE TABLE `berita` (
 
 INSERT INTO `berita` (`id_berita`, `judul`, `keterangan`, `image`, `tanggal`, `jumlah_view`, `id_user`) VALUES
 (9, 'Benchmarking BLU, Senat Polmed Melakukan Kunjungan Kerja Ke Polinema', '<p style="margin-right: 0px; margin-bottom: 20px; margin-left: 0px; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 13px; vertical-align: baseline; text-align: justify; padding: 0px; border: 0px; color: rgb(77, 77, 77);">Direktur Polinema, Drs. Awan Setiawan, MM dan Ketua Senat Polinema Dr. Ir. Tundung Subali Patma, M.T menerima kunjungan kerja Ketua Senat Politeknik Negeri Medan (Polmed)&nbsp;<a style="color: rgb(16, 48, 93); background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: inherit; font-weight: inherit; font-style: inherit; vertical-align: baseline; text-align: left; margin: 0px; padding: 0px; border: 0px; line-height: inherit;">Drs. Bambang Sugianto, MP</a>&nbsp;di Ruang Rapat pimpinan Gedung AA pada hari Senin (16/03/2020).</p><p style="margin-right: 0px; margin-bottom: 20px; margin-left: 0px; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 13px; vertical-align: baseline; text-align: justify; padding: 0px; border: 0px; color: rgb(77, 77, 77);">Kunjungan kerja Senat Polmed ke Polinema dalam rangka benchmarking Badan Layanan Umum (BLU).</p><p style="margin-right: 0px; margin-bottom: 20px; margin-left: 0px; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 13px; vertical-align: baseline; text-align: justify; padding: 0px; border: 0px; color: rgb(77, 77, 77);">Direktur Polinema dalam sambutannya menyampaikan bahwa kunjungan ini adalah forum untuk saling sharing dan diskusi terkait Kampus Merdeka maupun tentang perubahan status PTN dari BLU menjadi PTNBH</p><p style="margin-right: 0px; margin-bottom: 20px; margin-left: 0px; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 13px; vertical-align: baseline; text-align: justify; padding: 0px; border: 0px; color: rgb(77, 77, 77);">Ketua Senat Polinema memberikan gambaran singkat tentang tugas Senat Polinema dalam membantu pimpinan untuk kemajuan Polinema. Senat melakukan pengawasan serta memberikan pertimbangan kepada pimpinan. Senat Polinema terdiri dari 4 komisi yang bersinergi dengan masing-masing pembantu direktur.</p><p style="margin-right: 0px; margin-bottom: 20px; margin-left: 0px; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 13px; vertical-align: baseline; text-align: justify; padding: 0px; border: 0px; color: rgb(77, 77, 77);">Ketua Senat Polmed menyampaikan tujuan kunjungan ke Polinema adalah untuk menimba ilmu dan sharing tentang BLU, tugas senat dan kerjasama yang nantinya dapat diimplementasikan di Polmed. Drs. Bambang Sugianto, MP juga mengatakan bahwa Senat Polmed terdiri dari Komisi A Bidang Akademik, Komisi B Bidang Etika dan Sumberdaya dan Komisi C bidang Kemahasiswaan dan Kerjasama.</p><p style="margin-right: 0px; margin-bottom: 20px; margin-left: 0px; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 13px; vertical-align: baseline; text-align: justify; padding: 0px; border: 0px; color: rgb(77, 77, 77);">Turut hadir pada acara tersebut pimpinan Polinema yaitu Pembantu Direktur I, III dan IV, Sekretaris Senat, Ketua dan anggota Komisi Senat serta para Ketua Jurusan yang ada di Polinema.</p>', 'Benchmarking_BLU,_Senat_Polmed_Melakukan_Kunjungan_Kerja_Ke_Polinema.jpg', '2021-04-19 07:00:00', 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `civitas_akademi`
+--
+
+CREATE TABLE `civitas_akademi` (
+  `id` int(11) NOT NULL,
+  `nomor_induk` varchar(20) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `jabatan` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `civitas_akademi`
+--
+
+INSERT INTO `civitas_akademi` (`id`, `nomor_induk`, `nama`, `email`, `jabatan`) VALUES
+(1, '196201051990031002', 'Budi Harijanto, ST., MMKom', '196201051990031002@polinema.ac.id', 'Dosen'),
+(2, '1831710093', 'M. Yuki Miftakhurrizqi', '1831710093@polinema.ac.id', 'Mahasiswa');
 
 -- --------------------------------------------------------
 
@@ -329,6 +351,12 @@ ALTER TABLE `berita`
   ADD KEY `id_user` (`id_user`);
 
 --
+-- Indexes for table `civitas_akademi`
+--
+ALTER TABLE `civitas_akademi`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `dokumentasi`
 --
 ALTER TABLE `dokumentasi`
@@ -395,6 +423,11 @@ ALTER TABLE `usulan`
 --
 ALTER TABLE `berita`
   MODIFY `id_berita` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `civitas_akademi`
+--
+ALTER TABLE `civitas_akademi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `dokumentasi`
 --

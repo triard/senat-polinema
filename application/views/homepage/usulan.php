@@ -40,27 +40,27 @@ $this->load->view('homepage/_partials/header');
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama
                                 Pengusul</label>
                             <div class="col-sm-12 col-md-7">
-                                <input type="text" class="form-control" name="nama_pengusul" required="">
+                                <input type="text" class="form-control" name="nama_pengusul" value="<?php echo $this->session->userdata('nama'); ?>" readonly="">
                             </div>
                         </div>
                         <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Email</label>
                             <div class="col-sm-12 col-md-7">
                                 <input type="email" name="email"
-                                    value="<?php echo $this->session->userdata('email_sess'); ?>" readonly
+                                    value="<?php echo $this->session->userdata('email'); ?>" readonly
                                     class="form-control" required="">
                             </div>
                         </div>
                         <div class="form-group row mb-4">
-                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">NIP</label>
+                            <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nomor Induk</label>
                             <div class="col-sm-12 col-md-7">
-                                <input type="text" class="form-control" name="NIP" required="">
+                                <input type="text" class="form-control" name="NIP" value="<?php echo $this->session->userdata('nomor_induk'); ?>" readonly="">
                             </div>
                         </div>
                         <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Jabatan</label>
                             <div class="col-sm-12 col-md-7">
-                                <input type="text" class="form-control" name="jabatan" required="">
+                                <input type="text" class="form-control" name="jabatan" value="<?php echo $this->session->userdata('level'); ?>" readonly="">
                             </div>
                         </div>
                         <div class="form-group row mb-4">
@@ -69,7 +69,7 @@ $this->load->view('homepage/_partials/header');
                                 <select name="jenis" class="form-control selectric" required>
                                     <option selected disabled>---- Pilih Jenis Usulan ----</option>
                                     <option value="Pengawasan">Usulan Pengawasan</option>
-                                    <option value="Kebijakan">Usulan Kebijakan</option>
+                                    <!-- <option value="Kebijakan">Usulan Kebijakan</option> -->
                                     <option value="Pertimbangan">Usulan Pertimbangan</option>
                                 </select>
                             </div>
