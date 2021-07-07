@@ -13,7 +13,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <a href="#" class="nav-link sidebar-gone-show" data-toggle="sidebar"><i class="fas fa-bars"></i></a>
 
                 <ul class="navbar-nav mr-auto"></ul>
-                <a href="<?php echo base_url('auth/auth_login') ?>" class="btn float-right text-white"
-                    style="background-color: #EE5A24;"><i class="fas fa-sign-in-alt"></i> Sign-in</a>
+
+                    <?php 
+                    if ($this->session->userdata('status') != 'login') {
+                    ?>
+                    <a href="<?php echo base_url('auth/auth_login') ?>" class="btn float-right text-white"
+                        style="background-color: #EE5A24;"><i class="fas fa-sign-in-alt"></i> Sign-in</a>
+                    <?php
+                    } else {
+                    ?>
+                    <a href="<?php echo base_url('Homepage/logout') ?>" class="btn float-right text-white"
+                        style="background-color: #EE5A24;"><i class="fas fa-sign-in-alt"></i> Logout</a>
+                    <?php
+                    }
+                    ?>
+
                 </ul>
             </nav>

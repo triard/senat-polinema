@@ -3,7 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 29 Apr 2021 pada 07.00
+
+-- Generation Time: 07 Jul 2021 pada 13.49
+
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -67,12 +69,28 @@ CREATE TABLE `berita` (
   `id_user` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data untuk tabel `berita`
+-- Struktur dari tabel `civitas_akademi`
 --
 
-INSERT INTO `berita` (`id_berita`, `judul`, `keterangan`, `image`, `tanggal`, `jumlah_view`, `id_user`) VALUES
-(9, 'Benchmarking BLU, Senat Polmed Melakukan Kunjungan Kerja Ke Polinema', '<p style="margin-right: 0px; margin-bottom: 20px; margin-left: 0px; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 13px; vertical-align: baseline; text-align: justify; padding: 0px; border: 0px; color: rgb(77, 77, 77);">Direktur Polinema, Drs. Awan Setiawan, MM dan Ketua Senat Polinema Dr. Ir. Tundung Subali Patma, M.T menerima kunjungan kerja Ketua Senat Politeknik Negeri Medan (Polmed)&nbsp;<a style="color: rgb(16, 48, 93); background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: inherit; font-weight: inherit; font-style: inherit; vertical-align: baseline; text-align: left; margin: 0px; padding: 0px; border: 0px; line-height: inherit;">Drs. Bambang Sugianto, MP</a>&nbsp;di Ruang Rapat pimpinan Gedung AA pada hari Senin (16/03/2020).</p><p style="margin-right: 0px; margin-bottom: 20px; margin-left: 0px; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 13px; vertical-align: baseline; text-align: justify; padding: 0px; border: 0px; color: rgb(77, 77, 77);">Kunjungan kerja Senat Polmed ke Polinema dalam rangka benchmarking Badan Layanan Umum (BLU).</p><p style="margin-right: 0px; margin-bottom: 20px; margin-left: 0px; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 13px; vertical-align: baseline; text-align: justify; padding: 0px; border: 0px; color: rgb(77, 77, 77);">Direktur Polinema dalam sambutannya menyampaikan bahwa kunjungan ini adalah forum untuk saling sharing dan diskusi terkait Kampus Merdeka maupun tentang perubahan status PTN dari BLU menjadi PTNBH</p><p style="margin-right: 0px; margin-bottom: 20px; margin-left: 0px; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 13px; vertical-align: baseline; text-align: justify; padding: 0px; border: 0px; color: rgb(77, 77, 77);">Ketua Senat Polinema memberikan gambaran singkat tentang tugas Senat Polinema dalam membantu pimpinan untuk kemajuan Polinema. Senat melakukan pengawasan serta memberikan pertimbangan kepada pimpinan. Senat Polinema terdiri dari 4 komisi yang bersinergi dengan masing-masing pembantu direktur.</p><p style="margin-right: 0px; margin-bottom: 20px; margin-left: 0px; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 13px; vertical-align: baseline; text-align: justify; padding: 0px; border: 0px; color: rgb(77, 77, 77);">Ketua Senat Polmed menyampaikan tujuan kunjungan ke Polinema adalah untuk menimba ilmu dan sharing tentang BLU, tugas senat dan kerjasama yang nantinya dapat diimplementasikan di Polmed. Drs. Bambang Sugianto, MP juga mengatakan bahwa Senat Polmed terdiri dari Komisi A Bidang Akademik, Komisi B Bidang Etika dan Sumberdaya dan Komisi C bidang Kemahasiswaan dan Kerjasama.</p><p style="margin-right: 0px; margin-bottom: 20px; margin-left: 0px; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 13px; vertical-align: baseline; text-align: justify; padding: 0px; border: 0px; color: rgb(77, 77, 77);">Turut hadir pada acara tersebut pimpinan Polinema yaitu Pembantu Direktur I, III dan IV, Sekretaris Senat, Ketua dan anggota Komisi Senat serta para Ketua Jurusan yang ada di Polinema.</p>', 'Benchmarking_BLU,_Senat_Polmed_Melakukan_Kunjungan_Kerja_Ke_Polinema.jpg', '2021-04-19 07:00:00', 1, 1);
+CREATE TABLE `civitas_akademi` (
+  `id` int(11) NOT NULL,
+  `nomor_induk` varchar(20) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `jabatan` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `civitas_akademi`
+--
+
+INSERT INTO `civitas_akademi` (`id`, `nomor_induk`, `nama`, `email`, `jabatan`) VALUES
+(1, '196201051990031002', 'Budi Harijanto, ST., MMKom', '196201051990031002@polinema.ac.id', 'Dosen'),
+(2, '1831710093', 'M. Yuki Miftakhurrizqi', '1831710093@polinema.ac.id', 'Mahasiswa'),
+(3, '1831710143', 'Tri Ardiansyah', '1831710143@polinema.ac.id', 'Mahasiswa');
 
 -- --------------------------------------------------------
 
@@ -85,14 +103,6 @@ CREATE TABLE `dokumentasi` (
   `id_kegiatan` bigint(20) DEFAULT NULL,
   `nama_dokumentasi` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `dokumentasi`
---
-
-INSERT INTO `dokumentasi` (`id_dokumentasi`, `id_kegiatan`, `nama_dokumentasi`) VALUES
-(14, 25, 'dokumentasi-kegiatan-4156b7318c1258d3.png'),
-(16, 24, 'dokumentasi-kegiatan-30a041164c79ed3f.jpg');
 
 -- --------------------------------------------------------
 
@@ -114,16 +124,9 @@ CREATE TABLE `kegiatan` (
   `tujuan` varchar(100) NOT NULL,
   `notula` text,
   `status` varchar(50) DEFAULT NULL,
+  `vote_status` enum('Aktif','Nonaktif') NOT NULL DEFAULT 'Nonaktif',
   `id_user` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `kegiatan`
---
-
-INSERT INTO `kegiatan` (`id_kegiatan`, `id_penjadwalan`, `agenda`, `pembahasan`, `waktu_mulai`, `waktu_selesai`, `tempat`, `jenis_rapat`, `link`, `password`, `tujuan`, `notula`, `status`, `id_user`) VALUES
-(24, 33, 'Rapat Komisi', '<p>Sertifikasi dosen</p>', '2021-04-20 19:00:00', '21:30:00', 'Gedung AA lt. 2', 'Luring', '', '', '<p>Menyertifikasi dosen</p>', '<p>Diperlukan sidang pleno sih</p>', 'Selesai', 6),
-(25, 34, 'Sidang Pleno', '<p>Sertifikasi dosen</p>', '2021-04-19 14:00:00', '15:30:00', 'Gedung AA lt. 2', 'Luring', '', '', '<p>Menyertifikasi dosen</p>', 'Dari pembahasan sidang pleno diputuskan bahwa sertifikasi dosen diterima', 'Selesai', 3);
 
 -- --------------------------------------------------------
 
@@ -138,14 +141,6 @@ CREATE TABLE `laporan` (
   `file_laporan` varchar(50) NOT NULL,
   `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `laporan`
---
-
-INSERT INTO `laporan` (`id_laporan`, `id_kegiatan`, `nama_laporan`, `file_laporan`, `status`) VALUES
-(10, 24, 'Laporan Rapat Komisi 19 April 2021', 'laporan-kegiatan-0d846d5f78cec255.pdf', 'Disetujui'),
-(11, 25, 'Laporan Sidang Pleno 19 April 2021', 'laporan-kegiatan-bbf51547a86af56b.pdf', 'Disetujui');
 
 -- --------------------------------------------------------
 
@@ -166,6 +161,7 @@ CREATE TABLE `notifikasi` (
   `id_berita` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
 --
 -- Dumping data untuk tabel `notifikasi`
 --
@@ -182,6 +178,7 @@ INSERT INTO `notifikasi` (`id_notifikasi`, `user`, `text`, `time`, `id_user`, `i
 (20, 'Sekretaris', 'Menambahkan kegiatan Rapat Pertimbangan', '2021-04-20 15:33:09', 3, 0, 26, 0, 0, 0),
 (21, 'Sekretaris', 'Mengunggah dokumentasi kegiatan Sidang Pleno', '2021-04-29 11:32:30', 3, 0, 0, 14, 0, 0),
 (23, 'Ketua Komisi 1', 'Mengunggah dokumentasi kegiatan Rapat Komisi', '2021-04-29 11:39:17', 6, 0, 0, 16, 0, 0);
+
 
 -- --------------------------------------------------------
 
@@ -204,15 +201,6 @@ CREATE TABLE `penjadwalan` (
   `status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data untuk tabel `penjadwalan`
---
-
-INSERT INTO `penjadwalan` (`id_penjadwalan`, `id_user`, `id_usulan`, `agenda`, `pembahasan`, `waktu_mulai`, `waktu_selesai`, `jenis_rapat`, `tempat`, `link`, `password`, `status`) VALUES
-(33, 6, 24, 'Rapat Komisi', '<p>Sertifikasi dosen</p>', '2021-04-20 19:00:00', '21:30:00', 'Luring', 'Gedung AA lt. 2', '', '', 'Selesai'),
-(34, 3, 24, 'Sidang Pleno', '<p>Sertifikasi dosen</p>', '2021-04-19 14:00:00', '15:30:00', 'Luring', 'Gedung AA lt. 2', '', '', 'Selesai'),
-(36, 3, 28, 'Rapat Pertimbangan', '<p>ddd</p>', '2021-04-20 15:00:00', '15:28:00', 'Luring', 'Ruang Auditorium', '', '', 'Rapat/Sidang Sedang Berlangsung');
-
 -- --------------------------------------------------------
 
 --
@@ -226,26 +214,6 @@ CREATE TABLE `peserta` (
   `voting` varchar(15) DEFAULT NULL,
   `absen` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `peserta`
---
-
-INSERT INTO `peserta` (`id_peserta`, `id_penjadwalan`, `id_user`, `voting`, `absen`) VALUES
-(65, 33, 10, NULL, NULL),
-(66, 33, 6, NULL, NULL),
-(67, 34, 2, NULL, NULL),
-(68, 34, 3, NULL, NULL),
-(69, 34, 10, NULL, NULL),
-(70, 34, 6, NULL, NULL),
-(71, 34, 11, NULL, NULL),
-(72, 34, 7, NULL, NULL),
-(73, 34, 12, NULL, NULL),
-(74, 34, 8, NULL, NULL),
-(75, 34, 13, NULL, NULL),
-(76, 34, 9, NULL, NULL),
-(85, 36, 2, NULL, NULL),
-(86, 36, 3, 'Setuju', 'assets/signature-image/607e9259c2891.png');
 
 -- --------------------------------------------------------
 
@@ -301,15 +269,6 @@ CREATE TABLE `usulan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `usulan`
---
-
-INSERT INTO `usulan` (`id_usulan`, `nama_pengusul`, `email`, `NIP`, `jabatan`, `jenis`, `keterangan`, `dokumen_pendukung`, `status`, `tanggal_pengajuan`, `id_user`) VALUES
-(24, 'anggota_komisi_1', 'anggotakomisi1@polinema.ac.id', '', '', 'Kebijakan', '<p>Sertifikasi dosen</p>', 'dokumen-pendukung-170ede4327efb9aa.pdf', 'Selesai', '2021-04-18', 10),
-(28, 'admin', 'admin@senat', '123456789765456789', 'admin', 'Pertimbangan', '<p>ddd</p>', 'dokumen-pendukung-a84f8f797a3f7f64.pdf', 'Rapat/Sidang Sedang Berlangsung', '2021-04-20', 1),
-(29, 'Adit Pramudia', '1831710143@student.polinema.ac.id', '123456765654444455', 'Dosen JTI', 'Pertimbangan', '<p>Kenaikan jabatan</p>', 'dokumen-pendukung-c2997990cac326f9.pdf', 'Diajukan', '2021-04-20', NULL);
-
---
 -- Indexes for dumped tables
 --
 
@@ -326,6 +285,12 @@ ALTER TABLE `account`
 ALTER TABLE `berita`
   ADD PRIMARY KEY (`id_berita`),
   ADD KEY `id_user` (`id_user`);
+
+--
+-- Indexes for table `civitas_akademi`
+--
+ALTER TABLE `civitas_akademi`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `dokumentasi`
@@ -394,6 +359,11 @@ ALTER TABLE `usulan`
 --
 ALTER TABLE `berita`
   MODIFY `id_berita` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+--
+-- AUTO_INCREMENT for table `civitas_akademi`
+--
+ALTER TABLE `civitas_akademi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `dokumentasi`
 --

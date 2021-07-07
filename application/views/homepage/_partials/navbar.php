@@ -66,19 +66,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <?php } ?>
             <?php if($this->uri->segment(2) == 'usulan'){ ?>
             <li class="nav-item <?php echo $this->uri->segment(2) == 'usulan' ? 'active' : ''; ?>">
-                <a href="<?php echo base_url('Homepage/email_usulan')?>" class="nav-link"><i class="far fa-lightbulb"></i><span>Usulan</span></a>
+
+                <a href="<?php echo base_url('Homepage/usulan')?>" class="nav-link"><i
+                        class="fas fa-file-alt"></i><span>Usulan</span></a>
             </li>
-            <?php }else if($this->uri->segment(2) == 'email_usulan'){ ?>
-            <li class="nav-item <?php echo $this->uri->segment(2) == 'email_usulan' ? 'active' : ''; ?>">
-                <a href="<?php echo base_url('Homepage/email_usulan')?>" class="nav-link"><i class="far fa-lightbulb"></i><span>Usulan</span></a>
-            </li>
-            <?php }else if($this->uri->segment(2) == 'konfirmasi_kode'){ ?>
-            <li class="nav-item <?php echo $this->uri->segment(2) == 'konfirmasi_kode' ? 'active' : ''; ?>">
-                <a href="<?php echo base_url('Homepage/email_usulan')?>" class="nav-link"><i class="far fa-lightbulb"></i><span>Usulan</span></a>
+            <?php }else if($this->uri->segment(2) == 'login_usulan'){ ?>
+            <li class="nav-item <?php echo $this->uri->segment(2) == 'usulan' ? 'active' : ''; ?>">
+                <a href="<?php echo base_url('Homepage/usulan')?>" class="nav-link"><i
+                        class="fas fa-file-alt"></i><span>Usulan</span></a>
             </li>
             <?php }else{ ?>
             <li class="nav-item">
-                <a href="<?php echo base_url('Homepage/email_usulan')?>" class="nav-link"><i class="far fa-lightbulb"></i><span>Usulan</span></a>
+                <a href="<?php echo base_url('Homepage/usulan')?>" class="nav-link"><i
+                        class="fas fa-file-alt"></i><span>Usulan</span></a>
+
             </li>
             <?php } ?>
         </ul>

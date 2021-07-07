@@ -1,6 +1,7 @@
 <?php
 class ModAuth extends CI_model {
     private $_table = "account";
+    private $second_table = "civitas_akademi";
     
     function log() {
       $post = $this->input->post();
@@ -117,4 +118,25 @@ class ModAuth extends CI_model {
      return true;  
    }    
    //End: method tambahan untuk reset code  
+
+   function login_usulan() {
+      // $post = $this->input->post();
+      // $data = array('username'=>$username);
+      // $cek1 = $this->db->get_where('account', $data)->num_rows();
+      $this->db->where('nomor_induk', $this->input->post('nomor_induk'));
+      $cek1 = $this->db->get('civitas_akademi')->row();
+      if($cek1) {
+        // $isPasswordTrue = $post["password"], $cek1->nomor_induk;
+        if($this->input->post('password') == $cek1->nomor_induk){
+        $data_session = array(
+            'nomor_induk' => $cek1->nomor_induk,
+            'level' => $cek1->jabatan,
+            'email' => $cek1->email,
+            'nama'=> $cek1->nama,
+            'status' => "login"
+        );
+        $this->session->set_userdata($data_session);
+      }
+      }
+  }
 }

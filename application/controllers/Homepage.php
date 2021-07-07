@@ -9,6 +9,7 @@ class Homepage extends CI_Controller {
 		$this->load->model('ModKegiatan');
 		$this->load->model('ModLaporan');
 		$this->load->model('ModUser');
+		$this->load->model('ModAuth');
 	} 
 
 	public function home() {
@@ -132,20 +133,65 @@ class Homepage extends CI_Controller {
 			redirect('Homepage/email_usulan', 'refresh');
 		}
 	}
+	// public function usulan()
+	// {
+	// 	$data =  array(
+	// 		'title' => "Senat Polinema | Usulan"
+	// 	);
+	// 	if($this->session->userdata('kode')== $this->input->post('kode_aktiv')){
+	// 		$this->session->set_flashdata('success', 'kode anda valid silahkan isi usulan anda.');
+	// 		$this->session->unset_userdata('kode_aktiv');
+	// 		$this->load->view('homepage/usulan', $data);
+	// 	}else{
+	// 		$this->session->set_flashdata('failed', 'kode anda invalid.');
+	// 		$this->session->unset_userdata('kode_aktiv');
+	// 		redirect('Homepage/konfirmasi_kode', 'refresh');
+	// 	}
+
+	// }
+	public function login_usulan()
+	{
+		$data =  array(
+			'title' => "Senat Polinema | Usulan"
+		);
+		$this->load->view('homepage/usulan-login', $data);
+	}
+	public function auth_login() {
+		$data = array(
+			'title' => "Login"
+		);
+		$this->ModAuth->login_usulan();
+		$cek = $this->session->userdata('status');
+		if($cek == "login") {
+			$this->session->set_flashdata('success', 'Login berhasil. Silahkan Mengajukan Usulan');
+			redirect('Homepage/usulan');
+		} else {
+			$this->session->set_flashdata('failed', 'Login Gagal. Nomor Induk / Password Salah.');
+			redirect('Homepage/login_usulan');
+		}
+	}
+	public function logout() {
+		$this->session->sess_destroy(); 
+		redirect(base_url('Homepage/home'));
+	}
 	public function usulan()
 	{
 		$data =  array(
 			'title' => "Senat Polinema | Usulan"
 		);
-		if($this->session->userdata('kode')== $this->input->post('kode_aktiv')){
-			$this->session->set_flashdata('success', 'kode anda valid silahkan isi usulan anda.');
-			$this->session->unset_userdata('kode_aktiv');
-			$this->load->view('homepage/usulan', $data);
-		}else{
-			$this->session->set_flashdata('failed', 'kode anda invalid.');
-			// $this->session->unset_userdata('kode_aktiv');
-			redirect('Homepage/konfirmasi_kode');
+
+		$q = $this->session->userdata('status');
+		if($q != "login") {
+			redirect('Homepage/login_usulan','refresh');
 		}
+		// if($this->session->userdata('kode')== $this->input->post('kode_aktiv')){
+			
+			$this->load->view('homepage/usulan', $data);
+		// }else{
+			// $this->session->set_flashdata('failed', 'kode anda invalid.');
+			// $this->session->unset_userdata('kode_aktiv');
+			// redirect('Homepage/konfirmasi_kode', 'refresh');
+		// }
 
 	}
 }
