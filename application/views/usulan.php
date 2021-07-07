@@ -189,7 +189,7 @@ $this->load->view('_partials/sidebar');
                                                             onclick="verifikasi(<?php echo $k->id_usulan;?>)"
                                                             rel="tooltip" class="btn btn-primary" data-original-title=""
                                                             title="">
-                                                            <i class="fas fa-file"></i>
+                                                            <i class="fas fa-pen-square"></i>
                                                         </button>
                                                         <button type="button" rel="tooltip" class="btn btn-danger"
                                                             data-original-title="" title=""

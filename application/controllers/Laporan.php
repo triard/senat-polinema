@@ -102,7 +102,7 @@ class Laporan extends CI_Controller {
 			$this->session->set_flashdata('failed', 'Gagal Menyetujui Laporan Rapat/Sidang');
 		}
 	}
-	public function update_data() {
+	public function update_data(){
 		$q = $this->session->userdata('status');
 		if($q != "login") {
 			exit();

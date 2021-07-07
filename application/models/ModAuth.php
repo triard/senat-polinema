@@ -23,6 +23,27 @@ class ModAuth extends CI_model {
       }
       }
   }
+  
+  function log_v2() {
+    $post = $this->input->post();
+    $this->db->where('username', $post["username"]);
+    $cek1 = $this->db->get($this->_table)->row();
+    if($cek1) {
+      $isPasswordTrue = password_verify($post["password"] ,$cek1->password);
+      if($isPasswordTrue){
+      $data_session = array(
+          'username' => $cek1->username,
+          'level' => $cek1->level,
+          'email' => $cek1->email,
+          'id_user'=> $cek1->id_user,
+          'ses_jadwal' => $this->uri->segment('3'),
+          'status' => "login"
+      );
+      $this->session->set_userdata($data_session);
+    }
+    }
+}
+
        //Start: method tambahan untuk reset code  
    public function getUserInfo($id)  
    {  

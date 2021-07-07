@@ -3,7 +3,7 @@
     <div class="col-12">
         <div class="form-group">
             <label>Judul Berita</label><br>
-            <input class="form-control" name="judul" type="judul" maxlength="99" placeholder="Judul berita  ..."
+            <input class="form-control" name="judul" type="judul" maxlength="150" placeholder="Judul berita  ..."
                 required autocomplete="off">
         </div>
         <div class="form-group">
@@ -23,7 +23,7 @@
         <div class="form-group">
             <label>Image</label><br>
             <input class="form-control" name="image" type="file" placeholder="Masukkan image ..." required>
-            <label for="">Maksimun Gambar 5mb</label>
+            <label for="">Maksimum Gambar 5mb</label>
         </div>
     </div>
     <div class="col-6">
@@ -37,7 +37,7 @@
     <div class="col-12">
         <div class="form-group">
             <label>Judul Berita</label><br>
-            <input class="form-control" name="judul" type="judul" maxlength="95" value="<?php echo $berita->judul;?>"
+            <input class="form-control" name="judul" type="judul" maxlength="150" value="<?php echo $berita->judul;?>"
                 placeholder="Masukkan judul  ..." required autocomplete="off">
         </div>
         <div class="form-group">

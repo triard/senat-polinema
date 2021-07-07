@@ -681,9 +681,11 @@ $this->load->view('_partials/sidebar');
                                     <tbody>
                                         
                                         <?php foreach ($penjadwalan as $k) { ?>
-                                        <?php if($this->session->userdata('id_user') == $k->user && $k->status != "Selesai"){?>
+                                        <?php if($k->iu == $this->session->userdata('id_user')){?>
+                                        <?php if($k->status != "Selesai"){ ?>
+                                        <?php if($k->status != "Perlu Tindak Lanjut - Sidang Pleno"){ ?>
+                                        <?php if($k->status != "Perlu Tindak Lanjut - Sidang Paripurna"){ ?>
                                         <tr>
-                                       
                                             <td><?php echo $k->agenda;?></td>
                                             <td><?php echo $k->pembahasan;?></td>
                                             <td><?php echo date('d-m-Y H:i', strtotime($k->waktu_mulai)); ?> -
@@ -691,7 +693,7 @@ $this->load->view('_partials/sidebar');
                                             <td><?php echo $k->tempat;?></td>
                                             <td><?php echo $k->link;?>(<?php echo $k->password;?>)</td>
                                         </tr>
-                                        <?php }}?>
+                                        <?php }}}}}?>
                                     </tbody>
                                 </table>
                             </div>

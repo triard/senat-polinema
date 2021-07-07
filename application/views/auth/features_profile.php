@@ -96,8 +96,8 @@ $this->load->view('_partials/sidebar');
                         <div class="card-header">
                             <center>
 
-                                <img alt="image" src="<?php echo base_url('assets/img/user/'.$user->image.'?rand='.rand(1,2000)); ?>"
-                                    class="rounded mx-auto d-block" width="50%">
+                                <img alt="image" src="<?php echo base_url('assets/img/user/'.$user->image) ?>"
+                                    class="rounded mx-auto d-block" width="20%" height="20%">
                             </center>
                         </div>
                         <div class="card-body">

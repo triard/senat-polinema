@@ -153,8 +153,7 @@ $this->load->view('homepage/_partials/header');
                                 <div class="tab-pane fade" id="contact4" role="tabpanel" aria-labelledby="contact-tab4">
                                     <h4>Komisi III</h4>
                                     <hr style="border: 3px solid #EE5A24; border-radius: 5px;">
-                                    <p>BidangKemahasiswaanmempunyai tugas sebagai
-                                        berikut:</p>
+                                    <p>Bidang Kemahasiswaan mempunyai tugas sebagai berikut:</p>
                                     <ol style="text-align: justify;">
                                         <li>
                                             Merumuskan rancangan kebijakan pembentukan karakter mahasiswa;

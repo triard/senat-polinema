@@ -15,15 +15,15 @@ class ModPenjadwalan extends CI_model {
         $this->db->join('peserta', 'penjadwalan.id_penjadwalan=peserta.id_penjadwalan');
         $this->db->join('user', 'peserta.id_user=user.id_user');
         $this->db->group_by('penjadwalan.id_penjadwalan');
+        $this->db->order_by('penjadwalan.waktu_mulai','DESC');
         return $this->db->get()->result();
 	}
 	public function SelectDataById() {
-		$this->db->select('j.*, u.id_user AS user');
+		$this->db->select('j.*, u.id_user AS iu');
 		$this->db->from('user as u'); 
 		$this->db->join('peserta as p', 'p.id_user=u.id_user');
 		$this->db->join('penjadwalan as j', 'j.id_penjadwalan=p.id_penjadwalan');
-		$this->db->order_by('j.waktu_mulai','ASC');
-		$this->db->limit(5);
+		$this->db->order_by('j.waktu_mulai','DESC');
         return $this->db->get()->result();
 	}
 	public function add() {
@@ -45,7 +45,9 @@ class ModPenjadwalan extends CI_model {
 		} 		
 		$this->db->insert('penjadwalan', $data);
 		$user = $this->input->post('user',TRUE);
+
 		$id_penjadwalan = $this->db->insert_id();
+		$this->session->set_userdata('jadwal_id', $id_penjadwalan);
 		$result = array();
         foreach($user AS $key => $val){
         	$result[] = array(
@@ -56,12 +58,45 @@ class ModPenjadwalan extends CI_model {
 		$this->db->insert_batch('peserta', $result);
         $this->db->trans_complete();  
 	}
+	public function getId(){
+		$agenda = $this->input->post('agenda'); 
+		$pembahasan = $this->input->post('pembahasan');
+		$waktu_mulai = $this->input->post('waktu_mulai');
+		$waktu_selesai = $this->input->post('waktu_selesai');
+		$tempat = $this->input->post('tempat');
+		$jenis_rapat = $this->input->post('jenis_rapat');	
+        $query = $this->db->query("SELECT id_penjadwalan FROM penjadwalan WHERE agenda='$agenda' AND pembahasan='$pembahasan' 
+		AND waktu_mulai='$waktu_mulai' AND waktu_selesai='$waktu_selesai' AND tempat='$tempat'
+		AND jenis_rapat='$jenis_rapat'");
+        $hasil = $query->row();
+        return $hasil->id_penjadwalan;
+    } 
 
+	public function data_peserta()
+	{
+		$id_jadwal = $this->session->userdata('jadwal_id');
+		$this->db->select('a.email, a.username');
+        $this->db->from(' peserta AS p');
+        $this->db->join('penjadwalan AS j', 'p.id_penjadwalan = j.id_penjadwalan');
+        $this->db->join(' account AS a', 'p.id_user = a.id_user');
+        $this->db->where('j.id_penjadwalan',$id_jadwal);
+        return $this->db->get()->result();
+	}
+	public function kirimEmailPeserta($id_penjadwalan)
+	{
+		$id_jadwal = $this->session->userdata('jadwal_id');
+		$this->db->select('a.email, a.username');
+        $this->db->from(' peserta AS p');
+        $this->db->join('penjadwalan AS j', 'p.id_penjadwalan = j.id_penjadwalan');
+        $this->db->join(' account AS a', 'p.id_user = a.id_user');
+        $this->db->where('j.id_penjadwalan',$id_penjadwalan);
+        return $this->db->get()->result();
+	}
 	public function getById($id){
 		return $this->db->get_where($this->_table, ["id_penjadwalan" => $id])->row();
     }
 	function get_user_by_jadwal($id){
-        $this->db->select('*');
+        $this->db->select('*, u.id_user AS user_id');
         $this->db->from('user as u');
         $this->db->join('peserta as p', 'p.id_user=u.id_user');
         $this->db->join('penjadwalan as j', 'j.id_penjadwalan=p.id_penjadwalan');
@@ -173,7 +208,25 @@ class ModPenjadwalan extends CI_model {
         $this->db->insert_batch('peserta', $result);
         $this->db->trans_complete();
 	}
+	public function editKehadiran($id){ 
+		$id_user = $this->session->userdata('id_user');
+		$this->db->select('p.*');
+        $this->db->from('peserta AS p');
+        $this->db->join('penjadwalan AS j', 'p.id_penjadwalan = j.id_penjadwalan');
+        $this->db->where('j.id_penjadwalan',$id);
+		$this->db->where('p.id_user',$id_user);
+        return $this->db->get()->row();
+	}
+	public function updateKehadiran(){
+		$id_peserta = $this->input->post('id_peserta');
+		$konfirmasi_kehadiran = $this->input->post('konfirmasi_kehadiran');
+		$keterangan_kehadiran = $this->input->post('keterangan_kehadiran');
 
+			$data = array('konfirmasi_kehadiran' => $konfirmasi_kehadiran,
+			'keterangan_kehadiran' => $keterangan_kehadiran);
+			$this->db->where('id_peserta', $id_peserta);
+			$this->db->update('peserta', $data);
+	}
 	public function updateStatus(){
 		$id_penjadwalan = $this->input->post('id_penjadwalan');
 		$status = $this->input->post('status'); 		
@@ -181,21 +234,18 @@ class ModPenjadwalan extends CI_model {
 			$this->db->where('id_penjadwalan', $id_penjadwalan);
 			$this->db->update('penjadwalan', $data);
 	}
-
 	public function getCountPenjadwalan()
 	{
 		$this->db->select('id_penjadwalan');
 		$this->db->from('penjadwalan');
 		return $this->db->count_all_results();
 	}
-
 	public function setStatus($id_penjadwalan, $status){ 		
 		$data = array('status'=>$status);
 		$this->db->where('id_penjadwalan', $id_penjadwalan);
 		$this->db->update('penjadwalan', $data);
 	}
-
-	public function getJadwalTerlaksana()
+		public function getJadwalTerlaksana()
 	{
 		$query = $this->db->query("SELECT * FROM penjadwalan WHERE status='Selesai'");
         $cek = $query->num_rows();

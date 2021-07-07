@@ -30,6 +30,30 @@ class Auth extends CI_Controller {
 			}	
 	}
 
+	public function auth_login_v2() {
+		$sess_jadwal = $this->uri->segment('3');
+		$this->session->set_userdata('ses_id_jad', $sess_jadwal);
+		$data = array(
+			'title' => "Login"
+		);
+			if($_POST != NULL) {
+				$this->ModAuth->log();
+				$cek = $this->session->userdata('status');
+				if($cek == "login") {
+					echo "1";
+				} else {
+					echo "0";
+				}
+			} else {
+				
+				if ($this->session->userdata('status')=="login") {
+					redirect('Penjadwalan/konfirmasi_jadwal/'.$sess_jadwal);
+				}else{
+					$this->load->view('auth/auth-login_v2', $data);
+				}
+			}	
+	}
+
 	public function auth_forgot_password1() {
 		$data = array(
 			'title' => "Senat Polinema"

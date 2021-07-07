@@ -10,9 +10,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <a href="<?php echo base_url(); ?>Homepage/Home" class="navbar-brand sidebar-gone-hide">
             <img alt="image"  src="<?php echo base_url(); ?>assets/img/logo-homepage.png" style="width: 90%; margin-left: 10%;">
             </a>
-
                 <a href="#" class="nav-link sidebar-gone-show" data-toggle="sidebar"><i class="fas fa-bars"></i></a>
+
                 <ul class="navbar-nav mr-auto"></ul>
+
                     <?php 
                     if ($this->session->userdata('status') != 'login') {
                     ?>
@@ -26,5 +27,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <?php
                     }
                     ?>
+
                 </ul>
             </nav>

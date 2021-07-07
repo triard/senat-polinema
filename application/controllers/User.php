@@ -38,8 +38,8 @@ class User extends CI_Controller {
 			exit();
 		}
 		$this->ModUser->add();
-			$id = $this->ModUser->getId();
-			$this->ModUser->addAccount($id);
+		$id = $this->ModUser->getId();
+		$this->ModUser->addAccount($id);
 		if(json_encode(array("status" => TRUE))){
 			$this->session->set_flashdata('success', 'Data User Berhasil Ditambah');
 		}else{

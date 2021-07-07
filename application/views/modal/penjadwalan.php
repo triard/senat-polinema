@@ -112,7 +112,7 @@
             <input class="form-control" name="password" type="text" placeholder="Masukkan password..."
                 autocomplete="off">
         </div>
-        <?php if($this->session->userdata('level') == "Sekretaris"){ ?>
+         <?php if($this->session->userdata('level') == "Sekretaris"){ ?>
         <input type="hidden" name="status" value="Dijadwalkan - Sekretaris">
         <?php } ?>
         <?php if($this->session->userdata('level') == "Ketua Komisi 1"){ ?>
@@ -153,7 +153,10 @@
     <thead>
         <tr>
             <th>Nama</th>
+            <th>Jabatan</th>
+            <th>Konfirmasi Kehadiran</th>
             <th>Keterangan</th>
+            <th>Aksi</th>
         </tr>
     </thead>
     <tbody>
@@ -161,12 +164,24 @@
         <tr>
             <td><?php echo $p->nama ?></td>
             <td><?php echo $p->jabatan ?></td>
+            <?php if($p->konfirmasi_kehadiran == "Hadir"){ ?>
+            <td><div class="badge badge-success"><?php echo $p->konfirmasi_kehadiran ?></div></td>
+            <?php }else{ ?>
+            <td><div class="badge badge-danger"><?php echo $p->konfirmasi_kehadiran ?></div></td>
+            <?php } ?>
+            <td><?php echo $p->keterangan_kehadiran ?></td>
+            <td>
+            <?php if($p->user_id == $this->session->userdata('id_user')){ ?>
+            <a href="<?php echo base_url('Penjadwalan/konfirmasi_jadwal/').$p->id_penjadwalan ?>" class="btn btn-warning btn-small">Edit Konfirmasi</a>
+            <?php } ?>
+            </td>
         </tr>
         <?php endforeach ?>
     </tbody>
 </table>
 <?php } else { ?>
 <input type="hidden" name="id_penjadwalan" value="<?php echo $penjadwalan->id_penjadwalan;?>">
+<input type="hidden" name="status" value="<?php echo $penjadwalan->status;?>">
 <?php if($penjadwalan->id_user != null){ ?>
 <input type="hidden" name="id_user" value="<?php echo $penjadwalan->id_user;?>">
 <?php }else if($penjadwalan->id_usulan != null){ ?>
@@ -193,6 +208,17 @@
                 <textarea id="summernote-simple" name="pembahasan"><?php echo $penjadwalan->pembahasan;?></textarea>
             </div>
         </div>
+        <div class="form-group">
+            <label>Keterangan Jika Dilakukan Penjadwalan Ulang</label><br>
+            <textarea class="form-control" name="pesan"></textarea>
+        </div>
+        <div class="form-group">
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" name="kirim" value="1" id="customCheck1">
+            <label class="custom-control-label" for="customCheck1">Kirim Notifikasi Kepada Peserta Rapat</label>
+        </div>
+        </div>
+
     </div>
     <div class="col-6">
         <div class="form-group">

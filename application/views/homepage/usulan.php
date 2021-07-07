@@ -97,6 +97,7 @@ $this->load->view('homepage/_partials/header');
                         </div>
                     </form>
                     <p>* Jika File Pendukung lebih dari satu harap upload dengan format zip/rar.</p>
+                    <label>*Ukuran file maksimum 5MB.</label>
                 </div>
             </div>
         </div>

@@ -31,7 +31,7 @@ $this->load->view('homepage/_partials/header');
                 </div>
 
                 <div class="card-header">
-                    <h4>Form Pengajuan Usulan</h4><br>
+                    <h4>Form Masukkan Kode Konfirmasi</h4><br>
                 </div>
                 <div class="card-body">
                     <form action="<?php echo base_url('Homepage/usulan') ?>" method="POST"
@@ -44,8 +44,7 @@ $this->load->view('homepage/_partials/header');
                         </div>
                         <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                             <div class="col-sm-12 col-md-7">
-                                <button class="btn btn-primary"><i class="fas fa-paper-plane"></i> Ajukan
-                                    Usulan</button>
+                                <button class="btn btn-primary"><i class="fas fa-paper-plane"></i> Kirim</button>
                             </div>
                         </div>
                     </form>

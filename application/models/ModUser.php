@@ -95,10 +95,10 @@ class ModUser extends CI_model {
 		if (!empty($_FILES["image"]["name"])) {
 			$this->_deleteImage();
 			$image = $this->_uploadImage();
-			$this->session->set_flashdata('success', 'Update Foto Profil berhasil.');  
+			$this->session->set_flashdata('success', 'Update Foto berhasil.');  
 		} else {
 			$image = $this->input->post('old_image');
-			$this->session->set_flashdata('failed', 'Update Foto Profil gagal.');  
+			$this->session->set_flashdata('failed', 'Update password gagal.');  
 		}
 		$data = array('image' => $image);
 			$this->db->where('id_user', $id_user);
@@ -108,7 +108,7 @@ class ModUser extends CI_model {
 	{
 		$config['upload_path']          = './assets/img/user';
 		$config['allowed_types']        = 'gif|jpg|png';
-		$config['file_name']            =  $this->input->post('id_user');
+		$config['file_name']            =  substr(md5(time()), 0, 16);
 		$config['overwrite']			= true;
 		$config['max_size']             = 6000; // 1MB
 	

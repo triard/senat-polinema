@@ -82,7 +82,7 @@
         <div class="form-group">
             <label>Keterangan</label><br>
             <?php echo "$usulan->keterangan";?>
-            <input class="form-control" name="keterangan" type="hidden" value="<?php echo "$usulan->keterangan";?>">
+            <input class="form-control" name="keterangan" type="hidden" value="<?php echo "$usulan->keterangan"; ?>">
         </div>
         <div class="form-group">
             <label>Dokumen Pendukung*</label><br>

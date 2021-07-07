@@ -8,11 +8,11 @@ class ModLaporan extends CI_model {
         return $this->db->get()->result();
 	}
 	public function selectHomepage(){
-		$this->db->select('l.*, p.waktu_mulai, u.jenis');
+		$this->db->select('l.*, p.waktu_mulai');
 		$this->db->from('laporan AS l');
 		$this->db->join('kegiatan AS k', 'l.id_kegiatan=k.id_kegiatan');
 		$this->db->join('penjadwalan AS p', 'k.id_penjadwalan=p.id_penjadwalan');
-		$this->db->join('usulan AS u', 'p.id_usulan=u.id_usulan');
+// 		$this->db->join('usulan AS u', 'p.id_usulan=u.id_usulan');
         return $this->db->get()->result();
     } 
     	public function selectPengawasan(){

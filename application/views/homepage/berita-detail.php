@@ -33,7 +33,7 @@ $this->load->view('homepage/_partials/header');
                         </div>
                     </div>
                 </div>
-                <div class="card-body text-dark" style="font-size: 16px; text-align: justify">
+                <div class="card-body text-dark" style="font-size: 1.1rem; text-align: justify">
                 <?php echo $berita->keterangan ?>
                 </div>
             </div>
