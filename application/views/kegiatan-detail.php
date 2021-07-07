@@ -95,7 +95,7 @@ $this->load->view('_partials/sidebar');
                                                             $hari_indonesia = array(
                                                                 'Monday' => 'Senin',
                                                                 'Tuesday'  => 'Selasa',
-                                                                'Wednesday' => 'Rabu',
+                                                                'Wednesday' => 'Rabu', 
                                                                 'Thursday' => 'Kamis',
                                                                 'Friday' => 'Jumat',
                                                                 'Saturday' => 'Sabtu',
@@ -142,7 +142,8 @@ $this->load->view('_partials/sidebar');
                                                         <tr>
                                                             <td>Link Ruangan Daring (Password)</td>
                                                             <td>:</td>
-                                                            <td><?php echo $kegiatan->link ?>(<?php echo $kegiatan->password ?>)
+                                                            <td><?php echo $kegiatan->link ?>
+                                                            <br>(<?php echo $kegiatan->password ?>)
                                                             </td>
                                                         </tr>
                                                         <tr class="table-active">
@@ -475,7 +476,7 @@ $(document).ready(function() {
         $(".xform").on("submit", (function(b) {
             b.preventDefault();
             var a;
-            if (simpan == "tambah") {
+            if (simpan == "tambah"){
                 a = "<?php echo base_url();?>Kegiatan/add"
             } else if (simpan == "revisi") {
                 a = "<?php echo base_url();?>Laporan/update_data"

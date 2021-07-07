@@ -5,6 +5,7 @@ class ModKegiatan extends CI_model {
 	public function selectAll() {
 		$this->db->select('*');
         $this->db->from('kegiatan');
+        $this->db->order_by('waktu_mulai','DESC');
         return $this->db->get()->result(); 
 	}
 	public function add() {
@@ -20,7 +21,7 @@ class ModKegiatan extends CI_model {
 		$password= $this->input->post('password');
 		$tujuan = $this->input->post('tujuan');
 		$status = $this->input->post('status');
-		if ($status == 'Sidang Sedang Berlangsung' || $status == 'Rapat Sedang Berlangsung') {
+		if ($status == 'Sidang Sedang Berlangsung' || $status == 'Rapat Sedang Berlangsung' || $status == 'Selesai') {
 			$status = $this->input->post('status');
 		} else {
 			$status = 'Selesai';
@@ -105,11 +106,11 @@ class ModKegiatan extends CI_model {
 		$tujuan = $this->input->post('tujuan');
 		$password= $this->input->post('password');
 		$status = $this->input->post('status');
-		if ($status == 'Sidang Sedang Berlangsung' || $status == 'Rapat Sedang Berlangsung' || $status == 'Perlu Tindak Lanjut - Sidang Pleno' || $status == 'Perlu Tindak Lanjut - Sidang Paripurna') {
-			$status = $this->input->post('status');
-		} else {
-			$status = 'Selesai';
-		}
+// 		if ($status == 'Sidang Sedang Berlangsung' || $status == 'Rapat Sedang Berlangsung' || $status == 'Perlu Tindak Lanjut - Sidang Pleno' || $status == 'Perlu Tindak Lanjut - Sidang Paripurna') {
+// 			$status = $this->input->post('status');
+// 		} else {
+// 			$status = 'Selesai';
+// 		}
 		$notula= $this->input->post('notula');
 		if ($id_penjadwalan == NULL) {
 			$data = array('agenda' => $agenda,'pembahasan' => $pembahasan,'waktu_mulai'=>$waktu_mulai ,'waktu_selesai'=>$waktu_selesai,'tempat'=>$tempat, 'notula'=>$notula, 'tujuan'=>$tujuan, 'jenis_rapat'=>$jenis_rapat,'link'=>$link,'notula'=>$notula,'password'=>$password, 'status'=>$status, 'id_user'=>$id_user);

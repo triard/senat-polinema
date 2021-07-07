@@ -181,7 +181,7 @@
     <div class="col-6">
         <div class="form-group">
             <label>Pembahasan</label><br>
-            <textarea id="summernote-simple" name="pembahasan"><?php echo $kegiatan->pembahasan ?></textarea>
+            <textarea id="summernote-simple" name="pembahasan" required><?php echo $kegiatan->pembahasan ?></textarea>
         </div>
         <div class="form-group">
             <label>Tujuan</label><br>
@@ -283,7 +283,7 @@
 <?php if($kegiatan->id_user != null){ ?>
 <input type="hidden" name="id_user" value="<?php echo $kegiatan->id_user;?>">
 <?php } ?>
-<div class="row"> 
+<div class="row">
     <div class="col-6">
         <div class="form-group">
             <label>Referensi Penjadwalan</label>
@@ -313,7 +313,7 @@
             </div>
             <div class="form-group">
                 <label>Pembahasan</label><br>
-                <textarea class="form-control" name="pembahasan"><?php echo $kegiatan->pembahasan ?></textarea>
+                <textarea class="form-control" name="pembahasan" required><?php echo $kegiatan->pembahasan ?></textarea>
             </div>
             <div class="form-group">
                 <label>Waktu Mulai</label><br>

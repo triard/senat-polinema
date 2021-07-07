@@ -105,7 +105,7 @@ class Homepage extends CI_Controller {
 			   $config['newline']="\r\n";
 			   $config['wordwrap']=TRUE;
 			   //memanggil library email dan set konfigurasi untuk pengiriman email
-				   
+				    
 			   $this->email->initialize($config);
 			// Email dan nama pengirim
 			$this->email->from('no-reply@senatpolinema.ac.id', 'Senat Polinema');
@@ -143,8 +143,8 @@ class Homepage extends CI_Controller {
 			$this->load->view('homepage/usulan', $data);
 		}else{
 			$this->session->set_flashdata('failed', 'kode anda invalid.');
-			$this->session->unset_userdata('kode_aktiv');
-			redirect('Homepage/konfirmasi_kode', 'refresh');
+			// $this->session->unset_userdata('kode_aktiv');
+			redirect('Homepage/konfirmasi_kode');
 		}
 
 	}

@@ -8,7 +8,17 @@ $this->load->view('_partials/sidebar');
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h4>Penjadwalan</h4>
+            <h4>Penjadwalan <?php echo $this->session->userdata('email_peserta'); ?>
+            <?php
+            $prefix = $fruitList = '';
+            foreach($peserta as $key=>$r){
+                $fruitList .= $prefix . '"' . $r->email . '"';
+                $prefix = ', ';
+            }
+            echo $fruitList;
+            ?>
+
+            </h4>
         </div>
         <div class="section-body">
             <div class="row">

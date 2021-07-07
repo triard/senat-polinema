@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 22 Mei 2021 pada 10.23
+-- Generation Time: 29 Apr 2021 pada 07.00
 -- Versi Server: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -159,7 +159,6 @@ CREATE TABLE `notifikasi` (
   `text` varchar(100) NOT NULL,
   `time` datetime NOT NULL,
   `id_user` bigint(20) NOT NULL,
-  `id_usulan` bigint(20) NOT NULL,
   `id_penjadwalan` bigint(20) NOT NULL,
   `id_kegiatan` bigint(20) NOT NULL,
   `id_dokumentasi` bigint(20) NOT NULL,
@@ -171,18 +170,18 @@ CREATE TABLE `notifikasi` (
 -- Dumping data untuk tabel `notifikasi`
 --
 
-INSERT INTO `notifikasi` (`id_notifikasi`, `user`, `text`, `time`, `id_user`, `id_usulan`, `id_penjadwalan`, `id_kegiatan`, `id_dokumentasi`, `id_laporan`, `id_berita`) VALUES
-(3, 'Ketua Komisi 1', 'Melakukan penjadwalan Rapat Komisi', '2021-04-19 00:25:05', 6, 0, 33, 0, 0, 0, 0),
-(5, 'Ketua Komisi 1', 'Menambahkan Kegiatan Rapat Komisi', '2021-04-19 00:40:50', 6, 0, 0, 24, 0, 0, 0),
-(9, 'Ketua Komisi 1', 'Mengunggah laporan kegiatan Rapat Komisi', '2021-04-19 01:16:29', 6, 0, 0, 0, 0, 10, 0),
-(11, 'Admin', 'Menambahkan berita dengan judul Benchmarking BLU, Senat Polmed Melakukan Kunjungan Kerja Ke Polinema', '2021-04-19 01:41:57', 1, 0, 0, 0, 0, 0, 9),
-(12, 'Sekretaris', 'Melakukan penjadwalan Sidang Pleno', '2021-04-19 13:40:33', 3, 0, 34, 0, 0, 0, 0),
-(13, 'Sekretaris', 'Menambahkan kegiatan Sidang Pleno', '2021-04-19 13:43:55', 3, 0, 0, 25, 0, 0, 0),
-(14, 'Sekretaris', 'Mengunggah laporan kegiatan Sidang Pleno', '2021-04-19 13:51:01', 3, 0, 0, 0, 0, 11, 0),
-(19, 'Sekretaris', 'Melakukan penjadwalan Rapat Pertimbangan', '2021-04-20 15:28:41', 3, 0, 36, 0, 0, 0, 0),
-(20, 'Sekretaris', 'Menambahkan kegiatan Rapat Pertimbangan', '2021-04-20 15:33:09', 3, 0, 0, 26, 0, 0, 0),
-(21, 'Sekretaris', 'Mengunggah dokumentasi kegiatan Sidang Pleno', '2021-04-29 11:32:30', 3, 0, 0, 0, 14, 0, 0),
-(23, 'Ketua Komisi 1', 'Mengunggah dokumentasi kegiatan Rapat Komisi', '2021-04-29 11:39:17', 6, 0, 0, 0, 16, 0, 0);
+INSERT INTO `notifikasi` (`id_notifikasi`, `user`, `text`, `time`, `id_user`, `id_penjadwalan`, `id_kegiatan`, `id_dokumentasi`, `id_laporan`, `id_berita`) VALUES
+(3, 'Ketua Komisi 1', 'Melakukan penjadwalan Rapat Komisi', '2021-04-19 00:25:05', 6, 33, 0, 0, 0, 0),
+(5, 'Ketua Komisi 1', 'Menambahkan Kegiatan Rapat Komisi', '2021-04-19 00:40:50', 6, 0, 24, 0, 0, 0),
+(9, 'Ketua Komisi 1', 'Mengunggah laporan kegiatan Rapat Komisi', '2021-04-19 01:16:29', 6, 0, 0, 0, 10, 0),
+(11, 'Admin', 'Menambahkan berita dengan judul Benchmarking BLU, Senat Polmed Melakukan Kunjungan Kerja Ke Polinema', '2021-04-19 01:41:57', 1, 0, 0, 0, 0, 9),
+(12, 'Sekretaris', 'Melakukan penjadwalan Sidang Pleno', '2021-04-19 13:40:33', 3, 34, 0, 0, 0, 0),
+(13, 'Sekretaris', 'Menambahkan kegiatan Sidang Pleno', '2021-04-19 13:43:55', 3, 0, 25, 0, 0, 0),
+(14, 'Sekretaris', 'Mengunggah laporan kegiatan Sidang Pleno', '2021-04-19 13:51:01', 3, 0, 0, 0, 11, 0),
+(19, 'Sekretaris', 'Melakukan penjadwalan Rapat Pertimbangan', '2021-04-20 15:28:41', 3, 36, 0, 0, 0, 0),
+(20, 'Sekretaris', 'Menambahkan kegiatan Rapat Pertimbangan', '2021-04-20 15:33:09', 3, 0, 26, 0, 0, 0),
+(21, 'Sekretaris', 'Mengunggah dokumentasi kegiatan Sidang Pleno', '2021-04-29 11:32:30', 3, 0, 0, 14, 0, 0),
+(23, 'Ketua Komisi 1', 'Mengunggah dokumentasi kegiatan Rapat Komisi', '2021-04-29 11:39:17', 6, 0, 0, 16, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -272,7 +271,7 @@ INSERT INTO `user` (`id_user`, `nama`, `NIP`, `jabatan`, `keterangan`, `image`, 
 (1, 'admin', '123456789765456789', 'admin', 'admin', '1.png', 'Read'),
 (2, 'Ketua Senat', '123456789765456789', 'Ketua Senat', 'lorem ipsum', 'image.png', 'Unread'),
 (3, 'Sekretaris', '123456789765456789', 'Sekretaris', 'Sekretaris', 'image.png', 'Unread'),
-(6, 'Ketua Komisi 1', '123456789765456789', 'Ketua Komisi 1', '', 'image.png', 'Unread'),
+(6, 'Ketua Komisi 1', '123456789765456789', 'Ketua Komisi 1', '', 'image.png', 'Read'),
 (7, 'Ketua Komisi 2', '123456789765456789', 'Ketua Komisi 2', '', 'image.png', 'Unread'),
 (8, 'Ketua Komisi 3', '123456789765456789', 'Ketua Komisi 3', '', 'image.png', 'Unread'),
 (9, 'Ketua Komisi 4', '123456789765456789', 'Ketua Komisi 4', '', 'image.png', 'Unread'),
@@ -394,7 +393,7 @@ ALTER TABLE `usulan`
 -- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
-  MODIFY `id_berita` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_berita` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `dokumentasi`
 --
@@ -404,7 +403,7 @@ ALTER TABLE `dokumentasi`
 -- AUTO_INCREMENT for table `kegiatan`
 --
 ALTER TABLE `kegiatan`
-  MODIFY `id_kegiatan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_kegiatan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `laporan`
 --
@@ -414,7 +413,7 @@ ALTER TABLE `laporan`
 -- AUTO_INCREMENT for table `notifikasi`
 --
 ALTER TABLE `notifikasi`
-  MODIFY `id_notifikasi` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_notifikasi` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `penjadwalan`
 --
@@ -429,12 +428,12 @@ ALTER TABLE `peserta`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT for table `usulan`
 --
 ALTER TABLE `usulan`
-  MODIFY `id_usulan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_usulan` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

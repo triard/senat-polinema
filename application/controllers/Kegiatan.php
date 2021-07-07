@@ -55,7 +55,7 @@ class Kegiatan extends CI_Controller {
 		}
 		$id_penjadwalan = $this->input->post('id_penjadwalan');
 		$status = $this->input->post('status');
-		if ($status == "Rapat Sedang Berlangsung" || $status == "Sidang Sedang Berlangsung") {
+		if ($status == "Rapat Sedang Berlangsung" || $status == "Sidang Sedang Berlangsung" || $status == "Selesai" || $status == "Perlu Tindak Lanjut - Sidang Pleno" || $status == "Perlu Tindak Lanjut - Sidang Paripurna") {
 			if ($id_penjadwalan != 0) {
 				$this->ModPenjadwalan->setStatus($id_penjadwalan, $status);
 				$id_usulan = $this->ModPenjadwalan->getIdUsulan($id_penjadwalan);
@@ -206,7 +206,7 @@ class Kegiatan extends CI_Controller {
 		}
 		$id_penjadwalan = $this->input->post('id_penjadwalan');
 		$status = $this->input->post('status');
-		if ($status != "Rapat Sedang Berlangsung" || $status != "Sidang Sedang Berlangsung") {
+		if ($status == "Rapat Sedang Berlangsung" || $status == "Sidang Sedang Berlangsung" || $status == "Selesai" || $status == "Perlu Tindak Lanjut - Sidang Pleno" || $status == "Perlu Tindak Lanjut - Sidang Paripurna") {
 			if ($id_penjadwalan != 0) {
 				$this->ModPenjadwalan->setStatus($id_penjadwalan, $status);
 				$id_usulan = $this->ModPenjadwalan->getIdUsulan($id_penjadwalan);
@@ -228,7 +228,7 @@ class Kegiatan extends CI_Controller {
 					$config['smtp_pass']="kinerjasenatpolinema";
 					$config['crlf']="\r\n";
 					$config['newline']="\r\n";
-					$config['wordwrap']=TRUE; 
+					$config['wordwrap']=TRUE;
 					//memanggil library email dan set konfigurasi untuk pengiriman email	
 					$this->email->initialize($config);
 					// Email dan nama pengirim
@@ -323,8 +323,8 @@ class Kegiatan extends CI_Controller {
 		$q = $this->session->userdata('status');
 		if($q != "login") {
 			redirect('Homepage/home','refresh');
-		} 
-		$data = array( 
+		}
+		$data = array(
 			'title' => "Senat Polinema | Agenda Kegiatan Detail"
 		);
 		$data['hakAkses'] = $this->session->userdata('level');

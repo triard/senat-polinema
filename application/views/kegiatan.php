@@ -60,6 +60,7 @@ $this->load->view('_partials/sidebar');
                                         <tr>
                                             <th>No</th>
                                             <th>Agenda</th>
+                                            <th>Pembahasan</th>
                                             <th>Waktu</th>
                                             <th>Jenis Rapat</th>
                                             <th>Tempat</th>
@@ -71,6 +72,7 @@ $this->load->view('_partials/sidebar');
                                         <tr>
                                             <th>No</th>
                                             <th>Agenda</th>
+                                            <th>Pembahasan</th>
                                             <th>Waktu</th>
                                             <th>Jenis Rapat</th>
                                             <th>Tempat</th>
@@ -84,6 +86,7 @@ $this->load->view('_partials/sidebar');
                                         <tr>
                                             <td><?php echo $no;?></td>
                                             <td><?php echo $k->agenda;?></td>
+                                            <td><?php echo $k->pembahasan;?></td>
                                             <td><?php echo date('d-m-Y H:i', strtotime($k->waktu_mulai)); ?> -
                                                 <?php echo date('H:i', strtotime($k->waktu_selesai)); ?> WIB</td>
                                             <td><?php echo $k->jenis_rapat;?></td>

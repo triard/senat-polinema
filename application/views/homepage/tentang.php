@@ -20,7 +20,7 @@ $this->load->view('homepage/_partials/header');
                             <ul class="nav nav-pills flex-column" id="myTab4" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="home-tab4" data-toggle="tab" href="#home4" role="tab"
-                                        aria-controls="home" aria-selected="true">Senat</a>
+                                        aria-controls="home" aria-selected="true">Profil Senat</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" id="profile-tab4" data-toggle="tab" href="#profile4" role="tab"
@@ -47,7 +47,7 @@ $this->load->view('homepage/_partials/header');
                             <div class="tab-content no-padding" id="myTab2Content">
                                 <div class="tab-pane fade show active" id="home4" role="tabpanel"
                                     aria-labelledby="home-tab4">
-                                    <h4>Senat Politeknik Negeri Malang</h4>
+                                    <h4>Profil Senat Politeknik Negeri Malang</h4>
                                     <hr style="border: 3px solid #EE5A24; border-radius: 5px;">
                                     <p style="text-indent: 45px;text-align: justify;">
                                         Senat merupakan organ yang menjalankan fungsi pertimbangan dan

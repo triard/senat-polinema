@@ -46,7 +46,7 @@ $this->load->view('homepage/_partials/header');
                                                 <th style="width: 30px;">No.</th>
                                                 <th>Nama File</th>
                                                 <th>Tanggal</th>
-                                                <th>Jenis</th>
+                                                <!--<th>Jenis</th>-->
                                                 <th style="width: 30px;">Aksi</th>
                                             </tr>
                                         </thead>
@@ -58,7 +58,7 @@ $this->load->view('homepage/_partials/header');
                                                 <td><?php echo $no;?></td>
                                                 <td><?php echo $l->nama_laporan ?></td>
                                                 <td><?php echo date('d-m-Y', strtotime($l->waktu_mulai)) ?></td>
-                                                <td><?php echo $l->jenis ?></td>
+                                                <!--<td><?php echo $l->jenis ?></td>-->
                                                 <td class="text-center">
                                                     <?php echo "<a class='btn btn-icon btn-success' target='_blank' href='".base_url()."Laporan/download_file/$l->file_laporan'><i class='fas fa-download'></i></a>";?>
                                                 </td>

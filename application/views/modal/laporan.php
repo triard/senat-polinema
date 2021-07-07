@@ -5,7 +5,7 @@
     <div class="col-6">
         <div class="form-group">
             <label>Nama Laporan</label><br>
-            <input class="form-control" name="nama_laporan" type="text" placeholder="Masukkan Nama Laporan..." required>
+            <input class="form-control" name="nama_laporan" type="text" maxlength="50" placeholder="Masukkan Nama Laporan..." required>
         </div>
     </div>
     <div class="col-6">
@@ -24,14 +24,15 @@
     <div class="col-6">
         <div class="form-group">
             <label>Nama Laporan</label><br>
-            <input class="form-control" name="nama_laporan" value="<?php echo $laporan->nama_laporan ?>" type="text" placeholder="Masukkan Nama Laporan..." required>
+            <input class="form-control" name="nama_laporan" maxlength="50" value="<?php echo $laporan->nama_laporan ?>" type="text" placeholder="Masukkan Nama Laporan..." required>
         </div>
     </div>
     <div class="col-6">
         <div class="form-group">
             <label>File Laporan</label><br>
             <input type="hidden" name="old_dokumen" value="<?php echo $laporan->file_laporan ?>" />
-            <input class="form-control" name="file_laporan" type="file" placeholder="Masukkan File Laporan..." required>
+            <input class="form-control" name="file_laporan" type="file" placeholder="Masukkan File Laporan...">
+            <p class="text-primary"><?php echo $laporan->file_laporan ?></p>
             <label for="">Ukuran file maksimum: 5MB</label>
         </div>
     </div>
