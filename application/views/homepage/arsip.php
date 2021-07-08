@@ -86,7 +86,7 @@ $this->load->view('homepage/_partials/header');
                                                 <td><?php echo $no;?></td>
                                                 <td><?php echo $l->nama_laporan ?></td>
                                                 <td><?php echo date('d-m-Y', strtotime($l->waktu_mulai)) ?></td>
-                                                <td><?php echo $l->jenis ?></td>
+                                                <td>Pengawasan</td>
                                                 <td class="text-center">
                                                     <?php echo "<a class='btn btn-icon btn-success' target='_blank' href='".base_url()."Laporan/download_file/$l->file_laporan'><i class='fas fa-download'></i></a>";?>
                                                 </td>
@@ -114,7 +114,7 @@ $this->load->view('homepage/_partials/header');
                                                 <td><?php echo $no;?></td>
                                                 <td><?php echo $l->nama_laporan ?></td>
                                                 <td><?php echo date('d-m-Y', strtotime($l->waktu_mulai)) ?></td>
-                                                <td><?php echo $l->jenis ?></td>
+                                                <td>Pertimbangan</td>
                                                 <td class="text-center">
                                                     <?php echo "<a class='btn btn-icon btn-success' target='_blank' href='".base_url()."Laporan/download_file/$l->file_laporan'><i class='fas fa-download'></i></a>";?>
                                                 </td>
@@ -134,7 +134,7 @@ $this->load->view('homepage/_partials/header');
                                                 <th style="width: 30px;">Aksi</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody> 
                                             <?php $no=1;
                                             foreach ($kebijakan as $l) { ?>
                                             <?php if($l->status != "Diajukan" && $l->status != "Revisi"){ ?>
@@ -142,7 +142,7 @@ $this->load->view('homepage/_partials/header');
                                                 <td><?php echo $no;?></td>
                                                 <td><?php echo $l->nama_laporan ?></td>
                                                 <td><?php echo date('d-m-Y', strtotime($l->waktu_mulai)) ?></td>
-                                                <td><?php echo $l->jenis ?></td>
+                                                <td>Sidang Pleno</td>
                                                 <td class="text-center">
                                                     <?php echo "<a class='btn btn-icon btn-success' target='_blank' href='".base_url()."Laporan/download_file/$l->file_laporan'><i class='fas fa-download'></i></a>";?>
                                                 </td>

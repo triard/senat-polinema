@@ -22,7 +22,7 @@ class ModAuth extends CI_model {
         $this->session->set_userdata($data_session);
       }
       }
-  }
+  } 
   
   function log_v2() {
     $post = $this->input->post();

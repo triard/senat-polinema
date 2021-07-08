@@ -71,7 +71,7 @@ class ModPenjadwalan extends CI_model {
         $hasil = $query->row();
         return $hasil->id_penjadwalan;
     } 
-
+ 
 	public function data_peserta()
 	{
 		$id_jadwal = $this->session->userdata('jadwal_id');
