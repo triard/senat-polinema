@@ -179,8 +179,9 @@
             </td>
         </tr>
         <?php endforeach ?>
-        <h6>Jumlah Hadir : <?php echo $x; ?> <br> Jumlah Tidak Hadir : <?php echo $y; ?> <br> Belum Konfirmasi : <?php echo $z; ?> <br> <br> </h6>
-
+        <h6>Jumlah Hadir : <?php echo $x; ?> <br> Jumlah Tidak Hadir : <?php echo $y; ?> <br> Belum Konfirmasi : <?php echo $z; ?> <br> </h6>
+        <a href="<?php echo base_url('Penjadwalan/ingatkan_konfirmasi/').$id_penjadwalan ?>" class="btn btn-primary">Ingatkan Konfirmasi</a>
+        <br> <br>
     </tbody>
 </table>
 <?php } else { ?>

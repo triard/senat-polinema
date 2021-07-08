@@ -92,6 +92,18 @@ class ModPenjadwalan extends CI_model {
         $this->db->where('j.id_penjadwalan',$id_penjadwalan);
         return $this->db->get()->result();
 	}
+
+	public function ingatkanEmailPeserta($id_penjadwalan)
+	{
+		$id_jadwal = $this->session->userdata('jadwal_id');
+		$this->db->select('a.email, a.username');
+        $this->db->from(' peserta AS p');
+        $this->db->join('penjadwalan AS j', 'p.id_penjadwalan = j.id_penjadwalan');
+        $this->db->join(' account AS a', 'p.id_user = a.id_user');
+        $this->db->where('j.id_penjadwalan',$id_penjadwalan);
+        $this->db->where('p.konfirmasi_kehadiran', NULL);
+        return $this->db->get()->result();
+	}
 	public function getById($id){
 		return $this->db->get_where($this->_table, ["id_penjadwalan" => $id])->row();
     }

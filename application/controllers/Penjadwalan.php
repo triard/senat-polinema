@@ -299,6 +299,7 @@ class Penjadwalan extends CI_Controller {
 		}
 		$data['cek'] = 5;
 		$data['peserta'] = $this->ModPenjadwalan-> get_user_by_jadwal($id);
+		$data['id_penjadwalan'] = $id;
 		$this->load->view('modal/penjadwalan', $data);
 	}
 	public function delete($id) {
@@ -503,5 +504,141 @@ class Penjadwalan extends CI_Controller {
 		}
 		$data['usulan'] = $this->ModUsulan->edit($id);
 		$this->load->view('modal/set-usulan', $data);
+	}
+
+	public function ingatkan_konfirmasi($id) {
+		$q = $this->session->userdata('status');
+		if($q != "login") {
+			exit();
+		}
+		$sel = $this->ModPenjadwalan->ingatkanEmailPeserta($id);
+		$data_penjadwalan = $this->ModPenjadwalan->getById($id);
+		$prefix = $emailList = '';
+		foreach($sel as $key=>$r){
+		$emailList .= $prefix . '' . $r->email . '';
+		$prefix = ', ';
+		}
+		$this->load->library('email');
+		$config = array();
+		$config['charset']='utf-8';
+		$config['useragent']='Codeigniter';
+		$config['protocol']="smtp";
+		$config['mailtype']="html";
+		$config['smtp_host']="ssl://smtp.gmail.com";
+		$config['smtp_port']="465";
+		$config['smtp_timeout']="400";
+		$config['smtp_user']="laporanakhir41@gmail.com";
+		$config['smtp_pass']="kinerjasenatpolinema";
+		$config['crlf']="\r\n";
+		$config['newline']="\r\n";
+		$config['wordwrap']=TRUE;
+		//memanggil library email dan set konfigurasi untuk pengiriman email	
+		$this->email->initialize($config);
+		 // Email dan nama pengirim
+		 $this->email->from('no-reply@senatpolinema.ac.id', 'Senat Polinema');
+		 // Email penerima
+		$this->email->to($emailList);
+		$agenda = $data_penjadwalan->agenda; 
+		$pembahasan = $data_penjadwalan->pembahasan;
+		$waktu_mulai = $data_penjadwalan->waktu_mulai;
+		$waktu_selesai = $data_penjadwalan->waktu_selesai;
+		$id_user = $data_penjadwalan->id_user;
+		$tempat = $data_penjadwalan->tempat;
+		$jenis_rapat = $data_penjadwalan->jenis_rapat;
+		$link = $data_penjadwalan->link;
+		$password= $data_penjadwalan->password;
+		$sess_jadwal = $id;
+		 $this->email->subject('Jadwal '.$agenda.' Senat Politeknik Negeri Malang');
+		 // Isi email
+		$this->email->message('
+		<html><body><style>
+		 .table1 {
+			font-family: sans-serif;
+			color: #444;
+			font-size: 20px;
+			border-collapse: collapse;
+			width: 100%;
+			border: 1px solid #f2f5f7;
+			margin: 10px;
+		}
+		 
+		.table1 tr{
+			background: #35A9DB;
+			color: #fff;
+			font-weight: normal;
+		}
+		 
+		.table1, td {
+			padding: 16px 40px;
+			text-align: center;
+		}
+		 
+		.table1 tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+		 </style>
+		 <p>Mengaharap dengan hormat kehadiran Bapak/ Ibu/ Saudara untuk menghadiri '.$agenda.'
+		 Senat Politeknik Negeri Malang yang akan diselenggarakan pada:</p>
+		 <table class="table1">
+		 <tr>
+			<td><strong>Agenda</strong></td>
+		 	<td><strong> : </strong></td>
+		 	<td>'.$agenda.'</td>
+		 </tr>
+		 <tr>
+		 	 <td><strong>Pembahasan</strong></td>
+			 <td><strong> : </strong></td>
+			 <td>'.$pembahasan.'</td>
+		 </tr>
+		 <tr>
+		 	 <td><strong>Tanggal</strong> </td>
+			 <td><strong> : </strong></td>
+			 <td>'.date('d-m-Y', strtotime($waktu_mulai)).'</td>
+		 </tr>
+		 <tr>
+		 	<td><strong>Waktu</strong> </td>
+			 <td><strong> : </strong></td>
+			 <td>'.date('H:i', strtotime($waktu_mulai)).'
+		 	-'.date('H:i', strtotime($waktu_selesai)).' WIB</td>
+		 </tr>
+		 <tr>
+		 	 <td><strong>Tempat</strong> </td>
+			 <td><strong> : </strong></td>
+			 <td>'.$tempat.'</td>
+		 </tr>
+		 <tr>
+		 	 <td><strong>Link Ruangan Daring(Password)</strong> </td>
+			 <td><strong> : </strong></td>
+			 <td>'.$link.'('.$password.')</td>
+		 </tr>
+	 </table>	
+	 <br>
+	 <p>Atas Perhatianya, kehadiran dan kerjasama yang baik dicupakan terimakasih.</p>
+		 <br>
+		 <center><h2>Konfirmasi Kehadiran</h2></center>
+		 <center>
+		 <a href="https://kinerjasenat.xyz/Penjadwalan/konfirmasi_jadwal/'.$sess_jadwal.'" 
+		 target="_blank"><button 
+		 style="background-color: #4CAF50;
+		 border: none;
+		 color: white;
+		 padding: 15px 32px;
+		 text-align: center;
+		 text-decoration: none;
+		 display: inline-block;
+		 font-size: 16px;
+		 margin: 4px 2px;
+		 cursor: pointer;"
+		 >Klik Untuk Konfirmasi</button></a>
+		</center>
+		 </body></html>
+		 ');
+		 if ($this->email->send()) {
+		 $this->session->set_flashdata('successemail', "Sukses! email status usulan berhasil dikirim. $id");
+		 } else {
+		 $this->session->set_flashdata('failedemail', 'Error! email status usulan tidak dapat dikirim. ');
+		 }
+	$this->session->unset_userdata('email_sess');
+	redirect('Penjadwalan','refresh');
 	}
 }
