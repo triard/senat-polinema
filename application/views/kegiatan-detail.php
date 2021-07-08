@@ -68,11 +68,11 @@ $this->load->view('_partials/sidebar');
                                                         class="fas fa-pen-square"></i>
                                                     Update</button>
                                                 <?php } ?>
-                                                <!-- <a class="btn btn-success" target="_blank"
-                                                    href="<?php echo base_url('Kegiatan/download_notula/'.$kegiatan->id_kegiatan) ?>"><i class="fas fa-file-export"></i></a> -->
-                                                <button class="btn btn-success btn-sm"
+                                                <a class="btn btn-success" target="_blank"
+                                                    href="<?php echo base_url('Kegiatan/download_notula/'.$kegiatan->id_kegiatan) ?>"><i class="fas fa-file-export"></i></a>
+                                                <!-- <button class="btn btn-success btn-sm"
                                                     onclick="downloadNotula(<?php echo $kegiatan->id_kegiatan;?>)">
-                                                    <i class="fas fa-file-export"></i></button>
+                                                    <i class="fas fa-file-export"></i></button> -->
                                             </div>
 
 
@@ -168,10 +168,12 @@ $this->load->view('_partials/sidebar');
                                         <div class="card-header">
                                             <?php date_default_timezone_set('Asia/Jakarta');?>
                                             <h4>Daftar Peserta Rapat</h4>
-                                            <div class="card-header-action">  
-                                                <button class="btn btn-success btn-sm"
+                                            <div class="card-header-action">
+                                            <a class="btn btn-success" target="_blank"
+                                                    href="<?php echo base_url('Kegiatan/download_absen/'.$kegiatan->id_kegiatan) ?>"><i class="fas fa-file-export"></i></a>  
+                                                <!-- <button class="btn btn-success btn-sm"
                                                             onclick="downloadAbsen(<?php echo $kegiatan->id_kegiatan;?>)">
-                                                            <i class="fas fa-file-export"></i></button>
+                                                            <i class="fas fa-file-export"></i></button> -->
                                             </div>
                                         </div>
                                         <div class="card-body">

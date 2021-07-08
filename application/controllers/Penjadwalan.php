@@ -130,9 +130,8 @@ class Penjadwalan extends CI_Controller {
 			$sess_jadwal = $this->session->userdata('jadwal_id');
 			 $this->email->subject('Jadwal '.$agenda.' Senat Politeknik Negeri Malang');
 			 // Isi email
-			 $this->email->message('
-			 <html><body>
-			 <style>
+			$this->email->message('
+			<html><body><style>
 			 .table1 {
 				font-family: sans-serif;
 				color: #444;
@@ -198,7 +197,7 @@ class Penjadwalan extends CI_Controller {
 			 <br>
 			 <center><h2>Konfirmasi Kehadiran</h2></center>
 			 <center>
-			 <a href="https://kinerjasenat.xyz/Penjadwalan/konfirmasi_jadwal/'.$sess_jadwal).'" 
+			 <a href="https://kinerjasenat.xyz/Penjadwalan/konfirmasi_jadwal/'.$sess_jadwal.'" 
 			 target="_blank"><button 
 			 style="background-color: #4CAF50;
 			 border: none;
@@ -211,7 +210,7 @@ class Penjadwalan extends CI_Controller {
 			 margin: 4px 2px;
 			 cursor: pointer;"
 			 >Klik Untuk Konfirmasi</button></a>
-			 </center>	
+			</center>
 			 </body></html>
 			 ');
 			 if ($this->email->send()) {
@@ -242,12 +241,16 @@ class Penjadwalan extends CI_Controller {
 			'title' => "Senat Polinema | Penjadwalan"
 		);
 		$q = $this->session->userdata('status');
+		$id_pen = $this->uri->segment('3');
 		if($q != "login") {
-			$id_pen = $this->uri->segment('3');
 			redirect('/Auth/auth_login_v2/'.$id_pen, 'refresh');
 		}
 		$id = $this->session->userdata('ses_id_jad');
-		$data['data_konfirmasi'] = $this->ModPenjadwalan->editKehadiran($id);
+		if($id != NULL){
+		$data['data_konfirmasi'] = $this->ModPenjadwalan->editKehadiran($id);		    
+		}else{
+		 $data['data_konfirmasi'] = $this->ModPenjadwalan->editKehadiran($id_pen);		    
+		}
 		$menu['login'] = $this->ModPenjadwalan->edit($this->session->userdata('id_user'));
 		$data['notifikasi'] = $this->ModNotifikasi->getAll();
 		$data['status_notifikasi'] = $this->ModUser->getStatusNotifikasi();
@@ -386,22 +389,91 @@ class Penjadwalan extends CI_Controller {
 			 $this->email->subject('Pembaruan Jadwal '.$agenda.' Senat Politeknik Negeri Malang');
 			 // Isi email
 			 $this->email->message('
-			 <html><body>
-			 <table rules="all" style="border-color: #666;" cellpadding="10">
-			 <tr><td><strong>Agenda:</strong> </td>'.$agenda.'</tr>
-			 <tr><td><strong>Pembahasan:</strong></td>'.$pembahasan.'</tr>
-			 <tr><td><strong>Tanggal:</strong> </td>'.date('d-m-Y', strtotime($waktu_mulai)).'</tr>
-			 <tr><td><strong>Waktu:</strong> </td>'.date('H:i', strtotime($waktu_mulai)).'
-			 -'.date('H:i', strtotime($waktu_selesai)).' WIB</tr>
-			 <tr><td><strong>Tempat:</strong> </td>'.$tempat.'</tr>
-			 <tr><td><strong>Link Ruangan Daring:</strong> </td>'.$link.'('.$password.')</tr>
-			 <tr><td><strong>Catatan</strong> </td>'.$pesan.'</tr>
-			 </table>
+			 	<html><body><style>
+			 .table1 {
+				font-family: sans-serif;
+				color: #444;
+				font-size: 20px;
+				border-collapse: collapse;
+				width: 100%;
+				border: 1px solid #f2f5f7;
+				margin: 10px;
+			}
+			 
+			.table1 tr{
+				background: #35A9DB;
+				color: #fff;
+				font-weight: normal;
+			}
+			 
+			.table1, td {
+				padding: 16px 40px;
+				text-align: center;
+			}
+			 
+			.table1 tr:nth-child(even) {
+				background-color: #f2f2f2;
+			}
+			 </style>
+			 <p>Mengaharap dengan hormat kehadiran Bapak/ Ibu/ Saudara untuk menghadiri '.$agenda.'
+			 Senat Politeknik Negeri Malang yang akan diselenggarakan pada:</p>
+			 <table class="table1">
+			 <tr>
+				<td><strong>Agenda</strong></td>
+			 	<td><strong> : </strong></td>
+			 	<td>'.$agenda.'</td>
+			 </tr>
+			 <tr>
+			 	 <td><strong>Pembahasan</strong></td>
+				 <td><strong> : </strong></td>
+				 <td>'.$pembahasan.'</td>
+			 </tr>
+			 <tr>
+			 	 <td><strong>Tanggal</strong> </td>
+				 <td><strong> : </strong></td>
+				 <td>'.date('d-m-Y', strtotime($waktu_mulai)).'</td>
+			 </tr>
+			 <tr>
+			 	<td><strong>Waktu</strong> </td>
+				 <td><strong> : </strong></td>
+				 <td>'.date('H:i', strtotime($waktu_mulai)).'
+			 	-'.date('H:i', strtotime($waktu_selesai)).' WIB</td>
+			 </tr>
+			 <tr>
+			 	 <td><strong>Tempat</strong> </td>
+				 <td><strong> : </strong></td>
+				 <td>'.$tempat.'</td>
+			 </tr>
+			 <tr>
+			 	 <td><strong>Link Ruangan Daring(Password)</strong> </td>
+				 <td><strong> : </strong></td>
+				 <td>'.$link.'('.$password.')</td>
+			 </tr>
+			  <tr>
+			 	 <td><strong>Catatan</strong> </td>
+				 <td><strong> : </strong></td>
+				 <td>'.$pesan.'</td>
+			 </tr>
+		 </table>	
+		 <br>
+		 <p>Atas Perhatianya, kehadiran dan kerjasama yang baik dicupakan terimakasih.</p>
 			 <br>
 			 <center><h2>Konfirmasi Kehadiran</h2></center>
 			 <center>
-			 <a href="https://kinerjasenat.xyz/Penjadwalan/konfirmasi_jadwal/'.$sess_jadwal).'" target="_blank">Klik Untuk Konfirmasi</a>
-			 </center>
+			 <a href="https://kinerjasenat.xyz/Penjadwalan/konfirmasi_jadwal/'.$sess_jadwal.'" 
+			 target="_blank"><button 
+			 style="background-color: #4CAF50;
+			 border: none;
+			 color: white;
+			 padding: 15px 32px;
+			 text-align: center;
+			 text-decoration: none;
+			 display: inline-block;
+			 font-size: 16px;
+			 margin: 4px 2px;
+			 cursor: pointer;"
+			 >Klik Untuk Konfirmasi</button></a>
+			</center>
 			 </body></html>
 			 ');
 			 if ($this->email->send()) {

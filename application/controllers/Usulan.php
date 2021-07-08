@@ -73,8 +73,8 @@ class Usulan extends CI_Controller {
 			}else{
 				$this->session->set_flashdata('failed', 'Usulan Anda gagal diajukan');
 			}
-			$this->session->unset_userdata('email_sess');
-			redirect('Homepage/email_usulan', 'refresh');  
+			// $this->session->unset_userdata('email_sess');
+			redirect('Homepage/usulan', 'refresh');  
 	}
 	public function edit($id) {
 		$q = $this->session->userdata('status');
