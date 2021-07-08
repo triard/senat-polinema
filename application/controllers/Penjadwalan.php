@@ -611,6 +611,11 @@ class Penjadwalan extends CI_Controller {
 			 <td><strong> : </strong></td>
 			 <td>'.$link.'('.$password.')</td>
 		 </tr>
+		 <tr>
+		 	<td><strong>Catatan</strong> </td>
+			<td><strong> : </strong></td>
+			<td><h3>Segera konfirmasi kehadiran  pada agenda kegiatan tersebut.</h3></td>
+		</tr>
 	 </table>	
 	 <br>
 	 <p>Atas Perhatianya, kehadiran dan kerjasama yang baik dicupakan terimakasih.</p>
@@ -634,9 +639,9 @@ class Penjadwalan extends CI_Controller {
 		 </body></html>
 		 ');
 		 if ($this->email->send()) {
-		 $this->session->set_flashdata('successemail', "Sukses! email status usulan berhasil dikirim. $id");
+		 $this->session->set_flashdata('successemail', "Sukses! email konfirmasi berhasil dikirim kepada peserta rapat atau sidang");
 		 } else {
-		 $this->session->set_flashdata('failedemail', 'Error! email status usulan tidak dapat dikirim. ');
+		 $this->session->set_flashdata('failedemail', 'Error! email konfirmasi tidak dapat dikirim. ');
 		 }
 	$this->session->unset_userdata('email_sess');
 	redirect('Penjadwalan','refresh');
