@@ -160,14 +160,16 @@
         </tr>
     </thead>
     <tbody>
+        <?php $x = 0; $y = 0; $z = 0; ?>
         <?php foreach($peserta AS $p ): ?>
         <tr>
             <td><?php echo $p->nama ?></td>
             <td><?php echo $p->jabatan ?></td>
-            <?php if($p->konfirmasi_kehadiran == "Hadir"){ ?>
+            <?php if($p->konfirmasi_kehadiran == "Hadir"){ $x++; ?>
             <td><div class="badge badge-success"><?php echo $p->konfirmasi_kehadiran ?></div></td>
-            <?php }else{ ?>
+            <?php }else if($p->konfirmasi_kehadiran == "Tidak Hadir"){ $y++; ?>
             <td><div class="badge badge-danger"><?php echo $p->konfirmasi_kehadiran ?></div></td>
+            <?php } else if($p->konfirmasi_kehadiran == NULL){ $z++; ?>
             <?php } ?>
             <td><?php echo $p->keterangan_kehadiran ?></td>
             <td>
@@ -177,6 +179,8 @@
             </td>
         </tr>
         <?php endforeach ?>
+        <h6>Jumlah Hadir : <?php echo $x; ?> <br> Jumlah Tidak Hadir : <?php echo $y; ?> <br> Belum Konfirmasi : <?php echo $z; ?> <br> <br> </h6>
+
     </tbody>
 </table>
 <?php } else { ?>
