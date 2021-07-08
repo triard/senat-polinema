@@ -68,8 +68,9 @@ $this->load->view('homepage/_partials/header');
                             <div class="col-sm-12 col-md-7">
                                 <select name="jenis" class="form-control selectric" required>
                                     <option selected disabled>---- Pilih Jenis Usulan ----</option>
+                                    <?php if($this->session->userdata('level') != "Mahasiswa"){ ?>
                                     <option value="Pengawasan">Usulan Pengawasan</option>
-                                    <!-- <option value="Kebijakan">Usulan Kebijakan</option> -->
+                                    <?php } ?>
                                     <option value="Pertimbangan">Usulan Pertimbangan</option>
                                 </select>
                             </div>

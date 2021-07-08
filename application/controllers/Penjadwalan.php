@@ -238,7 +238,7 @@ class Penjadwalan extends CI_Controller {
 	}
 	public function konfirmasi_jadwal(){
 		$data = array(
-			'title' => "Senat Polinema | Penjadwalan"
+			'title' => "Senat Polinema | Penjadwalan" 
 		);
 		$q = $this->session->userdata('status');
 		$id_pen = $this->uri->segment('3');

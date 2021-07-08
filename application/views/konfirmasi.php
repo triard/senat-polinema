@@ -34,7 +34,7 @@ $this->load->view('_partials/sidebar');
                             <div class="card-header-action">
                          
                             </div>
-                        </div>
+                        </div> 
                         <form action="<?php echo base_url('Penjadwalan/update_kehadiran') ?>" method="POST"
                         enctype="multipart/form-data">
 

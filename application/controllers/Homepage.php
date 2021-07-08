@@ -157,7 +157,7 @@ class Homepage extends CI_Controller {
 		$this->load->view('homepage/usulan-login', $data);
 	}
 	public function auth_login() {
-		$data = array(
+		$data = array( 
 			'title' => "Login"
 		);
 		$this->ModAuth->login_usulan();
