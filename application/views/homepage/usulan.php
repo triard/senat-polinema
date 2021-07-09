@@ -66,15 +66,26 @@ $this->load->view('homepage/_partials/header');
                         <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Jenis</label>
                             <div class="col-sm-12 col-md-7">
-                                <select name="jenis" class="form-control selectric" required>
+                                <select name="jenis" id="jenis" class="form-control selectric" required>
                                     <option selected disabled>---- Pilih Jenis Usulan ----</option>
                                     <?php if($this->session->userdata('level') != "Mahasiswa"){ ?>
-                                    <option value="Pengawasan">Usulan Pengawasan</option>
-                                    <?php } ?>
                                     <option value="Pertimbangan">Usulan Pertimbangan</option>
+                                    <?php } ?>
+                                    <option value="Pengawasan">Usulan Pengawasan</option>
                                 </select>
                             </div>
                         </div>
+                        <div class="set-subjenis">
+                            <div class="form-group row mb-4">
+                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Sub-Jenis</label>
+                                <div class="col-sm-12 col-md-7">
+                                    <select name="sub_jenis" class="form-control selectric" required>
+                                        <option selected disabled>---- Pilih Sub Jenis ----</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-4">
                             <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">File
                                 Pendukung*</label>
@@ -108,3 +119,20 @@ $this->load->view('homepage/_partials/header');
 <?php $this->load->view('homepage/_partials/loader'); ?>
 </div>
 <?php $this->load->view('homepage/_partials/footer'); ?>
+<script>
+$("#jenis").on("change keydown paste input", function() {
+    var a = $("#jenis").val();
+    $.get("<?php echo base_url();?>Usulan/set_subjenis/" + a, function(b) {
+        $(".set-subjenis").html(b);
+        $("#summernote-simple").summernote({
+            dialogsInBody: true,
+            minHeight: 150,
+            toolbar: [
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough']],
+                ['para', ['paragraph']]
+            ]
+        });
+    })
+})
+</script>

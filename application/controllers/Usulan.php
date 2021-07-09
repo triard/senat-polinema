@@ -180,4 +180,13 @@ class Usulan extends CI_Controller {
 		$this->ModUsulan->setStatus($id, 'Ditolak');
 		echo json_encode(array("status" => TRUE));
 	}
+
+	public function set_subjenis($jenis) {
+		$q = $this->session->userdata('status');
+		if($q != "login") {
+			exit();
+		}
+		$data['jenis'] = $jenis;
+		$this->load->view('modal/set-subjenis', $data);
+	}
 }

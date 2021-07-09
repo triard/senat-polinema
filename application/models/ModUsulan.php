@@ -17,7 +17,13 @@ class ModUsulan extends CI_model {
 		$nama_pengusul = $this->input->post('nama_pengusul');
 		$email = $this->input->post('email');
 		$jenis = $this->input->post('jenis');
-		$keterangan = $this->input->post('keterangan');
+		$sub_jenis = $this->input->post('sub_jenis');
+		if ($sub_jenis != NULL) {
+			$keterangan = $this->input->post('sub_jenis')." - ".$this->input->post('keterangan');
+		} else {
+			$keterangan = $this->input->post('keterangan');
+		}
+		
 		$id_user = $this->input->post('id_user');
 		$NIP = $this->input->post('NIP');
 		$jabatan = $this->input->post('jabatan');
